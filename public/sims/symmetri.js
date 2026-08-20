@@ -239,10 +239,10 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
         body += `<circle cx="${P(rx)}" cy="${P(cy - 10)}" r="3" style="fill:var(--muted)"/>`;
 
         note = ALLOWED.has(n)
-          ? `<b>n = ${n} er tillatt.</b> ${fit} regulære ${n}-kanter møtes i hjørnet og fyller nøyaktig 360°, så aksen lar seg kombinere med et gitter.`
-          : `<b>n = ${n} er umulig i en krystall.</b> ${fit} regulære ${n}-kanter dekker ${(fit * theta).toFixed(0)}°, så det står igjen ${gap.toFixed(0)}°. Hullet kan ikke fylles, og aksen lar seg ikke kombinere med translasjonssymmetri.`;
+          ? `<b>n = ${n} er tillatt.</b> ${fit} regulære ${n}-kanter møtes i hjørnet og fyller nøyaktig 360°, så huskeregelen går opp. Aksen er forenlig med et gitter fordi 2·cos(2π/${n}) er et heltall, og huskeregelen speiler bare det.`
+          : `<b>n = ${n} er umulig i en krystall.</b> ${fit} regulære ${n}-kanter dekker ${(fit * theta).toFixed(0)}°, så det står igjen ${gap.toFixed(0)}°. Hullet er huskeregelens bilde på at 2·cos(2π/${n}) ikke er et heltall.`;
       } else {
-        note = `<b>n = ${n} er tillatt.</b> En 2-tellig akse fører motivet over i seg selv ved en halv omdreining. Flislegningstesten vises fra n = 3, siden det ikke finnes noen regulær 2-kant.`;
+        note = `<b>n = ${n} er tillatt.</b> En 2-tellig akse fører motivet over i seg selv ved en halv omdreining. Huskeregelen vises fra n = 3, siden det ikke finnes noen regulær 2-kant.`;
       }
     }
 

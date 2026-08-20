@@ -7,10 +7,16 @@
  * gittertypen man befinner seg i.
  *
  * Den lærerike delen er sentreringen: å sentrere et kvadrat gir bare et mindre
- * kvadratisk gitter, og å sentrere en heksagonal celle gir et rektangulært —
- * bare det rektangulære systemet får en NY gittertype av sentrering. Det er
+ * kvadratisk gitter, og å sentrere en heksagonal celle gir et rektangulært.
+ * Bare det rektangulære systemet får en NY gittertype av sentrering, og det er
  * derfor det er 5 gitter og ikke 8. Klassifiseringen under sier dette eksplisitt
  * i stedet for å late som sentrering alltid betyr «sentrert rektangulært».
+ *
+ * Utlesningen teller nærmeste naboer i det gitteret man faktisk ser på, ikke i
+ * cellen man tegnet. Det gjør sveipet gjennom den sentrerte rektangulære
+ * familien avlesbart: |a₂|/|a₁| = 1 gir 4 naboer (kvadratisk), 1 < r < √3 gir
+ * 4 (sentrert rektangulært), r = √3 gir 6 (heksagonalt) og r > √3 gir 2.
+ * Familien er broen mellom de to mest symmetriske plangitrene.
  *
  * Kontrakt: default-eksporter init(api), api = { stage, controls, getSize, onResize, signal }.
  */
@@ -60,6 +66,45 @@ const PRESETS = [
  * (a/2, ±b/2), som er like lange. Blir b = a er de dessuten ortogonale
  * (kvadratisk); blir b = a·sqrt(3) står de 120° på hverandre (heksagonalt).
  */
+/**
+ * Antall nærmeste naboer i det gitteret man faktisk ser, regnet fra de
+ * primitive vektorene. Ved sentrering er de (a₁ ± a₂)/2, ikke a₁ og a₂, så
+ * tellingen må gjøres på det reduserte gitteret. Slideren snapper til √3, som
+ * ellers ikke er truffet av steget 0,01, og uten det treffet ville det
+ * heksagonale tilfellet aldri vist 6.
+ */
+function neighbours(ratio, phi, centered) {
+  const rad = (phi * Math.PI) / 180;
+  const a1 = { x: 1, y: 0 };
+  const a2 = { x: ratio * Math.cos(rad), y: ratio * Math.sin(rad) };
+  const p1 = centered ? { x: (a1.x + a2.x) / 2, y: (a1.y + a2.y) / 2 } : a1;
+  const p2 = centered ? { x: (a1.x - a2.x) / 2, y: (a1.y - a2.y) / 2 } : a2;
+
+  const ds = [];
+  for (let i = -4; i <= 4; i++)
+    for (let j = -4; j <= 4; j++) {
+      if (!i && !j) continue;
+      ds.push(Math.hypot(i * p1.x + j * p2.x, i * p1.y + j * p2.y));
+    }
+  const min = Math.min(...ds);
+  // Bare flyttallsstøy skal tolereres her. Slår man på en romsligere toleranse,
+  // rapporteres 6 naboer i et gitter som har 4, og hele poenget forsvinner.
+  return { count: ds.filter((d) => d < min * 1.0005).length, dist: min };
+}
+
+/**
+ * Hvor i den sentrerte rektangulære familien man står. Familien løper fra det
+ * kvadratiske gitteret (r = 1) til det heksagonale (r = √3, eller r = 1/√3 den
+ * andre veien), og er den eneste sentreringen som gir en ny gittertype.
+ */
+function sweepNote(ratio) {
+  const base =
+    "Dette er den eneste sentreringen som gir en ny gittertype, og grunnen til at det finnes 5 og ikke 4 gitre i 2D.";
+  if (ratio > SQRT3 || ratio < 1 / SQRT3)
+    return `${base} Utenfor √3 er diagonalene lengre enn den korteste cellekanten, så bare 2 naboer er nærmest. Skyv tilbake mot √3 ≈ 1,73 (eller 1/√3 ≈ 0,58) og se tallet gå til 6.`;
+  return `${base} Skyv |a₂|/|a₁| fra 1 mot √3 ≈ 1,73: 4 nærmeste naboer hele veien, og i det øyeblikket diagonalene blir like lange som a₁, står du i det heksagonale gitteret.`;
+}
+
 function classify(ratio, phi, centered) {
   const near = (x, y, tol) => Math.abs(x - y) < tol;
   const ortho = near(phi, 90, 0.5);
@@ -81,19 +126,19 @@ function classify(ratio, phi, centered) {
     return {
       name: "Kvadratisk gitter",
       cond: "|a₁| = |a₂|, φ = 90°",
-      note: "Et sentrert kvadrat er bare et kvadratisk gitter til — mindre og rotert 45°. Ingen ny type.",
+      note: "Et sentrert kvadrat er bare et kvadratisk gitter til, mindre og rotert 45°. Ingen ny type.",
     };
   if (ortho && rt3)
     return {
       name: "Heksagonalt gitter",
       cond: "|a₁| = |a₂|, φ = 120°",
-      note: "Med |a₂| = √3·|a₁| blir de to primitive vektorene like lange og står 120° på hverandre: det sentrerte rektangelet ER det heksagonale gitteret.",
+      note: "Med |a₂| = √3·|a₁| blir de to primitive vektorene like lange og står 120° på hverandre: det sentrerte rektangelet ER det heksagonale gitteret. Diagonalene er nå nøyaktig like lange som a₁, og nabotallet hopper fra 4 til 6.",
     };
   if (ortho)
     return {
       name: "Sentrert rektangulært gitter",
       cond: "|a₁| ≠ |a₂|, φ = 90°, punkt i midten",
-      note: "Dette er den eneste sentreringen som gir en ny gittertype — og grunnen til at det finnes 5 og ikke 4 gitre i 2D.",
+      note: sweepNote(ratio),
     };
   if (hex)
     return {
@@ -216,7 +261,13 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
   ratioCtl.input.addEventListener(
     "input",
     () => {
-      ratio = Number(ratioCtl.input.value);
+      const raw = Number(ratioCtl.input.value);
+      // √3 og 1/√3 er ikke multipler av steget 0,01, så uten snapping kan man
+      // ikke stille inn det heksagonale tilfellet i det hele tatt. Med snapping
+      // er det ENTEN eksakt heksagonalt ELLER tydelig utenfor, og navnet og
+      // nabotallet i utlesningen kan aldri si hver sin ting.
+      const hit = [1 / SQRT3, SQRT3].find((v) => Math.abs(raw - v) < 0.02);
+      ratio = hit === undefined ? raw : hit;
       syncInputs();
       render();
     },
@@ -381,8 +432,11 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
       `</svg>`;
 
     const { name, cond, note } = classify(ratio, phi, centered);
+    const { count, dist } = neighbours(ratio, phi, centered);
     readout.innerHTML =
-      `<b>${name}</b> — ${cond}` + (note ? `<br>${note}` : "");
+      `<b>${name}</b> · ${cond} · <b>${count}</b> nærmeste naboer i avstand ` +
+      `${dist.toFixed(2).replace(".", ",")}·|a₁|` +
+      (note ? `<br>${note}` : "");
   }
 
   syncInputs();

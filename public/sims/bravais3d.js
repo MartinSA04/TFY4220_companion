@@ -15,6 +15,12 @@
  * kanter nabocellene deler, og tegner referansecellen kraftigere enn resten.
  * Aksene a, b, c og vinklene α, β, γ er merket i begge utsnittene.
  *
+ * «Hvorfor ikke?»-modus tegner to av kandidatene som IKKE ble et av de 14:
+ * C-sentrert kubisk og flatesentrert tetragonal. I begge tilfellene legges den
+ * mindre cellen med side a/√2 oppå i fiolett, og da ser man liket: punktene er
+ * allerede et gitter man har fra før. Å vise hvorfor en kandidat døde er verdt
+ * mer enn å liste de fjorten som overlevde.
+ *
  * Kontrakt: default-eksporter init(api), api = { stage, controls, getSize, onResize, signal }.
  */
 
@@ -160,6 +166,71 @@ const SYSTEMS = [
   },
 ];
 
+/**
+ * De to døde kandidatene. `sys` og `cent` er den cellen som TEGNES, altså den
+ * man naivt ville foreslått; `note` sier hvilket gitter punktene allerede var.
+ *
+ * C-kubisk: sentrer bare de to flatene som står normalt på c. Punktene er da et
+ * enkelt tetragonalt gitter med side a/√2 og høyde a, og siden a/√2 ≠ a er det
+ * ikke lenger kubisk. De tretellige aksene langs romdiagonalene er borte.
+ *
+ * F-tetragonal: de samme punktene er et romsentrert tetragonalt gitter med side
+ * a/√2 og samme c, dreid 45° om c.
+ */
+const DEAD = {
+  "kubisk-C": {
+    label: "C-kubisk",
+    sys: "kubisk",
+    cent: "C",
+    inner: false,
+    note:
+      "<b>C-sentrert kubisk er ikke et nytt gitter.</b> Den fiolette cellen har side a/√2 og høyde a, og er et <b>enkelt tetragonalt</b> gitter (nr. 8 av 14). " +
+      "Sentreringen av bare to flater ødela i tillegg de tretellige aksene langs romdiagonalene, så kravet til det kubiske systemet er ikke oppfylt.",
+  },
+  "tetragonal-F": {
+    label: "F-tetragonal",
+    sys: "tetragonal",
+    cent: "F",
+    inner: true,
+    note:
+      "<b>Flatesentrert tetragonal er ikke et nytt gitter.</b> Den fiolette cellen har side a/√2 og samme c, dreid 45° om c, og den har et punkt i midten. " +
+      "Det er <b>romsentrert tetragonalt</b> (nr. 9 av 14), som allerede står på lista.",
+  },
+};
+
+/**
+ * Den mindre cellen, i brøkkoordinater av den tegnede cellen: hjørnene 0,
+ * (½,½,0), (0,1,0) og (−½,½,0), stablet opp med c. Ett hjørne faller utenfor
+ * den tegnede boksen, og det er uunngåelig: en primitiv celle med halve arealet
+ * får ikke plass inne i kvadratet med alle fire hjørner på gitterpunkter.
+ */
+const SMALL_CORNERS = [
+  [0, 0, 0],
+  [0.5, 0.5, 0],
+  [0, 1, 0],
+  [-0.5, 0.5, 0],
+  [0, 0, 1],
+  [0.5, 0.5, 1],
+  [0, 1, 1],
+  [-0.5, 0.5, 1],
+];
+const SMALL_EDGES = [
+  [0, 1],
+  [1, 2],
+  [2, 3],
+  [3, 0],
+  [4, 5],
+  [5, 6],
+  [6, 7],
+  [7, 4],
+  [0, 4],
+  [1, 5],
+  [2, 6],
+  [3, 7],
+];
+/** Sentrum i den mindre cellen: (t₁+t₂+t₃)/2. Bare F-tilfellet har et punkt der. */
+const SMALL_CENTRE = [0, 0.5, 0.5];
+
 /** Aksepilene. Fargene skiller a, b og c, og går igjen i vinkelbuene. */
 const AXES = [
   { id: "a", vec: (A) => A, label: "a", color: "var(--accent)" },
@@ -185,6 +256,7 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
   let az = AZ0;
   let elev = EL0;
   let grid = false;
+  let dead = "";
   const v = { ba: 1, ca: 1, al: 90, be: 90, ga: 90 };
 
   const sys = () => SYSTEMS.find((s) => s.key === sysKey);
@@ -205,6 +277,7 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
     items: SYSTEMS.map((s) => ({ value: s.key, label: s.label })),
     onPick: (k) => {
       sysKey = k;
+      dead = "";
       adoptSystem();
       sync();
       render();
@@ -221,6 +294,33 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
     onPick: (k) => {
       if (!sys().cent.includes(k)) return;
       cent = k;
+      dead = "";
+      sync();
+      render();
+    },
+    signal,
+  });
+
+  // «Hvorfor ikke?» tvinger fram en celle systemet IKKE tilbyr, så den må sette
+  // sysKey og cent selv og kan ikke gå gjennom valideringen over.
+  const deadPick = choiceRow({
+    ariaLabel: "Vis en død kandidat",
+    label: "Hvorfor ikke?",
+    items: [
+      { value: "", label: "Av" },
+      ...Object.entries(DEAD).map(([k, d]) => ({ value: k, label: d.label })),
+    ],
+    onPick: (k) => {
+      dead = k;
+      if (dead) {
+        sysKey = DEAD[dead].sys;
+        adoptSystem();
+        cent = DEAD[dead].cent;
+      } else {
+        // Sentreringen står på en verdi systemet ikke har. adoptSystem() setter
+        // den tilbake til den første gyldige, ellers blir cellen navnløs.
+        adoptSystem();
+      }
       sync();
       render();
     },
@@ -311,6 +411,7 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
   controls.append(
     sysPick.el,
     centPick.el,
+    deadPick.el,
     viewRow,
     ...sliderEls,
     resetBtn,
@@ -369,7 +470,10 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
     const s = sys();
     const rho = s.free.includes("rho");
     sysPick.sync(sysKey);
-    centPick.sync(cent, (k) => !s.cent.includes(k));
+    // I «hvorfor ikke?»-modus står sentreringen på en verdi systemet ikke
+    // tilbyr, og den må slippe gjennom sperren for å kunne vises som valgt.
+    centPick.sync(cent, (k) => !s.cent.includes(k) && k !== cent);
+    deadPick.sync(dead);
     for (const b of viewBtns)
       b.el.setAttribute("aria-pressed", String(b.on === grid));
     const enabled = (key) =>
@@ -627,7 +731,14 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
     // er rotasjonsuavhengig, så størrelsen ligger stille.
     const R = grid ? 4.5 : 9; // kuleradius i px
     const m = R + 6;
-    const rMax = Math.max(...raws.map((p) => radius3d(p.f)), 1e-6);
+    // Den mindre cellen stikker ut av den tegnede boksen, så den må være med i
+    // tilpasningen. Ellers klippes det ene hjørnet bort mot kanten av flaten.
+    const extra = dead ? SMALL_CORNERS : [];
+    const rMax = Math.max(
+      ...raws.map((p) => radius3d(p.f)),
+      ...extra.map(radius3d),
+      1e-6,
+    );
     const s = (Math.min(w, h) / 2 - m) / rMax;
     const fit = (p) => ({ ...p, x: p.x * s + w / 2, y: p.y * s + h / 2 });
     const pts = raws.map((p) => ({ ...fit(raw(p.f)), mid: p.mid }));
@@ -675,6 +786,30 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
         ),
       );
     }
+    // Den mindre cellen legges inn FØR kulene, så en gitterkule alltid vinner
+    // over den fiolette prikken som ligger på samme sted og samme dybde.
+    if (dead) {
+      for (const [i, j] of SMALL_EDGES)
+        drawables.push(
+          ...segments(
+            fit(raw(SMALL_CORNERS[i])),
+            fit(raw(SMALL_CORNERS[j])),
+            (a, b) =>
+              `<line x1="${P(a.x)}" y1="${P(a.y)}" x2="${P(b.x)}" y2="${P(b.y)}" stroke="var(--violet)" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round"/>`,
+          ),
+        );
+      const spots = DEAD[dead].inner
+        ? [...SMALL_CORNERS, SMALL_CENTRE]
+        : SMALL_CORNERS;
+      for (const f of spots) {
+        const p = fit(raw(f));
+        drawables.push({
+          depth: p.depth,
+          svg: `<circle cx="${P(p.x)}" cy="${P(p.y)}" r="${P(R * 0.72)}" style="fill:var(--violet)"/>`,
+        });
+      }
+    }
+
     for (const p of pts)
       drawables.push({
         depth: p.depth,
@@ -704,9 +839,10 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
 
     const s0 = sys();
     const ct = CENTERINGS[cent];
-    readout.innerHTML =
-      `<b>Nr. ${NUMBERS[`${sysKey}-${cent}`]} av 14: ${s0.label} ${ct.label}</b> (${ct.name}) · ` +
-      `${s0.cond} · gitterpunkter per celle: <b>${ct.perCell}</b>`;
+    readout.innerHTML = dead
+      ? DEAD[dead].note
+      : `<b>Nr. ${NUMBERS[`${sysKey}-${cent}`]} av 14: ${s0.label} ${ct.label}</b> (${ct.name}) · ` +
+        `${s0.cond} · gitterpunkter per celle: <b>${ct.perCell}</b>`;
   }
 
   adoptSystem();

@@ -1,58 +1,132 @@
 ---
 order: 1
 title: "Krystallgitter, basis og symmetri"
-summary: "Hva et Bravais-gitter er, hvorfor det finnes 5 gittertyper i to dimensjoner og 14 i tre, og hvordan gitter pluss basis gir krystallstrukturen."
+summary: "Hva som skiller gitteret fra basisen, hvordan du avgjør om et punktmønster er et Bravais-gitter, og hvorfor det finnes 5 gittertyper i planet, 14 i rommet og bare fem tillatte rotasjonsakser."
 importance: core
-tag: "Kittel §1.1–1.2"
+tag: "Uke 34"
 part: "Del I: Krystallstruktur"
-updated: 2026-08-18
+updated: 2026-08-20
 ---
 
 <LearningGoals>
 
-- Definere et <Term name="Bravais-gitter">Bravais-gitter</Term> og avgjøre om et punktmønster er ett.
-- Skille <Term name="Primitiv enhetscelle">primitiv</Term> fra <Term name="Konvensjonell enhetscelle">konvensjonell</Term> enhetscelle.
-- Bygge en <Term name="Krystallstruktur">krystallstruktur</Term> som gitter $+$ <Term name="Basis">basis</Term>.
-- Gjengi de 5 gittertypene i 2D og de 7 <Term name="Krystallsystem">krystallsystemene</Term> bak de 14 i 3D.
-- Telle atomer per celle og regne <Term name="Pakningsgrad">pakningsgrad</Term> for sc, bcc og fcc.
-- Kjenne igjen translasjon, speiling, inversjon og rotasjon som <Term name="Symmetrioperasjon">symmetrioperasjoner</Term>.
+- Skille <Term name="Bravais-gitter">gitteret</Term> fra <Term name="Basis">basisen</Term>, og se hvorfor et <Term name="Gitterpunkt">gitterpunkt</Term> ikke er et atom.
+- Kjøre Bravais-testen, orienteringskravet inkludert.
+- Velge mellom <Term name="Primitiv enhetscelle">primitiv</Term> og <Term name="Konvensjonell enhetscelle">konvensjonell</Term> celle.
+- Telle atomer per celle og regne <Term name="Pakningsgrad">pakningsgrad</Term>.
+- Gjengi de 5 gittertypene og de 7 <Term name="Krystallsystem">krystallsystemene</Term>.
+- Utlede hvorfor bare $n = 1, 2, 3, 4$ og $6$ er mulig.
 
 </LearningGoals>
 
 ### Gitter og basis
 
-Et fast stoff har $\sim 10^{23}$ atomer. At det likevel lar seg regne på, skyldes
-periodisiteten: kjenner du én bit og gjentakelsesmønsteret, kjenner du hele
-stoffet. Beskrivelsen skjer i to steg som holdes fra hverandre.
+En <Term name="Krystallstruktur">krystallstruktur</Term> beskrives i to steg som
+holdes fra hverandre.
 
 <Statement kind="definition" name="Krystallstruktur = gitter + basis">
 
-**Gitteret** er et sett matematiske punkter, ren geometri uten atomer.
-**Basisen** er atomgruppen som festes på hvert gitterpunkt, identisk i
-sammensetning og orientering overalt.
+Gitteret er et sett matematiske punkter, ren geometri uten atomer. Basisen er
+atomgruppen som festes på hvert gitterpunkt, identisk overalt i sammensetning,
+avstander og orientering.
 
 </Statement>
 
-Ingenting krever at et gitterpunkt er et atom. Det kan like gjerne ligge i
-tomrommet mellom atomer. Gitteret svarer på hvordan mønsteret gjentas, basisen
-på hva som gjentas.
+Gitteret svarer på hvordan mønsteret gjentas, basisen på hva som gjentas. Legg
+merke til kravet om lik orientering, for det er det som avgjør testen under.
 
 <Term name="Primitive gittervektorer">De primitive gittervektorene</Term>
-genererer punktene med heltallige koeffisienter:
+genererer punktene (<FormulaRef id="gittervektor" />), og basisatomene oppgis
+relativt til gitterpunktet (<FormulaRef id="basis-posisjon" />).
 
-<Formula tex={"\\vec{R} = n_1\\vec{a}_1 + n_2\\vec{a}_2 + n_3\\vec{a}_3"} caption={"Gittervektoren $\\vec R$, der $n_i$ er heltall. Mengden av alle slike $\\vec R$ utgjør Bravais-gitteret."} />
+<Formula tex={"\\vec{R} = n_1\\vec{a}_1 + n_2\\vec{a}_2 + n_3\\vec{a}_3"} caption={"Gittervektoren, der $n_i$ er heltall. Mengden av alle slike $\\vec R$ <em>er</em> Bravais-gitteret."} />
+
+Et gitterpunkt er en adresse, ikke et atom.
+
+<Simulation
+  src={"/sims/gitterpunkt.js"}
+  host={"dom"}
+  title={"Skyv gitterets origo"}
+  caption={"Atomene står stille. Slideren flytter gitterets origo gjennom dem, og krysshårene viser gitterpunktene."}
+  height={340}
+/>
+
+Gitterpunktet lander på et karbonatom, midt på en binding eller i et tomrom, alt
+etter sliderverdien. Alle tre beskriver samme krystall, og bare
+basiskoordinatene endrer seg.
+
+### Bravais-testen
 
 <Statement kind="definition" name="Bravais-gitter">
 
-Et punktmønster som ser identisk ut, med samme omgivelser og samme orientering,
+Et punktmønster som ser identisk ut, med samme omgivelser i samme orientering,
 sett fra ethvert punkt i det.
 
 </Statement>
 
-Denne formuleringen er den praktiske testen: finner du to punkter med ulike
-omgivelser, er mønsteret ikke et Bravais-gitter.
+<Steps>
 
-### Enhetsceller
+<Step title="Skriv ned omgivelseslista">
+
+Retning og avstand til hver nærmeste nabo. Antallet holder ikke.
+
+</Step>
+
+<Step title="Flytt deg uten å snu deg">
+
+Gå til en av de nærmeste naboene og skriv ned lista på nytt derfra.
+
+</Step>
+
+<Step title="Sammenlign">
+
+Er de to listene ulike, er mønsteret ikke et Bravais-gitter. Er de like, må du
+prøve de andre punkttypene også.
+
+</Step>
+
+<Step title="Bygg gitter og basis">
+
+Feiler testen, deler du punktene i klasser med like omgivelser. Én klasse er
+gitteret, ett punkt fra hver klasse er basisen.
+
+</Step>
+
+</Steps>
+
+Kjør den på sekskantnettet i grafén. Fra et A-atom ligger tre naboer i
+retningene $90^\circ$, $210^\circ$ og $330^\circ$. Fra et B-atom, uten at du snur
+deg, ligger de i $270^\circ$, $30^\circ$ og $150^\circ$. Testen feiler på steg 3.
+
+<Callout type="warning" title="Du får ikke snu hodet">
+
+Sekskantnettet faller på seg selv under gittervektorene til det trekantede
+gitteret, så invarians under translasjon utelukker det ikke. De to
+omgivelseslistene er dreid $180^\circ$, og roterer du hodet like mye, ser de like
+ut. Orienteringskravet er det som avgjør, og steg 2 er der de fleste
+framstillinger er slurvete.
+
+</Callout>
+
+<Statement kind="principle" name="Honeycomb er ikke et Bravais-gitter">
+
+Grafénets struktur er et trekantet, også kalt heksagonalt, Bravais-gitter med en
+basis på to karbonatomer.
+
+</Statement>
+
+<Simulation
+  src={"/sims/gitter-basis.js"}
+  host={"dom"}
+  title={"Gitter + basis"}
+  caption={"Krysshåret markerer gitterpunktet. Widgeten starter på honeycomb; skyv forskyvningen mot 0."}
+  height={300}
+/>
+
+Punktene flytter seg jevnt, men mønsteret er bare et Bravais-gitter når
+forskyvningen er nøyaktig null.
+
+### Enhetsceller og pakning
 
 En <Term name="Enhetscelle">enhetscelle</Term> fyller rommet uten hull eller
 overlapp når den gjentas med alle $\vec R$. To valg er i bruk.
@@ -61,38 +135,84 @@ overlapp når den gjentas med alle $\vec R$. To valg er i bruk.
 
 <CompareCol title="Primitiv celle">
 
-- Inneholder nøyaktig ett gitterpunkt.
-- Minst mulig volum, <FormulaRef id="primitiv-celle-volum" />.
-- Valget av primitive vektorer er ikke entydig, men volumet blir det samme uansett hvilket sett du velger.
+- Nøyaktig ett gitterpunkt.
+- Minst mulig volum, <FormulaRef id="primitiv-celle-volum" />, uansett hvilke vektorer du velger.
 - Ofte skjev, og viser sjelden symmetrien.
 
 </CompareCol>
 
 <CompareCol title="Konvensjonell celle">
 
-- Inneholder gjerne flere gitterpunkter (fcc: 4, bcc: 2).
+- Flere gitterpunkter (fcc: 4, bcc: 2).
 - Et helt antall primitive celler.
 - Valgt fordi den viser symmetrien, typisk en kube.
-- Den du regner og tegner med.
 
 </CompareCol>
 
 </Compare>
 
-Plansjene merker fcc, bcc og de sentrerte cellene «non-primitive cell» av denne
-grunnen. En tredje variant, <Term name="Wigner-Seitz-celle">Wigner–Seitz-cellen</Term>,
-er både primitiv og symmetrisk, og kommer tilbake under det resiproke gitteret.
+Du regner med den konvensjonelle: den viser symmetrien, og det er kantlengden i
+den tabellene oppgir. <Term name="Wigner-Seitz-celle">Wigner–Seitz-cellen</Term>,
+alle punkter nærmere ett gitterpunkt enn noe annet, er både primitiv og
+symmetrisk, og den kommer tilbake som første Brillouin-sone.
 
-### De 5 gittertypene i 2D
+Atomene deles med nabocellene, så tellingen følger hvor i cellen de sitter
+(<FormulaRef id="atomer-per-celle" />). Forskyver du cellen litt, slipper du
+brøkene.
 
-De fem 2D-gitrene er fem områder i ett parameterrom: lengdene $|\vec a_1|,
-|\vec a_2|$ og vinkelen $\varphi$. Slå på **Sentrert** i hvert av dem.
+<Example title="atomer per celle og pakningsgrad for fcc">
+
+Hvor mange atomer hører til den konvensjonelle fcc-cellen, og hvor stor del av
+den fyller de?
+
+<Solution>
+
+**Telling.** $8 \times \tfrac18$ hjørner $+\ 6 \times \tfrac12$ flatesentre gir
+$N = 4$.
+
+**Hardkuleradius.** Halve flatediagonalen er $0{,}707a$ og kanten $a$, så kulene
+berører langs flatediagonalen. Den rommer fire radier, så $r = a\sqrt2/4$
+(<FormulaRef id="naboavstand-fcc" />).
+
+**Pakningsgrad** (<FormulaRef id="pakningsgrad" />).
+
+$f = \dfrac{4 \cdot \tfrac43 \pi r^3}{a^3} = \dfrac{16\pi}{3}\left(\dfrac{\sqrt2}{4}\right)^3 = \dfrac{\pi\sqrt2}{6} \approx 0{,}74$
+
+<Answer>$N = 4$, $f = \pi\sqrt2/6 \approx 0{,}74$</Answer>
+
+</Solution>
+
+</Example>
+
+I bcc berører kulene langs romdiagonalen (<FormulaRef id="naboavstand-bcc" />),
+og resten er identisk.
+
+<Table
+  columns={["Struktur", "Atomer per celle", "Koordinasjonstall", "Naboavstand", "Pakningsgrad"]}
+  rows={[
+    ["Enkel kubisk (sc)", "1", "6", "$a$", "$0{,}524$"],
+    ["Romsentrert (bcc)", "2", "8", "$0{,}866a$", "$0{,}680$"],
+    ["Flatesentrert (fcc)", "4", "12", "$0{,}707a$", "$0{,}740$"],
+  ]}
+  align={["left", "right", "right", "right", "right"]}
+  caption="Nøkkeltall for de kubiske gitrene. Høyere koordinasjonstall gir tettere pakking."
+/>
+
+<Term name="Gitterkonstant">Gitterkonstanten</Term> $a$ er kantlengden, og bare
+i enkel kubisk er den også naboavstanden.
+<Term name="Koordinasjonstall">Koordinasjonstallet</Term> teller naboene til et
+atom.
+
+### De 5 gitrene i planet
+
+De fem typene er fem områder i ett parameterrom: lengdene $|\vec a_1|$ og
+$|\vec a_2|$ og vinkelen $\varphi$. Slå på **Sentrert** i hvert av dem.
 
 <Simulation
   src={"/sims/bravais2d.js"}
   host={"dom"}
   title={"2D-gitter"}
-  caption={"Fylte punkter er gitterpunkter, ringene er sentreringspunktene. De stiplede vektorene er de primitive vektorene i det sentrerte tilfellet."}
+  caption={"Ringene er sentreringspunkter, og de stiplede vektorene er de primitive i det sentrerte tilfellet."}
   height={340}
 />
 
@@ -110,157 +230,100 @@ De fem 2D-gitrene er fem områder i ett parameterrom: lengdene $|\vec a_1|,
 
 <Callout type="tip" title="Sentrering gir sjelden noe nytt">
 
-Et sentrert kvadrat er bare et mindre kvadratisk gitter rotert $45^\circ$. En
-sentrert heksagonal celle gir et rektangulært gitter. Bare det rektangulære
-systemet får en ny type av sentrering, og det er grunnen til at 4 systemer gir
+Et sentrert kvadrat er et kvadratisk gitter med side $a/\sqrt2$, rotert
+$45^\circ$. En sentrert heksagonal celle gir et rektangulært gitter. Bare det
+rektangulære systemet får noe nytt ut av sentrering, og derfor gir 4 systemer
 5 gitre.
 
 </Callout>
 
-### Basis
+### De 14 gitrene i rommet
 
-Atom $j$ i basisen oppgis relativt til gitterpunktet:
-
-<Formula tex={"\\vec{r}_j = x_j\\vec{a}_1 + y_j\\vec{a}_2 + z_j\\vec{a}_3"} caption={"Basisposisjonen, med $0 \\le x_j, y_j, z_j < 1$. Basisen kan telle alt fra ett atom til flere tusen."} />
-
-Widgeten holder gitteret fast heksagonalt og lar bare basisen endres.
-
-<Simulation
-  src={"/sims/gitter-basis.js"}
-  host={"dom"}
-  title={"Gitter + basis"}
-  caption={"Krysshåret i midtpanelet markerer gitterpunktet. Skyv forskyvningen til 1 for honeycomb-strukturen."}
-  height={300}
-/>
-
-Med to like atomer og forskyvning 1 får du honeycomb. Bruk testen over: står du
-på ett atom, peker bindingene én vei, står du på naboen, peker de motsatt.
-
-<Statement kind="principle" name="Honeycomb er ikke et Bravais-gitter">
-
-Grafénets struktur er et heksagonalt Bravais-gitter med en basis på to atomer.
-Setter du forskyvningen til 0, faller atomene sammen og mønsteret blir et
-Bravais-gitter igjen.
-
-</Statement>
-
-### De 14 Bravais-gitrene i 3D
-
-Tre lengder $a, b, c$ og tre vinkler $\alpha, \beta, \gamma$ gir 7
-krystallsystemer. Med sentreringene blir det 14 gitre.
-
-I widgeten er sliderne låst der systemet krever det. I kubisk lar ingenting seg
-endre, i triklin alt.
+Tre lengder og tre vinkler gir 7
+<Term name="Krystallsystem">krystallsystemer</Term>. Med
+<Term name="Sentrering">sentreringene</Term> P, C, I, F og R blir det 14 gitre.
+En sentrering teller bare når den verken senker symmetrien eller kan erstattes av
+en mindre celle i samme system.
 
 <Simulation
   src={"/sims/bravais3d.js"}
   host={"dom"}
   title={"3D-gitter"}
-  caption={"Dra i cellen for å snu på den. Blå kuler er hjørnepunkter, grønne er sentreringspunkter. P = primitiv, C = basesentrert, I = romsentrert, F = flatesentrert, R = romboedrisk."}
+  caption={"Dra i cellen for å snu på den. Sliderne låses der systemet krever det."}
   height={430}
 />
 
 <Table
   columns={["Krystallsystem", "Betingelser", "Sentreringer", "Antall"]}
   rows={[
-    ["Triklin", "$a \\neq b \\neq c;\\ \\alpha \\neq \\beta \\neq \\gamma \\neq 90^\\circ$", "P", "1"],
-    ["Monoklin", "$a \\neq b \\neq c;\\ \\alpha = \\gamma = 90^\\circ \\neq \\beta$", "P, C", "2"],
-    ["Ortorombisk", "$a \\neq b \\neq c;\\ \\alpha = \\beta = \\gamma = 90^\\circ$", "P, C, I, F", "4"],
-    ["Tetragonal", "$a = b \\neq c;\\ \\alpha = \\beta = \\gamma = 90^\\circ$", "P, I", "2"],
-    ["Trigonal", "$a = b = c;\\ \\alpha = \\beta = \\gamma < 120^\\circ, \\neq 90^\\circ$", "R", "1"],
-    ["Heksagonal", "$a = b \\neq c;\\ \\alpha = \\beta = 90^\\circ, \\gamma = 120^\\circ$", "P", "1"],
-    ["Kubisk", "$a = b = c;\\ \\alpha = \\beta = \\gamma = 90^\\circ$", "P, I, F", "3"],
+    ["Triklin", "ingen", "P", "1"],
+    ["Monoklin", "$\\alpha = \\gamma = 90^\\circ$", "P, C", "2"],
+    ["Ortorombisk", "alle vinkler $90^\\circ$", "P, C, I, F", "4"],
+    ["Tetragonal", "som ortorombisk, $a = b$", "P, I", "2"],
+    ["Trigonal", "$a = b = c$, like vinkler $< 120^\\circ$, $\\neq 90^\\circ$", "R", "1"],
+    ["Heksagonal", "$a = b$, $\\alpha = \\beta = 90^\\circ$, $\\gamma = 120^\\circ$", "P", "1"],
+    ["Kubisk", "som ortorombisk, $a = b = c$", "P, I, F", "3"],
   ]}
   align={["left", "left", "left", "right"]}
-  caption="De 7 krystallsystemene, ordnet etter økende symmetri."
+  caption="De 7 krystallsystemene. Alt som ikke står oppført, er fritt."
 />
 
-De kubiske gitrene går igjen oftest. Atomer deles med nabocellene, så tellingen
-følger hvor i cellen de sitter:
-
-<Formula tex={"N = N_\\mathrm{i} + \\dfrac{N_\\mathrm{f}}{2} + \\dfrac{N_\\mathrm{k}}{4} + \\dfrac{N_\\mathrm{h}}{8}"} caption={"Indre atomer telles helt, flateatomer halvt, kantatomer kvart og hjørneatomer åttendedels."} />
-
-<Example title="atomer per celle og pakningsgrad for fcc">
-
-Hvor mange atomer hører til den konvensjonelle fcc-cellen, og hvilken
-pakningsgrad gir det?
-
-<Solution>
-
-**Telling.**
-
-Hjørner: $8 \times \tfrac18 = 1$. Flatesentre: $6 \times \tfrac12 = 3$, altså
-$N = 4$.
-
-**Hardkuleradius.**
-
-Nærmeste naboer berører hverandre langs flatediagonalen, som har lengde
-$a\sqrt2$ og rommer fire radier: $4r = a\sqrt2$, så $r = \dfrac{a\sqrt2}{4}$.
-
-**Pakningsgrad.**
-
-$f = \dfrac{4 \cdot \tfrac43 \pi r^3}{a^3} = \dfrac{16\pi}{3}\left(\dfrac{\sqrt2}{4}\right)^3 = \dfrac{\pi\sqrt2}{6} \approx 0{,}74$
-
-<Answer>$N = 4$ atomer per celle, $f = \pi\sqrt2/6 \approx 0{,}74$</Answer>
-
-</Solution>
-
-</Example>
-
-Bcc gir $N = 2$ og $f \approx 0{,}68$, med berøring langs romdiagonalen
-(<FormulaRef id="naboavstand-bcc" />) i stedet for flatediagonalen
-(<FormulaRef id="naboavstand-fcc" />).
-
-<Table
-  columns={["Gitter", "Atomer per celle", "Koordinasjonstall", "Pakningsgrad"]}
-  rows={[
-    ["Enkel kubisk (sc)", "1", "6", "$0{,}52$"],
-    ["Romsentrert (bcc)", "2", "8", "$0{,}68$"],
-    ["Flatesentrert (fcc)", "4", "12", "$0{,}74$"],
-  ]}
-  align={["left", "right", "right", "right"]}
-  caption="Nøkkeltall for de kubiske gitrene. Høyere koordinasjonstall gir tettere pakking."
-/>
+Et gitter hører til det systemet symmetrien tilsier, ikke det formen på den
+primitive cellen antyder. Fcc har en romboedrisk primitiv celle, men er kubisk.
 
 ### Symmetri
 
 En <Term name="Symmetrioperasjon">symmetrioperasjon</Term> fører krystallen
-tilbake til noe som ikke lar seg skille fra utgangspunktet. Fire er aktuelle
-her: <Term name="Translasjonssymmetri">translasjon</Term>,
-<Term name="Speilsymmetri">speiling</Term>,
+tilbake til noe som ikke lar seg skille fra utgangspunktet.
+<Term name="Speilsymmetri">Speiling</Term>,
 <Term name="Inversjonssymmetri">inversjon</Term> og
-<Term name="Rotasjonssymmetri">rotasjon</Term>. Motivet i widgeten er
-asymmetrisk begge veier, så speiling og $180^\circ$-rotasjon gir synlig ulike
-bilder.
+<Term name="Rotasjonssymmetri">rotasjon</Term> lar minst ett punkt stå i ro.
+<Term name="Translasjonssymmetri">Translasjon</Term> krever et uendelig mønster
+og gjør stoffet krystallinsk.
 
 <Simulation
   src={"/sims/symmetri.js"}
   host={"dom"}
   title={"Symmetri"}
-  caption={"Sliderne fører operasjonen fra 0 til 1. Under Rotasjon vises også flislegningstesten: hvor mange regulære n-kanter som møtes i ett hjørne, og hvor stort gap som blir til overs."}
+  caption={"Motivet er asymmetrisk begge veier, så speiling og $180^\\circ$-rotasjon gir ulike bilder."}
   height={330}
 />
 
 <Table
   columns={["Operasjon", "Symbol", "Virkning"]}
   rows={[
-    ["Translasjon", "$\\vec R$", "Forskyvning med en gittervektor. Definerer «krystallinsk»."],
+    ["Translasjon", "$\\vec R$", "Forskyvning med en gittervektor."],
     ["Speiling", "$m$", "Invarians om et plan, i 2D en linje."],
-    ["Inversjon", "$\\bar 1$", "$\\vec r \\to -\\vec r$ om et senterpunkt. I 2D det samme som $180^\\circ$-rotasjon, i 3D ikke."],
+    ["Inversjon", "$\\bar 1$", "$\\vec r \\to -\\vec r$ om et senterpunkt."],
     ["Rotasjon", "$n$", "Rotasjon $360^\\circ/n$ om en akse."],
   ]}
   caption="De fire symmetrioperasjonene fra Kittel §1.2."
 />
 
-<Callout type="warning" title="Bare n = 1, 2, 3, 4 og 6 er mulig">
+Translasjonssymmetrien begrenser hvilke rotasjoner som er mulige, og seks linjer
+er nok til å vise hvilke.
 
-Regulære femkanter dekker $3 \times 108^\circ = 324^\circ$ rundt et hjørne og
-etterlater et gap på $36^\circ$. En 5-tellig akse lar seg derfor ikke kombinere
-med translasjonssymmetri, og samme argument rammer $n \ge 7$. Et enkeltobjekt
-kan godt ha femtallssymmetri; det er kravet om periodisk gjentakelse som
-utelukker den.
+<Statement kind="theorem" name="Krystallografisk begrensning">
 
-</Callout>
+La $\vec a$ være den <em>korteste</em> gittervektoren langs en gitterrekke, med
+punkter i $A = -\vec a$, $O = \vec 0$ og $B = +\vec a$. En $n$-tellig akse
+gjennom $O$ betyr at $\theta = 2\pi/n$ avbilder gitteret på seg selv. Roter $A$
+med $+\theta$ til $C$ og $B$ med $-\theta$ til $D$. Begge er gitterpunkter i
+samme høyde over rekken, så $\vec D - \vec C = 2a\cos\theta\,\hat a$ er en
+gittervektor parallell med $\vec a$. Enhver slik er $m\vec a$ med $m$ heltall,
+siden $\vec a$ er den korteste. Altså er $2\cos\theta = m$, og
+$|2\cos\theta| \le 2$ gir $m \in \{-2, -1, 0, 1, 2\}$.
+
+</Statement>
+
+<Formula tex={"2\\cos\\theta = m, \\qquad m \\in \\mathbb{Z}"} caption={"Den <b>krystallografiske begrensningen</b>, med $\\theta = 2\\pi/n$."} />
+
+Fem heltall gir fem vinkler, altså $n = 1, 2, 3, 4$ og $6$
+(<Term name="Krystallografisk begrensning">krystallografisk begrensning</Term>,
+<FormulaRef id="rotasjonsbegrensning" />). En femtellig akse ville krevd
+$2\cos 72^\circ = 0{,}618$, en gittervektor kortere enn den korteste. Et molekyl
+kan godt ha en slik akse; det er kravet om periodisk gjentakelse som utelukker
+den.
 
 ### Sjekk deg selv
 
@@ -273,32 +336,31 @@ utelukker den.
     "et sentrert rektangulært Bravais-gitter"
   ]}
   answer={1}
-  explanation={"De to atomene ser ulike omgivelser, siden bindingene peker motsatt vei. Gitteret er heksagonalt, og basisen har to atomer."}
+  explanation={"Omgivelseslistene fra de to atomene er dreid $180^\\circ$, så punktmengden er ikke selv et gitter. Gitteret er heksagonalt, basisen har to atomer."}
 />
 
 <Quiz
   question={"Hvor mange gitterpunkter hører til den konvensjonelle bcc-cellen?"}
   options={["1", "2", "4", "8"]}
   answer={1}
-  explanation={"$8$ hjørner $\\times \\tfrac18 = 1$, pluss atomet i sentrum som ligger helt inne i cellen. Cellen er altså ikke primitiv."}
+  explanation={"$8 \\times \\tfrac18 = 1$ fra hjørnene, pluss punktet i sentrum. Cellen er altså ikke primitiv."}
 />
 
-<SelfCheck question={"Et gitter har $|a_1| = |a_2|$ og $\\varphi = 90^\\circ$. Du legger et punkt midt i hver celle. Hvilken av de fem 2D-gittertypene har du nå?"}>
+<SelfCheck question={"Et kvadratisk gitter får et ekstra punkt midt i hver celle. Hvilken av de fem 2D-gittertypene er resultatet?"}>
 
-Fortsatt et kvadratisk gitter. De nye primitive vektorene går fra et hjørne til
-de to nærmeste sentreringspunktene, er like lange og står vinkelrett på
-hverandre. Resultatet er et kvadratisk gitter med gitterkonstant $a/\sqrt2$,
-rotert $45^\circ$. Prøv det i widgeten over.
+Fortsatt kvadratisk. De nye primitive vektorene går til de to nærmeste
+sentreringspunktene, er like lange og står vinkelrett på hverandre. Resultatet er
+et kvadratisk gitter med side $a/\sqrt2$, rotert $45^\circ$.
 
 </SelfCheck>
 
 <KeyTakeaways>
 
-- Krystallstruktur $=$ gitter $+$ basis. Gitteret er geometri, basisen er atomene, og et gitterpunkt trenger ikke være et atom.
-- Et Bravais-gitter ser identisk ut fra ethvert punkt i det. Testen avslører honeycomb med én gang.
-- Den konvensjonelle cellen er den du regner med, og den er sjelden primitiv: fcc rommer 4 gitterpunkter, bcc 2.
-- 5 gittertyper i 2D, 14 i 3D fordelt på 7 krystallsystemer.
-- sc / bcc / fcc: atomer per celle $1/2/4$, koordinasjonstall $6/8/12$, pakningsgrad $0{,}52 / 0{,}68 / 0{,}74$.
-- Rotasjonsakser i en krystall er begrenset til $n = 1, 2, 3, 4, 6$.
+- Krystallstruktur $=$ gitter $+$ basis. Gitterpunktet er en adresse, og adressen kan ligge i et tomrom.
+- Bravais-testen sammenligner retningene til naboene, og du får ikke snu deg underveis.
+- Den konvensjonelle cellen er den du regner med, og den er sjelden primitiv: fcc 4 gitterpunkter, bcc 2.
+- 5 gittertyper i planet, 14 i rommet fordelt på 7 krystallsystemer.
+- sc / bcc / fcc: $1/2/4$ atomer per celle, koordinasjonstall $6/8/12$, pakningsgrad $0{,}52 / 0{,}68 / 0{,}74$.
+- $2\cos\theta$ må være et heltall, og bare fem heltall har $|m| \le 2$.
 
 </KeyTakeaways>

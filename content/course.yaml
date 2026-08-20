@@ -36,90 +36,96 @@ formulas:
     section: Gitter og basis
     tex: "\\vec{R} = n_1\\vec{a}_1 + n_2\\vec{a}_2 + n_3\\vec{a}_3"
     label: "Gittervektor. $n_i$ er <b>heltall</b> og $\\vec{a}_i$ de primitive gittervektorene. Mengden av alle $\\vec{R}$ <em>er</em> Bravais-gitteret."
-  - id: translasjonsoperasjon
-    section: Gitter og basis
-    tex: "\\vec{r}\\,' = \\vec{r} + \\vec{R}"
-    label: "Translasjonsoperasjonen. Et Bravais-gitter ser identisk ut fra $\\vec{r}$ og fra $\\vec{r}\\,'$ for enhver gittervektor $\\vec{R}$."
   - id: basis-posisjon
     section: Gitter og basis
     tex: "\\vec{r}_j = x_j\\vec{a}_1 + y_j\\vec{a}_2 + z_j\\vec{a}_3"
     label: "Posisjonen til atom $j$ i basisen, oppgitt i <b>relative</b> koordinater $0 \\le x_j, y_j, z_j < 1$."
   - id: primitiv-celle-volum
-    section: Enhetsceller
+    section: Enhetsceller og pakning
     tex: "V_c = \\left|\\vec{a}_1 \\cdot (\\vec{a}_2 \\times \\vec{a}_3)\\right|"
     label: "Volumet av den primitive enhetscellen. Alle valg av primitiv celle gir <b>samme</b> volum."
   - id: atomer-per-celle
-    section: Enhetsceller
+    section: Enhetsceller og pakning
     tex: "N = N_\\mathrm{i} + \\dfrac{N_\\mathrm{f}}{2} + \\dfrac{N_\\mathrm{k}}{4} + \\dfrac{N_\\mathrm{h}}{8}"
-    label: "Antall atomer per enhetscelle ved deling med naboceller: indre (i) telles helt, flate (f) halvt, kant (k) kvart og hjørne (h) åttendedels."
+    label: "Antall atomer per enhetscelle ved deling med naboceller, i en celle med <b>rette vinkler</b>: indre (i) telles helt, flate (f) halvt, kant (k) kvart og hjørne (h) åttendedels. Ellers teller du den andelen av en hel omdreining hvert hjørne dekker."
   - id: pakningsgrad
-    section: Enhetsceller
+    section: Enhetsceller og pakning
     tex: "f = \\dfrac{N \\cdot \\tfrac{4}{3}\\pi r^3}{V_\\text{celle}}"
-    label: "Pakningsgrad (<em>packing fraction</em>): andelen av cellevolumet fylt av harde kuler med radius $r$, der $N$ er antall atomer i cellen."
+    label: "Pakningsgrad (<em>packing fraction</em>): andelen av cellevolumet fylt av harde kuler med radius $r$, der $N$ er antall atomer i cellen. I lukket form $\\pi/6$ (sc), $\\pi\\sqrt3/8$ (bcc) og $\\pi\\sqrt2/6$ (fcc)."
   - id: naboavstand-fcc
-    section: Kubiske gitter
+    section: Enhetsceller og pakning
     tex: "d_\\text{fcc} = \\dfrac{a}{\\sqrt{2}}, \\qquad r = \\dfrac{a\\sqrt{2}}{4}"
     label: "Nærmeste naboavstand og hardkuleradius i et flatesentrert kubisk gitter med gitterkonstant $a$. Kulene berører langs <b>flatediagonalen</b>."
   - id: naboavstand-bcc
-    section: Kubiske gitter
+    section: Enhetsceller og pakning
     tex: "d_\\text{bcc} = \\dfrac{a\\sqrt{3}}{2}, \\qquad r = \\dfrac{a\\sqrt{3}}{4}"
     label: "Nærmeste naboavstand og hardkuleradius i et romsentrert kubisk gitter. Kulene berører langs <b>romdiagonalen</b>."
+  - id: rotasjonsbegrensning
+    section: Symmetri
+    tex: "2\\cos\\theta = m, \\qquad m \\in \\mathbb{Z}"
+    label: "Krystallografisk begrensning. En $n$-tellig akse er bare forenlig med translasjonssymmetri når $2\\cos(2\\pi/n)$ er et heltall. Siden $|2\\cos\\theta| \\le 2$ er $m \\in \\{-2, -1, 0, 1, 2\\}$, altså $n = 1, 2, 3, 4, 6$."
 
 glossary:
   - term: Bravais-gitter
     section: Gitter og basis
-    definition: "Et uendelig sett av punkter generert av $\\vec{R} = n_1\\vec{a}_1 + n_2\\vec{a}_2 + n_3\\vec{a}_3$ med heltallige $n_i$. Avgjørende egenskap: gitteret ser <b>nøyaktig likt ut</b> sett fra ethvert gitterpunkt. Et gitter er ren geometri — det inneholder ingen atomer."
+    definition: "Et uendelig sett av punkter generert av $\\vec{R} = n_1\\vec{a}_1 + n_2\\vec{a}_2 + n_3\\vec{a}_3$ med heltallige $n_i$. Avgjørende egenskap: gitteret ser <b>nøyaktig likt ut</b> sett fra ethvert gitterpunkt, i både avstand og retning. Et gitter er ren geometri, og det inneholder ingen atomer."
   - term: Gitterpunkt
     section: Gitter og basis
-    definition: "Et av de matematiske punktene i et Bravais-gitter. Det er ikke det samme som et atom: atomene kommer fra basisen som plasseres på hvert gitterpunkt."
+    definition: "Et av de matematiske punktene i et Bravais-gitter. Det er ikke det samme som et atom: atomene kommer fra basisen som plasseres på hvert gitterpunkt, og gitterpunktet kan like gjerne ligge i et tomrom."
   - term: Primitive gittervektorer
     section: Gitter og basis
-    definition: "Et sett vektorer $\\vec{a}_1, \\vec{a}_2, \\vec{a}_3$ som genererer <em>alle</em> gitterpunkter med heltallige koeffisienter, og ikke flere. Valget er ikke entydig — samme gitter har uendelig mange gyldige sett."
+    definition: "Et sett vektorer $\\vec{a}_1, \\vec{a}_2, \\vec{a}_3$ som genererer <em>alle</em> gitterpunkter med heltallige koeffisienter, og ikke flere. Valget er ikke entydig, og samme gitter har uendelig mange gyldige sett."
   - term: Basis
     section: Gitter og basis
     definition: "Gruppen av atomer som festes til hvert eneste gitterpunkt, oppgitt ved posisjonene $\\vec{r}_j$ relativt til punktet. Basisen er identisk på alle gitterpunkter, i sammensetning, orientering og avstander."
   - term: Krystallstruktur
     section: Gitter og basis
     definition: "Gitter $+$ basis. Strukturen er det fysiske arrangementet av atomer; gitteret alene er bare translasjonsmønsteret det gjentas etter."
-  - term: Gitterkonstant
-    section: Gitter og basis
-    definition: "Kantlengdene $a, b, c$ i den konvensjonelle enhetscellen. For kubiske gitter er det én verdi $a$, og den brukes som lengdeskala for alt annet i cellen."
   - term: Enhetscelle
-    section: Enhetsceller
+    section: Enhetsceller og pakning
     definition: "Et volum som fyller hele rommet uten hull eller overlapp når det gjentas med alle gittervektorene $\\vec{R}$."
   - term: Primitiv enhetscelle
-    section: Enhetsceller
-    definition: "En enhetscelle som inneholder <b>nøyaktig ett</b> gitterpunkt. Den har minst mulig volum, men speiler ofte ikke gitterets symmetri — derfor brukes den konvensjonelle cellen i praksis."
+    section: Enhetsceller og pakning
+    definition: "En enhetscelle som inneholder <b>nøyaktig ett</b> gitterpunkt. Den har minst mulig volum, men speiler ofte ikke gitterets symmetri, og derfor brukes den konvensjonelle cellen i praksis."
   - term: Konvensjonell enhetscelle
-    section: Enhetsceller
+    section: Enhetsceller og pakning
     definition: "Den cellen man faktisk regner og tegner med, valgt fordi den viser symmetrien (typisk en kube). Den er som regel <b>ikke</b> primitiv: fcc rommer 4 gitterpunkter, bcc 2."
   - term: Wigner-Seitz-celle
-    section: Enhetsceller
-    definition: "Den primitive cellen rundt et gitterpunkt bestående av alle punkter som ligger nærmere <em>dette</em> gitterpunktet enn noe annet. Konstrueres ved å halvere vektorene til naboene med normalplan."
+    section: Enhetsceller og pakning
+    definition: "Den primitive cellen rundt et gitterpunkt bestående av alle punkter som ligger nærmere <em>dette</em> gitterpunktet enn noe annet. Konstrueres ved å halvere vektorene til alle nærliggende naboer med normalplan. Cellen er både primitiv og entydig, og den har gitterets fulle symmetri."
   - term: Koordinasjonstall
-    section: Kubiske gitter
-    definition: "Antall nærmeste naboer et gitterpunkt har. Enkel kubisk har 6, romsentrert kubisk 8 og flatesentrert kubisk 12 — jo høyere tall, jo tettere pakking."
+    section: Enhetsceller og pakning
+    definition: "Antall nærmeste naboer et <b>atom</b> har. Enkel kubisk har 6, romsentrert kubisk 8 og flatesentrert kubisk 12. Høyere tall følger med tettere pakking."
   - term: Pakningsgrad
-    section: Kubiske gitter
-    definition: "Andelen av cellevolumet som fylles av harde kuler som akkurat berører hverandre: $0{,}52$ (sc), $0{,}68$ (bcc) og $0{,}74$ (fcc)."
+    section: Enhetsceller og pakning
+    definition: "Andelen av cellevolumet som fylles av harde kuler som akkurat berører hverandre: $0{,}52$ (sc), $0{,}68$ (bcc) og $0{,}74$ (fcc). Ingen pakking av like kuler er tettere enn $0{,}7405$."
+  - term: Gitterkonstant
+    section: Enhetsceller og pakning
+    definition: "Kantlengdene $a, b, c$ i den konvensjonelle enhetscellen. For kubiske gitter er det én verdi $a$, og den brukes som lengdeskala for alt annet i cellen. Den er <b>ikke</b> avstanden mellom naboatomer, unntatt i enkel kubisk."
   - term: Krystallsystem
-    section: Symmetri
-    definition: "En av de sju klassene av celleformer i tre dimensjoner (triklin, monoklin, ortorombisk, tetragonal, trigonal, heksagonal, kubisk), bestemt av forholdene mellom $a, b, c$ og vinklene $\\alpha, \\beta, \\gamma$. Sentrering av systemene gir totalt 14 Bravais-gitter."
+    section: De 14 gitrene i rommet
+    definition: "En av de sju klassene av celleformer i tre dimensjoner (triklin, monoklin, ortorombisk, tetragonal, trigonal, heksagonal og kubisk), bestemt av forholdene mellom $a, b, c$ og vinklene $\\alpha, \\beta, \\gamma$."
+  - term: Sentrering
+    section: De 14 gitrene i rommet
+    definition: "Ekstra gitterpunkter lagt til en konvensjonell celle: <b>P</b> primitiv, <b>C</b> basesentrert, <b>I</b> romsentrert, <b>F</b> flatesentrert og <b>R</b> romboedrisk. En sentrering gir bare et nytt Bravais-gitter hvis den verken senker symmetrien eller kan erstattes av en mindre celle i samme krystallsystem."
   - term: Symmetrioperasjon
     section: Symmetri
     definition: "En operasjon som fører krystallen tilbake til en konfigurasjon som ikke kan skilles fra utgangspunktet. I dette kapitlet: translasjon, speiling, inversjon og rotasjon."
   - term: Translasjonssymmetri
     section: Symmetri
-    definition: "Invarians under forskyvning med en gittervektor $\\vec{R}$. Dette er den definerende symmetrien til et krystallinsk stoff, og den som skiller krystallen fra et amorft materiale."
+    definition: "Invarians under forskyvning med en gittervektor $\\vec{R}$. Dette er den definerende symmetrien til et krystallinsk stoff, og den som skiller krystallen fra et amorft materiale. Den er <b>nødvendig, men ikke tilstrekkelig</b> for et Bravais-gitter: også sekskantmønsteret i grafén oppfyller den."
   - term: Speilsymmetri
     section: Symmetri
     definition: "Invarians under speiling om et plan (i 2D: en linje), betegnet $m$. Halvparten av strukturen bestemmer den andre halvparten."
   - term: Inversjonssymmetri
     section: Symmetri
-    definition: "Invarians under $\\vec{r} \\to -\\vec{r}$ om et senterpunkt, betegnet $\\bar{1}$. I 2D er det det samme som en 180°-rotasjon; i 3D er det ikke det."
+    definition: "Invarians under $\\vec{r} \\to -\\vec{r}$ om et senterpunkt, betegnet $\\bar{1}$. I 2D er det det samme som en 180°-rotasjon; i 3D er det ikke det. Ethvert Bravais-gitter har den, siden $-\\vec{R}$ er en gittervektor når $\\vec{R}$ er det."
   - term: Rotasjonssymmetri
     section: Symmetri
-    definition: "Invarians under rotasjon $360°/n$ om en akse. I et krystallgitter er bare $n = 1, 2, 3, 4, 6$ mulig — $n = 5$ og $n \\ge 7$ lar seg ikke kombinere med translasjonssymmetri."
+    definition: "Invarians under rotasjon $360^\\circ/n$ om en akse. I et gitter må $2\\cos(2\\pi/n)$ være et heltall, og siden $|2\\cos\\theta| \\le 2$ finnes det bare fem løsninger, nemlig $n = 1, 2, 3, 4$ og $6$. Husk betingelsen framfor lista, så kan du regne fram lista når du trenger den."
+  - term: Krystallografisk begrensning
+    section: Symmetri
+    definition: "Kravet $2\\cos(2\\pi/n) \\in \\mathbb{Z}$. Det følger av at $\\vec D - \\vec C = 2a\\cos\\theta\\,\\hat a$ er en gittervektor parallell med den korteste gittervektoren $\\vec a$, og derfor må være et helt multiplum av den. Bare $n = 1, 2, 3, 4$ og $6$ oppfyller det, så en femtellig eller sjutellig akse er umulig i et gitter."
 
 features:
   progress: true

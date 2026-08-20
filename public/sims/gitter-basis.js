@@ -66,7 +66,7 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
     const two = basis !== "en";
     input.disabled = !two;
     label.style.opacity = two ? "1" : "0.45";
-    out.textContent = two ? frac.toFixed(2) : "—";
+    out.textContent = two ? frac.toFixed(2) : "–";
     basisPick.sync(basis);
   }
 
@@ -203,14 +203,14 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
   function describe() {
     const lat = "Gitteret er <b>heksagonalt</b> i alle tre tilfellene.";
     if (basis === "en")
-      return `${lat} Med ett atom i basisen er strukturen selv et Bravais-gitter — hvert atom ser nøyaktig like omgivelser.`;
+      return `${lat} Med ett atom i basisen er strukturen selv et Bravais-gitter, og hvert atom ser nøyaktig like omgivelser.`;
     if (frac < 0.05)
       return `${lat} Med forskyvning 0 faller de to atomene sammen, og strukturen er igjen et Bravais-gitter.`;
     const ideal = frac > 0.95;
     const same = basis === "to-like";
     const what = ideal
       ? same
-        ? "Dette er <b>honeycomb</b>-strukturen — grafén."
+        ? "Dette er <b>honeycomb</b>-strukturen, altså grafén."
         : "Dette er honeycomb med to grunnstoffer, som i heksagonal bornitrid."
       : "";
     const why = same
