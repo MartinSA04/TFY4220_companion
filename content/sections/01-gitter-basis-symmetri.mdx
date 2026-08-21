@@ -19,7 +19,7 @@ updated: 2026-08-20
 
 </LearningGoals>
 
-### Gitter og basis
+## Gitter og basis
 
 En <Term name="Krystallstruktur">krystallstruktur</Term> beskrives i to steg som
 holdes fra hverandre.
@@ -41,21 +41,21 @@ relativt til gitterpunktet (<FormulaRef id="basis-posisjon" />).
 
 <Formula tex={"\\vec{R} = n_1\\vec{a}_1 + n_2\\vec{a}_2 + n_3\\vec{a}_3"} caption={"Gittervektoren, der $n_i$ er heltall. Mengden av alle slike $\\vec R$ <em>er</em> Bravais-gitteret."} />
 
-Et gitterpunkt er en adresse, ikke et atom.
+Gitterpunktene er matematiske punkter. Atomene kommer fra basisen.
 
 <Simulation
   src={"/sims/gitterpunkt.js"}
   host={"dom"}
   title={"Skyv gitterets origo"}
-  caption={"Atomene står stille. Slideren flytter gitterets origo gjennom dem, og krysshårene viser gitterpunktene."}
+  caption={"Atomene står stille. Du flytter gitterets origo gjennom dem, og krysshårene viser gitterpunktene."}
   height={340}
 />
 
 Gitterpunktet lander på et karbonatom, midt på en binding eller i et tomrom, alt
-etter sliderverdien. Alle tre beskriver samme krystall, og bare
+etter hvor du legger origo. Alle tre beskriver samme krystall, og bare
 basiskoordinatene endrer seg.
 
-### Bravais-testen
+## Bravais-testen
 
 <Statement kind="definition" name="Bravais-gitter">
 
@@ -94,13 +94,13 @@ gitteret, ett punkt fra hver klasse er basisen.
 
 </Steps>
 
-Kjør den på sekskantnettet i grafén. Fra et A-atom ligger tre naboer i
+Kjør den på honeycomb-nettet i grafén. Fra et A-atom ligger tre naboer i
 retningene $90^\circ$, $210^\circ$ og $330^\circ$. Fra et B-atom, uten at du snur
 deg, ligger de i $270^\circ$, $30^\circ$ og $150^\circ$. Testen feiler på steg 3.
 
 <Callout type="warning" title="Du får ikke snu hodet">
 
-Sekskantnettet faller på seg selv under gittervektorene til det trekantede
+Honeycomb-nettet faller på seg selv under gittervektorene til det trekantede
 gitteret, så invarians under translasjon utelukker det ikke. De to
 omgivelseslistene er dreid $180^\circ$, og roterer du hodet like mye, ser de like
 ut. Orienteringskravet er det som avgjør, og steg 2 er der de fleste
@@ -108,7 +108,7 @@ framstillinger er slurvete.
 
 </Callout>
 
-<Statement kind="principle" name="Honeycomb er ikke et Bravais-gitter">
+<Statement kind="principle" name="Honeycomb-nettet er ikke et Bravais-gitter">
 
 Grafénets struktur er et trekantet, også kalt heksagonalt, Bravais-gitter med en
 basis på to karbonatomer.
@@ -119,14 +119,14 @@ basis på to karbonatomer.
   src={"/sims/gitter-basis.js"}
   host={"dom"}
   title={"Gitter + basis"}
-  caption={"Krysshåret markerer gitterpunktet. Widgeten starter på honeycomb; skyv forskyvningen mot 0."}
+  caption={"Krysshåret markerer gitterpunktet. Figuren starter på honeycomb-nettet; skyv forskyvningen mot 0."}
   height={300}
 />
 
 Punktene flytter seg jevnt, men mønsteret er bare et Bravais-gitter når
 forskyvningen er nøyaktig null.
 
-### Enhetsceller og pakning
+## Enhetsceller og pakning
 
 En <Term name="Enhetscelle">enhetscelle</Term> fyller rommet uten hull eller
 overlapp når den gjentas med alle $\vec R$. To valg er i bruk.
@@ -151,7 +151,7 @@ overlapp når den gjentas med alle $\vec R$. To valg er i bruk.
 
 </Compare>
 
-Du regner med den konvensjonelle: den viser symmetrien, og det er kantlengden i
+Du regner med den konvensjonelle. Den viser symmetrien, og det er kantlengden i
 den tabellene oppgir. <Term name="Wigner-Seitz-celle">Wigner–Seitz-cellen</Term>,
 alle punkter nærmere ett gitterpunkt enn noe annet, er både primitiv og
 symmetrisk, og den kommer tilbake som første Brillouin-sone.
@@ -167,14 +167,14 @@ den fyller de?
 
 <Solution>
 
-**Telling.** $8 \times \tfrac18$ hjørner $+\ 6 \times \tfrac12$ flatesentre gir
-$N = 4$.
+Tell først opp atomene. $8 \times \tfrac18$ hjørner $+\ 6 \times \tfrac12$ flatesentre
+gir $N = 4$.
 
-**Hardkuleradius.** Halve flatediagonalen er $0{,}707a$ og kanten $a$, så kulene
+Halve flatediagonalen er $0{,}707a$ og kanten $a$, så kulene
 berører langs flatediagonalen. Den rommer fire radier, så $r = a\sqrt2/4$
 (<FormulaRef id="naboavstand-fcc" />).
 
-**Pakningsgrad** (<FormulaRef id="pakningsgrad" />).
+Da følger pakningsgraden (<FormulaRef id="pakningsgrad" />).
 
 $f = \dfrac{4 \cdot \tfrac43 \pi r^3}{a^3} = \dfrac{16\pi}{3}\left(\dfrac{\sqrt2}{4}\right)^3 = \dfrac{\pi\sqrt2}{6} \approx 0{,}74$
 
@@ -203,10 +203,10 @@ i enkel kubisk er den også naboavstanden.
 <Term name="Koordinasjonstall">Koordinasjonstallet</Term> teller naboene til et
 atom.
 
-### De 5 gitrene i planet
+## De 5 gitrene i planet
 
 De fem typene er fem områder i ett parameterrom: lengdene $|\vec a_1|$ og
-$|\vec a_2|$ og vinkelen $\varphi$. Slå på **Sentrert** i hvert av dem.
+$|\vec a_2|$ og vinkelen $\varphi$. Slå på «Sentrert» i hvert av dem.
 
 <Simulation
   src={"/sims/bravais2d.js"}
@@ -237,7 +237,7 @@ rektangulære systemet får noe nytt ut av sentrering, og derfor gir 4 systemer
 
 </Callout>
 
-### De 14 gitrene i rommet
+## De 14 gitrene i rommet
 
 Tre lengder og tre vinkler gir 7
 <Term name="Krystallsystem">krystallsystemer</Term>. Med
@@ -249,7 +249,7 @@ en mindre celle i samme system.
   src={"/sims/bravais3d.js"}
   host={"dom"}
   title={"3D-gitter"}
-  caption={"Dra i cellen for å snu på den. Sliderne låses der systemet krever det."}
+  caption={"Dra i cellen for å snu på den. Lengdene og vinklene låses der systemet krever det."}
   height={430}
 />
 
@@ -271,7 +271,7 @@ en mindre celle i samme system.
 Et gitter hører til det systemet symmetrien tilsier, ikke det formen på den
 primitive cellen antyder. Fcc har en romboedrisk primitiv celle, men er kubisk.
 
-### Symmetri
+## Symmetri
 
 En <Term name="Symmetrioperasjon">symmetrioperasjon</Term> fører krystallen
 tilbake til noe som ikke lar seg skille fra utgangspunktet.
@@ -325,10 +325,10 @@ $2\cos 72^\circ = 0{,}618$, en gittervektor kortere enn den korteste. Et molekyl
 kan godt ha en slik akse; det er kravet om periodisk gjentakelse som utelukker
 den.
 
-### Sjekk deg selv
+## Sjekk deg selv
 
 <Quiz
-  question={"Honeycomb-strukturen (grafén) er best beskrevet som …"}
+  question={"Honeycomb-nettet (grafén) er best beskrevet som …"}
   options={[
     "et heksagonalt Bravais-gitter",
     "et heksagonalt Bravais-gitter med en basis på to atomer",
@@ -356,7 +356,7 @@ et kvadratisk gitter med side $a/\sqrt2$, rotert $45^\circ$.
 
 <KeyTakeaways>
 
-- Krystallstruktur $=$ gitter $+$ basis. Gitterpunktet er en adresse, og adressen kan ligge i et tomrom.
+- Krystallstruktur $=$ gitter $+$ basis. Gitterpunktet er et matematisk punkt, og det kan like gjerne ligge i et tomrom som på et atom.
 - Bravais-testen sammenligner retningene til naboene, og du får ikke snu deg underveis.
 - Den konvensjonelle cellen er den du regner med, og den er sjelden primitiv: fcc 4 gitterpunkter, bcc 2.
 - 5 gittertyper i planet, 14 i rommet fordelt på 7 krystallsystemer.
