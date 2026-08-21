@@ -127,6 +127,49 @@ glossary:
     section: Symmetri
     definition: "Kravet $2\\cos(2\\pi/n) \\in \\mathbb{Z}$. Det følger av at $\\vec D - \\vec C = 2a\\cos\\theta\\,\\hat a$ er en gittervektor parallell med den korteste gittervektoren $\\vec a$, og derfor må være et helt multiplum av den. Bare $n = 1, 2, 3, 4$ og $6$ oppfyller det, så en femtellig eller sjutellig akse er umulig i et gitter."
 
+# ── Tidligere eksamener → Eksamen-siden ──────────────────────────────────────
+# Lenker rett til PDF-ene hos NTNU; guiden hoster dem ikke selv. Datoene er lest
+# av forsiden på hvert sett, ikke gjettet fra filnavnet — IFY navngir flere av
+# filene etter semesteret (…_251200) og ikke etter eksamensdagen.
+# Et utvalg, nyeste først; resten ligger i arkivet som lenkes nederst.
+exams:
+  - {
+      label: "Ordinær eksamen, mai 2025 (med løsningsforslag)",
+      date: 2025-05-15,
+      url: "https://www.ntnu.no/documents/10422/1376330177/EL_TFY4220_250500.pdf/38020341-7c35-450f-076d-dbaa1bd399b8",
+    }
+  - {
+      label: "Ordinær eksamen, mai 2024 (med løsningsforslag)",
+      date: 2024-05-13,
+      url: "https://www.ntnu.no/documents/10422/1376330177/EL_TFY4220_240513.pdf/5c4094c3-f0ce-43fe-1985-31e4ad3b9bfb",
+    }
+  - {
+      label: "Ordinær eksamen, mai 2023 (med løsningsforslag)",
+      date: 2023-05-20,
+      url: "https://www.ntnu.no/documents/10422/1376330177/EL_TFY4220_230520.pdf/f7e5d65d-564c-84d8-95f9-2d636113b30b",
+    }
+  - {
+      label: "Ordinær eksamen, mai 2022 (med løsningsforslag)",
+      date: 2022-05-28,
+      url: "https://www.ntnu.no/documents/10422/1376330177/EL_TFY4220_220528.pdf/673dd43e-cbaf-cf8f-92b6-94eca9750457",
+    }
+  - {
+      label: "Ordinær eksamen, juni 2021",
+      date: 2021-06-03,
+      url: "https://www.ntnu.no/documents/10422/1376330177/E_TFY4220_210603.pdf/7e8765e7-097f-eb05-4555-d712c6d9e238",
+      solutionUrl: "https://www.ntnu.no/documents/10422/1376330177/L_TFY4220_210603.pdf/b9bc9faf-4182-dd38-1595-94c42bcd7d01",
+    }
+  - {
+      label: "Ordinær eksamen, juni 2020 (med løsningsforslag)",
+      date: 2020-06-03,
+      url: "https://www.ntnu.no/documents/10422/1376330177/EL_TFY4220_200603.pdf/1a689e2e-088c-f544-8573-40e69a43e999",
+    }
+
+# Hele arkivet hos Institutt for fysikk — rendres som siste rad i lista.
+examArchive:
+  url: "https://www.ntnu.no/fysikk/eksamen/landing/-/asset_publisher/uwSAlUJoweyy/content/tfy4220-faste-stoffers-fysikk"
+  label: "Hele eksamensarkivet hos Institutt for fysikk"
+
 features:
   progress: true
   search: true
