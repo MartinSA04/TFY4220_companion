@@ -1,0 +1,224 @@
+---
+order: 2
+title: "Tettpakking, krystallstrukturer og Miller-indekser"
+summary: "Stablingen som skiller hcp fra fcc, strukturene til Na, CsCl, NaCl og diamant angitt som gitter pluss basis, og Miller-indeksene som navngir plan og retninger i gitteret."
+importance: core
+tag: "Uke 34"
+part: "Del I: Krystallstruktur"
+updated: 2026-08-24
+---
+
+<LearningGoals>
+
+- Skrive ned de primitive gittervektorene for bcc og fcc (<FormulaRef id="primitiv-bcc" />, <FormulaRef id="primitiv-fcc" />).
+- Avgjøre om en <Term name="Tettpakking">tettpakking</Term> er hcp eller fcc ut fra stablingsrekkefølgen.
+- Angi en krystallstruktur som gitter pluss basis, slik som for Na, CsCl, NaCl og diamant.
+- Finne <Term name="Miller-indekser">Miller-indeksene</Term> til et plan fra skjæringspunktene med aksene.
+- Bruke notasjonen $(hkl)$, $\{hkl\}$ og $[uvw]$ riktig.
+- Regne ut <Term name="Planavstand">planavstanden</Term> i kubiske gitter.
+
+</LearningGoals>
+
+## Primitive celler i bcc og fcc
+
+Den konvensjonelle kuben rommer 2 gitterpunkter i bcc og 4 i fcc, så ingen av de
+to er primitive celler. De primitive cellene finnes selvsagt, men begge er
+romboedre. I bcc går de primitive vektorene fra et hjørne til de tre nærmeste
+romsentrene, i fcc til de tre nærmeste flatesentrene.
+
+<Formula tex={"\\vec{a}_1 = \\tfrac{a}{2}(\\hat{x}{+}\\hat{y}{-}\\hat{z}), \\quad \\vec{a}_2 = \\tfrac{a}{2}({-}\\hat{x}{+}\\hat{y}{+}\\hat{z}), \\quad \\vec{a}_3 = \\tfrac{a}{2}(\\hat{x}{-}\\hat{y}{+}\\hat{z})"} caption={"Primitive gittervektorer for <b>bcc</b>, fra et hjørne til tre av romsentrene."} />
+
+<Formula tex={"\\vec{a}_1 = \\tfrac{a}{2}(\\hat{x}{+}\\hat{y}), \\quad \\vec{a}_2 = \\tfrac{a}{2}(\\hat{y}{+}\\hat{z}), \\quad \\vec{a}_3 = \\tfrac{a}{2}(\\hat{z}{+}\\hat{x})"} caption={"Primitive gittervektorer for <b>fcc</b>, fra et hjørne til de tre nærmeste flatesentrene."} />
+
+Volumet $|\vec a_1 \cdot (\vec a_2 \times \vec a_3)|$ blir $a^3/2$ for bcc og
+$a^3/4$ for fcc. Det stemmer med tellingen i kuben: 2 og 4 gitterpunkter per
+konvensjonell celle. Regningen gjør du likevel nesten alltid i kuben, for
+romboedrene skjuler den kubiske symmetrien.
+
+## Tettpakkede strukturer
+
+Pakningsgraden $0{,}74$ fra fcc er den høyeste som finnes.
+
+<Statement kind="theorem" name="Tettest mulig pakking">
+
+Ingen pakking av like kuler er tettere enn $\pi/\sqrt{18} \approx 0{,}74$, og
+både fcc og hcp når grensen. Kepler formodet dette i 1611; beviset kom først i
+1998, ved Thomas Hales.
+
+</Statement>
+
+Grensen nås ved å stable tette lag. Legg et lag kuler så tett de kan ligge,
+hver med seks naboer i planet, og kall posisjonene A. Neste lag legger seg i
+fordypningene mellom kulene, kall dem B. For det tredje laget har du to valg:
+over A igjen, eller over de fordypningene B ikke brukte, kalt C.
+
+- ABABAB gir <Term name="Heksagonal tettpakking">heksagonal tettpakking</Term> (hcp).
+- ABCABC gir fcc.
+
+<Simulation
+  src={"/sims/stabling.js"}
+  host={"dom"}
+  title={"Stabling av tette kulelag"}
+  caption={"Sett ovenfra. Kryssene er de ledige fordypningene, og valget for lag 3 er det som skiller hcp fra fcc."}
+  height={360}
+/>
+
+At ABCABC er den samme strukturen som fcc, er ikke lett å se direkte: lagene
+ligger normalt på kubens romdiagonal, ikke på noen av flatene. hcp er heller
+ikke noe eget Bravais-gitter. Lag B ser andre omgivelser enn lag A, så
+strukturen er det heksagonale gitteret med en basis på to atomer, på samme måte
+som honeycomb-nettet var det trekantede gitteret med to.
+
+## Strukturer som gitter pluss basis
+
+For virkelige stoffer er hele beskrivelsen sjelden mer enn én linje: et
+Bravais-gitter og en basis med koordinater i enheter av $\vec a_1$, $\vec a_2$
+og $\vec a_3$.
+
+<Table
+  columns={["Stoff", "Bravais-gitter", "Basis", "Samme struktur"]}
+  rows={[
+    ["Natrium", "bcc", "Na i $(0,0,0)$", "Li og de andre alkalimetallene"],
+    ["Cesiumklorid", "enkel kubisk", "Cs i $(0,0,0)$, Cl i $(\\tfrac12,\\tfrac12,\\tfrac12)$", "CuZn (messing)"],
+    ["Natriumklorid", "fcc", "Na i $(0,0,0)$, Cl i $(\\tfrac12,\\tfrac12,\\tfrac12)$", "LiF, MgO"],
+    ["Diamant", "fcc", "C i $(0,0,0)$, C i $(\\tfrac14,\\tfrac14,\\tfrac14)$", "Si, Ge"],
+  ]}
+  caption="Fire strukturer som dekker mange stoffer. Basisen festes på hvert gitterpunkt."
+/>
+
+For et metall som natrium er basisen ett atom i origo, og da er strukturen og
+gitteret det samme punktmønsteret. Med to eller flere atomer i basisen skiller
+de lag, og det er her det er lett å gå feil.
+
+<Callout type="warning" title="CsCl er ikke romsentrert">
+
+Punktmønsteret ser ut som bcc: ett atom i hvert hjørne og ett i midten av
+kuben. Men fra Cs-atomet er nærmeste nabo et Cl-atom, og fra Cl-atomet et
+Cs-atom, så omgivelsene er ikke identiske. Bravais-testen feiler, gitteret er
+enkelt kubisk, og basisen har to atomer.
+
+</Callout>
+
+<Term name="Diamantstruktur">Diamantstrukturen</Term> er fcc med to like atomer
+i basisen, forskjøvet en kvart romdiagonal. Hvert atom har bare 4 naboer, mot
+12 i fcc, og pakningsgraden er $0{,}34$. Strukturen er altså svært åpen, og det
+er de rettede kovalente bindingene som holder den oppe. Silisium
+og germanium krystalliserer slik, og derfor går strukturen igjen i alt som
+handler om halvledere.
+
+## Miller-indekser
+
+Plan gjennom gitteret navngis med tre heltall $(hkl)$, kalt Miller-indekser.
+
+<Steps>
+
+<Step title="Les av skjæringspunktene">
+
+Finn hvor planet skjærer aksene langs $\vec a_1$, $\vec a_2$ og $\vec a_3$,
+målt i gitterkonstanter. Et plan parallelt med en akse skjærer den aldri; skriv
+$\infty$.
+
+</Step>
+
+<Step title="Inverter">
+
+$h : k : l = 1/x_1 : 1/x_2 : 1/x_3$, med $1/\infty = 0$.
+
+</Step>
+
+<Step title="Reduser til minste heltall">
+
+Behold forholdet. Et negativt tall skrives med strek over: $\bar 1$ betyr $-1$.
+
+</Step>
+
+</Steps>
+
+Planet som skjærer aksene i $2a$, $a$ og $a$ har inverser
+$\tfrac12 : 1 : 1$ og heter $(122)$. Kubens flate normalt på $\vec a_1$
+skjærer i $1$, $\infty$, $\infty$ og heter $(100)$.
+
+$(hkl)$ navngir ikke ett enkelt plan, men en <Term name="Planfamilie">familie</Term>
+av parallelle plan med lik avstand, som til sammen går gjennom alle
+gitterpunktene. Symmetrien gjør i tillegg flere familier likeverdige: kubens
+seks flater er $(100)$, $(010)$, $(001)$, $(\bar100)$, $(0\bar10)$ og
+$(00\bar1)$, og samlingen skrives $\{100\}$.
+
+<Simulation
+  src={"/sims/miller.js"}
+  host={"dom"}
+  title={"Miller-indekser"}
+  caption={"Ringene på aksene er skjæringspunktene. «Hele familien» tegner alle planene i cellen, med avstanden $d$ mellom naboplan."}
+  height={420}
+/>
+
+## Retninger og planavstand
+
+Retninger i krystallen skrives med hakeparenteser:
+<Term name="Krystallretning">$[uvw]$</Term> er retningen
+$u\vec a_1 + v\vec a_2 + w\vec a_3$, redusert til minste heltall på samme måte.
+$\vec a_1$ peker langs $[100]$ og $-\vec a_2$ langs $[0\bar10]$.
+
+I kubiske gitter, og bare der, står retningen $[hkl]$ normalt på planet
+$(hkl)$. Normalen gir også avstanden mellom naboplanene i familien
+(<FormulaRef id="planavstand-kubisk" />).
+
+<Formula tex={"d_{hkl} = \\dfrac{a}{\\sqrt{h^2 + k^2 + l^2}}"} caption={"Planavstanden i kubiske gitter. Høyere indekser gir mindre avstand."} />
+
+<Example title="planavstand i silisium">
+
+Silisium har gitterkonstant $a = 5{,}431$ Å. Hvor langt er det mellom
+naboplanene i $(111)$-familien?
+
+<Solution>
+
+Indeksene inn i <FormulaRef id="planavstand-kubisk" />:
+
+$d_{111} = \dfrac{5{,}431\ \text{Å}}{\sqrt{1^2 + 1^2 + 1^2}} = \dfrac{5{,}431\ \text{Å}}{\sqrt 3} = 3{,}14\ \text{Å}$
+
+Avstanden er kortere enn gitterkonstanten, og slik er det for alle familier
+unntatt $\{100\}$: jo høyere indekser, desto tettere ligger planene.
+
+<Answer>$d_{111} = a/\sqrt3 = 3{,}14$ Å</Answer>
+
+</Solution>
+
+</Example>
+
+## Sjekk deg selv
+
+<Quiz
+  question={"Et plan skjærer aksene i $3a_1$ og $3a_2$ og er parallelt med $\\vec a_3$. Miller-indeksene er …"}
+  options={["$(330)$", "$(110)$", "$(331)$", "$(113)$"]}
+  answer={1}
+  explanation={"Skjæringspunktene er $3, 3, \\infty$, inversene $\\tfrac13 : \\tfrac13 : 0$, og minste heltall med samme forhold er $1 : 1 : 0$."}
+/>
+
+<Quiz
+  question={"CsCl har ett atom i hvert hjørne av kuben og ett i midten. Hvilket Bravais-gitter har strukturen?"}
+  options={["Romsentrert kubisk", "Enkelt kubisk", "Flatesentrert kubisk", "Heksagonalt"]}
+  answer={1}
+  explanation={"Hjørneatomet og senteratomet er ulike grunnstoffer, så de har ulike omgivelser og kan ikke være punkter i samme gitter. Gitteret er enkelt kubisk med basisen Cs $+$ Cl."}
+/>
+
+<SelfCheck question={"Diamantstrukturen har 8 atomer i den konvensjonelle cellen, og nærmeste nabo ligger en kvart romdiagonal unna. Vis at pakningsgraden er $0{,}34$."}>
+
+Naboavstanden er $d = a\sqrt3/4$, så kuleradien er $r = a\sqrt3/8$. Da er
+
+$f = \dfrac{8 \cdot \tfrac43 \pi r^3}{a^3} = \dfrac{32\pi}{3}\left(\dfrac{\sqrt3}{8}\right)^3 = \dfrac{\pi\sqrt3}{16} \approx 0{,}34$
+
+Under halvparten av fcc sine $0{,}74$. Gitteret er det samme, så forskjellen
+ligger i basisen og i hvor store kulene er.
+
+</SelfCheck>
+
+<KeyTakeaways>
+
+- De primitive cellene til bcc og fcc er romboedre med volum $a^3/2$ og $a^3/4$. Kuben er den du regner i.
+- ABAB gir hcp og ABCABC gir fcc. Begge har pakningsgrad $0{,}74$, og tettere kan like kuler ikke pakkes.
+- En struktur angis som gitter pluss basis: CsCl er enkel kubisk med toatomig basis, NaCl er fcc med Na og Cl, diamant er fcc med C i $(0,0,0)$ og $(\tfrac14,\tfrac14,\tfrac14)$.
+- Miller-indekser: skjæringspunkter i gitterkonstanter, inverter, reduser til minste heltall. $0$ betyr parallell med aksen, strek over betyr negativ.
+- $\{hkl\}$ samler familiene symmetrien gjør likeverdige; kubens seks flater er $\{100\}$.
+- I kubiske gitter står $[hkl]$ normalt på $(hkl)$, og $d_{hkl} = a/\sqrt{h^2+k^2+l^2}$.
+
+</KeyTakeaways>

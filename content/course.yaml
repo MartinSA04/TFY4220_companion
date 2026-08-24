@@ -60,10 +60,22 @@ formulas:
     section: Enhetsceller og pakning
     tex: "d_\\text{bcc} = \\dfrac{a\\sqrt{3}}{2}, \\qquad r = \\dfrac{a\\sqrt{3}}{4}"
     label: "Nærmeste naboavstand og hardkuleradius i et romsentrert kubisk gitter. Kulene berører langs <b>romdiagonalen</b>."
+  - id: primitiv-bcc
+    section: Primitive celler i bcc og fcc
+    tex: "\\vec{a}_1 = \\tfrac{a}{2}(\\hat{x}{+}\\hat{y}{-}\\hat{z}), \\quad \\vec{a}_2 = \\tfrac{a}{2}({-}\\hat{x}{+}\\hat{y}{+}\\hat{z}), \\quad \\vec{a}_3 = \\tfrac{a}{2}(\\hat{x}{-}\\hat{y}{+}\\hat{z})"
+    label: "Primitive gittervektorer for bcc, fra et hjørne til tre av romsentrene. Cellen er et romboeder med volum $a^3/2$, halvparten av kuben."
+  - id: primitiv-fcc
+    section: Primitive celler i bcc og fcc
+    tex: "\\vec{a}_1 = \\tfrac{a}{2}(\\hat{x}{+}\\hat{y}), \\quad \\vec{a}_2 = \\tfrac{a}{2}(\\hat{y}{+}\\hat{z}), \\quad \\vec{a}_3 = \\tfrac{a}{2}(\\hat{z}{+}\\hat{x})"
+    label: "Primitive gittervektorer for fcc, fra et hjørne til de tre nærmeste flatesentrene. Cellen er et romboeder med volum $a^3/4$."
   - id: rotasjonsbegrensning
     section: Symmetri
     tex: "2\\cos\\theta = m, \\qquad m \\in \\mathbb{Z}"
     label: "Krystallografisk begrensning. En $n$-tellig akse er bare forenlig med translasjonssymmetri når $2\\cos(2\\pi/n)$ er et heltall. Siden $|2\\cos\\theta| \\le 2$ er $m \\in \\{-2, -1, 0, 1, 2\\}$, altså $n = 1, 2, 3, 4, 6$."
+  - id: planavstand-kubisk
+    section: Retninger og planavstand
+    tex: "d_{hkl} = \\dfrac{a}{\\sqrt{h^2 + k^2 + l^2}}"
+    label: "Avstanden mellom naboplan i familien $(hkl)$ i et kubisk gitter med gitterkonstant $a$. I kubiske gitter står retningen $[hkl]$ normalt på planet $(hkl)$."
 
 glossary:
   - term: Bravais-gitter
@@ -126,6 +138,27 @@ glossary:
   - term: Krystallografisk begrensning
     section: Symmetri
     definition: "Kravet $2\\cos(2\\pi/n) \\in \\mathbb{Z}$. Det følger av at $\\vec D - \\vec C = 2a\\cos\\theta\\,\\hat a$ er en gittervektor parallell med den korteste gittervektoren $\\vec a$, og derfor må være et helt multiplum av den. Bare $n = 1, 2, 3, 4$ og $6$ oppfyller det, så en femtellig eller sjutellig akse er umulig i et gitter."
+  - term: Tettpakking
+    section: Tettpakkede strukturer
+    definition: "Stabling av like kuler med størst mulig pakningsgrad, $\\pi/\\sqrt{18} \\approx 0{,}74$. Hvert lag ligger i fordypningene til laget under; rekkefølgen ABAB gir hcp og ABC gir fcc. At det ikke går tettere, formodet Kepler i 1611, og Hales beviste det i 1998."
+  - term: Heksagonal tettpakking
+    section: Tettpakkede strukturer
+    definition: "Tettpakkingen med stablingsrekkefølgen ABAB, forkortet hcp. Strukturen er det heksagonale Bravais-gitteret med en basis på to atomer, og pakningsgraden er $0{,}74$, samme som i fcc."
+  - term: Diamantstruktur
+    section: Strukturer som gitter pluss basis
+    definition: "fcc-gitteret med en basis på to like atomer, i $(0,0,0)$ og $(\\tfrac14,\\tfrac14,\\tfrac14)$. Hvert atom har 4 naboer, og pakningsgraden er bare $0{,}34$; det er de kovalente bindingene som holder strukturen oppe. Karbon, silisium og germanium krystalliserer slik."
+  - term: Miller-indekser
+    section: Miller-indekser
+    definition: "Tre heltall $(hkl)$ som navngir en familie av gitterplan: les av skjæringspunktene med aksene i gitterkonstanter, inverter og reduser til minste heltall med samme forhold. En indeks $0$ betyr at planet er parallelt med aksen, og strek over betyr negativ, som i $(\\bar{1}00)$."
+  - term: Planfamilie
+    section: Miller-indekser
+    definition: "Alle planene med samme Miller-indekser: parallelle, med lik avstand, og til sammen gjennom alle gitterpunktene. Symmetriekvivalente familier samles i krøllparenteser; kubens seks flater er $\\{100\\}$."
+  - term: Krystallretning
+    section: Retninger og planavstand
+    definition: "Retningen $u\\vec{a}_1 + v\\vec{a}_2 + w\\vec{a}_3$, skrevet $[uvw]$ med minste heltall. $\\vec{a}_1$ peker langs $[100]$ og $-\\vec{a}_2$ langs $[0\\bar{1}0]$. I kubiske gitter står $[hkl]$ normalt på planet $(hkl)$."
+  - term: Planavstand
+    section: Retninger og planavstand
+    definition: "Avstanden $d$ mellom naboplan i en familie. I kubiske gitter er $d_{hkl} = a/\\sqrt{h^2+k^2+l^2}$, så familier med høye indekser ligger tett."
 
 # ── Tidligere eksamener → Eksamen-siden ──────────────────────────────────────
 # Lenker rett til PDF-ene hos NTNU; guiden hoster dem ikke selv. Datoene er lest
