@@ -1,0 +1,273 @@
+---
+order: 3
+title: "Diffraksjon og det resiproke gitteret"
+summary: "Hvorfor det trengs røntgen, elektroner eller nøytroner for å se atomer, Braggs lov for refleksjon fra gitterplan, og det resiproke gitteret som gjør diffraksjonsbildet til et kart over krystallen."
+importance: core
+tag: "Uke 35"
+part: "Del I: Krystallstruktur"
+updated: 2026-08-27
+---
+
+<LearningGoals>
+
+- Velge probe ut fra bølgelengde og hva den spres av: røntgen, elektroner eller nøytroner.
+- Bruke <Term name="Braggs lov">Braggs lov</Term> til å regne ut refleksjonsvinkler og antall ordener (<FormulaRef id="bragg" />).
+- Regne ut <Term name="Spredningsvektor">spredningsvektoren</Term> og lese spredningsamplituden som en Fourier-transform (<FormulaRef id="spredningsamplitude" />).
+- Konstruere det <Term name="Resiprokt gitter">resiproke gitteret</Term> til et gitt Bravais-gitter (<FormulaRef id="resiproke-vektorer" />).
+- Bruke <Term name="Diffraksjonsbetingelsen">diffraksjonsbetingelsen</Term> $\vec Q = \vec G$ og vise at den er Braggs lov (<FormulaRef id="laue-betingelse" />).
+- Finne planavstander fra den resiproke gittervektoren (<FormulaRef id="planavstand-G" />).
+
+</LearningGoals>
+
+## Røntgen, elektroner og nøytroner
+
+Gitrene og planene har så langt vært geometri. Kunnskapen om virkelige
+krystallstrukturer kommer fra diffraksjon, og diffraksjon krever en bølgelengde
+som passer til avstandene den skal måle. Typisk avstand mellom naboatomer er
+noen få ångstrøm. Synlig lys har bølgelengder på 400 til 700 nm, og
+oppløsningsgrensen på omtrent $\lambda/2$ ligger dermed flere tusen ångstrøm
+over det som trengs. Tre prober når ned til atomær skala.
+
+<Table
+  columns={["Probe", "Typisk $\\lambda$", "Kilde", "Spres av"]}
+  rows={[
+    ["Røntgen", "$\\sim 1$ Å", "røntgenrør, synkrotron", "elektrontettheten"],
+    ["Elektroner", "$< 1$ Å (de Broglie)", "glødetråd med akselerasjonsspenning", "elektroner og kjerner"],
+    ["Nøytroner", "$\\sim 1$ Å", "reaktor", "kjernene"],
+  ]}
+  caption="Tre prober med bølgelengde på atomær skala. De spres av hver sin del av atomet, så metodene utfyller hverandre."
+/>
+
+For alle tre virker atomene i krystallen som et diffraksjonsgitter: det spredte
+signalet samler seg i skarpe reflekser, og av refleksene kan strukturen leses
+ut.
+
+## Braggs lov
+
+Den eldste beskrivelsen av røntgendiffraksjon er Braggs. En krystall inneholder
+familier av parallelle plan med lik avstand $d$
+(<Term name="Planfamilie">planfamiliene</Term>), og hvert plan reflekterer en
+liten del av strålen speilende, med samme vinkel ut som inn. Strålen som
+reflekteres fra naboplanet under, går et stykke lenger: $d\sin\theta$ ned til
+planet og $d\sin\theta$ opp igjen. Refleksen oppstår der bidragene fra alle
+planene er i fase.
+
+<Statement kind="law" name="Braggs lov">
+
+Refleksjon fra en planfamilie med avstand $d$ er konstruktiv når
+gangforskjellen mellom naboplan er et helt antall bølgelengder:
+$2d\sin\theta = n\lambda$. Vinkelen $\theta$ måles mellom strålen og planet.
+
+</Statement>
+
+<Formula tex={"2d\\sin\\theta = n\\lambda"} caption={"Braggs lov. Heltallet $n$ er refleksjonens orden."} />
+
+Refleksjon skjer bare ved bestemte vinkler, og $\sin\theta \le 1$ setter et
+tak: en planfamilie gir høyst $2d/\lambda$ ordener. Er $\lambda$ større enn
+$2d$, finnes ingen løsning i det hele tatt, og det er grunnen til at synlig lys
+aldri viser gitterdiffraksjon.
+
+<Simulation
+  src={"/sims/bragg.js"}
+  host={"dom"}
+  title={"Braggs lov"}
+  caption={"Strålen fra naboplanet går de to markerte stykkene lenger, til sammen $2d\\sin\\theta$. Søylen nederst måler gangforskjellen i bølgelengder, og refleksen tennes når den treffer et helt antall."}
+  height={380}
+/>
+
+<Example title="refleksene fra grafitt">
+
+Karbonlagene i grafitt ligger med avstand $d = 3{,}35$ Å, og et røntgenrør med
+kobberanode gir $\lambda = 1{,}54$ Å. Detektoren står i vinkelen $2\theta$ fra
+den direkte strålen. Hvor finner den refleksene fra lagene, og hvor mange er
+det?
+
+<Solution>
+
+Løs Braggs lov for vinkelen:
+
+$\sin\theta = \dfrac{n\lambda}{2d} = n \cdot \dfrac{1{,}54\ \text{Å}}{2 \cdot 3{,}35\ \text{Å}} = 0{,}230\,n$
+
+For $n = 1$ er $\theta = 13{,}3^\circ$, så refleksen står i $2\theta = 26{,}6^\circ$.
+$n = 2$, $3$ og $4$ gir på samme måte $2\theta = 54{,}7^\circ$, $87{,}2^\circ$
+og $133{,}6^\circ$. For $n = 5$ måtte $\sin\theta$ vært $1{,}15$, og det finnes
+ikke. Familien gir nøyaktig fire reflekser.
+
+<Answer>$2\theta = 26{,}6^\circ$, $54{,}7^\circ$, $87{,}2^\circ$ og $133{,}6^\circ$; fire ordener</Answer>
+
+</Solution>
+
+</Example>
+
+## Spredningsvektoren
+
+Braggs lov gir vinklene, men sier ingenting om hvor sterke refleksene blir, og
+den forklarer ikke hvorfor plan av matematiske punkter skulle reflektere noe
+som helst. Begge deler krever spredningsteori.
+
+<Term name="Kinematisk diffraksjonsteori">Kinematisk diffraksjonsteori</Term>
+gjør to antakelser. Spredningen er elastisk, så innkommende og spredt bølge
+har samme bølgelengde, og hver bølge spres høyst én gang i prøven. En planbølge
+beskrives av bølgevektoren $\vec k$, som peker langs utbredelsesretningen og
+har lengde $k = 2\pi/\lambda$. Inn kommer $\vec k_i$, ut går $\vec k_f$, med
+$|\vec k_f| = |\vec k_i|$.
+
+Endringen samles i <Term name="Spredningsvektor">spredningsvektoren</Term>
+$\vec Q = \vec k_f - \vec k_i$. De to bølgevektorene er like lange og spenner
+vinkelen $2\theta$, så geometrien gir $|\vec Q| = 2k\sin\theta$.
+
+<Formula tex={"\\vec{Q} = \\vec{k}_f - \\vec{k}_i, \\qquad |\\vec{Q}| = \\dfrac{4\\pi}{\\lambda}\\sin\\theta"} caption={"Spredningsvektoren. $2\\theta$ er vinkelen mellom innfallende og spredt stråle."} />
+
+Et volumelement $\mathrm{d}V$ i posisjon $\vec r$ sprer med amplitude
+proporsjonal med tettheten $\rho(\vec r)$ der, og bidraget kommer fram med en
+faseforskjell $\vec Q \cdot \vec r$ relativt til origo. Summen over hele prøven
+er
+
+<Formula tex={"F(\\vec{Q}) = \\int \\rho(\\vec{r})\\, e^{i\\vec{Q}\\cdot\\vec{r}}\\, \\mathrm{d}V"} caption={"Spredningsamplituden er Fourier-transformen av spredningstettheten."} />
+
+Hva <Term name="Spredningstetthet">spredningstettheten</Term> $\rho$ er,
+avhenger av proben: elektrontettheten for røntgen, kjernene for nøytroner og
+begge deler for elektroner. Detektoren måler ikke $F$, men intensiteten
+$I \propto |F(\vec Q)|^2$. Absoluttverdien beholdes, fasen går tapt.
+
+## Det resiproke gitteret
+
+Krystallens tetthet er gitterperiodisk: $\rho(\vec r + \vec R) = \rho(\vec r)$
+for alle gittervektorer $\vec R$. Se først på én dimensjon. En funksjon med
+periode $a$ kan skrives som en Fourier-rekke, og rekka inneholder bare
+bølgetallene $k = 2\pi n/a$; alle andre bryter periodisiteten. Disse punktene
+er selv et gitter på $k$-aksen, med avstand $2\pi/a$: Fourier-transformen av et
+gitter er et nytt gitter, og stor gitterkonstant gir kort avstand $2\pi/a$.
+
+I tre dimensjoner heter det nye gitteret det
+<Term name="Resiprokt gitter">resiproke gitteret</Term>.
+
+<Statement kind="definition" name="Det resiproke gitteret">
+
+Det resiproke gitteret til et Bravais-gitter er mengden av vektorer $\vec G$
+som oppfyller $e^{i\vec G \cdot \vec R} = 1$, altså
+$\vec G \cdot \vec R = 2\pi \cdot \text{heltall}$, for alle gittervektorer
+$\vec R$. En planbølge $e^{i\vec G \cdot \vec r}$ har da gitterets fulle
+periodisitet.
+
+</Statement>
+
+Kravet løses av $\vec G = m_1\vec b_1 + m_2\vec b_2 + m_3\vec b_3$ med
+heltallige $m_i$, der de primitive vektorene konstrueres fra de direkte:
+
+<Formula tex={"\\vec{b}_1 = 2\\pi\\,\\dfrac{\\vec{a}_2 \\times \\vec{a}_3}{\\vec{a}_1 \\cdot (\\vec{a}_2 \\times \\vec{a}_3)}"} caption={"Konstruksjonen av $\\vec b_1$; $\\vec b_2$ og $\\vec b_3$ følger syklisk. Nevneren er volumet av den primitive cellen."} />
+
+Kryssproduktet sørger for at $\vec b_1$ står normalt på både $\vec a_2$ og
+$\vec a_3$, og normeringen gir $\vec a_i \cdot \vec b_j = 2\pi\delta_{ij}$. Da
+er $\vec G \cdot \vec R = 2\pi(n_1 m_1 + n_2 m_2 + n_3 m_3)$, et helt
+multiplum av $2\pi$ for hvert eneste par. Det resiproke gitteret er selv et
+Bravais-gitter; det ligger i $k$-rommet, og lengdene måles i inverse meter. For
+enkel kubisk med kant $a$ peker $\vec b_i$ langs aksene med lengde $2\pi/a$,
+så det resiproke gitteret er også enkelt kubisk.
+
+<Simulation
+  src={"/sims/resiprok.js"}
+  host={"dom"}
+  title={"Direkte og resiprokt gitter"}
+  caption={"Du styrer det direkte gitteret, og det resiproke svarer. $\\vec b_1$ står normalt på $\\vec a_2$, og lange avstander i det ene gitteret er korte i det andre."}
+  height={380}
+/>
+
+Fourier-rekka for tettheten løper dermed over resiproke gittervektorer:
+
+<Formula tex={"\\rho(\\vec{r}) = \\sum_{\\vec{G}} \\rho_{\\vec{G}}\\, e^{i\\vec{G}\\cdot\\vec{r}}"} caption={"Den gitterperiodiske tettheten som Fourier-rekke, med én koeffisient $\\rho_{\\vec G}$ per resiprokt gitterpunkt."} />
+
+## Diffraksjonsbetingelsen
+
+Sett rekka inn i spredningsamplituden:
+
+$$F(\vec Q) = \sum_{\vec G} \rho_{\vec G} \int e^{i(\vec G - \vec Q)\cdot\vec r}\, \mathrm{d}V$$
+
+Integranden er en planbølge som svinger rundt null, så integralet over en stor
+prøve forsvinner, unntatt når eksponenten er null. Treffer $\vec Q$ en resiprok
+gittervektor, er integranden 1 overalt, og amplituden blir $V\rho_{\vec G}$.
+
+<Statement kind="theorem" name="Diffraksjonsbetingelsen">
+
+Sterk spredning skjer bare når spredningsvektoren treffer det resiproke
+gitteret: $\vec Q = \vec G$. Betingelsen kalles også Laue-betingelsen, og
+komponentvis er den de tre Laue-ligningene
+$\vec a_i \cdot \vec Q = 2\pi m_i$.
+
+</Statement>
+
+Et diffraksjonsbilde er dermed et kart over krystallens resiproke gitter: hver
+refleks er ett resiprokt gitterpunkt, avlest i $\vec Q$. Slik ble strukturer
+bestemt lenge før noen kunne avbilde atomer direkte, og slik viste
+diffraksjonsbildet fra DNA-fibre dobbeltheliksen i 1953.
+
+Braggs lov følger av betingelsen. Vektoren
+$\vec G_{hkl} = h\vec b_1 + k\vec b_2 + l\vec b_3$ står normalt på
+planfamilien $(hkl)$, og den korteste i den retningen gir planavstanden:
+
+<Formula tex={"d_{hkl} = \\dfrac{2\\pi}{|\\vec{G}_{hkl}|}"} caption={"Planavstanden fra den korteste resiproke gittervektoren normalt på familien. Gjelder i alle gitre."} />
+
+Elastisk spredning gir $|\vec Q| = (4\pi/\lambda)\sin\theta$, og
+$\vec Q = n\vec G_{hkl}$ krever da
+
+$$\frac{4\pi}{\lambda}\sin\theta = n\,\frac{2\pi}{d_{hkl}} \quad\Longleftrightarrow\quad 2d_{hkl}\sin\theta = n\lambda$$
+
+Bragg og Laue er samme betingelse: refleksjon fra planfamilien $(hkl)$ i orden
+$n$ er diffraksjon på det resiproke gitterpunktet $n\vec G_{hkl}$.
+
+## Krystallen som konvolusjon
+
+Tettheten i en krystall kan deles i to, på samme måte som strukturen selv: et
+gitter av deltafunksjoner, én på hvert gitterpunkt,
+<Term name="Konvolusjon">konvolvert</Term> med basisens tetthet. Konvolusjonen
+stempler basisen ut på hvert gitterpunkt, og det er nøyaktig hva «gitter pluss
+basis» betyr.
+
+Konvolusjonsteoremet sier at Fourier-transformen av en konvolusjon er
+produktet av transformene. Amplituden faktoriserer derfor i to deler:
+transformen av gitteret, som er deltafunksjoner på de resiproke gitterpunktene
+og bestemmer hvor refleksene kan stå, og transformen av basisen, som bestemmer
+hvor sterk hver enkelt refleks blir.
+
+Samme teorem forklarer hvorfor målte reflekser aldri er uendelig skarpe:
+instrumentet måler det sanne signalet konvolvert med sin egen
+oppløsningsfunksjon, så hver topp arver en bredde fra apparatet.
+
+## Sjekk deg selv
+
+<Quiz
+  question={"Gitterkonstanten i et enkelt kubisk gitter dobles. Hva skjer med det resiproke gitteret?"}
+  options={["Avstandene dobles", "Avstandene halveres", "Det er uendret", "Det roterer $45^\\circ$"]}
+  answer={1}
+  explanation={"Det resiproke gitteret til enkel kubisk med kant $a$ er enkelt kubisk med kant $2\\pi/a$. Dobles $a$, halveres $2\\pi/a$: store avstander i det direkte gitteret er små i det resiproke."}
+/>
+
+<Quiz
+  question={"En planfamilie har $d = 2{,}0$ Å og bestråles med $\\lambda = 1{,}54$ Å. Hvor mange refleksjonsordener gir familien?"}
+  options={["1", "2", "3", "Uendelig mange"]}
+  answer={1}
+  explanation={"$\\sin\\theta = n \\cdot 1{,}54/(2 \\cdot 2{,}0) = 0{,}385\\,n$. Både $n = 1$ og $n = 2$ gir $\\sin\\theta$ under 1, mens $n = 3$ ville krevd $1{,}16$. To ordener."}
+/>
+
+<SelfCheck question={"Bruk $d_{hkl} = 2\\pi/|\\vec G_{hkl}|$ til å utlede planavstandsformelen for kubiske gitter."}>
+
+For enkel kubisk med kant $a$ er $\vec b_1 = (2\pi/a)\hat x$,
+$\vec b_2 = (2\pi/a)\hat y$ og $\vec b_3 = (2\pi/a)\hat z$. Da er
+
+$|\vec G_{hkl}| = \dfrac{2\pi}{a}\sqrt{h^2 + k^2 + l^2}$
+
+og dermed $d_{hkl} = 2\pi/|\vec G_{hkl}| = a/\sqrt{h^2 + k^2 + l^2}$, samme
+formel som Miller-indeksene ga (<FormulaRef id="planavstand-kubisk" />).
+
+</SelfCheck>
+
+<KeyTakeaways>
+
+- Synlig lys er flere tusen ganger for grovt for atomavstander. Røntgen, elektroner og nøytroner har $\lambda \sim 1$ Å og spres av hver sin del av atomet.
+- Braggs lov $2d\sin\theta = n\lambda$: naboplan reflekterer med gangforskjell $2d\sin\theta$, og $\sin\theta \le 1$ gir et endelig antall ordener.
+- $\vec Q = \vec k_f - \vec k_i$ med $|\vec Q| = (4\pi/\lambda)\sin\theta$. Amplituden $F(\vec Q)$ er Fourier-transformen av spredningstettheten, og detektoren måler $I \propto |F|^2$.
+- Det resiproke gitteret er alle $\vec G$ med $\vec G \cdot \vec R = 2\pi \cdot$ heltall. Det er selv et Bravais-gitter, med $\vec a_i \cdot \vec b_j = 2\pi\delta_{ij}$, og et stort direkte gitter gir et lite resiprokt.
+- Diffraksjonsbetingelsen $\vec Q = \vec G$ er Braggs lov i vektorform, og et diffraksjonsbilde er et kart over det resiproke gitteret.
+- $d_{hkl} = 2\pi/|\vec G_{hkl}|$, som i kubiske gitter gir $a/\sqrt{h^2+k^2+l^2}$. Refleksenes posisjoner kommer fra gitteret, styrkene fra basisen.
+
+</KeyTakeaways>

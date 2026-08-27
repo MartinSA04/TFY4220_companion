@@ -76,6 +76,34 @@ formulas:
     section: Retninger og planavstand
     tex: "d_{hkl} = \\dfrac{a}{\\sqrt{h^2 + k^2 + l^2}}"
     label: "Avstanden mellom naboplan i familien $(hkl)$ i et kubisk gitter med gitterkonstant $a$. I kubiske gitter står retningen $[hkl]$ normalt på planet $(hkl)$."
+  - id: bragg
+    section: Braggs lov
+    tex: "2d\\sin\\theta = n\\lambda"
+    label: "Braggs lov. Konstruktiv refleksjon fra en planfamilie med avstand $d$; vinkelen $\\theta$ måles fra <b>planet</b>, ikke fra normalen, og heltallet $n$ er refleksjonens orden. Siden $\\sin\\theta \\le 1$ finnes bare et endelig antall ordener."
+  - id: spredningsvektor
+    section: Spredningsvektoren
+    tex: "\\vec{Q} = \\vec{k}_f - \\vec{k}_i, \\qquad |\\vec{Q}| = \\dfrac{4\\pi}{\\lambda}\\sin\\theta"
+    label: "Spredningsvektoren. Ved elastisk spredning er $|\\vec{k}_f| = |\\vec{k}_i| = 2\\pi/\\lambda$, og $2\\theta$ er vinkelen mellom innfallende og spredt stråle."
+  - id: spredningsamplitude
+    section: Spredningsvektoren
+    tex: "F(\\vec{Q}) = \\int \\rho(\\vec{r})\\, e^{i\\vec{Q}\\cdot\\vec{r}}\\, \\mathrm{d}V"
+    label: "Spredningsamplituden: bidraget fra hvert volumelement, summert med faseforskjellen $\\vec{Q}\\cdot\\vec{r}$. Dette er Fourier-transformen av spredningstettheten. Detektoren måler intensiteten $I \\propto |F|^2$, så fasen går tapt."
+  - id: fourier-tetthet
+    section: Det resiproke gitteret
+    tex: "\\rho(\\vec{r}) = \\sum_{\\vec{G}} \\rho_{\\vec{G}}\\, e^{i\\vec{G}\\cdot\\vec{r}}"
+    label: "En gitterperiodisk tetthet skrevet som Fourier-rekke. Bare bølgevektorer på det resiproke gitteret bidrar; alle andre bryter periodisiteten $\\rho(\\vec{r} + \\vec{R}) = \\rho(\\vec{r})$."
+  - id: resiproke-vektorer
+    section: Det resiproke gitteret
+    tex: "\\vec{b}_1 = 2\\pi\\,\\dfrac{\\vec{a}_2 \\times \\vec{a}_3}{\\vec{a}_1 \\cdot (\\vec{a}_2 \\times \\vec{a}_3)} \\;\\; \\text{(og syklisk)}, \\qquad \\vec{a}_i \\cdot \\vec{b}_j = 2\\pi\\,\\delta_{ij}"
+    label: "De primitive vektorene for det resiproke gitteret. $\\vec{b}_1$ står normalt på både $\\vec{a}_2$ og $\\vec{a}_3$, og lengden skalerer som $2\\pi$ delt på en gitteravstand: et stort direkte gitter gir et lite resiprokt."
+  - id: laue-betingelse
+    section: Diffraksjonsbetingelsen
+    tex: "\\vec{Q} = \\vec{G}"
+    label: "Diffraksjonsbetingelsen (Laue): sterk spredning bare når spredningsvektoren treffer et resiprokt gitterpunkt. Da er $F = V\\rho_{\\vec{G}}$; ellers er $F \\approx 0$. Ekvivalent med Braggs lov."
+  - id: planavstand-G
+    section: Diffraksjonsbetingelsen
+    tex: "d_{hkl} = \\dfrac{2\\pi}{|\\vec{G}_{hkl}|}, \\qquad \\vec{G}_{hkl} = h\\vec{b}_1 + k\\vec{b}_2 + l\\vec{b}_3"
+    label: "$\\vec{G}_{hkl}$ står normalt på planfamilien $(hkl)$, og den korteste slike gir planavstanden. Gjelder i alle gitre; i kubiske reduseres den til $d_{hkl} = a/\\sqrt{h^2+k^2+l^2}$."
 
 glossary:
   - term: Bravais-gitter
@@ -159,6 +187,27 @@ glossary:
   - term: Planavstand
     section: Retninger og planavstand
     definition: "Avstanden $d$ mellom naboplan i en familie. I kubiske gitter er $d_{hkl} = a/\\sqrt{h^2+k^2+l^2}$, så familier med høye indekser ligger tett."
+  - term: Braggs lov
+    section: Braggs lov
+    definition: "Kravet $2d\\sin\\theta = n\\lambda$ for konstruktiv refleksjon fra en familie av parallelle plan med avstand $d$. Planene virker som svake speil, og gangforskjellen mellom naboplan er $2d\\sin\\theta$. Siden $\\sin\\theta \\le 1$ gir hver planfamilie bare et endelig antall refleksjonsordener $n$."
+  - term: Kinematisk diffraksjonsteori
+    section: Spredningsvektoren
+    definition: "Diffraksjonsteorien som antar at hver bølge spres høyst én gang i prøven, og at spredningen er elastisk. Da kan bidragene fra alle volumelementene summeres med hver sin fase, og amplituden er Fourier-transformen av spredningstettheten."
+  - term: Spredningsvektor
+    section: Spredningsvektoren
+    definition: "Endringen i bølgevektor ved spredningen, $\\vec{Q} = \\vec{k}_f - \\vec{k}_i$. Elastisk spredning gir $|\\vec{Q}| = (4\\pi/\\lambda)\\sin\\theta$, der $2\\theta$ er vinkelen mellom strålene. Diffraksjonsbildet leses som funksjon av $\\vec{Q}$."
+  - term: Spredningstetthet
+    section: Spredningsvektoren
+    definition: "Tettheten $\\rho(\\vec{r})$ som sprer bølgen: elektrontettheten for røntgen, kjernene for nøytroner og begge deler for elektroner. Valget av probe avgjør derfor hva et eksperiment ser."
+  - term: Resiprokt gitter
+    section: Det resiproke gitteret
+    definition: "Mengden av vektorer $\\vec{G}$ med $e^{i\\vec{G}\\cdot\\vec{R}} = 1$, altså $\\vec{G}\\cdot\\vec{R} = 2\\pi \\cdot \\text{heltall}$, for alle gittervektorer $\\vec{R}$. Det er selv et Bravais-gitter i $k$-rommet, generert av $\\vec{b}_1, \\vec{b}_2, \\vec{b}_3$, og store avstander i det direkte gitteret gir små i det resiproke."
+  - term: Diffraksjonsbetingelsen
+    section: Diffraksjonsbetingelsen
+    definition: "Betingelsen $\\vec{Q} = \\vec{G}$, også kalt Laue-betingelsen: spredningsamplituden er null med mindre spredningsvektoren er en resiprok gittervektor. Komponentvis er den de tre Laue-ligningene $\\vec{a}_i \\cdot \\vec{Q} = 2\\pi m_i$. Ekvivalent med Braggs lov."
+  - term: Konvolusjon
+    section: Krystallen som konvolusjon
+    definition: "Integralet $(f \\circledast g)(x) = \\int f(x')\\, g(x - x')\\, \\mathrm{d}x'$: den ene funksjonen stemples ut på hvert punkt av den andre. En krystalltetthet er gitteret konvolvert med basisens tetthet, og konvolusjonsteoremet $\\mathcal{F}(f \\circledast g) = \\mathcal{F}(f) \\cdot \\mathcal{F}(g)$ sier at transformen da faktoriserer."
 
 # ── Tidligere eksamener → Eksamen-siden ──────────────────────────────────────
 # Lenker rett til PDF-ene hos NTNU; guiden hoster dem ikke selv. Datoene er lest
