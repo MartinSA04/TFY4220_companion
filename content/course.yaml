@@ -105,6 +105,31 @@ formulas:
     tex: "d_{hkl} = \\dfrac{2\\pi}{|\\vec{G}_{hkl}|}, \\qquad \\vec{G}_{hkl} = h\\vec{b}_1 + k\\vec{b}_2 + l\\vec{b}_3"
     label: "$\\vec{G}_{hkl}$ står normalt på planfamilien $(hkl)$, og den korteste slike gir planavstanden. Gjelder i alle gitre; i kubiske reduseres den til $d_{hkl} = a/\\sqrt{h^2+k^2+l^2}$."
 
+  - id: pulver-kubisk
+    section: Diffraksjonsmetoder
+    tex: "\\sin^2\\theta = \\dfrac{\\lambda^2}{4a^2}\\left(h^2 + k^2 + l^2\\right)"
+    label: "Ringvinklene i et pulverbilde av et kubisk gitter, fra Braggs lov med $d_{hkl} = a/\\sqrt{h^2+k^2+l^2}$. Ringene ligger etter $h^2+k^2+l^2$, og hvilke som faktisk vises, avgjør strukturfaktoren."
+  - id: strukturfaktor
+    section: Strukturfaktoren
+    tex: "S_{hkl} = \\sum_j f_j\\, e^{2\\pi i (hx_j + ky_j + lz_j)}"
+    label: "Strukturfaktoren: summen over atomene i basisen, hvert med sin atomformfaktor $f_j$ og fasen fra posisjonen $(x_j, y_j, z_j)$ i relative koordinater. Amplituden fra hele krystallen er $N$ celler ganger $S$, og intensiteten er $I \\propto |S_{hkl}|^2$."
+  - id: formfaktor
+    section: Strukturfaktoren
+    tex: "f_j(\\vec{Q}) = \\int \\rho_j(\\vec{r})\\, e^{i\\vec{Q}\\cdot\\vec{r}}\\, \\mathrm{d}V"
+    label: "Atomformfaktoren: Fourier-transformen av elektrontettheten i ett atom. Den er lik antall elektroner for $\\vec Q = 0$ og avtar med økende $|\\vec Q|$, så reflekser ved store vinkler er svakere."
+  - id: strukturfaktor-bcc
+    section: Systematiske utslukkinger
+    tex: "\\begin{aligned} S_{hkl} &= f\\left[1 + e^{i\\pi(h+k+l)}\\right] \\\\ &= \\begin{cases} 2f & h+k+l \\text{ partall} \\\\ 0 & h+k+l \\text{ oddetall} \\end{cases} \\end{aligned}"
+    label: "Strukturfaktoren for bcc regnet i den konvensjonelle kuben, med like atomer i $(0,0,0)$ og $(\\tfrac12,\\tfrac12,\\tfrac12)$. Utvalgsregel: bare reflekser med $h+k+l$ partall."
+  - id: strukturfaktor-fcc
+    section: Systematiske utslukkinger
+    tex: "\\begin{aligned} S_{hkl} &= f\\bigl[1 + e^{i\\pi(h+k)} \\\\ &\\qquad + e^{i\\pi(h+l)} + e^{i\\pi(k+l)}\\bigr] \\end{aligned}"
+    label: "Strukturfaktoren for fcc i den konvensjonelle kuben, med atomer i $(0,0,0)$, $(\\tfrac12,\\tfrac12,0)$, $(\\tfrac12,0,\\tfrac12)$ og $(0,\\tfrac12,\\tfrac12)$. Den er $4f$ når $h, k, l$ er alle partall eller alle oddetall, og $0$ ellers."
+  - id: brillouin-betingelse
+    section: Brillouin-soner
+    tex: "\\vec{k}\\cdot\\tfrac{1}{2}\\vec{G} = \\left(\\tfrac{1}{2}G\\right)^2"
+    label: "Diffraksjonsbetingelsen $\\vec Q = \\vec G$ skrevet om for den innfallende bølgevektoren. Den er oppfylt for alle $\\vec k$ som ender på planet som halverer $\\vec G$ normalt, og disse planene er grensene til Brillouin-sonene."
+
 glossary:
   - term: Bravais-gitter
     section: Gitter og basis
@@ -208,6 +233,30 @@ glossary:
   - term: Konvolusjon
     section: Krystallen som konvolusjon
     definition: "Integralet $(f \\circledast g)(x) = \\int f(x')\\, g(x - x')\\, \\mathrm{d}x'$: den ene funksjonen stemples ut på hvert punkt av den andre. En krystalltetthet er gitteret konvolvert med basisens tetthet, og konvolusjonsteoremet $\\mathcal{F}(f \\circledast g) = \\mathcal{F}(f) \\cdot \\mathcal{F}(g)$ sier at transformen da faktoriserer."
+  - term: Ewald-kule
+    section: Ewald-kulen
+    definition: "Kulen med radius $k = 2\\pi/\\lambda$ om halen til $\\vec k_i$, tegnet i det resiproke rommet med spissen av $\\vec k_i$ i origo. Hvert resiprokt gitterpunkt på kuleflaten gir en refleks, for da er $\\vec k_f - \\vec k_i$ en resiprok gittervektor med $|\\vec k_f| = |\\vec k_i|$. Punkter med $|\\vec G| > 2k$ kan aldri gi refleks."
+  - term: Laue-metoden
+    section: Diffraksjonsmetoder
+    definition: "Diffraksjon fra en énkrystall i ro, bestrålt med et kontinuerlig spekter. Hver bølgelengde har sin egen Ewald-kule gjennom origo, og alle resiproke gitterpunkter mellom den minste og den største kulen gir refleks. Bildet viser krystallens symmetri direkte."
+  - term: Pulverdiffraksjon
+    section: Diffraksjonsmetoder
+    definition: "Diffraksjon fra et pulver av små krystallkorn i alle orienteringer, også kalt Debye-Scherrer-metoden. Hvert $\\vec G$ smøres ut til en kuleflate med radius $|\\vec G|$, snittet med Ewald-kulen er en sirkel, og de spredte strålene danner en kjegle med halv toppvinkel $2\\theta$. Resultatet er ringer, avlest som intensitet mot $2\\theta$."
+  - term: Faseproblemet
+    section: Faseproblemet
+    definition: "Detektoren måler $|F(\\vec Q)|^2$, og fasen til $F$ går tapt fordi den svinger med strålingens frekvens. Tettheten kan derfor ikke regnes ut direkte ved å transformere målingen tilbake. Strukturen bestemmes ved å regne ut $|S_{hkl}|^2$ for en modell og sammenligne med de målte intensitetene."
+  - term: Strukturfaktor
+    section: Strukturfaktoren
+    definition: "Summen $S_{hkl} = \\sum_j f_j e^{2\\pi i(hx_j + ky_j + lz_j)}$ over atomene i basisen, med posisjonene i relative koordinater. Den bestemmer styrken til refleksen $(hkl)$: $F = NS_{hkl}$ og $I \\propto |S_{hkl}|^2$. Den faktoriserer alltid i en faktor for gitteret og en for basisen."
+  - term: Atomformfaktor
+    section: Strukturfaktoren
+    definition: "Spredningsamplituden fra ett atom, $f_j(\\vec Q) = \\int \\rho_j e^{i\\vec Q\\cdot\\vec r}\\,\\mathrm{d}V$. For røntgen er den lik antall elektroner ved $\\vec Q = 0$ og avtar med $|\\vec Q|$. Tunge atomer dominerer derfor et røntgenbilde, og hydrogen er nesten usynlig."
+  - term: Systematisk utslukking
+    section: Systematiske utslukkinger
+    definition: "En refleks som oppfyller $\\vec Q = \\vec G$, men likevel mangler fordi strukturfaktoren er null: bidragene fra atomene i basisen er i motfase. Regelen for hvilke $(hkl)$ som overlever, kalles utvalgsregelen; for bcc er den $h+k+l$ partall, for fcc at $h, k, l$ er alle partall eller alle oddetall."
+  - term: Brillouin-sone
+    section: Brillouin-soner
+    definition: "Den første Brillouin-sonen er Wigner-Seitz-cellen til det resiproke gitteret: alle $\\vec k$ som ligger nærmere origo enn noe annet resiprokt gitterpunkt. Grensene er planene som halverer vektorene $\\vec G$ normalt, og en bølge med $\\vec k$ på grensen oppfyller diffraksjonsbetingelsen. For fcc er sonen et avkuttet oktaeder, for bcc et rombedodekaeder."
 
 # ── Tidligere eksamener → Eksamen-siden ──────────────────────────────────────
 # Lenker rett til PDF-ene hos NTNU; guiden hoster dem ikke selv. Datoene er lest

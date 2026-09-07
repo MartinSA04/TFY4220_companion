@@ -1,0 +1,381 @@
+---
+order: 4
+title: "Ewald-kulen, strukturfaktoren og Brillouin-soner"
+summary: "Ewald-kulen som viser hvilke reflekser en krystall gir, de tre metodene for å samle et diffraksjonsbilde, strukturfaktoren som avgjør hvilke reflekser som mangler, og den første Brillouin-sonen."
+importance: core
+tag: "Uke 36"
+part: "Del I: Krystallstruktur"
+updated: 2026-09-07
+---
+
+<LearningGoals>
+
+- Tegne <Term name="Ewald-kule">Ewald-kulen</Term> og lese av hvilke resiproke gitterpunkter som gir refleks.
+- Forklare hva som varieres i roterende krystall, <Term name="Laue-metoden">Laue-metoden</Term> og <Term name="Pulverdiffraksjon">pulverdiffraksjon</Term>, og regne ut ringvinklene i et pulverbilde (<FormulaRef id="pulver-kubisk" />).
+- Skrive ned <Term name="Strukturfaktor">strukturfaktoren</Term> for en gitt basis og bruke $I \propto |S_{hkl}|^2$ (<FormulaRef id="strukturfaktor" />).
+- Utlede utvalgsreglene for bcc og fcc, og forklare hvorfor CsCl har svake reflekser der bcc ikke har noen.
+- Konstruere den første <Term name="Brillouin-sone">Brillouin-sonen</Term> og forklare hvorfor bølger med $\vec k$ på sonegrensen blir diffraktert (<FormulaRef id="brillouin-betingelse" />).
+
+</LearningGoals>
+
+## Ewald-kulen
+
+Diffraksjonsbetingelsen $\vec Q = \vec G$ sier når en refleks oppstår, men
+ikke hvor mange reflekser en krystall gir for en gitt stråle. Det svarer
+Ewald-konstruksjonen på. Den tegnes i det resiproke rommet.
+
+<Steps>
+<Step title="Tegn det resiproke gitteret">
+Origo er et gitterpunkt.
+</Step>
+<Step title="Tegn $\vec k_i$ med spissen i origo">
+Den innfallende bølgevektoren har lengde $k = 2\pi/\lambda$.
+</Step>
+<Step title="Slå en kule med radius $k$ om halen til $\vec k_i$">
+Kulen går gjennom origo. I to dimensjoner er den en sirkel.
+</Step>
+<Step title="Les av punktene på kuleflaten">
+Hvert resiprokt gitterpunkt på kulen gir en refleks. Vektoren fra kulens
+sentrum til punktet er $\vec k_f$: den har riktig lengde, og
+$\vec k_f - \vec k_i = \vec G$ er en resiprok gittervektor. Vinkelen mellom
+$\vec k_i$ og $\vec k_f$ er $2\theta$.
+</Step>
+</Steps>
+
+Kulen har diameter $2k = 4\pi/\lambda$, så punkter med
+$|\vec G| > 4\pi/\lambda$ kan aldri gi refleks, uansett hvordan krystallen
+dreies. Det er det samme taket som $\sin\theta \le 1$ setter i Braggs lov.
+For en krystall i ro, belyst med én bølgelengde, ligger som regel ingen
+punkter nøyaktig på kulen. En tilfeldig orientering gir derfor ingen reflekser
+i det hele tatt, og et eksperiment må bringe punkter inn på kuleflaten.
+
+## Diffraksjonsmetoder
+
+Punkter kommer inn på kulen på tre måter: krystallen dreies, kulen endrer
+størrelse, eller prøven inneholder alle orienteringer på én gang.
+
+<Table
+  columns={["Metode", "Hva varieres", "Bilde"]}
+  rows={[
+    ["Roterende krystall", "orienteringen", "flekker"],
+    ["Laue-metoden", "bølgelengden", "flekker"],
+    ["Pulver\u00ADdiffraksjon", "ingenting", "ringer"],
+  ]}
+  rowHeader={false}
+  caption="De tre metodene for å samle et diffraksjonsbilde, sett fra Ewald-kulen."
+/>
+
+I roterende krystall dreies prøven om en akse, og hvert resiprokt gitterpunkt
+sveiper gjennom kuleflaten én gang per omdreining.
+
+I Laue-metoden står krystallen i ro og bestråles med et kontinuerlig spekter.
+Hver bølgelengde har sin egen kule, alle går gjennom origo, og alle punktene
+mellom den minste og den største kulen gir refleks samtidig. Bildet viser
+krystallens symmetri direkte og brukes til å orientere énkrystaller.
+
+Pulverdiffraksjon, eller Debye-Scherrer-metoden, bruker en prøve av mange små
+krystallkorn med tilfeldig orientering. Til sammen dekker kornene alle
+orienteringer, så hvert $\vec G$ smøres ut til en kuleflate med radius
+$|\vec G|$ om origo. Snittet mellom denne kuleflaten og Ewald-kulen er en
+sirkel, og de spredte strålene danner en kjegle med halv toppvinkel $2\theta$
+som treffer detektoren som en ring. Ett $|\vec G|$ gir én ring, og alt
+målingen gir, er intensiteten som funksjon av $2\theta$.
+
+<Simulation
+  src={"/sims/ewald.js"}
+  host={"dom"}
+  title={"Ewald-kulen"}
+  caption={"Det resiproke gitteret til et kvadratisk gitter, og Ewald-sirkelen om halen til $\\vec k_i$. Drei krystallen til et punkt treffer sirkelen, og refleksen $\\vec k_f$ tennes. Laue-metoden fyller området mellom minste og største sirkel, og pulveret smører hvert punkt ut til en ring om origo."}
+  height={380}
+/>
+
+For et kubisk gitter følger ringvinklene av Braggs lov og planavstanden
+$d_{hkl} = a/\sqrt{h^2+k^2+l^2}$:
+
+<Formula tex={"\\sin^2\\theta = \\dfrac{\\lambda^2}{4a^2}\\left(h^2 + k^2 + l^2\\right)"} caption={"Ringvinklene i et pulverbilde av et kubisk gitter. Ringene ligger etter $h^2 + k^2 + l^2$."} />
+
+Ringene kommer altså i rekkefølgen $h^2+k^2+l^2 = 1, 2, 3, 4, 5, 6, 8, \dots$;
+tallet 7 er ikke en sum av tre kvadrattall, og den ringen mangler i alle
+kubiske gitre. Hvilke av de andre som faktisk vises, avgjør basisen.
+
+## Faseproblemet
+
+Detektoren måler $I \propto |F(\vec Q)|^2$. Fasen til $F$ svinger med
+strålingens frekvens, rundt $10^{18}$ Hz for røntgen, og ingen detektor
+følger med. Halve informasjonen i $F$ går tapt, og tettheten kan ikke regnes
+ut ved å Fourier-transformere målingen tilbake. Strukturbestemmelse går den
+andre veien: du gjetter en modell, regner ut $|F|^2$ og sammenligner med de
+målte intensitetene. Regnestykket fra modell til intensitet er
+strukturfaktoren.
+
+## Strukturfaktoren
+
+En krystall er gitter pluss basis. Atom $j$ i cellen ved gitterpunkt
+$\vec R_n$ står i $\vec R_n + \vec r_j$ og sprer med sin egen amplitude
+$f_j$. Summen over alle atomene i krystallen deler seg i to faktorer:
+
+$$
+\begin{aligned}
+F(\vec Q) &= \sum_n \sum_j f_j\, e^{i\vec Q\cdot(\vec R_n + \vec r_j)} \\
+&= \Big(\sum_n e^{i\vec Q\cdot\vec R_n}\Big)\Big(\sum_j f_j\, e^{i\vec Q\cdot\vec r_j}\Big)
+\end{aligned}
+$$
+
+Den første summen løper over alle de $N$ gitterpunktene. Den er null unntatt
+når $\vec Q = \vec G$; da er hvert ledd 1 og summen $N$. Den andre summen er
+strukturfaktoren. Skriv $\vec Q = \vec G_{hkl}$ og atomposisjonene i relative
+koordinater, $\vec r_j = x_j\vec a_1 + y_j\vec a_2 + z_j\vec a_3$, så gir
+$\vec a_i \cdot \vec b_j = 2\pi\delta_{ij}$ at
+$\vec G_{hkl} \cdot \vec r_j = 2\pi(hx_j + ky_j + lz_j)$.
+
+<Statement kind="definition" name="Strukturfaktoren">
+
+Strukturfaktoren til refleksen $(hkl)$ er summen over atomene i basisen,
+hvert med sin amplitude $f_j$ og fasen fra posisjonen $(x_j, y_j, z_j)$ i
+relative koordinater. Amplituden fra hele krystallen er $F = N S_{hkl}$, og
+intensiteten er $I \propto |S_{hkl}|^2$.
+
+</Statement>
+
+<Formula tex={"S_{hkl} = \\sum_j f_j\\, e^{2\\pi i (hx_j + ky_j + lz_j)}"} caption={"Strukturfaktoren. Refleksen er sterk når bidragene fra atomene er i fase, og svak eller borte når de motvirker hverandre."} />
+
+### Atomformfaktoren
+
+Amplituden $f_j$ er Fourier-transformen av elektrontettheten i det ene
+atomet:
+
+<Formula tex={"f_j(\\vec{Q}) = \\int \\rho_j(\\vec{r})\\, e^{i\\vec{Q}\\cdot\\vec{r}}\\, \\mathrm{d}V"} caption={"Atomformfaktoren. For $\\vec Q = 0$ er den lik antall elektroner $Z$."} />
+
+For $\vec Q = 0$ er alle bidragene i fase, og integralet er antall elektroner
+$Z$. Med økende $|\vec Q|$ kommer bidragene fra ulike deler av elektronskyen
+ut av fase, og $f_j$ avtar, så reflekser ved store vinkler er svakere enn ved
+små. To følger for røntgen: tunge atomer dominerer bildet, og hydrogen, med
+sitt ene elektron, er nesten usynlig. Atomer med nesten samme $Z$ er også
+vanskelige å skille fra hverandre.
+
+## Systematiske utslukkinger
+
+Regn i den konvensjonelle kuben, med alle atomene i den som basis. bcc er da
+enkelt kubisk med to like atomer, i $(0,0,0)$ og
+$(\tfrac12,\tfrac12,\tfrac12)$:
+
+$$
+\begin{aligned}
+S_{hkl} &= f\left[1 + e^{i\pi(h+k+l)}\right] \\
+&= \begin{cases} 2f & h+k+l \text{ partall} \\ 0 & h+k+l \text{ oddetall} \end{cases}
+\end{aligned}
+$$
+
+Refleksen $(100)$ mangler, selv om $\vec Q = \vec G_{100}$ er oppfylt. Atomet
+i romsenteret ligger midt mellom to $(100)$-plan og sprer i motfase med
+hjørneatomene, så de to bidragene slukker hverandre. $(110)$, $(200)$ og
+$(211)$ er til stede. Slike manglende reflekser kalles
+<Term name="Systematisk utslukking">systematiske utslukkinger</Term>, og
+regelen for hvilke som overlever, kalles utvalgsregelen.
+
+fcc har fire atomer i kuben, i $(0,0,0)$, $(\tfrac12,\tfrac12,0)$,
+$(\tfrac12,0,\tfrac12)$ og $(0,\tfrac12,\tfrac12)$:
+
+$$
+S_{hkl} = f\left[1 + e^{i\pi(h+k)} + e^{i\pi(h+l)} + e^{i\pi(k+l)}\right]
+$$
+
+Er $h$, $k$ og $l$ alle partall eller alle oddetall, er hver eksponent et
+partall ganger $i\pi$, og $S = 4f$. Er de blandet, er to av de tre
+eksponentene et oddetall ganger $i\pi$, og summen er $1 + 1 - 1 - 1 = 0$.
+
+<Table
+  columns={["Gitter", "Utvalgsregel", "Første ringer"]}
+  rows={[
+    ["sc", "alle $(hkl)$", "1, 2, 3, 4, 5, 6, 8"],
+    ["bcc", "$h+k+l$ partall", "2, 4, 6, 8, 10, 12"],
+    ["fcc", "alle partall eller alle oddetall", "3, 4, 8, 11, 12, 16"],
+  ]}
+  caption="Utvalgsreglene for de kubiske gitrene, og ringene i et pulverbilde ordnet etter $h^2+k^2+l^2$. Rekkefølgen alene skiller de tre gitrene."
+/>
+
+<Example title="første ring fra et bcc-metall">
+
+Et pulver av et romsentrert kubisk metall med $a = 4{,}60$ Å bestråles med
+røntgen med energi $E = 8040$ eV. Ved hvilken vinkel $2\theta$ kommer den
+første ringen?
+
+<Solution>
+
+Bølgelengden er
+
+$$
+\lambda = \frac{hc}{E} = \frac{12{,}40\ \text{keV·Å}}{8{,}040\ \text{keV}} = 1{,}542\ \text{Å}
+$$
+
+I bcc er $(100)$ borte, så den første ringen er $(110)$ med
+$h^2+k^2+l^2 = 2$:
+
+$\sin^2\theta = \dfrac{(1{,}542\ \text{Å})^2}{4 \cdot (4{,}60\ \text{Å})^2} \cdot 2 = 0{,}0562$
+
+Det gir $\sin\theta = 0{,}237$, $\theta = 13{,}7^\circ$ og
+$2\theta = 27{,}4^\circ$.
+
+<Answer>$2\theta = 27{,}4^\circ$, fra $(110)$</Answer>
+
+</Solution>
+
+</Example>
+
+Er de to atomene i basisen forskjellige, blir de forbudte refleksene svake i
+stedet for borte.
+
+<Example title="refleksene fra CsCl">
+
+CsCl har enkelt kubisk gitter med $\mathrm{Cs}^+$ i $(0,0,0)$ og
+$\mathrm{Cl}^-$ i $(\tfrac12,\tfrac12,\tfrac12)$. For små $\vec Q$ er $f$
+omtrent lik antall elektroner i ionet: 54 for $\mathrm{Cs}^+$ og 18 for
+$\mathrm{Cl}^-$. Hvor mye svakere er $(100)$ enn $(110)$?
+
+<Solution>
+
+Strukturfaktoren har to ledd:
+
+$$
+\begin{aligned}
+S_{hkl} &= f_\mathrm{Cs} + f_\mathrm{Cl}\, e^{i\pi(h+k+l)} \\
+&= f_\mathrm{Cs} \pm f_\mathrm{Cl}
+\end{aligned}
+$$
+
+med pluss for $h+k+l$ partall og minus for oddetall. Da er
+
+$$
+\begin{aligned}
+|S_{110}|^2 &= (54 + 18)^2 = 5184 \\
+|S_{100}|^2 &= (54 - 18)^2 = 1296
+\end{aligned}
+$$
+
+Forholdet er $5184/1296 = 4$. Refleksen $(100)$ er til stede, men fire
+ganger svakere enn $(110)$. Hadde de to ionene vært like, hadde $(100)$ vært
+borte, for da er strukturen bcc.
+
+<Answer>$I_{100}/I_{110} = 1/4$</Answer>
+
+</Solution>
+
+</Example>
+
+<Simulation
+  src={"/sims/strukturfaktor.js"}
+  host={"dom"}
+  title={"Pulverbildet og basisen"}
+  caption={"Pulverbildet av et kubisk gitter med to atomer i basisen. Søylehøyden er $|S_{hkl}|^2$ alene. Dra $f_B/f_A$ mot 1, og refleksene der de to atomene sprer i motfase, blir borte: CsCl blir bcc, NaCl blir enkelt kubisk med halv kant, og ZnS blir diamant."}
+  height={380}
+/>
+
+Med flere atomer i basisen faktoriserer strukturfaktoren. ZnS har fcc-gitter
+med Zn i $(0,0,0)$ og S i $(\tfrac14,\tfrac14,\tfrac14)$, altså åtte atomer i
+kuben, og summen over dem blir
+
+$$
+\begin{aligned}
+S_{hkl} &= \left[1 + e^{i\pi(h+k)} + e^{i\pi(h+l)} + e^{i\pi(k+l)}\right] \\
+&\quad \times \left[f_\mathrm{Zn} + f_\mathrm{S}\, e^{i\pi(h+k+l)/2}\right]
+\end{aligned}
+$$
+
+Den første faktoren er fcc-gitterets og gir utvalgsregelen. Den andre er
+basisens og fordeler styrke på de tillatte refleksene. Strukturfaktoren til
+gitter pluss basis er alltid gitterets faktor ganger basisens, slik
+konvolusjonsteoremet sier. Diamant er ZnS med to like atomer.
+
+## Brillouin-soner
+
+Det resiproke gitteret har, som alle Bravais-gitre, en Wigner-Seitz-celle:
+alle punkter som ligger nærmere origo enn noe annet gitterpunkt.
+
+<Statement kind="definition" name="Den første Brillouin-sonen">
+
+Den første Brillouin-sonen er Wigner-Seitz-cellen til det resiproke gitteret.
+Trekk linjer fra origo til de nærliggende resiproke gitterpunktene, og halver
+hver linje med et normalplan. Det minste volumet planene lukker om origo, er
+sonen.
+
+</Statement>
+
+Sonen er en primitiv celle i $k$-rommet, og den har gitterets fulle symmetri.
+
+<Table
+  columns={["Gitter", "Resiprokt", "1. sone"]}
+  rows={[
+    ["sc", "sc", "kube"],
+    ["fcc", "bcc", "avkuttet oktaeder"],
+    ["bcc", "fcc", "rombe\u00ADdodekaeder"],
+  ]}
+  caption="Konvensjonell kant $a$ gir resiprok kant $2\pi/a$ for sc og $4\pi/a$ for bcc og fcc. Sonen til fcc er Wigner-Seitz-cellen til bcc, og omvendt."
+/>
+
+<Simulation
+  src={"/sims/brillouin.js"}
+  host={"dom"}
+  title={"Den første Brillouin-sonen"}
+  caption={"Konstruksjonen i to dimensjoner: linjer fra origo til naboene i det resiproke gitteret, normaler gjennom midtpunktene, og det minste området normalene lukker. Sonen er et rektangel når gittervektorene står normalt på hverandre, og ellers en sekskant."}
+  height={360}
+/>
+
+Skriv diffraksjonsbetingelsen for den innfallende bølgevektoren:
+$\vec k_f = \vec k + \vec G$ med $|\vec k_f| = |\vec k|$ gir
+$2\vec k \cdot \vec G + G^2 = 0$, og siden $-\vec G$ også er en resiprok
+gittervektor, kan fortegnet snus:
+
+<Formula tex={"\\vec{k}\\cdot\\tfrac{1}{2}\\vec{G} = \\left(\\tfrac{1}{2}G\\right)^2"} caption={"Diffraksjonsbetingelsen for $\\vec k$. Den er oppfylt når $\\vec k$ ender på planet som halverer $\\vec G$ normalt."} />
+
+Venstresiden er projeksjonen av $\vec k$ på retningen til $\vec G$, ganger
+$G/2$. Likningen sier altså at spissen av $\vec k$ ligger på planet som
+halverer $\vec G$ normalt, og det er nøyaktig planene som avgrenser
+Brillouin-sonene. En bølge med $\vec k$ på grensen til den første sonen
+oppfyller diffraksjonsbetingelsen og reflekteres av krystallen. En bølge med
+$\vec k$ inne i sonen blir ikke diffraktert.
+
+Sonen rommer også alle bølgene krystallen kan skille fra hverandre. To
+bølgevektorer som skiller seg med en resiprok gittervektor, $\vec k$ og
+$\vec k + \vec G$, har samme verdi på alle gitterpunktene, siden
+$e^{i\vec G\cdot\vec R} = 1$. Enhver bølge i en periodisk struktur kan derfor
+beskrives med en $\vec k$ inne i den første sonen.
+
+## Sjekk deg selv
+
+<Quiz
+  question={"Et pulverbilde av et kubisk metall har ringer ved $h^2+k^2+l^2 = 2, 4, 6, 8, 10, 12$. Hvilket gitter har metallet?"}
+  options={["Enkelt kubisk", "Romsentrert kubisk", "Flatesentrert kubisk", "Det kan ikke avgjøres uten intensitetene"]}
+  answer={1}
+  explanation={"Bare partall, og alle partall, er utvalgsregelen $h+k+l$ partall for bcc. Enkelt kubisk ville hatt 1 og 3 med, og fcc ville manglet 2, 6 og 10."}
+/>
+
+<Quiz
+  question={"Bølgelengden dobles. Hva skjer med Ewald-kulen og antallet resiproke gitterpunkter som kan gi refleks?"}
+  options={["Radien dobles, og flere punkter kan gi refleks", "Radien halveres, og færre punkter kan gi refleks", "Radien er uendret; bare $2\\theta$ endres", "Radien halveres, men antallet er uendret"]}
+  answer={1}
+  explanation={"Radien er $k = 2\\pi/\\lambda$, så den halveres. Bare punkter med $|\\vec G| \\le 2k$ kan nå kuleflaten, og det er færre av dem."}
+/>
+
+<SelfCheck question={"Diamant er fcc med to like karbonatomer i basisen, i $(0,0,0)$ og $(\\tfrac14,\\tfrac14,\\tfrac14)$. Hvilke reflekser er til stede?"}>
+
+Strukturfaktoren faktoriserer:
+$S_{hkl} = S_\mathrm{fcc} \cdot f\left[1 + e^{i\pi(h+k+l)/2}\right]$.
+fcc-faktoren krever at $h$, $k$ og $l$ er alle partall eller alle oddetall.
+Basisfaktoren er $1 + i^{\,h+k+l}$: for $h+k+l = 4n$ er den 2, for
+$h+k+l = 4n+2$ er den $1 + e^{i\pi} = 0$, og for oddetall er den $1 \pm i$
+med $|1 \pm i|^2 = 2$. Til stede er derfor alle reflekser med $h$, $k$, $l$
+alle oddetall, og de med alle partall der $h+k+l = 4n$. $(200)$ og $(222)$
+mangler; $(111)$, $(220)$, $(311)$ og $(400)$ er med.
+
+</SelfCheck>
+
+<KeyTakeaways>
+
+- Ewald-kulen har radius $2\pi/\lambda$ om halen til $\vec k_i$, med spissen i origo. Hvert resiprokt gitterpunkt på kuleflaten gir en refleks.
+- Roterende krystall dreier punktene gjennom kulen, Laue-metoden varierer kulens størrelse, og pulver smører hvert $\vec G$ ut til en kuleflate. Pulverbildet av et kubisk gitter er ringer ordnet etter $h^2+k^2+l^2$.
+- Fasen til $F$ går tapt i målingen. Strukturen bestemmes ved å regne ut $|S_{hkl}|^2$ for en modell og sammenligne med de målte intensitetene.
+- $S_{hkl} = \sum_j f_j e^{2\pi i(hx_j+ky_j+lz_j)}$ over basisen, $F = NS_{hkl}$ og $I \propto |S_{hkl}|^2$. Atomformfaktoren $f_j$ er $Z$ ved $\vec Q = 0$ og avtar med $|\vec Q|$.
+- Utvalgsregler: bcc krever $h+k+l$ partall, fcc krever $h$, $k$, $l$ alle partall eller alle oddetall. Ulike atomer i basisen gjør de forbudte refleksene svake i stedet for borte.
+- Den første Brillouin-sonen er Wigner-Seitz-cellen til det resiproke gitteret. Bølger med $\vec k$ på sonegrensen diffrakteres, og enhver $\vec k$ kan flyttes inn i sonen med en $\vec G$.
+
+</KeyTakeaways>
