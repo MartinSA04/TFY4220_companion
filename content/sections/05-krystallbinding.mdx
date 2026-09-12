@@ -1,0 +1,390 @@
+---
+order: 5
+title: "Krystallbinding"
+summary: "Hva som holder krystallen sammen: kohesjonsenergi og gitterenergi, van der Waals-binding med Lennard-Jones-potensialet, ionisk binding med Madelung-konstanten, og kovalent, metallisk og hydrogenbinding."
+importance: core
+tag: "Uke 36"
+part: "Del I: Krystallstruktur"
+updated: 2026-09-12
+---
+
+<LearningGoals>
+
+- Definere <Term name="Kohesjonsenergi">kohesjonsenergi</Term> og <Term name="Gitterenergi">gitterenergi</Term>, og regne kohesjonsenergien til NaCl ut fra gitterenergi, ioniseringsenergi og elektronaffinitet.
+- Forklare de to leddene i <Term name="Lennard-Jones-potensialet">Lennard-Jones-potensialet</Term>, og finne likevektsavstanden og kohesjonsenergien til en edelgasskrystall (<FormulaRef id="lennard-jones" />).
+- Sette opp den totale energien til en ionekrystall og utlede energien ved likevekt (<FormulaRef id="madelung-likevekt" />).
+- Definere <Term name="Madelung-konstant">Madelung-konstanten</Term> og regne ut bidraget fra én enhetscelle i NaCl (<FormulaRef id="madelung-konstant" />).
+- Skille de fem bindingstypene fra hverandre på hva som binder, hvor sterk bindingen er, om den har retning, og hvilke stoffer som har den.
+
+</LearningGoals>
+
+## Kohesjonsenergi
+
+Krystallen holdes sammen av den elektrostatiske tiltrekningen mellom
+elektroner og kjerner. Bindingstypene er ulike måter å ordne elektronene på,
+slik at denne tiltrekningen vinner over frastøtningen mellom kjernene og
+mellom elektronene. Målet på hvor mye den vinner med, er kohesjonsenergien.
+
+<Statement kind="definition" name="Kohesjonsenergi">
+
+Kohesjonsenergien er energien som må tilføres for å dele krystallen opp i
+frie, nøytrale atomer i ro, uendelig langt fra hverandre og med samme
+elektronkonfigurasjon som i krystallen.
+
+</Statement>
+
+Den oppgis per atom, og spennet er stort: 0,02 eV for neon, 7,37 eV for
+karbon i diamant og 8,90 eV for wolfram. Forskjellen ligger i bindingstypen.
+Neon har <Term name="Van der Waals-binding">van der Waals-binding</Term>,
+diamant har <Term name="Kovalent binding">kovalent binding</Term> og wolfram
+har <Term name="Metallisk binding">metallisk binding</Term>.
+
+For en ionekrystall er det mer naturlig å regne fra frie ioner enn fra frie
+atomer, og da heter energien gitterenergi. De to skiller seg med det det
+koster å lage ionene. For NaCl er regnskapet
+
+$$
+\begin{aligned}
+\mathrm{Na} + 5{,}14\ \text{eV} &\to \mathrm{Na}^+ + e^- \\
+\mathrm{Cl} + e^- &\to \mathrm{Cl}^- + 3{,}61\ \text{eV} \\
+\mathrm{Na}^+ + \mathrm{Cl}^- &\to \mathrm{NaCl} + 7{,}9\ \text{eV}
+\end{aligned}
+$$
+
+Den første linjen er <Term name="Ioniseringsenergi">ioniseringsenergien</Term>
+til natrium, den andre er <Term name="Elektronaffinitet">elektronaffiniteten</Term>
+til klor, og den tredje er gitterenergien per ionpar. Kohesjonsenergien regnet
+fra nøytrale atomer er dermed $7{,}9 - 5{,}14 + 3{,}61 = 6{,}4$ eV per ionpar.
+
+## Bindingstypene
+
+<Table
+  columns={["Binding", "Hva binder", "Typisk for", "Styrke"]}
+  rows={[
+    ["van der Waals", "induserte dipoler", "edelgasser (gruppe VIII)", "0,02 til 0,2 eV per atom"],
+    ["ionisk", "Coulomb-kraft mellom ioner", "I–VII-forbindelser: NaCl, CsCl", "flere eV per ionpar"],
+    ["kovalent", "delte elektronpar", "gruppe IV: diamant, Si, Ge", "4 til 7 eV per atom, med retning"],
+    ["metallisk", "delokaliserte elektroner", "gruppe I, II og III, overgangs­metaller", "1 til 9 eV per atom"],
+    ["hydrogen", "et proton mellom to atomer", "is, HF, DNA", "0,1 eV"],
+  ]}
+  rowHeader={false}
+  caption="De fem bindingstypene. Grensene er glidende: forbindelser mellom ulike atomer ligger mellom kovalent og ionisk, og overgangsmetallene har et kovalent innslag."
+/>
+
+## Van der Waals-binding
+
+Edelgassatomene har fylte skall, kulesymmetrisk ladningsfordeling og høy
+ioniseringsenergi. Et kulesymmetrisk atom har ingen permanent dipol, så to
+slike atomer skulle ikke trekke på hverandre. Likevel fryser neon ved 24 K og
+xenon ved 161 K, og alle edelgassene unntatt helium krystalliserer i fcc.
+
+Bindingen kommer fra øyeblikksverdiene. Elektronene i atom A beveger seg, og i
+et gitt øyeblikk har atomet et dipolmoment $\vec p_A$. Det gir et felt av
+størrelse $E \approx p_A/(4\pi\varepsilon_0 r^3)$ ved atom B i avstand $r$, og
+feltet induserer en dipol $p_B = \alpha E$ der, med $\alpha$ som
+polariserbarheten. De to dipolene tiltrekker hverandre med energien
+
+$$
+U \approx -\frac{p_A\, p_B}{4\pi\varepsilon_0 r^3}
+= -\frac{\alpha\, p_A^2}{(4\pi\varepsilon_0)^2\, r^6}
+$$
+
+Tidsmiddelet av $\vec p_A$ er null, men tidsmiddelet av $p_A^2$ er det ikke, så
+tiltrekningen overlever. Den avtar som $r^{-6}$.
+
+Når atomene kommer så nær hverandre at elektronskyene overlapper, slår
+Pauli-prinsippet inn. To elektroner kan ikke ha samme sett kvantetall, så
+elektroner fra det ene atomet må opp i høyere tilstander når de skal dele rom
+med det andre. Det koster energi, og frastøtningen vokser bratt. Den beskrives
+empirisk som $B/r^{12}$. Summen av de to leddene er Lennard-Jones-potensialet:
+
+<Formula tex={"U(r) = 4\\varepsilon\\left[\\left(\\frac{\\sigma}{r}\\right)^{12} - \\left(\\frac{\\sigma}{r}\\right)^{6}\\right]"} caption={"Lennard-Jones-potensialet. $\\varepsilon$ er dybden av brønnen, og $\\sigma$ er avstanden der $U = 0$. Minimum ligger i $r = 2^{1/6}\\sigma = 1{,}12\\,\\sigma$."} />
+
+De to parametrene måles i gassfase.
+
+### Krystallen
+
+Krystallens energi er summen over alle par. Med $N$ atomer, nærmeste
+naboavstand $R$ og avstand $p_j R$ fra et referanseatom til atom $j$ er den
+totale energien
+
+<Formula tex={"U_\\text{tot} = 2N\\varepsilon\\left[A_{12}\\left(\\frac{\\sigma}{R}\\right)^{12} - A_6\\left(\\frac{\\sigma}{R}\\right)^{6}\\right]"} caption={"Total energi for en Lennard-Jones-krystall. $A_n = \\sum_j p_j^{-n}$ er gittersummene, og faktoren $\\tfrac12 N$ teller hvert par én gang, $\\tfrac12 \\cdot 4 = 2$."} />
+
+Gittersummene avhenger bare av gittertypen. For fcc er
+
+$$
+\begin{aligned}
+A_{12} &= \sum_j p_j^{-12} = 12{,}13 \\
+A_6 &= \sum_j p_j^{-6} = 14{,}45
+\end{aligned}
+$$
+
+De tolv nærmeste naboene bidrar med 12 til begge. Resten av gitteret legger
+nesten ingenting til den første summen og 2,45 til den andre, for
+tiltrekningen rekker lenger enn frastøtningen.
+
+Likevekt er der $\mathrm dU_\text{tot}/\mathrm dR = 0$:
+
+$$
+\begin{aligned}
+2 \cdot 12{,}13 \left(\frac{\sigma}{R_0}\right)^{6} &= 14{,}45 \\
+\frac{R_0}{\sigma} &= \left(\frac{2 \cdot 12{,}13}{14{,}45}\right)^{1/6} = 1{,}09
+\end{aligned}
+$$
+
+Forholdet er det samme for alle edelgassene, siden bare gittertypen inngår.
+Målt er $R_0/\sigma$ lik 1,09 for Xe, 1,10 for Kr, 1,11 for Ar og 1,14 for Ne.
+De lette atomene ligger lenger fra hverandre enn modellen sier, fordi
+nullpunktsbevegelsen presser gitteret ut, og effekten er størst for det
+letteste atomet. Helium fryser ikke i det hele tatt ved normalt trykk.
+
+Energien i likevekt følger ved innsetting:
+
+$$
+U_\text{tot}(R_0) = -\frac{14{,}45^2}{2 \cdot 12{,}13}\, N\varepsilon = -8{,}6\, N\varepsilon
+$$
+
+Kohesjonsenergien per atom er altså $8{,}6\,\varepsilon$, uansett edelgass.
+
+<Example title="argonkrystallen">
+
+Argon har $\varepsilon = 0{,}0104$ eV og $\sigma = 3{,}40$ Å fra gassfasen.
+Finn nærmeste naboavstand og kohesjonsenergien i krystallen, og sammenlign med
+de målte verdiene $3{,}76$ Å og $0{,}080$ eV per atom.
+
+<Solution>
+
+Nærmeste naboavstand:
+
+$$
+R_0 = 1{,}09 \cdot 3{,}40\ \text{Å} = 3{,}71\ \text{Å}
+$$
+
+Kohesjonsenergi per atom:
+
+$$
+\frac{|U_\text{tot}(R_0)|}{N} = 8{,}6 \cdot 0{,}0104\ \text{eV} = 0{,}089\ \text{eV}
+$$
+
+Avstanden treffer på 1 %, energien på 10 %. Modellen regner atomene i ro, og
+nullpunktsbevegelsen gjør den virkelige krystallen litt større og litt
+løsere bundet.
+
+<Answer>$R_0 = 3{,}71$ Å og $0{,}089$ eV per atom, mot målt $3{,}76$ Å og $0{,}080$ eV</Answer>
+
+</Solution>
+
+</Example>
+
+## Ionisk binding
+
+I NaCl gir natrium fra seg ett elektron og klor tar det imot, og begge ionene
+får fylte skall: $\mathrm{Na}^+$ har neons konfigurasjon og $\mathrm{Cl}^-$
+har argons. Ionene er kulesymmetriske, og bindingen er Coulomb-tiltrekningen
+mellom motsatte ladninger. Den rekker langt og har ingen retning. Regnskapet
+over viste at det lønner seg: gitteret gir 7,9 eV per ionpar, og ionene koster
+$5{,}14 - 3{,}61 = 1{,}53$ eV.
+
+Velg et referanseion $i$, og la $p_{ij}R$ være avstanden til ion $j$, med $R$
+som nærmeste naboavstand. Vekselvirkningen med ion $j$ er
+
+$$
+U_{ij} = \begin{cases}
+\lambda\, e^{-R/\rho} - \dfrac{q^2}{4\pi\varepsilon_0 R} & \text{nærmeste naboer} \\[8pt]
+\pm\, \dfrac{q^2}{4\pi\varepsilon_0\, p_{ij} R} & \text{alle andre}
+\end{cases}
+$$
+
+med pluss for ioner med samme ladning som referanseionet og minus for motsatt.
+Frastøtningen $\lambda e^{-R/\rho}$ er det samme Pauli-overlappet som i
+edelgassene, nå med eksponentiell form, og den tas bare med for de $z$
+nærmeste naboene, siden den er så kortrekkende. $\lambda$ og $\rho$ er
+empiriske parametere, og $\rho$ er rekkevidden, omtrent en tidel av $R$.
+
+Summen over $j$ gir energien til ett ion. Krystallen har $2N$ ioner, $N$ av
+hvert slag, og hvert par skal telles én gang, så totalen er $N$ ganger summen:
+
+<Formula tex={"U_\\text{tot} = N\\left(z\\lambda\\, e^{-R/\\rho} - \\frac{\\alpha q^2}{4\\pi\\varepsilon_0 R}\\right)"} caption={"Total energi for en ionekrystall med $N$ ionpar. $z$ er antall nærmeste naboer, og $\\alpha$ er Madelung-konstanten. Coulomb-leddet alene kalles Madelung-energien."} />
+
+<Statement kind="definition" name="Madelung-konstanten">
+
+Madelung-konstanten er summen over alle de andre ionene i krystallen, med
+pluss for ioner med motsatt ladning av referanseionet og minus for ioner med
+samme. Den er et rent tall som bare avhenger av strukturen.
+
+</Statement>
+
+<Formula tex={"\\alpha = \\sum_j \\frac{(\\pm)}{p_{ij}}"} caption={"Madelung-konstanten. 1,7476 for NaCl, 1,7627 for CsCl og 1,6381 for ZnS."} />
+
+Likevekt er der $\mathrm dU_\text{tot}/\mathrm dR = 0$:
+
+$$
+\begin{aligned}
+\frac{z\lambda}{\rho}\, e^{-R_0/\rho} &= \frac{\alpha q^2}{4\pi\varepsilon_0 R_0^2} \\
+z\lambda\, e^{-R_0/\rho} &= \frac{\rho}{R_0}\,\frac{\alpha q^2}{4\pi\varepsilon_0 R_0}
+\end{aligned}
+$$
+
+Den andre linjen er frastøtningsleddet i $U_\text{tot}$, og innsatt der gir
+den
+
+<Formula tex={"U_\\text{tot}(R_0) = -\\frac{N\\alpha q^2}{4\\pi\\varepsilon_0 R_0}\\left(1 - \\frac{\\rho}{R_0}\\right)"} caption={"Energien til en ionekrystall ved likevekt. Frastøtningen tar bare andelen $\\rho/R_0 \\approx 0{,}1$ av Madelung-energien."} />
+
+For NaCl er $R_0 = 2{,}82$ Å og $\rho = 0{,}32$ Å, og
+$q^2/(4\pi\varepsilon_0) = 14{,}40$ eV·Å:
+
+$$
+\begin{aligned}
+1 - \frac{\rho}{R_0} &= 1 - \frac{0{,}32}{2{,}82} = 0{,}887 \\
+\frac{U_\text{tot}(R_0)}{N} &= -\frac{1{,}748 \cdot 14{,}40}{2{,}82}\ \text{eV} \cdot 0{,}887 \\
+&= -8{,}92\ \text{eV} \cdot 0{,}887 = -7{,}9\ \text{eV}
+\end{aligned}
+$$
+
+Det er den målte gitterenergien per ionpar.
+
+### Å summere Madelung-konstanten
+
+Ta $\mathrm{Na}^+$ i NaCl som referanseion. Det har 6 $\mathrm{Cl}^-$ i
+avstand $R$, 12 $\mathrm{Na}^+$ i $\sqrt2 R$, 8 $\mathrm{Cl}^-$ i $\sqrt3 R$,
+6 $\mathrm{Na}^+$ i $2R$, 24 $\mathrm{Cl}^-$ i $\sqrt5 R$, og så videre:
+
+$$
+\alpha = \frac{6}{1} - \frac{12}{\sqrt2} + \frac{8}{\sqrt3} - \frac{6}{2} + \frac{24}{\sqrt5} - \dots
+$$
+
+Delsummene er 6, $-2{,}49$, 2,13, $-0{,}87$, 9,87 og så videre. Summert skall for
+skall roer rekken seg aldri, for hvert skall bærer en stor nettoladning, og
+leddene avtar for sakte til å tåle det. Rekken må summeres i grupper som er
+nøytrale. Evjens metode tar ionene innenfor en kube om referanseionet og
+teller ionene på overflaten med den andelen som ligger inne i kuben: halve
+ioner på flatene, kvarte på kantene og åttendedeler i hjørnene. Da er hver
+kube nøytral, og summen står nesten stille etter to kuber.
+
+<Example title="Madelung-konstanten fra én enhetscelle i NaCl">
+
+Ta $\mathrm{Na}^+$ i sentrum av en kube med kant $2R$. Kuben har 6
+$\mathrm{Cl}^-$ midt på flatene, 12 $\mathrm{Na}^+$ midt på kantene og 8
+$\mathrm{Cl}^-$ i hjørnene. Hva bidrar denne kuben med til $\alpha$?
+
+<Solution>
+
+Ionene på flatene ligger i avstand $R$ og teller halvt, de på kantene i
+$\sqrt2 R$ og teller kvart, og de i hjørnene i $\sqrt3 R$ og teller
+åttendedels:
+
+$$
+\begin{aligned}
+\alpha_1 &= \frac{6 \cdot \tfrac12}{1} - \frac{12 \cdot \tfrac14}{\sqrt2} + \frac{8 \cdot \tfrac18}{\sqrt3} \\
+&= 3 - 2{,}12 + 0{,}58 = 1{,}46
+\end{aligned}
+$$
+
+Nettoladningen i kuben er $1 - 3 + 3 - 1 = 0$, så gruppen er nøytral. Kuben
+med kant $4R$ gir 1,75, og den eksakte verdien er 1,7476.
+
+<Answer>$\alpha_1 = 1{,}46$, mot 1,7476 for hele krystallen</Answer>
+
+</Solution>
+
+</Example>
+
+<Simulation
+  src={"/sims/madelung.js"}
+  host={"dom"}
+  title={"Madelung-summen"}
+  caption={"Et kvadratisk gitter av vekslende ladninger, med referanseionet i midten. Summert skall for skall etter avstand hopper delsummen opp og ned uten å roe seg. Summert i nøytrale kvadrater, med kant- og hjørneioner vektet med $\\tfrac12$ og $\\tfrac14$, står den på 1,616 etter to kvadrater. I tre dimensjoner er tallet for NaCl 1,748."}
+  height={380}
+/>
+
+## Kovalent binding
+
+Den kovalente bindingen er elektronparet: to atomer deler to elektroner, og
+bølgefunksjonene overlapper. Det enkleste eksemplet er $\mathrm{H}_2$. Med
+motsatte spinn kan begge elektronene oppholde seg i området mellom kjernene,
+der de trekkes av begge, og energien går ned. Med parallelle spinn holder
+Pauli-prinsippet dem fra hverandre, tettheten mellom kjernene blir liten, og
+tilstanden binder ikke.
+
+Bindingen er sterk, flere eV per atom: 7,37 eV i diamant, 4,63 eV i silisium
+og 3,85 eV i germanium. Og den har retning. Karbon, silisium og germanium
+står i gruppe IV og mangler fire elektroner på et fylt skall. Grunntilstanden
+$s^2p^2$ i det frie atomet har ikke fire like elektroner, men i krystallen
+blandes $s$-orbitalen og de tre $p$-orbitalene til fire likeverdige
+$sp^3$-orbitaler som peker mot hjørnene i et tetraeder. Hvert atom binder
+derfor nøyaktig fire naboer i tetraedervinkler, og resultatet er
+<Term name="Diamantstruktur">diamantstrukturen</Term> med
+<Term name="Koordinasjonstall">koordinasjonstall</Term> 4 og
+<Term name="Pakningsgrad">pakningsgrad</Term> 0,34, mot 0,74 i fcc. Kovalente
+krystaller er harde og sprø, og de leder dårlig, for elektronene sitter i
+bindingene.
+
+Overgangen til ionisk binding er glidende. I forbindelser mellom ulike atomer
+trekkes elektronparet mot det mest elektronegative atomet, og bindingen får en
+ionisk andel: SiC og GaAs er mest kovalente, ZnS er mer ionisk enn kovalent,
+og NaCl er nesten helt ionisk.
+
+## Metallisk binding
+
+Metallene i gruppe I, II og III har få og løst bundne valenselektroner. I
+krystallen løsner de fra atomene og beveger seg fritt gjennom hele gitteret,
+og det som er igjen, er positive ioner i en sjø av elektroner. Bindingen
+kommer av at elektronenes kinetiske energi synker når de får bre seg ut over
+hele krystallen i stedet for å være stengt inne i hvert sitt atom.
+
+Bindingen har ingen retning, så metaller pakker tett i fcc, hcp eller bcc. De
+leder strøm og varme, og de lar seg forme, siden ionene kan gli forbi
+hverandre uten at noen binding må brytes. Alkalimetallene er svakt bundet,
+1,11 eV per atom for natrium. Overgangsmetallene er sterkt bundet, 8,90 eV
+for wolfram, for der bidrar også $d$-elektronene. De overlapper med naboene
+og gir bindingen et kovalent innslag.
+
+## Hydrogenbinding
+
+Hydrogen har ett elektron og skulle bare kunne binde ett atom. Når hydrogen
+sitter mellom to sterkt elektronegative atomer, som F, O eller N, trekkes
+elektronet så langt over mot det ene at det som er igjen, i praksis er et
+proton. Et proton er lite nok til å tiltrekke seg begge naboene. Bindingen er
+svak, rundt 0,1 eV, og den holder sammen is, HF og de to trådene i DNA.
+
+## Sjekk deg selv
+
+<Quiz
+  question={"Hvilket ledd i Lennard-Jones-potensialet kommer fra Pauli-prinsippet?"}
+  options={["$+(\\sigma/r)^{12}$: elektronene må opp i høyere tilstander når skyene overlapper", "$-(\\sigma/r)^{6}$: elektroner med motsatt spinn kan dele rom", "Begge; Pauli-prinsippet gir både tiltrekning og frastøtning", "Ingen av dem; tiltrekningen er elektrostatisk og frastøtningen er kjernenes"]}
+  answer={0}
+  explanation={"Frastøtningen $B/r^{12}$ kommer av at to elektroner ikke kan ha samme sett kvantetall, så overlappende skyer tvinger elektroner opp i høyere tilstander. Tiltrekningen $-r^{-6}$ er elektrostatisk, mellom en øyeblikksdipol og dipolen den induserer."}
+/>
+
+<Quiz
+  question={"NaCl har gitterenergi 7,9 eV per ionpar. Hvorfor er kohesjonsenergien regnet fra nøytrale atomer lavere, 6,4 eV?"}
+  options={["Det koster mer å ionisere Na enn det frigjøres når Cl tar imot elektronet", "Frastøtningen mellom nærmeste naboer er ikke regnet med i gitterenergien", "Madelung-konstanten er mindre enn 2", "Kohesjonsenergien regnes per atom, gitterenergien per ionpar"]}
+  answer={0}
+  explanation={"Gitterenergien regnes fra frie ioner, kohesjonsenergien fra frie atomer. Å lage ionene koster $5{,}14 - 3{,}61 = 1{,}53$ eV per par, og $7{,}9 - 1{,}53 = 6{,}4$ eV."}
+/>
+
+<SelfCheck question={"Finn Madelung-konstanten for en uendelig rett kjede av ioner med vekslende ladning og naboavstand $R$."}>
+
+Referanseionet har to naboer med motsatt ladning i avstand $R$, to med samme
+i $2R$, to med motsatt i $3R$, og så videre:
+
+$$
+\alpha = 2\left(1 - \frac12 + \frac13 - \frac14 + \dots\right) = 2\ln 2 = 1{,}386
+$$
+
+Rekken er $\ln(1 + x)$ med $x = 1$. Den konvergerer, men bare fordi leddene
+kommer i riktig rekkefølge; ordnet annerledes kan den gis hvilken som helst
+verdi.
+
+</SelfCheck>
+
+<KeyTakeaways>
+
+- Kohesjonsenergien er energien som deler krystallen opp i frie, nøytrale atomer. For ionekrystaller regnes gitterenergien fra frie ioner, og de to skiller seg med ioniseringsenergi minus elektronaffinitet: $7{,}9 - 5{,}14 + 3{,}61 = 6{,}4$ eV per ionpar i NaCl.
+- Van der Waals-binding er tiltrekningen $-r^{-6}$ mellom en øyeblikksdipol og dipolen den induserer, pluss Pauli-frastøtningen $+r^{-12}$. I fcc gir Lennard-Jones-potensialet $R_0 = 1{,}09\,\sigma$ og $U_\text{tot} = -8{,}6\,N\varepsilon$.
+- Ionisk binding er Coulomb-tiltrekningen mellom ioner med fylte skall. Ved likevekt er $U_\text{tot} = -\frac{N\alpha q^2}{4\pi\varepsilon_0 R_0}\left(1 - \frac{\rho}{R_0}\right)$, og frastøtningen tar bare rundt en tidel.
+- Madelung-konstanten $\alpha = \sum_j (\pm)/p_{ij}$ avhenger bare av strukturen: 1,7476 for NaCl. Rekken må summeres i nøytrale grupper; én kube om referanseionet gir 1,46, to gir 1,75.
+- Kovalent binding er et delt elektronpar med motsatte spinn, sterk og med retning; $sp^3$-orbitalene i gruppe IV gir diamantstrukturen med pakningsgrad 0,34.
+- Metallisk binding er ioner i en sjø av delokaliserte elektroner, uten retning, og hydrogenbinding er et proton mellom to elektronegative atomer, rundt 0,1 eV.
+
+</KeyTakeaways>

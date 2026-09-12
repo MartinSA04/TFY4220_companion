@@ -130,6 +130,27 @@ formulas:
     tex: "\\vec{k}\\cdot\\tfrac{1}{2}\\vec{G} = \\left(\\tfrac{1}{2}G\\right)^2"
     label: "Diffraksjonsbetingelsen $\\vec Q = \\vec G$ skrevet om for den innfallende bølgevektoren. Den er oppfylt for alle $\\vec k$ som ender på planet som halverer $\\vec G$ normalt, og disse planene er grensene til Brillouin-sonene."
 
+  - id: lennard-jones
+    section: Van der Waals-binding
+    tex: "U(r) = 4\\varepsilon\\left[\\left(\\dfrac{\\sigma}{r}\\right)^{12} - \\left(\\dfrac{\\sigma}{r}\\right)^{6}\\right]"
+    label: "Lennard-Jones-potensialet mellom to edelgassatomer. Leddet $-r^{-6}$ er tiltrekningen mellom induserte dipoler, leddet $+r^{-12}$ er frastøtningen når elektronskyene overlapper (Pauli-prinsippet). $\\varepsilon$ er dybden av brønnen, $\\sigma$ er avstanden der $U = 0$, og minimum ligger i $r = 2^{1/6}\\sigma$."
+  - id: lennard-jones-krystall
+    section: Van der Waals-binding
+    tex: "U_\\text{tot} = 2N\\varepsilon\\left[A_{12}\\left(\\dfrac{\\sigma}{R}\\right)^{12} - A_6\\left(\\dfrac{\\sigma}{R}\\right)^{6}\\right]"
+    label: "Total energi for $N$ edelgassatomer, med $R$ som nærmeste naboavstand. Gittersummene $A_n = \\sum_j p_j^{-n}$ over avstandene $p_j R$ til de andre atomene avhenger bare av gittertypen; for fcc er $A_{12} = 12{,}13$ og $A_6 = 14{,}45$. Likevekt ved $R_0 = 1{,}09\\,\\sigma$, der $U_\\text{tot} = -8{,}6\\,N\\varepsilon$."
+  - id: madelung-energi
+    section: Ionisk binding
+    tex: "U_\\text{tot} = N\\left(z\\lambda\\, e^{-R/\\rho} - \\dfrac{\\alpha q^2}{4\\pi\\varepsilon_0 R}\\right)"
+    label: "Total energi for en ionekrystall med $N$ ionpar og nærmeste naboavstand $R$. Frastøtningen $\\lambda e^{-R/\\rho}$ tas med for de $z$ nærmeste naboene, med $\\lambda$ og $\\rho$ som empiriske parametere. Coulomb-leddet summerer over hele krystallen gjennom Madelung-konstanten $\\alpha$, og kalles alene Madelung-energien."
+  - id: madelung-konstant
+    section: Ionisk binding
+    tex: "\\alpha = \\sum_j \\dfrac{(\\pm)}{p_{ij}}"
+    label: "Madelung-konstanten: summen over alle andre ioner $j$ i krystallen, med $p_{ij}R$ som avstanden fra referanseionet $i$, pluss for motsatt ladning og minus for samme. Den er $1{,}7476$ for NaCl, $1{,}7627$ for CsCl og $1{,}6381$ for ZnS. Rekken konvergerer bare når den summeres i nøytrale grupper."
+  - id: madelung-likevekt
+    section: Ionisk binding
+    tex: "U_\\text{tot}(R_0) = -\\dfrac{N\\alpha q^2}{4\\pi\\varepsilon_0 R_0}\\left(1 - \\dfrac{\\rho}{R_0}\\right)"
+    label: "Energien til en ionekrystall ved likevektsavstanden $R_0$, fra $\\mathrm{d}U_\\text{tot}/\\mathrm{d}R = 0$. Frastøtningen reduserer Madelung-energien med andelen $\\rho/R_0 \\approx 0{,}1$. For NaCl gir $R_0 = 2{,}82$ Å og $\\rho = 0{,}32$ Å $7{,}9$ eV per ionpar, som målt."
+
 glossary:
   - term: Bravais-gitter
     section: Gitter og basis
@@ -257,6 +278,40 @@ glossary:
   - term: Brillouin-sone
     section: Brillouin-soner
     definition: "Den første Brillouin-sonen er Wigner-Seitz-cellen til det resiproke gitteret: alle $\\vec k$ som ligger nærmere origo enn noe annet resiprokt gitterpunkt. Grensene er planene som halverer vektorene $\\vec G$ normalt, og en bølge med $\\vec k$ på grensen oppfyller diffraksjonsbetingelsen. For fcc er sonen et avkuttet oktaeder, for bcc et rombedodekaeder."
+
+  - term: Kohesjonsenergi
+    section: Kohesjonsenergi
+    definition: "Energien som må tilføres for å dele krystallen opp i frie, nøytrale atomer i ro, uendelig langt fra hverandre og med samme elektronkonfigurasjon som i krystallen (<em>cohesive energy</em>). Oppgis per atom: $0{,}02$ eV for Ne, $7{,}37$ eV for diamant og $8{,}90$ eV for W."
+  - term: Gitterenergi
+    section: Kohesjonsenergi
+    definition: "Kohesjonsenergien til en ionekrystall regnet fra frie <b>ioner</b> i stedet for frie atomer. Den er større enn kohesjonsenergien med det det koster å lage ionene: for NaCl er gitterenergien $7{,}9$ eV per ionpar og kohesjonsenergien $7{,}9 - 5{,}14 + 3{,}61 = 6{,}4$ eV."
+  - term: Ioniseringsenergi
+    section: Kohesjonsenergi
+    definition: "Energien som skal til for å fjerne det løsest bundne elektronet fra et fritt atom, så det blir et positivt ion. $5{,}14$ eV for natrium."
+  - term: Elektronaffinitet
+    section: Kohesjonsenergi
+    definition: "Energien som frigjøres når et fritt atom tar imot et elektron og blir et negativt ion. $3{,}61$ eV for klor."
+  - term: Van der Waals-binding
+    section: Van der Waals-binding
+    definition: "Bindingen mellom nøytrale atomer med fylte skall, som i edelgasskrystallene. Øyeblikksdipolen i det ene atomet induserer en dipol i det andre, og de to tiltrekker hverandre med en energi som avtar som $-1/r^6$. Bindingen er svak, $0{,}02$ til $0{,}17$ eV per atom, og uten retning, så edelgassene krystalliserer i fcc."
+  - term: Lennard-Jones-potensialet
+    section: Van der Waals-binding
+    definition: "$U(r) = 4\\varepsilon[(\\sigma/r)^{12} - (\\sigma/r)^{6}]$: van der Waals-tiltrekningen $-r^{-6}$ pluss Pauli-frastøtningen $+r^{-12}$ når elektronskyene overlapper. $\\varepsilon$ og $\\sigma$ måles i gassfase; for argon er de $0{,}0104$ eV og $3{,}40$ Å."
+  - term: Ionisk binding
+    section: Ionisk binding
+    definition: "Bindingen i krystaller av positive og negative ioner med fylte skall, som NaCl og CsCl. Elektronet flyttes fra metallet til ikke-metallet, og Coulomb-tiltrekningen mellom motsatte ladninger holder krystallen sammen. Den rekker langt, har ingen retning og gir flere eV per ionpar."
+  - term: Madelung-konstant
+    section: Ionisk binding
+    definition: "Det rene tallet $\\alpha = \\sum_j (\\pm)/p_{ij}$ som samler Coulomb-energien fra hele krystallen på ett ion, med pluss for motsatt ladning. Den avhenger bare av strukturen: $1{,}7476$ for NaCl, $1{,}7627$ for CsCl og $1{,}6381$ for ZnS. Summert skall for skall konvergerer ikke rekken; den må summeres i nøytrale grupper."
+  - term: Kovalent binding
+    section: Kovalent binding
+    definition: "Et elektronpar delt mellom to atomer, med overlappende bølgefunksjoner og motsatte spinn. Sterk, flere eV per atom, og med retning: i gruppe IV danner $sp^3$-orbitalene fire bindinger i tetraedervinkler, og resultatet er diamantstrukturen med pakningsgrad $0{,}34$."
+  - term: Metallisk binding
+    section: Metallisk binding
+    definition: "Positive ioner i en sjø av delokaliserte valenselektroner. Bindingen kommer av at elektronenes kinetiske energi synker når de får bre seg over hele krystallen. Den har ingen retning, så metaller pakker tett, leder og lar seg forme. Fra $1{,}11$ eV per atom i natrium til $8{,}90$ eV i wolfram, der $d$-elektronene også bidrar."
+  - term: Hydrogenbinding
+    section: Hydrogenbinding
+    definition: "Et hydrogenatom mellom to sterkt elektronegative atomer, som F, O eller N. Elektronet trekkes over til det ene, og protonet som er igjen, binder begge. Svak, rundt $0{,}1$ eV, og viktig i is, HF og DNA."
 
 # ── Tidligere eksamener → Eksamen-siden ──────────────────────────────────────
 # Lenker rett til PDF-ene hos NTNU; guiden hoster dem ikke selv. Datoene er lest
