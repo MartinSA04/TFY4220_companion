@@ -99,6 +99,27 @@ ikke. Familien gir nøyaktig fire reflekser.
 
 </Example>
 
+<Example label="Eksamensoppgave" title="Spredningsvinkelen for 110-refleksen">
+<ExamRef id="2025-mai" task="6" />
+
+A simple cubic unit cell has $a = 6.80$ Å. X-ray radiation with
+$\lambda = 1.54$ Å is used for diffraction.
+
+What is the scattering angle $2\theta$ for the 110 reflection?
+
+Select one alternative: $2\theta$ = 4.60 deg. &nbsp;/&nbsp; $2\theta$ = 18.4 deg. &nbsp;/&nbsp; $2\theta$ = 13.0 deg. &nbsp;/&nbsp; Cannot be answered because the sample orientation is not specified. &nbsp;/&nbsp; $2\theta$ = 9.19 deg.
+
+<Solution>
+Planavstanden i et kubisk gitter er
+$d_{110} = a/\sqrt{1 + 1 + 0} = 6{,}80/\sqrt2 = 4{,}81$ Å. Braggs lov med $n = 1$
+gir $\sin\theta = \lambda/2d = 1{,}54/9{,}62 = 0{,}160$, altså $\theta = 9{,}2^\circ$
+og $2\theta = 18{,}4^\circ$. Orienteringen trengs ikke; Bragg-vinkelen er en
+egenskap ved planavstanden.
+
+<Answer>$2\theta = 18{,}4^\circ$</Answer>
+</Solution>
+</Example>
+
 ## Spredningsvektoren
 
 Braggs lov gir vinklene, men sier ingenting om hvor sterke refleksene blir, og
@@ -176,6 +197,69 @@ så det resiproke gitteret er også enkelt kubisk.
 Fourier-rekka for tettheten løper dermed over resiproke gittervektorer:
 
 <Formula tex={"\\rho(\\vec{r}) = \\sum_{\\vec{G}} \\rho_{\\vec{G}}\\, e^{i\\vec{G}\\cdot\\vec{r}}"} caption={"Den gitterperiodiske tettheten som Fourier-rekke, med én koeffisient $\\rho_{\\vec G}$ per resiprokt gitterpunkt."} />
+
+<Example label="Eksamensoppgave" title="En resiprok gittervektor i et tetragonalt gitter">
+<ExamRef id="2024-mai" task="15" />
+
+A single crystal is oriented in the orthogonal laboratory coordinate system
+$(\mathbf{x}, \mathbf{y}, \mathbf{z})$, where $\mathbf{z}$ is the vertical
+direction. The crystal belongs to the tetragonal crystal system with
+translation vectors oriented with $\mathbf{a} = a\hat{\mathbf{x}}$,
+$\mathbf{b} = a\hat{\mathbf{y}}$ and $\mathbf{c} = c\hat{\mathbf{z}}$. The
+incoming X-ray beam is directed along $\hat{\mathbf{y}}$. The point detector
+(sensor) is placed in the $(y, z)$ plane, and is at an angle $2\theta$ with
+respect to the horizontal, as shown in the figure.
+
+<Figure src="/figures/eksamen-2024-05-oppgave-15.png" alt="Røntgenkilden sender strålen langs y-aksen mot en krystall i origo, og detektoren står i yz-planet i vinkelen 2θ over horisontalen." width={1070} height={610} caption="Figuren fra oppgavesettet." />
+
+Define a reciprocal coordinate system $(X, Y, Z)$ with
+$\hat{\mathbf{X}}\,||\,\hat{\mathbf{x}}$, $\hat{\mathbf{Y}}\,||\,\hat{\mathbf{y}}$,
+and $\hat{\mathbf{Z}}\,||\,\hat{\mathbf{z}}$. Which expression gives a correct
+representation of the reciprocal lattice vector $\mathbf{G}_{2\bar{1}1}$?
+
+Select one alternative:
+
+- $\mathbf{G}_{2\bar{1}1} = a\langle 2, -1, 1\rangle$
+- $\mathbf{G}_{2\bar{1}1} = \dfrac{2\pi}{\lambda}\langle 0, \cos 2\theta - 1, \sin 2\theta\rangle$
+- $\mathbf{G}_{2\bar{1}1} = \dfrac{2\pi}{a}\langle 2, -1, \tfrac{a}{c}\rangle$
+- $\mathbf{G}_{2\bar{1}1} = 2\pi\langle \tfrac1a\sin\theta, 0, \tfrac1c\cos\theta\rangle$
+- The question cannot be answered without further information.
+
+<Solution>
+I et tetragonalt gitter står $\mathbf{a}$, $\mathbf{b}$ og $\mathbf{c}$
+vinkelrett på hverandre, så kryssproduktene i definisjonen av de resiproke
+vektorene gir $\mathbf{b}_1 = \tfrac{2\pi}{a}\hat{\mathbf{x}}$,
+$\mathbf{b}_2 = \tfrac{2\pi}{a}\hat{\mathbf{y}}$ og
+$\mathbf{b}_3 = \tfrac{2\pi}{c}\hat{\mathbf{z}}$. Da er
+$\mathbf{G}_{2\bar11} = 2\mathbf{b}_1 - \mathbf{b}_2 + \mathbf{b}_3 = \tfrac{2\pi}{a}\langle 2, -1, a/c\rangle$.
+Vektoren er en egenskap ved gitteret og avhenger verken av $\lambda$ eller
+av $\theta$; oppstillingen i figuren avgjør bare hvilke vektorer som kan
+måles.
+
+<Answer>$\mathbf{G}_{2\bar11} = \dfrac{2\pi}{a}\langle 2, -1, \tfrac{a}{c}\rangle$</Answer>
+</Solution>
+</Example>
+
+<Example label="Eksamensoppgave" title="Volumet av den resiproke enhetscellen">
+<ExamRef id="2021-jun" task="7" />
+
+Assuming that the primitive translation vectors of a lattice are given by
+$\mathbf{a} = \sqrt2(\mathbf{x} - \mathbf{y})$; $\mathbf{b} = \sqrt2(\mathbf{x} + \mathbf{y})$;
+$\mathbf{c} = 3\mathbf{z}$. What is the corresponding volume of the
+reciprocal space unit cell?
+
+<Solution>
+De tre vektorene står vinkelrett på hverandre, med
+$|\mathbf{a}| = |\mathbf{b}| = 2$ og $|\mathbf{c}| = 3$, så cellevolumet er
+$V = 2\cdot 2\cdot 3 = 12$. For innbyrdes ortogonale vektorer gir
+$\mathbf{b}_1 = 2\pi(\mathbf{b}\times\mathbf{c})/V$ en resiprok vektor langs
+$\mathbf{a}$ med lengde $2\pi/|\mathbf{a}| = \pi$, og tilsvarende $\pi$ langs
+$\mathbf{b}$ og $2\pi/3$ langs $\mathbf{c}$. Volumet av den resiproke cellen
+er produktet, $\pi\cdot\pi\cdot 2\pi/3 = 2\pi^3/3$, som også er $(2\pi)^3/V$.
+
+<Answer>$V^* = 2\pi^3/3$</Answer>
+</Solution>
+</Example>
 
 ## Diffraksjonsbetingelsen
 

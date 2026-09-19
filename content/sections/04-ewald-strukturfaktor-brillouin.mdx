@@ -98,6 +98,30 @@ Ringene kommer altså i rekkefølgen $h^2+k^2+l^2 = 1, 2, 3, 4, 5, 6, 8, \dots$;
 tallet 7 er ikke en sum av tre kvadrattall, og den ringen mangler i alle
 kubiske gitre. Hvilke av de andre som faktisk vises, avgjør basisen.
 
+<Example label="Eksamensoppgave" title="Gitterkonstanten fra 311-toppen">
+<ExamRef id="2022-mai" task="1" />
+
+In a powder diffraction experiment, X-ray radiation with photon energy
+$E = 8040$ eV is used. The unit cell of the material is known to be cubic.
+The 311 Bragg diffraction peak is observed at a scattering angle
+$2\theta = 60.7°$.
+
+What is the corresponding unit cell dimension $a$?
+
+Select one alternative: 5.1 Å &nbsp;/&nbsp; 9.7 Å &nbsp;/&nbsp; Cannot be answered because the sample orientation is not specified. &nbsp;/&nbsp; 3.1 Å &nbsp;/&nbsp; 13.1 Å
+
+<Solution>
+Bølgelengden er $\lambda = hc/E = 12\,398\ \text{eV·Å}/8040\ \text{eV} = 1{,}542$ Å.
+Braggs lov gir planavstanden $d_{311} = \lambda/(2\sin 30{,}35^\circ) = 1{,}526$ Å,
+og i et kubisk gitter er
+$a = d_{hkl}\sqrt{h^2 + k^2 + l^2} = 1{,}526\cdot\sqrt{11} = 5{,}06$ Å.
+Pulvermetoden trenger ingen orientering; de kornene som tilfeldigvis står i
+Bragg-stilling, gir ringen.
+
+<Answer>$a \approx 5{,}1$ Å</Answer>
+</Solution>
+</Example>
+
 ## Faseproblemet
 
 Detektoren måler $I \propto |F(\vec Q)|^2$. Fasen til $F$ svinger med
@@ -152,6 +176,34 @@ ut av fase, og $f_j$ avtar, så reflekser ved store vinkler er svakere enn ved
 små. To følger for røntgen: tunge atomer dominerer bildet, og hydrogen, med
 sitt ene elektron, er nesten usynlig. Atomer med nesten samme $Z$ er også
 vanskelige å skille fra hverandre.
+
+<Example label="Eksamensoppgave" title="Intensiteten fra en gitt strukturfaktor">
+<ExamRef id="2024-mai" task="20" />
+
+A cubic crystal structure containing two elements with atomic form factors
+$f_A$ and $f_B$ has structure factor given by
+
+$$
+\begin{aligned}
+S_{hkl} &= f_A\big(1 + (-1)^{h+k+l}\big) \\
+&\quad + f_B\, i^{(h+k+l)}\cdot\big[1 + (-1)^{h+k} \\
+&\qquad + (-1)^{k+l} + (-1)^{l+h}\big].
+\end{aligned}
+$$
+
+Which expression is proportional to the scattered *intensity* in the
+special case of $h = 4$, $k = l = 0$? Assume $f_A, f_B \in \mathbb{R}$.
+
+Select one alternative: $4(f_A + 2f_B)^2$ &nbsp;/&nbsp; $4i(-1)^n f_B^2,\ n\in\mathbb{Z}$ &nbsp;/&nbsp; $0$ &nbsp;/&nbsp; $16f_B^2$ &nbsp;/&nbsp; $(f_A + f_B)^2$
+
+<Solution>
+Sett inn $h = 4$, $k = l = 0$: $(-1)^{h+k+l} = 1$, $i^4 = 1$, og alle fire
+leddene i hakeparentesen er $+1$. Da er $S_{400} = 2f_A + 4f_B$, og
+intensiteten er proporsjonal med $|S_{400}|^2 = 4(f_A + 2f_B)^2$.
+
+<Answer>$4(f_A + 2f_B)^2$</Answer>
+</Solution>
+</Example>
 
 ## Systematiske utslukkinger
 

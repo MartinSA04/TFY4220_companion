@@ -176,6 +176,30 @@ løsere bundet.
 
 </Example>
 
+<Example label="Eksamensoppgave" title="Lennard-Jones-potensialet">
+<ExamRef id="2016-mai" task="1 a" />
+
+A typical interatomic potential is described by the Lennard-Jones potential.
+Sketch this potential, and explain the origin of the two terms it is made of.
+
+<Solution>
+Potensialet er $U(r) = 4\varepsilon[(\sigma/r)^{12} - (\sigma/r)^6]$. Skissen
+er en brønn: $U$ vokser mot uendelig når $r \to 0$, krysser null i
+$r = \sigma$, har minimum $-\varepsilon$ i $r_0 = 2^{1/6}\sigma$ og går mot
+null fra undersiden for store $r$.
+
+Det tiltrekkende leddet $-r^{-6}$ er van der Waals-vekselvirkningen:
+ladningsfordelingen i et nøytralt atom fluktuerer, det øyeblikkelige
+dipolmomentet induserer et dipolmoment i naboen, og energien til de to
+dipolene faller som $r^{-6}$. Det frastøtende leddet $+r^{-12}$ kommer fra
+Pauliprinsippet: når elektronskyene overlapper, må elektronene inn i høyere
+tilstander, og energien stiger bratt. Eksponenten 12 er valgt fordi den er
+enkel å regne med, ikke fordi den følger av teorien.
+
+<Answer>Brønn med minimum $-\varepsilon$ i $2^{1/6}\sigma$; $-r^{-6}$ fra induserte dipoler, $+r^{-12}$ fra Pauli-frastøting ved overlapp.</Answer>
+</Solution>
+</Example>
+
 ## Ionisk binding
 
 I NaCl gir natrium fra seg ett elektron og klor tar det imot, og begge ionene
@@ -346,6 +370,37 @@ sitter mellom to sterkt elektronegative atomer, som F, O eller N, trekkes
 elektronet så langt over mot det ene at det som er igjen, i praksis er et
 proton. Et proton er lite nok til å tiltrekke seg begge naboene. Bindingen er
 svak, rundt 0,1 eV, og den holder sammen is, HF og de to trådene i DNA.
+
+<Example label="Eksamensoppgave" title="Bindingstypene i faste stoffer">
+<ExamRef id="2018-mai" task="Introductory questions b" />
+
+List the most common types of bonding in solids and give a brief
+description of each.
+
+<Solution>
+Van der Waals-binding: svak tiltrekning mellom nøytrale atomer eller
+molekyler fra induserte dipoler, energi som $r^{-6}$, med Pauli-frastøting
+ved overlapp; Lennard-Jones-potensialet. Edelgasskrystaller og
+molekylkrystaller.
+
+Ionisk binding: elektroner overføres fra ett atom til et annet, og
+Coulomb-kraften mellom ionene holder krystallen sammen; energien beskrives
+med Madelung-konstanten. Uten retning, flere eV per ionepar. NaCl, CsCl.
+
+Kovalent binding: naboatomer deler elektronpar med motsatt spinn, og
+elektrontettheten hoper seg opp mellom kjernene. Sterk og retningsbestemt;
+harde og sprø krystaller som leder dårlig. Diamant, Si, Ge.
+
+Metallisk binding: valenselektronene løsner fra atomene og danner en felles
+elektronsjø som holder ionene sammen. Uten retning, gir ledningsevne og
+formbarhet. Na, Al, W.
+
+Hydrogenbinding: et hydrogenatom bundet til et sterkt elektronegativt atom
+binder svakt til et annet, som i is.
+
+<Answer>Van der Waals-, ionisk, kovalent, metallisk og hydrogenbinding, beskrevet over.</Answer>
+</Solution>
+</Example>
 
 ## Sjekk deg selv
 
