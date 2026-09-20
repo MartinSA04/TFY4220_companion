@@ -105,19 +105,12 @@ ikke. Familien gir nøyaktig fire reflekser.
 A simple cubic unit cell has $a = 6.80$ Å. X-ray radiation with
 $\lambda = 1.54$ Å is used for diffraction.
 
-What is the scattering angle $2\theta$ for the 110 reflection?
-
-Select one alternative: $2\theta$ = 4.60 deg. &nbsp;/&nbsp; $2\theta$ = 18.4 deg. &nbsp;/&nbsp; $2\theta$ = 13.0 deg. &nbsp;/&nbsp; Cannot be answered because the sample orientation is not specified. &nbsp;/&nbsp; $2\theta$ = 9.19 deg.
-
-<Solution>
-Planavstanden i et kubisk gitter er
-$d_{110} = a/\sqrt{1 + 1 + 0} = 6{,}80/\sqrt2 = 4{,}81$ Å. Braggs lov med $n = 1$
-gir $\sin\theta = \lambda/2d = 1{,}54/9{,}62 = 0{,}160$, altså $\theta = 9{,}2^\circ$
-og $2\theta = 18{,}4^\circ$. Orienteringen trengs ikke; Bragg-vinkelen er en
-egenskap ved planavstanden.
-
-<Answer>$2\theta = 18{,}4^\circ$</Answer>
-</Solution>
+<Quiz
+  question={"What is the scattering angle $2\\theta$ for the 110 reflection?"}
+  options={["$2\\theta$ = 4.60 deg.", "$2\\theta$ = 18.4 deg.", "$2\\theta$ = 13.0 deg.", "Cannot be answered because the sample orientation is not specified.", "$2\\theta$ = 9.19 deg."]}
+  answer={1}
+  explanation={"Planavstanden i et kubisk gitter er $d_{110} = a/\\sqrt{1 + 1 + 0} = 4{,}81$ Å. Braggs lov med $n = 1$ gir $\\sin\\theta = \\lambda/2d = 0{,}160$, altså $\\theta = 9{,}2^\\circ$ og $2\\theta = 18{,}4^\\circ$. Orienteringen trengs ikke; Bragg-vinkelen er en egenskap ved planavstanden."}
+/>
 </Example>
 
 ## Spredningsvektoren
@@ -214,30 +207,20 @@ respect to the horizontal, as shown in the figure.
 
 Define a reciprocal coordinate system $(X, Y, Z)$ with
 $\hat{\mathbf{X}}\,||\,\hat{\mathbf{x}}$, $\hat{\mathbf{Y}}\,||\,\hat{\mathbf{y}}$,
-and $\hat{\mathbf{Z}}\,||\,\hat{\mathbf{z}}$. Which expression gives a correct
-representation of the reciprocal lattice vector $\mathbf{G}_{2\bar{1}1}$?
+and $\hat{\mathbf{Z}}\,||\,\hat{\mathbf{z}}$.
 
-Select one alternative:
-
-- $\mathbf{G}_{2\bar{1}1} = a\langle 2, -1, 1\rangle$
-- $\mathbf{G}_{2\bar{1}1} = \dfrac{2\pi}{\lambda}\langle 0, \cos 2\theta - 1, \sin 2\theta\rangle$
-- $\mathbf{G}_{2\bar{1}1} = \dfrac{2\pi}{a}\langle 2, -1, \tfrac{a}{c}\rangle$
-- $\mathbf{G}_{2\bar{1}1} = 2\pi\langle \tfrac1a\sin\theta, 0, \tfrac1c\cos\theta\rangle$
-- The question cannot be answered without further information.
-
-<Solution>
-I et tetragonalt gitter står $\mathbf{a}$, $\mathbf{b}$ og $\mathbf{c}$
-vinkelrett på hverandre, så kryssproduktene i definisjonen av de resiproke
-vektorene gir $\mathbf{b}_1 = \tfrac{2\pi}{a}\hat{\mathbf{x}}$,
-$\mathbf{b}_2 = \tfrac{2\pi}{a}\hat{\mathbf{y}}$ og
-$\mathbf{b}_3 = \tfrac{2\pi}{c}\hat{\mathbf{z}}$. Da er
-$\mathbf{G}_{2\bar11} = 2\mathbf{b}_1 - \mathbf{b}_2 + \mathbf{b}_3 = \tfrac{2\pi}{a}\langle 2, -1, a/c\rangle$.
-Vektoren er en egenskap ved gitteret og avhenger verken av $\lambda$ eller
-av $\theta$; oppstillingen i figuren avgjør bare hvilke vektorer som kan
-måles.
-
-<Answer>$\mathbf{G}_{2\bar11} = \dfrac{2\pi}{a}\langle 2, -1, \tfrac{a}{c}\rangle$</Answer>
-</Solution>
+<Quiz
+  question={"Which expression gives a correct representation of the reciprocal lattice vector $\\mathbf{G}_{2\\bar{1}1}$?"}
+  options={[
+    "$\\mathbf{G}_{2\\bar{1}1} = a\\langle 2, -1, 1\\rangle$",
+    "$\\mathbf{G}_{2\\bar{1}1} = \\dfrac{2\\pi}{\\lambda}\\langle 0, \\cos 2\\theta - 1, \\sin 2\\theta\\rangle$",
+    "$\\mathbf{G}_{2\\bar{1}1} = \\dfrac{2\\pi}{a}\\langle 2, -1, \\tfrac{a}{c}\\rangle$",
+    "$\\mathbf{G}_{2\\bar{1}1} = 2\\pi\\langle \\tfrac1a\\sin\\theta, 0, \\tfrac1c\\cos\\theta\\rangle$",
+    "The question cannot be answered without further information."
+  ]}
+  answer={2}
+  explanation={"I et tetragonalt gitter står $\\mathbf{a}$, $\\mathbf{b}$ og $\\mathbf{c}$ vinkelrett på hverandre, så kryssproduktene i definisjonen av de resiproke vektorene gir $\\mathbf{b}_1 = \\tfrac{2\\pi}{a}\\hat{\\mathbf{x}}$, $\\mathbf{b}_2 = \\tfrac{2\\pi}{a}\\hat{\\mathbf{y}}$ og $\\mathbf{b}_3 = \\tfrac{2\\pi}{c}\\hat{\\mathbf{z}}$. Da er $\\mathbf{G}_{2\\bar11} = 2\\mathbf{b}_1 - \\mathbf{b}_2 + \\mathbf{b}_3$. Vektoren er en egenskap ved gitteret og avhenger verken av $\\lambda$ eller av $\\theta$; oppstillingen i figuren avgjør bare hvilke vektorer som kan måles."}
+/>
 </Example>
 
 <Example label="Eksamensoppgave" title="Volumet av den resiproke enhetscellen">

@@ -114,26 +114,12 @@ reflektert bølge står stille. Ingen energi transporteres.
 <Example label="Eksamensoppgave" title="Hastighetene på sonegrensen">
 <ExamRef id="2024-mai" task="21" />
 
-Given a 1D chain with lattice spacing $a$. For wave vector $k$ approaching
-$-\pi/a$, the group velocity $v_g$ and the phase velocity $v$ of phonons
-will generally - (complete the sentence)
-
-Select one alternative:
-
-- have $v_g \to 0$ and $v = 0$.
-- be equal.
-- have $v_g = -v$.
-- have $v_g \to 0$ and $v \ne 0$.
-- have $v_g \ne 0$ and $v \to \infty$.
-
-<Solution>
-På sonegrensen er $\omega = 2\sqrt{C/M}$, maksimum av dispersjonsrelasjonen,
-så $v_g = \mathrm d\omega/\mathrm dk = 0$: bølgen står stille. Fasehastigheten
-er $v = \omega/k = 2\sqrt{C/M}\,/(\pi/a) \ne 0$, for både $\omega$ og $k$ er
-endelige der. Fortegnet til $k$ endrer ikke noe av dette.
-
-<Answer>have $v_g \to 0$ and $v \ne 0$</Answer>
-</Solution>
+<Quiz
+  question={"Given a 1D chain with lattice spacing $a$. For wave vector $k$ approaching $-\\pi/a$, the group velocity $v_g$ and the phase velocity $v$ of phonons will generally - (complete the sentence)"}
+  options={["have $v_g \\to 0$ and $v = 0$.", "be equal.", "have $v_g = -v$.", "have $v_g \\to 0$ and $v \\ne 0$.", "have $v_g \\ne 0$ and $v \\to \\infty$."]}
+  answer={3}
+  explanation={"På sonegrensen er $\\omega = 2\\sqrt{C/M}$, maksimum av dispersjonsrelasjonen, så $v_g = \\mathrm d\\omega/\\mathrm dk = 0$ og bølgen står stille. Fasehastigheten $v = \\omega/k$ er endelig og ikke null, for både $\\omega$ og $k$ er endelige der. Fortegnet til $k$ endrer ikke noe av dette."}
+/>
 </Example>
 
 <Example title="kobberkjeden">
@@ -197,24 +183,12 @@ A monatomic linear chain has acoustic lattice vibrations with phase velocity
 $v_\mathrm p = 2200$ m/s, and the maximum frequency is
 $\omega_0 = 2 \cdot 10^{13}$ rad s$^{-1}$.
 
-What is the lattice constant $a$?
-
-Select one alternative: 3.2 Å, 2.1 Å, 4.2 Å, 2.2 Å, 2.3 Å
-
-<Solution>
-For lange bølger er fasehastigheten $v_\mathrm p = a\sqrt{C/M}$, og den
-høyeste frekvensen er $\omega_0 = 2\sqrt{C/M}$ på sonegrensen. Forholdet
-gir gitterkonstanten uten at $C$ og $M$ trengs hver for seg:
-
-$$
-\begin{aligned}
-a &= \frac{2v_\mathrm p}{\omega_0} = \frac{2 \cdot 2200}{2 \cdot 10^{13}}\ \text{m} \\
-&= 2{,}2 \cdot 10^{-10}\ \text{m}
-\end{aligned}
-$$
-
-<Answer>2.2 Å</Answer>
-</Solution>
+<Quiz
+  question={"What is the lattice constant $a$?"}
+  options={["3.2 Å", "2.1 Å", "4.2 Å", "2.2 Å", "2.3 Å"]}
+  answer={3}
+  explanation={"For lange bølger er fasehastigheten $v_\\mathrm p = a\\sqrt{C/M}$, og den høyeste frekvensen er $\\omega_0 = 2\\sqrt{C/M}$ på sonegrensen. Forholdet gir gitterkonstanten uten at $C$ og $M$ trengs hver for seg: $a = 2v_\\mathrm p/\\omega_0 = 2 \\cdot 2200/(2 \\cdot 10^{13})$ m $= 2{,}2 \\cdot 10^{-10}$ m."}
+/>
 </Example>
 
 ## Kjede med to atomtyper

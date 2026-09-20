@@ -106,20 +106,12 @@ $E = 8040$ eV is used. The unit cell of the material is known to be cubic.
 The 311 Bragg diffraction peak is observed at a scattering angle
 $2\theta = 60.7°$.
 
-What is the corresponding unit cell dimension $a$?
-
-Select one alternative: 5.1 Å &nbsp;/&nbsp; 9.7 Å &nbsp;/&nbsp; Cannot be answered because the sample orientation is not specified. &nbsp;/&nbsp; 3.1 Å &nbsp;/&nbsp; 13.1 Å
-
-<Solution>
-Bølgelengden er $\lambda = hc/E = 12\,398\ \text{eV·Å}/8040\ \text{eV} = 1{,}542$ Å.
-Braggs lov gir planavstanden $d_{311} = \lambda/(2\sin 30{,}35^\circ) = 1{,}526$ Å,
-og i et kubisk gitter er
-$a = d_{hkl}\sqrt{h^2 + k^2 + l^2} = 1{,}526\cdot\sqrt{11} = 5{,}06$ Å.
-Pulvermetoden trenger ingen orientering; de kornene som tilfeldigvis står i
-Bragg-stilling, gir ringen.
-
-<Answer>$a \approx 5{,}1$ Å</Answer>
-</Solution>
+<Quiz
+  question={"What is the corresponding unit cell dimension $a$?"}
+  options={["5.1 Å", "9.7 Å", "Cannot be answered because the sample orientation is not specified.", "3.1 Å", "13.1 Å"]}
+  answer={0}
+  explanation={"Bølgelengden er $\\lambda = hc/E = 1{,}542$ Å. Braggs lov gir planavstanden $d_{311} = \\lambda/(2\\sin 30{,}35^\\circ) = 1{,}526$ Å, og i et kubisk gitter er $a = d_{hkl}\\sqrt{h^2 + k^2 + l^2} = 1{,}526\\cdot\\sqrt{11} = 5{,}06$ Å. Pulvermetoden trenger ingen orientering; de kornene som tilfeldigvis står i Bragg-stilling, gir ringen."}
+/>
 </Example>
 
 ## Faseproblemet
@@ -191,18 +183,12 @@ S_{hkl} &= f_A\big(1 + (-1)^{h+k+l}\big) \\
 \end{aligned}
 $$
 
-Which expression is proportional to the scattered *intensity* in the
-special case of $h = 4$, $k = l = 0$? Assume $f_A, f_B \in \mathbb{R}$.
-
-Select one alternative: $4(f_A + 2f_B)^2$ &nbsp;/&nbsp; $4i(-1)^n f_B^2,\ n\in\mathbb{Z}$ &nbsp;/&nbsp; $0$ &nbsp;/&nbsp; $16f_B^2$ &nbsp;/&nbsp; $(f_A + f_B)^2$
-
-<Solution>
-Sett inn $h = 4$, $k = l = 0$: $(-1)^{h+k+l} = 1$, $i^4 = 1$, og alle fire
-leddene i hakeparentesen er $+1$. Da er $S_{400} = 2f_A + 4f_B$, og
-intensiteten er proporsjonal med $|S_{400}|^2 = 4(f_A + 2f_B)^2$.
-
-<Answer>$4(f_A + 2f_B)^2$</Answer>
-</Solution>
+<Quiz
+  question={"Which expression is proportional to the scattered intensity in the special case of $h = 4$, $k = l = 0$? Assume $f_A, f_B \\in \\mathbb{R}$."}
+  options={["$4(f_A + 2f_B)^2$", "$4i(-1)^n f_B^2,\\ n\\in\\mathbb{Z}$", "$0$", "$16f_B^2$", "$(f_A + f_B)^2$"]}
+  answer={0}
+  explanation={"Sett inn $h = 4$, $k = l = 0$: $(-1)^{h+k+l} = 1$, $i^4 = 1$, og alle fire leddene i hakeparentesen er $+1$. Da er $S_{400} = 2f_A + 4f_B$, og intensiteten er proporsjonal med $|S_{400}|^2 = 4(f_A + 2f_B)^2$."}
+/>
 </Example>
 
 ## Systematiske utslukkinger

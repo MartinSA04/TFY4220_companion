@@ -235,31 +235,12 @@ $$
 
 where $x = \frac{\hbar\omega}{k_BT}$ and $\Theta_D$ is the Debye temperature.
 
-What is the corresponding heat capacity for a sample with $N = N_A$
-(Avogadro's number) atoms in the high-$T$ limit?
-
-($R$ is the universal gas constant.)
-
-Select one alternative: 1.5 R, 2.5 R, 3.0 R, 2.0 R, 1.0 R
-
-<Solution>
-Ved høy $T$ er den øvre grensen $\Theta_D/T$ liten, så $x$ er liten i hele
-integralet og $e^x - 1 \approx x$:
-
-$$
-\begin{aligned}
-\int_0^{\Theta_D/T}\frac{x^2}{e^x - 1}\,\mathrm dx
-&\approx \int_0^{\Theta_D/T} x\,\mathrm dx \\
-&= \frac{1}{2}\left(\frac{\Theta_D}{T}\right)^2
-\end{aligned}
-$$
-
-Da er $E = 4Nk_B\,\frac{T^3}{\Theta_D^2}\cdot\frac{\Theta_D^2}{2T^2} = 2Nk_BT$,
-og $C = \mathrm dE/\mathrm dT = 2Nk_B = 2R$ for $N = N_A$. Prøven har to
-frihetsgrader per atom i stedet for tre, som et todimensjonalt gitter.
-
-<Answer>2.0 R</Answer>
-</Solution>
+<Quiz
+  question={"What is the corresponding heat capacity for a sample with $N = N_A$ (Avogadro's number) atoms in the high-$T$ limit? ($R$ is the universal gas constant.)"}
+  options={["1.5 R", "2.5R", "3.0 R", "2.0 R", "1.0 R"]}
+  answer={3}
+  explanation={"Ved høy $T$ er den øvre grensen $\\Theta_D/T$ liten, så $x$ er liten i hele integralet og $e^x - 1 \\approx x$. Integralet er da $\\tfrac12(\\Theta_D/T)^2$, som gir $E = 2Nk_BT$ og $C = 2Nk_B = 2R$ for $N = N_A$. Prøven har to frihetsgrader per atom i stedet for tre, som et todimensjonalt gitter."}
+/>
 </Example>
 
 For $T \ll \theta_D$ går $x_D \to \infty$, og integralet er da tallet
@@ -278,29 +259,12 @@ for fort.
 <Example label="Eksamensoppgave" title="Varmekapasiteten til diamant">
 <ExamRef id="2021-jun" task="26" />
 
-Diamond has a Debye temperature of about 1860 K. Estimate the heat capacity
-of diamond at 140 K using the Debye formalism.
-
-Select one alternative: 1.2 J mol$^{-1}$ K$^{-1}$, 0.8 J mol$^{-1}$ K$^{-1}$,
-24.9 J mol$^{-1}$ K$^{-1}$, 1.7 J mol$^{-1}$ K$^{-1}$, 6.1 J mol$^{-1}$ K$^{-1}$
-
-<Solution>
-$T = 140$ K er langt under $\theta_D$, så $T^3$-loven gjelder. Per mol er
-$Nk_B = R = 8{,}31$ J/(mol·K), og $(140/1860)^3 = 4{,}26 \cdot 10^{-4}$:
-
-$$
-\begin{aligned}
-C_V &= \frac{12\pi^4}{5}\,R\left(\frac{T}{\theta_D}\right)^3 \\
-&= 234 \cdot 4{,}26 \cdot 10^{-4} \cdot R \\
-&= 0{,}83\ \text{J/(mol\,K)}
-\end{aligned}
-$$
-
-Alternativet 24,9 J/(mol·K) er Dulong-Petits verdi, som diamant først når
-langt over romtemperatur.
-
-<Answer>0.8 J mol$^{-1}$ K$^{-1}$</Answer>
-</Solution>
+<Quiz
+  question={"Diamond has a Debye temperature of about 1860 K. Estimate the heat capacity of diamond at 140 K using the Debye formalism."}
+  options={["1.2 J mol$^{-1}$ K$^{-1}$", "0.8 J mol$^{-1}$ K$^{-1}$", "24.9 J mol$^{-1}$ K$^{-1}$", "1.7 J mol$^{-1}$ K$^{-1}$", "6.1 J mol$^{-1}$ K$^{-1}$"]}
+  answer={1}
+  explanation={"$T = 140$ K er langt under $\\theta_D$, så $T^3$-loven gjelder. Per mol er $Nk_B = R = 8{,}31$ J/(mol·K) og $(140/1860)^3 = 4{,}26 \\cdot 10^{-4}$, så $C_V = 234 \\cdot 4{,}26 \\cdot 10^{-4} \\cdot R = 0{,}83$ J/(mol·K). Alternativet 24,9 J/(mol·K) er Dulong-Petits verdi, som diamant først når langt over romtemperatur."}
+/>
 </Example>
 
 <Simulation
@@ -314,20 +278,12 @@ langt over romtemperatur.
 <Example label="Eksamensoppgave" title="Debye-modellen">
 <ExamRef id="2016-mai" task="2.4" />
 
-What is the assumption in the Debye model for phonons?
-
-a) That we have a linear dispersion relation up to a cut-off frequency<br />
-b) That the temperature is very high<br />
-c) That we just have one unit cell<br />
-d) That all phonons have the same frequency
-
-<Solution>
-Debye-modellen setter $\omega = vk$ for alle bølgevektorer, altså en lineær
-dispersjonsrelasjon, og stopper ved grensefrekvensen $\omega_D$ som gir
-riktig antall svingninger. Alternativ d) er Einstein-modellen.
-
-<Answer>a)</Answer>
-</Solution>
+<Quiz
+  question={"What is the assumption in the Debye model for phonons?"}
+  options={["That we have a linear dispersion relation up to a cut-off frequency", "That the temperature is very high", "That we just have one unit cell", "That all phonons have the same frequency"]}
+  answer={0}
+  explanation={"Debye-modellen setter $\\omega = vk$ for alle bølgevektorer, altså en lineær dispersjonsrelasjon, og stopper ved grensefrekvensen $\\omega_D$ som gir riktig antall svingninger. Det siste alternativet er Einstein-modellen."}
+/>
 </Example>
 
 ## Sjekk deg selv
