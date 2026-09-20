@@ -151,6 +151,56 @@ formulas:
     tex: "U_\\text{tot}(R_0) = -\\dfrac{N\\alpha q^2}{4\\pi\\varepsilon_0 R_0}\\left(1 - \\dfrac{\\rho}{R_0}\\right)"
     label: "Energien til en ionekrystall ved likevektsavstanden $R_0$, fra $\\mathrm{d}U_\\text{tot}/\\mathrm{d}R = 0$. Frastøtningen reduserer Madelung-energien med andelen $\\rho/R_0 \\approx 0{,}1$. For NaCl gir $R_0 = 2{,}82$ Å og $\\rho = 0{,}32$ Å $7{,}9$ eV per ionpar, som målt."
 
+  - id: dispersjon-enatomig
+    section: Gittersvingninger
+    tex: "\\omega(k) = 2\\sqrt{\\dfrac{C}{M}}\\,\\left|\\sin\\dfrac{ka}{2}\\right|"
+    label: "Dispersjonsrelasjonen for en kjede av atomer med masse $M$ i avstand $a$, med kraftkonstant $C$ mellom nærmeste naboer. Kraftkonstanten skrives også $K$ eller $\\gamma$. $\\omega$ er periodisk i $k$ med periode $2\\pi/a$, så alle svingninger ligger i første Brillouin-sone $-\\pi/a < k \\le \\pi/a$, og maksimum $2\\sqrt{C/M}$ er på sonegrensen."
+  - id: lydhastighet
+    section: Gittersvingninger
+    tex: "v = \\dfrac{\\omega}{k} = a\\sqrt{\\dfrac{C}{M}}, \\qquad v_g = \\dfrac{\\mathrm d\\omega}{\\mathrm dk}"
+    label: "Lydhastigheten i kjeden, fra grensen $ka \\ll 1$ der $\\omega \\approx vk$, og gruppehastigheten, som er hastigheten til et signal. For lange bølger er de like; på sonegrensen $k = \\pi/a$ er $v_g = 0$ og bølgen står stille."
+  - id: dispersjon-toatomig
+    section: Gittersvingninger
+    tex: "\\begin{aligned} &\\omega^2 = C\\frac{M_1 + M_2}{M_1 M_2}\\times \\\\ &\\bigl[1 \\pm \\sqrt{1 - \\tfrac{4M_1 M_2}{(M_1 + M_2)^2}\\sin^2\\!\\tfrac{ka}{2}}\\bigr] \\end{aligned}"
+    label: "Dispersjonsrelasjonen for en kjede med to atomtyper $M_1 > M_2$ per celle og samme kraftkonstant $C$. Plusstegnet gir den optiske grenen, som starter på $\\omega^2 = 2C(1/M_1 + 1/M_2)$ ved $k = 0$; minustegnet gir den akustiske, som går som $\\omega \\propto k$. På sonegrensen er $\\omega^2 = 2C/M_1$ og $2C/M_2$, og mellom dem er det et gap uten løsninger."
+  - id: fonon-energi
+    section: Fononer
+    tex: "\\begin{aligned} E_n(k) &= \\left(n + \\tfrac12\\right)\\hbar\\omega(k) \\\\ \\vec p &= \\hbar\\vec k \\end{aligned}"
+    label: "Energien i gittersvingningen med bølgevektor $k$ og $n$ fononer, med nullpunktsenergien $\\tfrac12\\hbar\\omega$, og krystallimpulsen til et fonon. Fononer er bosoner, så $n$ kan være vilkårlig stor. Den fysiske impulsen til en svingning med $k \\ne 0$ er null."
+
+  - id: planck-fordeling
+    section: Varmekapasitet
+    tex: "\\langle n \\rangle = \\dfrac{1}{e^{\\hbar\\omega/k_BT} - 1}"
+    label: "Planck-fordelingen: middelantallet fononer i en svingning med frekvens $\\omega$ ved temperaturen $T$. Middelenergien er $\\hbar\\omega\\langle n \\rangle$, som er $k_BT$ for $\\hbar\\omega \\ll k_BT$ og eksponentielt liten for $\\hbar\\omega \\gg k_BT$."
+  - id: einstein-varmekapasitet
+    section: Varmekapasitet
+    tex: "\\begin{aligned} C_V &= 3Nk_B\\,\\frac{x^2 e^{x}}{\\left(e^{x} - 1\\right)^2} \\\\ x &= \\frac{\\theta_E}{T} = \\frac{\\hbar\\omega_E}{k_BT} \\end{aligned}"
+    label: "Varmekapasiteten i Einstein-modellen, der alle $3N$ svingninger har frekvensen $\\omega_E$ og $\\theta_E = \\hbar\\omega_E/k_B$. Går mot $3Nk_B$ (Dulong-Petit) for $T \\gg \\theta_E$ og eksponentielt mot null for $T \\ll \\theta_E$."
+  - id: tillatte-k
+    section: Tilstandstettheten
+    tex: "\\begin{aligned} k &= \\frac{2\\pi}{L}\\,m \\\\ m &= 0, \\pm1, \\pm2, \\dots \\end{aligned}"
+    label: "De tillatte bølgevektorene i en kjede med lengde $L = Na$ og periodiske grensebetingelser $u_{n+N} = u_n$. Avstanden er $\\Delta k = 2\\pi/L$, og første Brillouin-sone rommer $N$ verdier. I tre dimensjoner tar hver svingning volumet $(2\\pi/L)^3$ i $k$-rommet."
+  - id: tilstandstetthet-1d
+    section: Tilstandstettheten
+    tex: "D(\\omega) = \\dfrac{L}{\\pi}\\,\\dfrac{1}{\\mathrm d\\omega/\\mathrm dk}"
+    label: "Tilstandstettheten i én dimensjon: antall svingninger per frekvensenhet, med faktoren 2 for $\\pm k$ regnet inn. Den divergerer der gruppehastigheten er null. For kjeden med én atomtype er $D = (2N/\\pi)/\\sqrt{\\omega_m^2 - \\omega^2}$."
+  - id: antall-tilstander-3d
+    section: Tilstandstettheten
+    tex: "N(k) = \\dfrac{V k^3}{6\\pi^2}"
+    label: "Antall svingninger med bølgevektor mindre enn $k$ i en krystall med volum $V$, per polarisasjon: kulevolumet $4\\pi k^3/3$ delt på volumet $(2\\pi)^3/V$ per svingning. Tilstandstettheten er $D(\\omega) = \\mathrm dN/\\mathrm d\\omega$."
+  - id: debye-tilstandstetthet
+    section: Debye-modellen
+    tex: "D(\\omega) = \\dfrac{V\\omega^2}{2\\pi^2 v^3}, \\qquad \\omega \\le \\omega_D"
+    label: "Tilstandstettheten i Debye-modellen, per polarisasjon, fra $\\omega = vk$ for alle $k$. De optiske grenene er ikke med. Parabelen stopper ved $\\omega_D$, som gir $N$ svingninger per polarisasjon."
+  - id: debye-temperatur
+    section: Debye-modellen
+    tex: "\\begin{aligned} \\omega_D &= v\\left(\\frac{6\\pi^2 N}{V}\\right)^{1/3} \\\\ \\theta_D &= \\frac{\\hbar\\omega_D}{k_B} \\end{aligned}"
+    label: "Debye-frekvensen, fra $\\int_0^{\\omega_D} D\\,\\mathrm d\\omega = N$, og Debye-temperaturen: der $k_BT$ er lik den høyeste fononenergien i modellen. Bly 105 K, kobber 343 K, silisium 645 K, diamant 2230 K."
+  - id: debye-t3
+    section: Debye-modellen
+    tex: "\\begin{aligned} C_V &= \\frac{12\\pi^4}{5}\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\\\ &\\approx 234\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\end{aligned}"
+    label: "Debyes $T^3$-lov, gyldig for $T$ under omtrent $\\theta_D/50$. Fra $U = 9Nk_BT\\,(T/\\theta_D)^3\\int_0^{\\theta_D/T} x^3\\,\\mathrm dx/(e^x - 1)$ med integralet $\\pi^4/15$ når $T \\to 0$. Bare andelen $(T/\\theta_D)^3$ av svingningene er eksitert, hver med energi omtrent $k_BT$. For $T \\gg \\theta_D$ gir samme integral $3Nk_B$."
+
 glossary:
   - term: Bravais-gitter
     section: Gitter og basis
@@ -312,6 +362,50 @@ glossary:
   - term: Hydrogenbinding
     section: Hydrogenbinding
     definition: "Et hydrogenatom mellom to sterkt elektronegative atomer, som F, O eller N. Elektronet trekkes over til det ene, og protonet som er igjen, binder begge. Svak, rundt $0{,}1$ eV, og viktig i is, HF og DNA."
+
+  - term: Harmonisk tilnærming
+    section: Gittersvingninger
+    definition: "Parpotensialet erstattet med parabelen $U(a) + \\tfrac12 U''(a)(r - a)^2$ rundt likevekt, så kraften mellom naboatomer følger Hookes lov med kraftkonstanten $C = U''(a)$. Gjelder for små utsving, og gir et harmonisk gitter der alle svingninger er uavhengige."
+  - term: Dispersjonsrelasjon
+    section: Gittersvingninger
+    definition: "Sammenhengen $\\omega(k)$ mellom frekvensen og bølgevektoren til en bølge i gitteret. For kjeden med én atomtype er den $\\omega = 2\\sqrt{C/M}\\,|\\sin(ka/2)|$. Den er periodisk med $2\\pi/a$, så alt ligger i første Brillouin-sone, og stigningen $\\mathrm d\\omega/\\mathrm dk$ er gruppehastigheten."
+  - term: Gruppehastighet
+    section: Gittersvingninger
+    definition: "$v_g = \\mathrm d\\omega/\\mathrm dk$, hastigheten til en bølgepakke og dermed til energi og signaler. For lange bølger er den lik fasehastigheten $\\omega/k$, som er lydhastigheten $a\\sqrt{C/M}$. På sonegrensen er den null: bølgen står stille og transporterer ingen energi."
+  - term: Akustisk gren
+    section: Gittersvingninger
+    definition: "Grenen av dispersjonsrelasjonen der $\\omega \\to 0$ når $k \\to 0$, og atomene i cellen svinger i fase. For lange bølger er den lyd, $\\omega = vk$. Alle krystaller har tre akustiske grener, én longitudinal (LA) og to transversale (TA)."
+  - term: Optisk gren
+    section: Gittersvingninger
+    definition: "En gren med endelig $\\omega$ ved $k = 0$, der atomene i cellen svinger i motfase med massesenteret i ro, $u/v = -M_2/M_1$. Finnes bare med minst to atomer i den primitive cellen: $s$ atomer gir $3s - 3$ optiske grener (LO og TO). I ionekrystaller er svingningen et oscillerende dipolmoment som kobler til infrarødt lys, derav navnet."
+  - term: Fonon
+    section: Fononer
+    definition: "Ett kvant $\\hbar\\omega(k)$ av en gittersvingning, slik et foton er et kvant av det elektromagnetiske feltet. Svingningen med bølgevektor $k$ har energien $(n + \\tfrac12)\\hbar\\omega(k)$ med $n$ fononer. Fononer er bosoner og følger Bose-Einstein-statistikk, så $n$ er ubegrenset. De bestemmer varmekapasiteten og varmeledningsevnen til faste stoffer."
+  - term: Krystallimpuls
+    section: Fononer
+    definition: "$\\hbar\\vec k$ for et fonon. Den inngår som impuls i bevaringslovene ved spredning av fotoner, nøytroner og elektroner, men den fysiske impulsen til en gittersvingning med $k \\ne 0$ er null, for atomene beveger seg bare i forhold til hverandre."
+
+  - term: Dulong-Petits lov
+    section: Varmekapasitet
+    definition: "Den klassiske varmekapasiteten $C_V = 3Nk_B$, per mol $3R = 24{,}9$ J/(mol·K), fra ekvipartisjonsprinsippet: hver av de $3N$ svingningene bærer $k_BT$. Stemmer ved høy temperatur, men målt går $C_V \\to 0$ som $T^3$ når $T \\to 0$."
+  - term: Planck-fordelingen
+    section: Varmekapasitet
+    definition: "Middelantallet fononer i en svingning med frekvens $\\omega$ ved temperaturen $T$, $\\langle n \\rangle = 1/(e^{\\hbar\\omega/k_BT} - 1)$, også kalt Bose-Einstein-fordelingen. Middelenergien $\\hbar\\omega\\langle n \\rangle$ er $k_BT$ for $\\hbar\\omega \\ll k_BT$ og eksponentielt liten for $\\hbar\\omega \\gg k_BT$: svingningen er frosset ut."
+  - term: Einstein-modellen
+    section: Varmekapasitet
+    definition: "Modellen der alle $3N$ svingninger har samme frekvens $\\omega_E$, med Einstein-temperaturen $\\theta_E = \\hbar\\omega_E/k_B$ som eneste parameter. Den gir $3Nk_B$ ved høy $T$ og et fall mot null ved lav, men fallet er eksponentielt og for bratt, fordi de akustiske svingningene med lav frekvens mangler. Passer for de optiske grenene."
+  - term: Periodiske grensebetingelser
+    section: Tilstandstettheten
+    definition: "Kravet $u_{n+N} = u_n$ for en kjede av $N$ atomer, som om den var lukket til en ring. Løpende bølger er fortsatt løsninger, men bare med $k = 2\\pi m/L$, så $k$ er diskret med avstand $2\\pi/L$ og første Brillouin-sone rommer $N$ verdier. Passer for store krystaller; faste ender passer for nanokrystaller."
+  - term: Tilstandstetthet
+    section: Tilstandstettheten
+    definition: "Antall svingninger per frekvensenhet, $D(\\omega)$. I én dimensjon $D = (L/\\pi)/(\\mathrm d\\omega/\\mathrm dk)$, som divergerer der gruppehastigheten er null. I tre dimensjoner er antallet med bølgevektor under $k$ lik $Vk^3/6\\pi^2$ per polarisasjon, og $D = \\mathrm dN/\\mathrm d\\omega$."
+  - term: Debye-modellen
+    section: Debye-modellen
+    definition: "Modellen med $\\omega = vk$ for alle $k$, altså de akustiske grenene strukket til hele sonen og ingen optiske. Det gir $D(\\omega) = V\\omega^2/2\\pi^2v^3$ per polarisasjon opp til grensefrekvensen $\\omega_D$, som gir riktig antall svingninger. Den gir Dulong-Petit ved høy $T$ og $T^3$-loven ved lav."
+  - term: Debye-temperatur
+    section: Debye-modellen
+    definition: "$\\theta_D = \\hbar\\omega_D/k_B$, temperaturen der $k_BT$ er lik den høyeste fononenergien i Debye-modellen, og stoffets eneste parameter i den. Høy for stive, lette stoffer: diamant 2230 K, silisium 645 K, kobber 343 K, bly 105 K. Under omtrent $\\theta_D/50$ er $C_V = 234\\,Nk_B(T/\\theta_D)^3$."
 
 # ── Tidligere eksamener → Eksamen-siden ──────────────────────────────────────
 # Lenker rett til PDF-ene hos NTNU; guiden hoster dem ikke selv. Datoene er lest

@@ -1,0 +1,383 @@
+---
+order: 7
+title: "Fononer og varmekapasitet"
+summary: "Hvorfor varmekapasiteten til et fast stoff er 3R ved høy temperatur og går mot null som T³: Planck-fordelingen, Einstein-modellen, tillatte k-verdier og tilstandstettheten, og Debye-modellen med Debye-temperaturen."
+importance: core
+tag: "Uke 38"
+part: "Del II: Fononer"
+updated: 2026-09-20
+---
+
+<LearningGoals>
+
+- Utlede <Term name="Dulong-Petits lov">Dulong-Petits lov</Term> $C_V = 3Nk_B$ fra ekvipartisjonsprinsippet, og forklare hvorfor målingene avviker ved lav temperatur.
+- Bruke <Term name="Planck-fordelingen">Planck-fordelingen</Term> (<FormulaRef id="planck-fordeling" />) til å finne middelenergien i en svingning, og regne ut varmekapasiteten i <Term name="Einstein-modellen">Einstein-modellen</Term>.
+- Finne de tillatte $k$-verdiene fra <Term name="Periodiske grensebetingelser">periodiske grensebetingelser</Term> (<FormulaRef id="tillatte-k" />) og regne ut <Term name="Tilstandstetthet">tilstandstettheten</Term> $D(\omega)$ fra en dispersjonsrelasjon.
+- Sette opp <Term name="Debye-modellen">Debye-modellen</Term> med $D(\omega)$, grensefrekvensen $\omega_D$ og <Term name="Debye-temperatur">Debye-temperaturen</Term> $\theta_D$.
+- Forklare $T^3$-loven fysisk og bruke den.
+
+</LearningGoals>
+
+## Varmekapasiteten til et fast stoff
+
+Varmekapasiteten sier hvor mye energi som skal til for å varme stoffet én
+grad, $C_V = (\partial U/\partial T)_V$. Et fast stoff utvider seg så lite
+ved oppvarming at arbeidet $p\,\mathrm dV$ kan neglisjeres, så $C_V$ og
+$C_p$ er praktisk talt like. Nesten hele den indre energien $U$ sitter i
+gittersvingningene.
+
+Klassisk er hvert atom en harmonisk oscillator i tre retninger, med energien
+$E = \tfrac12 Mv^2 + \tfrac12 Cx^2$ per retning. Ekvipartisjonsprinsippet
+sier at hver frihetsgrad som inngår kvadratisk i energien, bidrar med
+$\tfrac12 k_BT$ i middel. En svingning i én retning har to slike ledd og
+bærer $k_BT$, og $N$ atomer i tre retninger har $U = 3Nk_BT$:
+
+<Formula tex={"\\begin{aligned} C_V &= 3Nk_B \\\\ C_V^\\text{mol} &= 3R = 24{,}9\\ \\text{J/(mol\\,K)} \\end{aligned}"} caption={"Dulong-Petits lov. Den klassiske varmekapasiteten er konstant, uavhengig av stoff og temperatur."} />
+
+Ved romtemperatur stemmer det for de fleste stoffer. Men målingene viser to
+ting loven ikke har: alle faste stoffer får $C_V \to 0$ når $T \to 0$, og
+fallet går som $T^3$ i isolatorer. Diamant er ikke engang i nærheten av
+$3R$ ved romtemperatur, bare 6,1 J/(mol·K), og når først $3R$ ved rundt
+2000 K. Det trengs en kvantemodell, og den første var Einsteins fra 1907.
+
+## Planck-fordelingen
+
+En svingning med frekvens $\omega$ har energiene $(n + \tfrac12)\hbar\omega$.
+I termisk likevekt ved temperaturen $T$ er sannsynligheten for $n$ fononer
+proporsjonal med Boltzmann-faktoren $e^{-n\hbar\omega/k_BT}$, og middelet
+av $n$ er
+
+<Formula tex={"\\langle n \\rangle = \\frac{1}{e^{\\hbar\\omega/k_BT} - 1}"} caption={"Planck-fordelingen: middelantallet fononer i en svingning med frekvens $\\omega$ ved temperaturen $T$. Den gjelder for alle bosoner, og for fotoner er den Plancks strålingslov."} />
+
+<Derivation title="Middelet av n">
+
+Med $x = \hbar\omega/k_BT$ er
+
+$$
+\langle n \rangle = \frac{\sum_n n\,e^{-nx}}{\sum_n e^{-nx}}
+$$
+
+Nevneren er en geometrisk rekke, $\sum_n e^{-nx} = 1/(1 - e^{-x})$, og
+telleren er minus den deriverte av nevneren med hensyn på $x$:
+
+$$
+\begin{aligned}
+\sum_n n\,e^{-nx} &= -\frac{\mathrm d}{\mathrm dx}\,\frac{1}{1 - e^{-x}} \\
+&= \frac{e^{-x}}{(1 - e^{-x})^2}
+\end{aligned}
+$$
+
+Forholdet er $e^{-x}/(1 - e^{-x}) = 1/(e^x - 1)$.
+
+</Derivation>
+
+Middelenergien i svingningen er $\hbar\omega\langle n \rangle$, når
+nullpunktsleddet $\tfrac12\hbar\omega$ holdes utenfor, for det avhenger ikke
+av $T$ og bidrar ikke til $C_V$:
+
+$$
+\langle E \rangle = \frac{\hbar\omega}{e^{\hbar\omega/k_BT} - 1}
+$$
+
+For $k_BT \gg \hbar\omega$ er $e^x \approx 1 + x$, og $\langle E \rangle \approx k_BT$
+er den klassiske verdien. For $k_BT \ll \hbar\omega$ er
+$\langle E \rangle \approx \hbar\omega\,e^{-\hbar\omega/k_BT}$, som går
+eksponentielt mot null. Svingningen kan bare ta imot energi i porsjoner på
+$\hbar\omega$, og når $k_BT$ er mye mindre enn det, får den ingenting. Den
+er frosset ut. Det er hele grunnen til at $C_V$ faller: etter hvert som
+temperaturen synker, fryser stadig flere av svingningene ut.
+
+## Einstein-modellen
+
+Einstein antok at alle de $3N$ svingningene har samme frekvens $\omega_E$.
+Da er $U = 3N\hbar\omega_E\langle n \rangle$, og den deriverte med hensyn på
+$T$ gir, med Einstein-temperaturen $\theta_E = \hbar\omega_E/k_B$,
+
+<Formula tex={"\\begin{aligned} C_V &= 3Nk_B\\,\\frac{x^2 e^{x}}{\\left(e^{x} - 1\\right)^2} \\\\ x &= \\frac{\\theta_E}{T} = \\frac{\\hbar\\omega_E}{k_BT} \\end{aligned}"} caption={"Varmekapasiteten i Einstein-modellen. Einstein-temperaturen $\\theta_E$ er den eneste parameteren, og $C_V$ er den samme funksjonen av $T/\\theta_E$ for alle stoffer."} />
+
+For $T \gg \theta_E$ går uttrykket mot $3Nk_B$, Dulong-Petits verdi. For
+$T \ll \theta_E$ går det mot $3Nk_B\,(\theta_E/T)^2\,e^{-\theta_E/T}$, som er
+null for alle praktiske formål. Modellen har altså fallet, og det var
+gjennombruddet. Men fallet er for bratt. Målt går $C_V$ som $T^3$, ikke
+eksponentielt. Grunnen er at krystallen har akustiske svingninger med
+vilkårlig lav frekvens, og de er eksitert uansett hvor lav temperaturen
+er. Én felles frekvens beskriver de optiske grenene godt, for de er nesten
+flate, men ikke de akustiske. Vi trenger å vite hvor mange svingninger
+krystallen har ved hver frekvens.
+
+## Tillatte k-verdier og tilstandstettheten
+
+Regningen så langt var for en uendelig kjede med kontinuerlig $k$. En
+virkelig krystall har $N$ atomer, og enden må håndteres. Faste ender passer
+for nanokrystaller. For en stor krystall bruker vi periodiske
+grensebetingelser, $u_{n+N} = u_n$, som om kjeden var lukket til en ring.
+Løpende bølger er da fortsatt løsninger, men $e^{ikNa} = 1$ krever
+
+<Formula tex={"\\begin{aligned} k &= \\frac{2\\pi}{L}\\,m \\\\ m &= 0, \\pm1, \\pm2, \\dots \\end{aligned}"} caption={"De tillatte bølgevektorene for en kjede av $N$ atomer med lengde $L = Na$ og periodiske grensebetingelser. Avstanden mellom dem er $\\Delta k = 2\\pi/L$, og første Brillouin-sone rommer nøyaktig $N$ av dem, én per atom."} />
+
+Bølgevektoren er diskret. Med $N = 6$ er de tillatte verdiene
+$0, \pm\pi/3a, \pm 2\pi/3a$ og $\pi/a$, seks i alt, for $-\pi/a$ og $\pi/a$
+er samme svingning. Hver tillatt $k$ er én harmonisk oscillator med energi
+$(n + \tfrac12)\hbar\omega(k)$, og en kjede av $N$ atomer har $N$ av dem.
+
+Tilstandstettheten $D(\omega)$ er antall svingninger per frekvensenhet.
+Svingningene ligger jevnt i $k$, én per $\Delta k = 2\pi/L$, og både $k$ og
+$-k$ gir samme $\omega$. Antallet i intervallet $\mathrm d\omega$ er derfor
+$2 \cdot (L/2\pi)\,\mathrm dk$:
+
+<Formula tex={"D(\\omega) = \\frac{L}{\\pi}\\,\\frac{1}{\\mathrm d\\omega/\\mathrm dk} = \\frac{L}{\\pi v_g}"} caption={"Tilstandstettheten i én dimensjon. Der dispersjonskurven er flat, hoper svingningene seg opp i frekvens, og $D$ divergerer der gruppehastigheten er null. I et gap er $D = 0$."} />
+
+<Example title="tilstandstettheten til kjeden">
+
+Kjeden med én atomtype har $\omega = \omega_m\sin(ka/2)$ med
+$\omega_m = 2\sqrt{C/M}$. Finn $D(\omega)$.
+
+<Solution>
+
+For $0 < k < \pi/a$ er
+
+$$
+\frac{\mathrm d\omega}{\mathrm dk} = \frac{a}{2}\,\omega_m\cos\frac{ka}{2}
+= \frac{a}{2}\sqrt{\omega_m^2 - \omega^2}
+$$
+
+der $\cos(ka/2) = \sqrt{1 - \sin^2(ka/2)} = \sqrt{1 - \omega^2/\omega_m^2}$.
+Med $L = Na$:
+
+$$
+\begin{aligned}
+D(\omega) &= \frac{L}{\pi}\,\frac{2}{a\sqrt{\omega_m^2 - \omega^2}} \\
+&= \frac{2N}{\pi}\,\frac{1}{\sqrt{\omega_m^2 - \omega^2}}
+\end{aligned}
+$$
+
+For små $\omega$ er $D$ konstant, $2N/\pi\omega_m = L/\pi v$ med
+lydhastigheten $v = a\omega_m/2$. Ved $\omega_m$ divergerer $D$, for der er
+$v_g = 0$. Kontroll: $\int_0^{\omega_m} D\,\mathrm d\omega = (2N/\pi)(\pi/2) = N$.
+
+<Answer>$D(\omega) = \dfrac{2N}{\pi\sqrt{\omega_m^2 - \omega^2}}$ for $\omega < \omega_m$, null over</Answer>
+
+</Solution>
+
+</Example>
+
+I tre dimensjoner gjelder det samme for en kube med kant $L$: $\vec k$ har
+komponentene $2\pi m_x/L$, $2\pi m_y/L$ og $2\pi m_z/L$, og hver svingning
+tar volumet $(2\pi/L)^3$ i $k$-rommet. Antall svingninger med bølgevektor
+mindre enn $k$ er kulevolumet delt på volumet per svingning:
+
+<Formula tex={"N(k) = \\frac{V}{(2\\pi)^3}\\cdot\\frac{4\\pi k^3}{3} = \\frac{V k^3}{6\\pi^2}"} caption={"Antall svingninger med bølgevektor mindre enn $k$ i en krystall med volum $V$, per polarisasjon. Tilstandstettheten er $D(\\omega) = \\mathrm dN/\\mathrm d\\omega$."} />
+
+## Debye-modellen
+
+Debye antok at $\omega = vk$ for alle $k$, med lydhastigheten $v$. Det er
+de akustiske grenene for lange bølger, strukket til hele sonen, og de
+optiske grenene er ikke med. Med $k = \omega/v$ i $N(k)$ er
+
+<Formula tex={"D(\\omega) = \\frac{\\mathrm dN}{\\mathrm d\\omega} = \\frac{V\\omega^2}{2\\pi^2 v^3}"} caption={"Tilstandstettheten i Debye-modellen, per polarisasjon. Parabelen stopper ved grensefrekvensen $\\omega_D$."} />
+
+En krystall med $N$ primitive celler har bare $N$ svingninger per
+polarisasjon, så parabelen må stoppe. Grensefrekvensen $\omega_D$ er der
+tellingen når $N$:
+
+$$
+\int_0^{\omega_D} D(\omega)\,\mathrm d\omega = \frac{V\omega_D^3}{6\pi^2 v^3} = N
+$$
+
+<Formula tex={"\\begin{aligned} \\omega_D &= v\\left(\\frac{6\\pi^2 N}{V}\\right)^{1/3} \\\\ \\theta_D &= \\frac{\\hbar\\omega_D}{k_B} \\end{aligned}"} caption={"Debye-frekvensen og Debye-temperaturen. $\\theta_D$ er temperaturen der $k_BT$ er lik den høyeste fononenergien i modellen, og den er stoffets eneste parameter."} />
+
+I $k$-rommet er $k_D = (6\pi^2N/V)^{1/3}$ radien i en kule med samme volum
+som Brillouin-sonen. Debye-temperaturen er høy for stive, lette stoffer og
+lav for myke, tunge:
+
+<Table
+  columns={["Stoff", "$\\theta_D$"]}
+  rows={[
+    ["bly", "105 K"],
+    ["natrium", "158 K"],
+    ["kobber", "343 K"],
+    ["aluminium", "428 K"],
+    ["silisium", "645 K"],
+    ["diamant", "2230 K"],
+  ]}
+  rowHeader={false}
+  caption="Debye-temperaturer. Romtemperatur er over $\theta_D$ for bly og kobber og langt under for diamant."
+/>
+
+Den indre energien er summen over de tre polarisasjonene, med samme $v$
+for alle tre:
+
+$$
+\begin{aligned}
+U &= 3\int_0^{\omega_D} D(\omega)\,\hbar\omega\,\langle n \rangle\,\mathrm d\omega \\
+&= \frac{3V\hbar}{2\pi^2 v^3}\int_0^{\omega_D}\frac{\omega^3\,\mathrm d\omega}{e^{\hbar\omega/k_BT} - 1}
+\end{aligned}
+$$
+
+Sett $x = \hbar\omega/k_BT$ og $x_D = \theta_D/T$, og bruk
+$V/2\pi^2v^3 = 3N/\omega_D^3$:
+
+$$
+U = 9Nk_BT\left(\frac{T}{\theta_D}\right)^3\int_0^{x_D}\frac{x^3\,\mathrm dx}{e^x - 1}
+$$
+
+For $T \gg \theta_D$ er $x$ liten i hele integralet, $x^3/(e^x - 1) \approx x^2$,
+integralet er $x_D^3/3$, og $U = 3Nk_BT$. Dulong-Petit igjen.
+
+<Example label="Eksamensoppgave" title="Grensen for høy temperatur">
+<ExamRef id="2022-mai" task="12" />
+
+A specially prepared sample has total phonon energy given by
+
+$$
+E = 4Nk_B\frac{T^3}{\Theta_D^2}\int_0^{\Theta_D/T}\frac{x^2}{e^x - 1}\,dx
+$$
+
+where $x = \frac{\hbar\omega}{k_BT}$ and $\Theta_D$ is the Debye temperature.
+
+What is the corresponding heat capacity for a sample with $N = N_A$
+(Avogadro's number) atoms in the high-$T$ limit?
+
+($R$ is the universal gas constant.)
+
+Select one alternative: 1.5 R, 2.5 R, 3.0 R, 2.0 R, 1.0 R
+
+<Solution>
+Ved høy $T$ er den øvre grensen $\Theta_D/T$ liten, så $x$ er liten i hele
+integralet og $e^x - 1 \approx x$:
+
+$$
+\begin{aligned}
+\int_0^{\Theta_D/T}\frac{x^2}{e^x - 1}\,\mathrm dx
+&\approx \int_0^{\Theta_D/T} x\,\mathrm dx \\
+&= \frac{1}{2}\left(\frac{\Theta_D}{T}\right)^2
+\end{aligned}
+$$
+
+Da er $E = 4Nk_B\,\frac{T^3}{\Theta_D^2}\cdot\frac{\Theta_D^2}{2T^2} = 2Nk_BT$,
+og $C = \mathrm dE/\mathrm dT = 2Nk_B = 2R$ for $N = N_A$. Prøven har to
+frihetsgrader per atom i stedet for tre, som et todimensjonalt gitter.
+
+<Answer>2.0 R</Answer>
+</Solution>
+</Example>
+
+For $T \ll \theta_D$ går $x_D \to \infty$, og integralet er da tallet
+$\pi^4/15$:
+
+<Formula tex={"\\begin{aligned} C_V &= \\frac{12\\pi^4}{5}\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\\\ &\\approx 234\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\end{aligned}"} caption={"Debyes $T^3$-lov, gyldig for $T$ under omtrent $\\theta_D/50$. Der stemmer den med målingene på isolatorer."} />
+
+Loven har et enkelt bilde. Ved $T \ll \theta_D$ er bare svingningene med
+$\hbar\omega \lesssim k_BT$ eksitert. I $k$-rommet fyller de en kule med
+radius $k_BT/\hbar v$ inne i Debye-kulen med radius $k_B\theta_D/\hbar v$,
+altså andelen $(T/\theta_D)^3$ av alle $3N$ svingninger. Hver av dem bærer
+omtrent $k_BT$, så $U \sim 3Nk_BT\,(T/\theta_D)^3$, og den deriverte går som
+$T^3$. Einstein-modellen har ingen slike svingninger, og derfor faller den
+for fort.
+
+<Example label="Eksamensoppgave" title="Varmekapasiteten til diamant">
+<ExamRef id="2021-jun" task="26" />
+
+Diamond has a Debye temperature of about 1860 K. Estimate the heat capacity
+of diamond at 140 K using the Debye formalism.
+
+Select one alternative: 1.2 J mol$^{-1}$ K$^{-1}$, 0.8 J mol$^{-1}$ K$^{-1}$,
+24.9 J mol$^{-1}$ K$^{-1}$, 1.7 J mol$^{-1}$ K$^{-1}$, 6.1 J mol$^{-1}$ K$^{-1}$
+
+<Solution>
+$T = 140$ K er langt under $\theta_D$, så $T^3$-loven gjelder. Per mol er
+$Nk_B = R = 8{,}31$ J/(mol·K), og $(140/1860)^3 = 4{,}26 \cdot 10^{-4}$:
+
+$$
+\begin{aligned}
+C_V &= \frac{12\pi^4}{5}\,R\left(\frac{T}{\theta_D}\right)^3 \\
+&= 234 \cdot 4{,}26 \cdot 10^{-4} \cdot R \\
+&= 0{,}83\ \text{J/(mol\,K)}
+\end{aligned}
+$$
+
+Alternativet 24,9 J/(mol·K) er Dulong-Petits verdi, som diamant først når
+langt over romtemperatur.
+
+<Answer>0.8 J mol$^{-1}$ K$^{-1}$</Answer>
+</Solution>
+</Example>
+
+<Simulation
+  src={"/sims/varmekapasitet.js"}
+  host={"dom"}
+  title={"Varmekapasiteten i Einstein- og Debye-modellen"}
+  caption={"Øverst tilstandstettheten $D(\\omega)$ i den valgte modellen, fylt etter hvor mye av $k_BT$ hver svingning bærer ved temperaturen $T$: svingninger til høyre for linjen $\\hbar\\omega = k_BT$ er frosset ut. Nederst $C_V$ mot $T$ for begge modellene med samme $\\theta$. Skyv $T$ ned: Debye-parabelen beholder eksiterte svingninger nær $\\omega = 0$ og faller som $T^3$, Einsteins ene frekvens fryser ut på én gang."}
+  height={440}
+/>
+
+<Example label="Eksamensoppgave" title="Debye-modellen">
+<ExamRef id="2016-mai" task="2.4" />
+
+What is the assumption in the Debye model for phonons?
+
+a) That we have a linear dispersion relation up to a cut-off frequency<br />
+b) That the temperature is very high<br />
+c) That we just have one unit cell<br />
+d) That all phonons have the same frequency
+
+<Solution>
+Debye-modellen setter $\omega = vk$ for alle bølgevektorer, altså en lineær
+dispersjonsrelasjon, og stopper ved grensefrekvensen $\omega_D$ som gir
+riktig antall svingninger. Alternativ d) er Einstein-modellen.
+
+<Answer>a)</Answer>
+</Solution>
+</Example>
+
+## Sjekk deg selv
+
+<Quiz
+  question={"Hvorfor faller varmekapasiteten under $3R$ ved lav temperatur?"}
+  options={["Svingninger med $\\hbar\\omega \\gg k_BT$ kan bare ta imot energi i porsjoner på $\\hbar\\omega$, og fryser ut", "Atomene slutter å svinge når $T \\to 0$", "Kraftkonstanten $C$ avtar med temperaturen", "Ekvipartisjonsprinsippet gjelder bare for gasser"]}
+  answer={0}
+  explanation={"Middelenergien i en svingning er $\\hbar\\omega/(e^{\\hbar\\omega/k_BT} - 1)$. Når $k_BT \\ll \\hbar\\omega$ er den eksponentielt liten, så svingningen bidrar ikke til $U$ og ikke til $C_V$. Atomene svinger fortsatt, med nullpunktsenergien $\\tfrac12\\hbar\\omega$."}
+/>
+
+<Quiz
+  question={"Einstein-modellen gir $C_V \\to 0$ eksponentielt, målingene gir $T^3$. Hva mangler i modellen?"}
+  options={["De akustiske svingningene med lav frekvens, som er eksitert ved enhver temperatur", "Nullpunktsenergien", "De optiske grenene", "Bidraget fra elektronene"]}
+  answer={0}
+  explanation={"Einstein gir alle svingningene samme frekvens, så alle fryser ut samtidig. Krystallen har akustiske svingninger med $\\omega \\to 0$, og ved temperaturen $T$ er andelen $(T/\\theta_D)^3$ av dem eksitert. Det gir $T^3$-loven."}
+/>
+
+<SelfCheck question={"Et lagdelt krystall har atomer som bare kan svinge i planet, så gitteret er todimensjonalt. Vis at Debye-modellen gir $C_V \\propto T^2$ ved lav temperatur."}>
+
+I to dimensjoner tar hver svingning arealet $(2\pi/L)^2$ i $k$-rommet, så
+antallet med bølgevektor under $k$ er $N(k) = \pi k^2 L^2/(2\pi)^2 = L^2k^2/4\pi$.
+Med $\omega = vk$:
+
+$$
+D(\omega) = \frac{\mathrm dN}{\mathrm d\omega} = \frac{L^2\omega}{2\pi v^2}
+$$
+
+Den indre energien er
+
+$$
+\begin{aligned}
+U &\propto \int_0^{\omega_D}\frac{\omega \cdot \hbar\omega}{e^{\hbar\omega/k_BT} - 1}\,\mathrm d\omega \\
+&\propto T^3\int_0^{x_D}\frac{x^2\,\mathrm dx}{e^x - 1}
+\end{aligned}
+$$
+
+For $T \to 0$ er integralet en konstant, så $U \propto T^3$ og
+$C_V = \mathrm dU/\mathrm dT \propto T^2$. I $d$ dimensjoner er
+$C_V \propto T^d$.
+
+</SelfCheck>
+
+<KeyTakeaways>
+
+- Klassisk bærer hver svingning $k_BT$, så $U = 3Nk_BT$ og $C_V = 3Nk_B = 3R$ per mol (Dulong-Petit). Målt går $C_V \to 0$ som $T^3$.
+- Planck-fordelingen $\langle n \rangle = 1/(e^{\hbar\omega/k_BT} - 1)$ gir middelenergien $\hbar\omega\langle n \rangle$: $k_BT$ for $\hbar\omega \ll k_BT$, eksponentielt liten for $\hbar\omega \gg k_BT$. Svingninger med for høy frekvens fryser ut.
+- Einstein-modellen gir alle $3N$ svingninger frekvensen $\omega_E$. Den når $3Nk_B$ ved høy $T$ og faller eksponentielt ved lav, for fort, fordi de akustiske svingningene mangler.
+- Periodiske grensebetingelser gir $k = 2\pi m/L$, $N$ verdier i første Brillouin-sone. Tilstandstettheten er $D(\omega) = (L/\pi)/(\mathrm d\omega/\mathrm dk)$ i én dimensjon og $N(k) = Vk^3/6\pi^2$ per polarisasjon i tre.
+- Debye-modellen setter $\omega = vk$ opp til $\omega_D = v(6\pi^2N/V)^{1/3}$, så $D(\omega) = V\omega^2/2\pi^2v^3$. Debye-temperaturen er $\theta_D = \hbar\omega_D/k_B$.
+- For $T \ll \theta_D$ er $C_V = (12\pi^4/5)\,Nk_B\,(T/\theta_D)^3$: bare andelen $(T/\theta_D)^3$ av svingningene er eksitert, hver med energi omtrent $k_BT$.
+
+</KeyTakeaways>
