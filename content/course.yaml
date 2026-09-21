@@ -123,7 +123,7 @@ formulas:
     label: "Strukturfaktoren for bcc regnet i den konvensjonelle kuben, med like atomer i $(0,0,0)$ og $(\\tfrac12,\\tfrac12,\\tfrac12)$. Utvalgsregel: bare reflekser med $h+k+l$ partall."
   - id: strukturfaktor-fcc
     section: Systematiske utslukkinger
-    tex: "\\begin{aligned} S_{hkl} &= f\\bigl[1 + e^{i\\pi(h+k)} \\\\ &\\qquad + e^{i\\pi(h+l)} + e^{i\\pi(k+l)}\\bigr] \\end{aligned}"
+    tex: "S_{hkl} = f\\bigl[1 + e^{i\\pi(h+k)} \\allowbreak + e^{i\\pi(h+l)} + e^{i\\pi(k+l)}\\bigr]"
     label: "Strukturfaktoren for fcc i den konvensjonelle kuben, med atomer i $(0,0,0)$, $(\\tfrac12,\\tfrac12,0)$, $(\\tfrac12,0,\\tfrac12)$ og $(0,\\tfrac12,\\tfrac12)$. Den er $4f$ når $h, k, l$ er alle partall eller alle oddetall, og $0$ ellers."
   - id: brillouin-betingelse
     section: Brillouin-soner
