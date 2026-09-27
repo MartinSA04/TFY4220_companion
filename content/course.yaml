@@ -201,6 +201,47 @@ formulas:
     tex: "\\begin{aligned} C_V &= \\frac{12\\pi^4}{5}\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\\\ &\\approx 234\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\end{aligned}"
     label: "Debyes $T^3$-lov, gyldig for $T$ under omtrent $\\theta_D/50$. Fra $U = 9Nk_BT\\,(T/\\theta_D)^3\\int_0^{\\theta_D/T} x^3\\,\\mathrm dx/(e^x - 1)$ med integralet $\\pi^4/15$ når $T \\to 0$. Bare andelen $(T/\\theta_D)^3$ av svingningene er eksitert, hver med energi omtrent $k_BT$. For $T \\gg \\theta_D$ gir samme integral $3Nk_B$."
 
+  - id: drude-ledningsevne
+    section: Drude-modellen
+    tex: "\\sigma = \\dfrac{ne^2\\tau}{m}"
+    label: "Ledningsevnen i Drude-modellen, fra drifthastigheten $\\langle\\vec v\\rangle = -e\\tau\\vec E/m$ og $\\vec j = -ne\\langle\\vec v\\rangle = \\sigma\\vec E$. $n$ er tettheten av ledningselektroner og $\\tau$ relaksasjonstiden, middeltiden mellom to kollisjoner. Gjelder også i fri-elektronmodellen."
+  - id: hall-koeffisient
+    section: Hall-effekten
+    tex: "R_H = \\dfrac{E_y}{j_xB_z} = -\\dfrac{1}{ne}"
+    label: "Hall-koeffisienten, fra likevekten der Hall-feltet $E_y$ opphever den magnetiske kraften på bærerne. Negativ for elektroner, positiv for positive bærere. Gir tettheten $n$ uten å kjenne $\\tau$."
+  - id: varmeledningsevne
+    section: Varmeledning
+    tex: "K = \\tfrac13\\,Cv\\ell, \\qquad \\ell = v\\tau"
+    label: "Varmeledningsevnen fra kinetisk gassteori. $C$ er varmekapasiteten per volum, $v$ farten og $\\ell$ den frie veilengden. For ledningselektronene er $v = v_F$, fordi bare elektronene nær Fermi-energien tar opp varme."
+  - id: wiedemann-franz
+    section: Varmeledning
+    tex: "\\dfrac{K}{\\sigma T} = L = \\dfrac{\\pi^2}{3}\\left(\\dfrac{k_B}{e}\\right)^2"
+    label: "Wiedemann-Franz’ lov med Lorenz-tallet fra fri-elektronmodellen, $L = 2{,}44 \\cdot 10^{-8}$ W Ω/K². Både $n$ og $\\tau$ faller bort. Drude-modellen gir $(4/\\pi)(k_B/e)^2 = 0{,}95 \\cdot 10^{-8}$ W Ω/K²."
+  - id: fermi-dirac
+    section: Fri elektrongass
+    tex: "f(\\varepsilon) = \\dfrac{1}{e^{(\\varepsilon - \\mu)/k_BT} + 1}"
+    label: "Fermi-Dirac-fordelingen: sannsynligheten for at en tilstand med energi $\\varepsilon$ er besatt. $\\mu$ er det kjemiske potensialet, lik $\\varepsilon_F$ ved $T = 0$. Ved $T = 0$ er $f$ et trappetrinn, og ved $T > 0$ rundes det av over noen få $k_BT$."
+  - id: fermi-bolgevektor
+    section: Fri elektrongass
+    tex: "k_F = \\left(3\\pi^2 n\\right)^{1/3}"
+    label: "Fermi-bølgevektoren, radien i Fermi-kula, fra $N = 2\\cdot(L/2\\pi)^3\\cdot\\tfrac43\\pi k_F^3$: to spinn per tillatt $\\vec k$ i en kube med volum $V = L^3$. Avhenger bare av elektrontettheten $n = N/V$."
+  - id: fermi-energi
+    section: Fri elektrongass
+    tex: "\\varepsilon_F = \\dfrac{\\hbar^2 k_F^2}{2m} = \\dfrac{\\hbar^2}{2m}\\left(3\\pi^2 n\\right)^{2/3}"
+    label: "Fermi-energien for frie elektroner, skrives også $E_F$. Noen få eV i metaller: 3,2 eV i natrium, 7,0 eV i kobber og 11,7 eV i aluminium."
+  - id: fermi-hastighet
+    section: Fri elektrongass
+    tex: "v_F = \\dfrac{\\hbar k_F}{m}, \\qquad T_F = \\dfrac{\\varepsilon_F}{k_B}"
+    label: "Fermi-hastigheten og Fermi-temperaturen. $v_F$ er rundt $10^6$ m/s og $T_F$ $10^4$ til $10^5$ K i metaller, så $T \\ll T_F$ ved alle temperaturer et metall kan ha. Kobber: $v_F = 1{,}57 \\cdot 10^6$ m/s og $T_F = 82\\,000$ K."
+  - id: elektron-tilstandstetthet
+    section: Fri elektrongass
+    tex: "D(\\varepsilon) = \\dfrac{V}{2\\pi^2}\\left(\\dfrac{2m}{\\hbar^2}\\right)^{3/2}\\sqrt{\\varepsilon} \\allowbreak = \\dfrac{3N}{2\\varepsilon_F}\\sqrt{\\dfrac{\\varepsilon}{\\varepsilon_F}}"
+    label: "Tilstandstettheten for frie elektroner i tre dimensjoner, med begge spinnretninger, fra $N(\\varepsilon) = N(\\varepsilon/\\varepsilon_F)^{3/2}$. Antallet elektroner i $\\mathrm d\\varepsilon$ er $D(\\varepsilon)f(\\varepsilon)\\,\\mathrm d\\varepsilon$. I to dimensjoner er $D$ konstant."
+  - id: elektron-varmekapasitet
+    section: Elektronenes varmekapasitet
+    tex: "C_\\text{el} = \\dfrac{\\pi^2}{2}\\,Nk_B\\,\\dfrac{T}{T_F}"
+    label: "Varmekapasiteten til elektrongassen for $T \\ll T_F$. Bare elektronene innenfor omtrent $k_BT$ fra $\\varepsilon_F$ tar opp energi, rundt én prosent av den klassiske verdien $\\tfrac32 Nk_B$ ved romtemperatur. I et metall ved lav temperatur er $C = \\gamma T + AT^3$, med gitterleddet fra Debyes $T^3$-lov."
+
 glossary:
   - term: Bravais-gitter
     section: Gitter og basis
@@ -399,13 +440,41 @@ glossary:
     definition: "Kravet $u_{n+N} = u_n$ for en kjede av $N$ atomer, som om den var lukket til en ring. Løpende bølger er fortsatt løsninger, men bare med $k = 2\\pi m/L$, så $k$ er diskret med avstand $2\\pi/L$ og første Brillouin-sone rommer $N$ verdier. Passer for store krystaller; faste ender passer for nanokrystaller."
   - term: Tilstandstetthet
     section: Tilstandstettheten
-    definition: "Antall svingninger per frekvensenhet, $D(\\omega)$. I én dimensjon $D = (L/\\pi)/(\\mathrm d\\omega/\\mathrm dk)$, som divergerer der gruppehastigheten er null. I tre dimensjoner er antallet med bølgevektor under $k$ lik $Vk^3/6\\pi^2$ per polarisasjon, og $D = \\mathrm dN/\\mathrm d\\omega$."
+    definition: "Antall tilstander per frekvens- eller energienhet. For gittersvingninger i én dimensjon er $D(\\omega) = (L/\\pi)/(\\mathrm d\\omega/\\mathrm dk)$, som divergerer der gruppehastigheten er null, og i tre dimensjoner er antallet med bølgevektor under $k$ lik $Vk^3/6\\pi^2$ per polarisasjon. For frie elektroner i tre dimensjoner er $D(\\varepsilon) \\propto \\sqrt{\\varepsilon}$, med $D(\\varepsilon_F) = 3N/2\\varepsilon_F$."
   - term: Debye-modellen
     section: Debye-modellen
     definition: "Modellen med $\\omega = vk$ for alle $k$, altså de akustiske grenene strukket til hele sonen og ingen optiske. Det gir $D(\\omega) = V\\omega^2/2\\pi^2v^3$ per polarisasjon opp til grensefrekvensen $\\omega_D$, som gir riktig antall svingninger. Den gir Dulong-Petit ved høy $T$ og $T^3$-loven ved lav."
   - term: Debye-temperatur
     section: Debye-modellen
     definition: "$\\theta_D = \\hbar\\omega_D/k_B$, temperaturen der $k_BT$ er lik den høyeste fononenergien i Debye-modellen, og stoffets eneste parameter i den. Høy for stive, lette stoffer: diamant 2230 K, silisium 645 K, kobber 343 K, bly 105 K. Under omtrent $\\theta_D/50$ er $C_V = 234\\,Nk_B(T/\\theta_D)^3$."
+
+  - term: Drude-modellen
+    section: Drude-modellen
+    definition: "Den klassiske modellen fra 1900 for ledningselektronene i et metall. Elektronene er en gass av frie partikler som ikke vekselvirker med hverandre og kolliderer med ionene, med relaksasjonstiden $\\tau$ mellom kollisjonene. Den gir Ohms lov med $\\sigma = ne^2\\tau/m$ og Hall-koeffisienten $-1/ne$, men en varmekapasitet for elektronene som er rundt hundre ganger for stor."
+  - term: Relaksasjonstid
+    section: Drude-modellen
+    definition: "Middeltiden $\\tau$ mellom to kollisjoner for et ledningselektron. Den bestemmer ledningsevnen $\\sigma = ne^2\\tau/m$, og i kobber ved romtemperatur er den $2{,}5 \\cdot 10^{-14}$ s."
+  - term: Fri veilengde
+    section: Drude-modellen
+    definition: "Strekningen $\\ell$ et elektron går mellom to kollisjoner. I fri-elektronmodellen er $\\ell = v_F\\tau$, som er 39 nm i kobber ved romtemperatur og rundt 0,2 cm i svært rent kobber ved 4 K. Elektronene spres av fononer, urenheter og defekter, ikke av ionene i et perfekt gitter."
+  - term: Hall-effekten
+    section: Hall-effekten
+    definition: "Et magnetfelt $B_z$ normalt på en strøm $j_x$ bøyer bærerne av mot den ene kanten av lederen, og ladningen som hoper seg opp, gir et elektrisk felt $E_y$ på tvers av strømmen. Hall-koeffisienten $R_H = E_y/j_xB_z = -1/ne$ gir tettheten av bærere, og fortegnet viser om de er negative eller positive."
+  - term: Wiedemann-Franz’ lov
+    section: Varmeledning
+    definition: "Forholdet $K/\\sigma$ mellom varmeledningsevnen og den elektriske ledningsevnen er omtrent det samme for alle metaller og proporsjonalt med $T$, $K/\\sigma = LT$. Fri-elektronmodellen gir Lorenz-tallet $L = (\\pi^2/3)(k_B/e)^2 = 2{,}44 \\cdot 10^{-8}$ W Ω/K²."
+  - term: Fermi-Dirac-fordelingen
+    section: Fri elektrongass
+    definition: "Sannsynligheten $f(\\varepsilon) = 1/(e^{(\\varepsilon - \\mu)/k_BT} + 1)$ for at en tilstand med energi $\\varepsilon$ er besatt av et fermion, som et elektron. Ved $T = 0$ er den 1 under det kjemiske potensialet $\\mu$ og 0 over, og ved $T > 0$ rundes trinnet av over noen få $k_BT$."
+  - term: Fermi-energi
+    section: Fri elektrongass
+    definition: "Energien $\\varepsilon_F$ til de høyest besatte tilstandene ved $T = 0$, lik det kjemiske potensialet ved $T = 0$. For frie elektroner er $\\varepsilon_F = (\\hbar^2/2m)(3\\pi^2n)^{2/3}$, noen få eV i metaller: 3,2 eV i natrium og 7,0 eV i kobber. Skrives også $E_F$."
+  - term: Fermi-kule
+    section: Fri elektrongass
+    definition: "Kula med radius $k_F = (3\\pi^2n)^{1/3}$ i $k$-rommet som de besatte tilstandene fyller ved $T = 0$ i fri-elektronmodellen. Overflaten er Fermi-flaten. Radien avhenger bare av elektrontettheten $n$, ikke av størrelsen på krystallen."
+  - term: Fermi-temperatur
+    section: Fri elektrongass
+    definition: "$T_F = \\varepsilon_F/k_B$, $10^4$ til $10^5$ K i metaller og langt over smeltepunktet. Fordi $T \\ll T_F$, er bare andelen omtrent $T/T_F$ av elektronene løftet over $\\varepsilon_F$, og elektronenes varmekapasitet er $C_\\text{el} = (\\pi^2/2)Nk_B\\,T/T_F$."
 
 # ── Tidligere eksamener → Eksamen-siden ──────────────────────────────────────
 # Lenker rett til PDF-ene hos NTNU; guiden hoster dem ikke selv. Datoene er lest
