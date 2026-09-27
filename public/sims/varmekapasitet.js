@@ -170,7 +170,7 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
       const bw = Math.max(6, top.w * 0.02);
       s += `<rect x="${P(tx(1) - bw / 2)}" y="${P(ty(0.86))}" width="${P(bw)}" height="${P(0.86 * top.h)}" fill="url(#vk-grad)"/>`;
       s += `<rect x="${P(tx(1) - bw / 2)}" y="${P(ty(0.86))}" width="${P(bw)}" height="${P(0.86 * top.h)}" fill="none" stroke="var(--fg)" stroke-width="2"/>`;
-      s += `<text x="${P(tx(1) - bw / 2 - 6)}" y="${P(ty(0.75))}" text-anchor="end" style="fill:var(--fg);${MONO}">alle 3N ved ω_E</text>`;
+      s += `<text x="${P(tx(1) - bw / 2 - 6)}" y="${P(ty(0.75))}" text-anchor="end" style="fill:var(--fg);${MONO}">alle 3N ved ω<tspan baseline-shift="sub" font-size="80%">E</tspan></text>`;
     }
 
     // Aksene og merkene for D(ω).
@@ -178,7 +178,7 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
     s += `<line x1="${P(top.x)}" y1="${P(tBottom)}" x2="${P(top.x + top.w)}" y2="${P(tBottom)}" stroke="var(--border-strong)" stroke-width="1"/>`;
     s += `<text x="${P(top.x - 6)}" y="${P(top.y + 4)}" text-anchor="end" style="fill:var(--muted);${MONO}">D(ω)</text>`;
     s += `<line x1="${P(tx(1))}" y1="${P(tBottom)}" x2="${P(tx(1))}" y2="${P(tBottom + 4)}" stroke="var(--border-strong)" stroke-width="1"/>`;
-    s += `<text x="${P(tx(1))}" y="${P(tBottom + 15)}" text-anchor="middle" style="fill:var(--muted);${MONO}">${debyeMode ? "ω_D" : "ω_E"}</text>`;
+    s += `<text x="${P(tx(1))}" y="${P(tBottom + 15)}" text-anchor="middle" style="fill:var(--muted);${MONO}">ω<tspan baseline-shift="sub" font-size="80%">${debyeMode ? "D" : "E"}</tspan></text>`;
     s += `<text x="${P(top.x + top.w)}" y="${P(tBottom + 15)}" text-anchor="end" style="fill:var(--muted);${MONO}">ω</text>`;
     // Linjen ħω = k_BT.
     if (kT <= W_MAX) {
