@@ -141,7 +141,7 @@ const SYSTEMS = [
     key: "trigonal",
     label: "Trigonal",
     cent: ["R"],
-    free: ["rho"], // α = β = γ, én slider
+    free: ["rho"], // α = β = γ: alle tre vinkelsliderne setter den felles vinkelen
     fixed: { ba: 1, ca: 1 },
     init: { al: 74 },
     cond: "a = b = c, α = β = γ < 120°, ≠ 90°",
@@ -245,6 +245,15 @@ const ANGLES = [
   { from: (A) => A, to: (A, B) => B, label: "γ", r: 0.18 },
 ];
 
+/**
+ * Vinkelsliderne. I det trigonale systemet er α = β = γ, så hver av dem setter
+ * alle tre. Der blir cellen flat ved 120°, så sliderne stopper under det;
+ * de andre systemene beholder hele spennet.
+ */
+const ANGLE_KEYS = ["al", "be", "ga"];
+const ANGLE_MAX = 125;
+const RHO_MAX = 119;
+
 /** Løpenummer 1–14 i tabellrekkefølge, så utlesningen kan si «nr. N av 14». */
 const NUMBERS = {};
 let n = 0;
@@ -343,8 +352,9 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
       "input",
       () => {
         const val = Number(input.value);
-        if (key === "rho") v.al = v.be = v.ga = val;
-        else if (key === "az") az = val;
+        if (key === "az") az = val;
+        else if (ANGLE_KEYS.includes(key) && sys().free.includes("rho"))
+          v.al = v.be = v.ga = Math.min(val, RHO_MAX);
         else v[key] = val;
         sync();
         render();
@@ -358,9 +368,9 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
   const sliderEls = [
     mkSlider("ba", "b/a ", 0.5, 1.6, 0.01, "Forholdet b delt på a"),
     mkSlider("ca", "c/a ", 0.5, 2, 0.01, "Forholdet c delt på a"),
-    mkSlider("al", "α ", 55, 125, 1, "Vinkelen alfa i grader"),
-    mkSlider("be", "β ", 55, 125, 1, "Vinkelen beta i grader"),
-    mkSlider("ga", "γ ", 55, 125, 1, "Vinkelen gamma i grader"),
+    mkSlider("al", "α ", 55, ANGLE_MAX, 1, "Vinkelen alfa i grader"),
+    mkSlider("be", "β ", 55, ANGLE_MAX, 1, "Vinkelen beta i grader"),
+    mkSlider("ga", "γ ", 55, ANGLE_MAX, 1, "Vinkelen gamma i grader"),
     mkSlider("az", "Rotasjon ", 0, 360, 1, "Rotasjon av cellen i grader"),
   ];
 
@@ -477,13 +487,14 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
     for (const b of viewBtns)
       b.el.setAttribute("aria-pressed", String(b.on === grid));
     const enabled = (key) =>
-      key === "az" ||
-      s.free.includes(key) ||
-      (rho && (key === "al" || key === "be" || key === "ga"));
+      key === "az" || s.free.includes(key) || (rho && ANGLE_KEYS.includes(key));
     for (const [key, c] of Object.entries(sliders)) {
       const on = enabled(key);
       c.input.disabled = !on;
       c.label.style.opacity = on ? "1" : "0.4";
+      // max før value, ellers klemmes verdien mot det forrige systemets grense.
+      if (ANGLE_KEYS.includes(key))
+        c.input.max = String(rho ? RHO_MAX : ANGLE_MAX);
       const val = key === "az" ? az : v[key];
       c.input.value = String(val);
       c.out.textContent =

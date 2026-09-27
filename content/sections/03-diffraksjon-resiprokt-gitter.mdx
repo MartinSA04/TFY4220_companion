@@ -227,28 +227,24 @@ and $\hat{\mathbf{Z}}\,||\,\hat{\mathbf{z}}$.
 <ExamRef id="2021-jun" task="7" />
 
 Assuming that the primitive translation vectors of a lattice are given by
-$\mathbf{a} = \sqrt2(\mathbf{x} - \mathbf{y})$; $\mathbf{b} = \sqrt2(\mathbf{x} + \mathbf{y})$;
-$\mathbf{c} = 3\mathbf{z}$. What is the corresponding volume of the
-reciprocal space unit cell?
+$\mathbf{a} = \sqrt2(\hat{\mathbf{x}} - \hat{\mathbf{y}})$; $\mathbf{b} = \sqrt2(\hat{\mathbf{x}} + \hat{\mathbf{y}})$;
+$\mathbf{c} = 3\hat{\mathbf{z}}$.
 
-<Solution>
-De tre vektorene står vinkelrett på hverandre, med
-$|\mathbf{a}| = |\mathbf{b}| = 2$ og $|\mathbf{c}| = 3$, så cellevolumet er
-$V = 2\cdot 2\cdot 3 = 12$. For innbyrdes ortogonale vektorer gir
-$\mathbf{b}_1 = 2\pi(\mathbf{b}\times\mathbf{c})/V$ en resiprok vektor langs
-$\mathbf{a}$ med lengde $2\pi/|\mathbf{a}| = \pi$, og tilsvarende $\pi$ langs
-$\mathbf{b}$ og $2\pi/3$ langs $\mathbf{c}$. Volumet av den resiproke cellen
-er produktet, $\pi\cdot\pi\cdot 2\pi/3 = 2\pi^3/3$, som også er $(2\pi)^3/V$.
-
-<Answer>$V^* = 2\pi^3/3$</Answer>
-</Solution>
+<Quiz
+  question={"What is the corresponding volume of the reciprocal space unit cell?"}
+  options={["$\\dfrac{\\pi}{6}$", "$\\dfrac{4}{9}\\pi^3$", "$\\dfrac{2}{3}\\pi^3$", "$\\dfrac{2\\pi}{27}$", "$\\dfrac{8}{27}\\pi^3$"]}
+  answer={2}
+  explanation={"De tre vektorene står vinkelrett på hverandre, med $|\\mathbf{a}| = |\\mathbf{b}| = 2$ og $|\\mathbf{c}| = 3$, så cellevolumet er $V = 2\\cdot 2\\cdot 3 = 12$. For innbyrdes ortogonale vektorer gir $\\mathbf{b}_1 = 2\\pi(\\mathbf{b}\\times\\mathbf{c})/V$ en resiprok vektor langs $\\mathbf{a}$ med lengde $2\\pi/|\\mathbf{a}| = \\pi$, og tilsvarende $\\pi$ langs $\\mathbf{b}$ og $2\\pi/3$ langs $\\mathbf{c}$. Volumet av den resiproke cellen er $(2\\pi)^3/V$, som her er produktet $\\pi\\cdot\\pi\\cdot 2\\pi/3 = 2\\pi^3/3$."}
+/>
 </Example>
 
 ## Diffraksjonsbetingelsen
 
 Sett rekka inn i spredningsamplituden:
 
-$$F(\vec Q) = \sum_{\vec G} \rho_{\vec G} \int e^{i(\vec G - \vec Q)\cdot\vec r}\, \mathrm{d}V$$
+$$
+F(\vec Q) = \sum_{\vec G} \rho_{\vec G} \int e^{i(\vec G - \vec Q)\cdot\vec r}\, \mathrm{d}V
+$$
 
 Integranden er en planbølge som svinger rundt null, så integralet over en stor
 prøve forsvinner, unntatt når eksponenten er null. Treffer $\vec Q$ en resiprok
@@ -277,7 +273,9 @@ planfamilien $(hkl)$, og den korteste i den retningen gir planavstanden:
 Elastisk spredning gir $|\vec Q| = (4\pi/\lambda)\sin\theta$, og
 $\vec Q = n\vec G_{hkl}$ krever da
 
-$$\frac{4\pi}{\lambda}\sin\theta = n\,\frac{2\pi}{d_{hkl}} \quad\Longleftrightarrow\quad 2d_{hkl}\sin\theta = n\lambda$$
+$$
+\frac{4\pi}{\lambda}\sin\theta = n\,\frac{2\pi}{d_{hkl}} \quad\allowbreak\Longleftrightarrow\quad 2d_{hkl}\sin\theta = n\lambda
+$$
 
 Bragg og Laue er samme betingelse: refleksjon fra planfamilien $(hkl)$ i orden
 $n$ er diffraksjon på det resiproke gitterpunktet $n\vec G_{hkl}$.
