@@ -1,0 +1,134 @@
+---
+order: 93
+num: "L3"
+title: "Elektronmikroskopi (TEM)"
+summary: "Hva du gjør på TEM-laben og verktøyene til hver oppgave: elektronbølgelengden, bilde og diffraksjonsbilde i samme instrument, lysfelt og mørkfelt, indeksering med kameralikningen og soneaksen, og strukturene til silisium og GaAs."
+importance: useful
+tag: "Lab"
+part: "Laboratorieøvinger"
+updated: 2026-09-28
+---
+
+På TEM-laben ser du på nanotråder av GaAs som ligger på et underlag av silisium, både som bilder og som diffraksjonsbilder fra de samme områdene. Laboppgaven foreslår at du undersøker krystallstrukturen og fasen til nanotrådene og sammenligner med silisium, og den forventer at du indekserer diffraksjonsbildene og finner soneaksen.
+
+Siden gir formlene og fremgangsmåten til oppgavene, men ikke svarene.
+
+Før laben skal du kjenne krystallstrukturene til silisium og GaAs, regne ut utslukkingsreglene for dem, finne hvilke reflekser du venter langs soneaksene $[001]$ og $[112]$, og regne ut planavstandene du venter. På laben går dere gjennom bilder ved lav forstørrelse, lysfelt- og mørkfeltbilder av nanotrådene, diffraksjonsbilder fra underlaget og trådene, et høyoppløst bilde med Fourier-transformen, og hva som skjer når prøven vippes.
+
+## Elektroner som bølger
+
+Et TEM akselererer elektroner gjennom en spenning $V$ på 60 til 500 kV. Da er farten så høy at impulsen må regnes relativistisk, og bølgelengden blir
+
+<Formula tex="\lambda = \dfrac{h}{\sqrt{2meV\left(1 + \dfrac{eV}{2mc^2}\right)}}" caption="Bølgelengden til elektroner akselerert gjennom $V$. Uten parentesen er det $\lambda = h/p$ med den klassiske impulsen $p = \sqrt{2meV}$. Ved 200 kV er $\lambda = 2{,}51$ pm." />
+
+Det er omtrent hundre ganger kortere enn planavstandene i en krystall. Bragg-vinklene blir derfor små, under en grad, og <Term name="Ewald-kule">Ewald-kulen</Term> har en radius $2\pi/\lambda$ som er mye større enn avstanden mellom punktene i det resiproke gitteret. Over et helt plan av gitterpunkter er kulen nesten flat, så diffraksjonsbildet viser mange reflekser samtidig: et snitt gjennom det resiproke gitteret normalt på strålen.
+
+Prøven må være tynn, rundt 100 nm, fordi elektronene vekselvirker sterkt med stoffet. Den tynne prøven gjør også punktene i det resiproke gitteret lange i retningen normalt på prøven, for Fourier-transformen av en tynn plate er lang i den retningen (<Term name="Konvolusjon">konvolusjon</Term>). Derfor gir en refleks utslag selv når kulen ikke går nøyaktig gjennom punktet. Laboppgaven regner med <Term name="Kinematisk diffraksjonsteori">kinematisk diffraksjon</Term> som i kurset, selv om elektronene ofte spres flere ganger i en ekte prøve.
+
+## Bilde og diffraksjonsbilde
+
+Objektivlinsen samler elektronene som har gått gjennom prøven. Stråler fra samme punkt i prøven samles i samme punkt i bildeplanet, og stråler som går ut i samme retning, samles i samme punkt i bakre fokalplan. Der dannes diffraksjonsbildet. Linsene under velger hvilket av de to planene som forstørres opp på detektoren, så det samme området kan vises som bilde og som diffraksjonsbilde bare ved å bytte innstilling.
+
+En apertur i bakre fokalplan velger hvilke stråler som danner bildet, og en apertur i bildeplanet velger hvilket område diffraksjonsbildet kommer fra:
+
+<Table
+  columns={["Teknikk", "Apertur", "Hva du ser"]}
+  rowHeader={false}
+  rows={[
+    ["Lysfelt (BF)", "slipper bare den direkte strålen gjennom", "lyse områder der prøven sprer lite"],
+    ["Mørkfelt (DF)", "slipper én diffraktert stråle gjennom", "lyse områder der prøven sprer inn i den refleksen"],
+    ["HRTEM", "ingen, alle strålene interfererer", "atomplanene som striper"],
+    ["SAED", "velger området i bildeplanet", "diffraksjons\u00ADbildet fra det området"],
+  ]}
+/>
+
+Kontrasten i <Term name="Lysfeltbilde">lysfelt</Term> og <Term name="Mørkfeltbilde">mørkfelt</Term> har to kilder. <Term name="Masse-tykkelse-kontrast">Masse-tykkelse-kontrast</Term> kommer av at tykke områder og tunge atomer sprer flere elektroner ut av den direkte strålen. <Term name="Diffraksjonskontrast">Diffraksjonskontrast</Term> kommer av at en krystall diffrakterer mye sterkere i noen stillinger enn i andre, og den er som regel den sterkeste i krystallinske prøver.
+
+I et <Term name="HRTEM">HRTEM</Term>-bilde synes planfamiliene som striper med avstand $d$. Fourier-transformen av bildet har et punkt i avstand proporsjonal med $1/d$ fra sentrum for hver slik familie, og den indekseres som et diffraksjonsbilde. <Term name="SAED">SAED</Term> gir diffraksjonsbildet fra ett korn eller én fase.
+
+<Hints>
+<Hint>
+
+Hvorfor er lysfelt- og mørkfeltbildet ikke nøyaktig omvendte av hverandre? Tenk på hvilke elektroner som er med i hvert av dem, og hvilke som ikke er med i noen av dem.
+
+</Hint>
+<Hint>
+
+Hva skjer når du vipper prøven i diffraksjonsmodus? Tenk på den nesten flate Ewald-kulen og de lange punktene, og på hvilke punkter kulen skjærer når krystallen dreies litt bort fra soneaksen.
+
+</Hint>
+</Hints>
+
+<Example label="Eksamensoppgave" title="Påstander om TEM">
+<ExamRef id="2024-mai" task="31" />
+
+<Quiz
+  question={"Which of the following statements is <em>incorrect</em> for transmission electron microscopy?"}
+  options={[
+    "Electron diffraction patterns and real-space microscopy images can be obtained with the same instrument.",
+    "For weakly scattering and thin samples, the diffraction pattern can be modeled as the absolute square of the Fourier transform of the crystal field of the object.",
+    "In Dark Field (DF) imaging, the direct (unscattered) beam is allowed to propagate to the detector.",
+    "The specimen under study must be extremely thin because the interaction with the electron beam is strong.",
+    "The imaging process is based on the electrons being matter waves.",
+  ]}
+  answer={2}
+  explanation={"I mørkfelt stenger objektivaperturen den direkte strålen ute, og bildet dannes av en diffraktert stråle. Derfor er påstanden om at den direkte strålen slipper gjennom, feil. De andre stemmer: samme instrument gir bilde og diffraksjonsbilde ved å bytte linseinnstilling, kinematisk spredning gir absoluttkvadratet av Fourier-transformen, prøven må være tynn fordi vekselvirkningen er sterk, og både diffraksjon og avbildning bygger på at elektronene er bølger."}
+/>
+</Example>
+
+## Indeksering
+
+Å indeksere et diffraksjonsbilde er å gi hver refleks sine indekser $hkl$. Avstanden $R_{hkl}$ fra sentrum, der den direkte strålen treffer, til refleksen er knyttet til planavstanden gjennom <Term name="Kameralengde">kameralengden</Term> $L$. For små vinkler er $2\theta \approx R_{hkl}/L$, og Braggs lov gir $2\theta \approx \lambda/d_{hkl}$:
+
+<Formula tex="R_{hkl}\, d_{hkl} = \lambda L" caption="Kameralikningen. Kamerakonstanten $\lambda L$ er den samme for alle bilder tatt med samme innstilling." />
+
+Underlaget av silisium står med $[001]$ langs strålen. Med en indeksert refleks fra silisium, med kjent $d$, gir kameralikningen $\lambda L$, og så gir $d = \lambda L/R$ planavstandene i nanotrådene på bilder tatt med samme kameralengde.
+
+Uten kalibrering bruker du forholdet mellom to avstander. I et kubisk gitter er lengden av $\vec g_{hkl}$ proporsjonal med $\sqrt{h^2 + k^2 + l^2}$, så $R_1/R_2 = d_2/d_1 = |\vec g_1|/|\vec g_2|$, og kvadrert står det et forhold mellom heltall. Forholdet gir bare størrelsen på indeksene. Fortegnene og rekkefølgen finner du fra vinkelen mellom refleksene:
+
+<Formula tex="\cos\varphi = \dfrac{h_1h_2 + k_1k_2 + l_1l_2}{|\vec g_1|\,|\vec g_2|}" caption="Vinkelen mellom to reflekser i et kubisk gitter, sett fra sentrum av bildet, med $|\vec g_i| = \sqrt{h_i^2 + k_i^2 + l_i^2}$." />
+
+Når to reflekser er indeksert, følger resten: refleksen i $\vec g_1 + \vec g_2$ har indeksene lagt sammen. <Term name="Soneakse">Soneaksen</Term> $[UVW]$, retningen strålen går gjennom krystallen, står normalt på alle refleksene i bildet:
+
+<Formula tex="\begin{aligned} &[UVW] \parallel \vec g_1 \times \vec g_2 \\ &hU + kV + lW = 0 \end{aligned}" caption="Soneaksen som kryssprodukt av to reflekser, regnet med indeksene. Hver refleks $hkl$ i bildet oppfyller Weiss' sonelov i andre linje." />
+
+Fremgangsmåten er denne:
+
+1. Velg to reflekser nær sentrum som ikke ligger på linje med sentrum, og mål $R_1$, $R_2$ og vinkelen $\varphi$ mellom dem.
+2. Finn mulige $h^2 + k^2 + l^2$ fra $(R_1/R_2)^2$. Begynn med små indekser, for de korteste avstandene hører til de minste $h^2 + k^2 + l^2$, og bruk bare reflekser utslukkingsreglene tillater.
+3. Velg fortegn og rekkefølge på indeksene så vinkelen stemmer.
+4. Regn ut soneaksen og sjekk at resten av refleksene oppfyller soneloven.
+
+Symmetrien i bildet hjelper: en kube har firetallig symmetri om $\langle 100 \rangle$, tretallig om $\langle 111 \rangle$ og totallig om $\langle 110 \rangle$, og står strålen langs en av dem, har bildet samme symmetri.
+
+<Simulation
+  src="/sims/tem-indeksering.js"
+  host="dom"
+  height={280}
+  title="Sjekk en indeksering"
+  caption="Skriv inn to reflekser du foreslår og det du målte. Verktøyet viser forventet $R_1/R_2$ og $\varphi$ ved siden av de målte og soneaksen fra kryssproduktet, og tegner punktene $m\vec g_1 + n\vec g_2$ som forslaget gir, med den målte andre refleksen som en ring. Ligger ringen på et punkt, stemmer forslaget. Verktøyet sjekker ikke om refleksene er tillatt, og det gjelder bare kubiske krystaller."
+/>
+
+<Callout type="note" title="Med eller uten 2π">
+Laboppgaven skriver $d_{hkl} = 1/|\vec g_{hkl}|$, uten $2\pi$, slik krystallografer gjør. Kurset skriver $d_{hkl} = 2\pi/|\vec G_{hkl}|$. Det er samme gitter med en annen lengdeskala, og forhold og vinkler er de samme.
+</Callout>
+
+## Silisium og GaAs
+
+Silisium har <Term name="Diamantstruktur">diamantstrukturen</Term>, fcc med to like atomer i basisen, og $a = 5{,}431$ Å. GaAs har <Term name="Sinkblendestruktur">sinkblendestrukturen</Term>: samme geometri, men med Ga i $(0,0,0)$ og As i $(\tfrac14,\tfrac14,\tfrac14)$, og $a = 5{,}653$ Å. Utslukkingsreglene følger av <FormulaRef id="strukturfaktor" /> med de fire fcc-punktene og de to basisatomene:
+
+$$
+S_{hkl} = \bigl[1 + e^{i\pi(h+k)} + e^{i\pi(h+l)} \allowbreak + e^{i\pi(k+l)}\bigr] \allowbreak \bigl[f_\text{Ga} + f_\text{As}\,e^{i\pi(h+k+l)/2}\bigr].
+$$
+
+For silisium er de to formfaktorene i den andre klammen like. Ga og As har atomnummer 31 og 33. Hvilke reflekser som ligger i bildet langs en soneakse, finner du ved å kombinere utslukkingsreglene med soneloven $hU + kV + lW = 0$.
+
+Nanotrådene vokser ikke alltid som sinkblende. De kan også vokse i den heksagonale <Term name="Wurtsittstruktur">wurtsittstrukturen</Term>, og ved dårlige vekstforhold skifter tråden mellom de to. Begge er bygd av de samme dobbeltlagene av Ga og As, stablet ABCABC i sinkblende og ABAB i wurtsitt, slik fcc og <Term name="Heksagonal tettpakking">hcp</Term> er to stablinger av de samme tettpakkede lagene. Stablingsretningen er $[111]$ i sinkblende og $[0001]$ i wurtsitt. Grenseflatene mellom de to er defekter som endrer båndstrukturen og gjør tråden dårligere optisk.
+
+<Hints>
+<Hint>
+
+Hvordan skiller du diffraksjonsbildet fra en wurtsitt-del og en sinkblende-del? Tenk på hvor ofte stablingen gjentar seg langs stablingsretningen i hver av dem, og hva det betyr for avstanden mellom refleksene langs den retningen.
+
+</Hint>
+</Hints>

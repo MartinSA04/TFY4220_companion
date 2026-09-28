@@ -93,3 +93,71 @@ export function choiceRow({ ariaLabel, label, items, onPick, signal }) {
     },
   };
 }
+
+/**
+ * Et kort tekstfelt for tall eller Miller-indekser, med ledeteksten over, slik
+ * rammeverket stiler <label> i kontrollraden. Feltet er type="text" med
+ * inputmode, så både «12,99» og «12.99» går an; `parseNum` leser begge.
+ *
+ * @param {object} o
+ * @param {string} o.label       Ledeteksten over feltet.
+ * @param {string} o.ariaLabel   Fullt navn for skjermlesere.
+ * @param {string} [o.value]     Startverdi.
+ * @param {string} [o.placeholder]
+ * @param {string} [o.width]     CSS-bredde på feltet, f.eks. "5.5em".
+ * @param {"decimal"|"text"} [o.mode]
+ * @param {(value: string) => void} o.onInput
+ * @param {AbortSignal} o.signal
+ * @returns {{ el: HTMLLabelElement, input: HTMLInputElement }}
+ */
+export function textField({ label, ariaLabel, value = "", placeholder = "", width = "5.5em", mode = "decimal", onInput, signal }) {
+  const el = document.createElement("label");
+  // Rammeverkets label har flex: 1 og min-width 180px; et kort felt skal bare
+  // ta plassen det trenger.
+  el.style.cssText = "flex:0 0 auto;min-width:0";
+  el.append(label);
+  const input = document.createElement("input");
+  input.type = "text";
+  input.inputMode = mode;
+  input.autocomplete = "off";
+  input.spellcheck = false;
+  input.value = value;
+  input.placeholder = placeholder;
+  input.setAttribute("aria-label", ariaLabel);
+  input.style.cssText =
+    `width:${width};font-family:var(--font-mono);font-size:var(--text-sm);` +
+    "color:var(--fg);background:var(--control-fill, var(--bg-elevated));" +
+    "border:1px solid var(--border);border-radius:var(--radius-sm);padding:0.3em 0.5em";
+  input.addEventListener("input", () => onInput(input.value), { signal });
+  el.append(input);
+  return { el, input };
+}
+
+/** Tall fra et tekstfelt: komma eller punktum som desimaltegn, NaN når feltet er tomt. */
+export function parseNum(s) {
+  const t = String(s).trim().replace(/\s+/g, "").replace(",", ".").replace(/[−–]/g, "-");
+  return t === "" ? NaN : Number(t);
+}
+
+/**
+ * Miller-indekser fra et tekstfelt: «111», «2-20», «1 -1 3» eller «10 0 2».
+ * Uten mellomrom eller komma er hvert siffer én indeks. Gir null når det ikke
+ * er nøyaktig tre.
+ */
+export function parseHkl(s) {
+  const t = String(s).trim().replace(/[−–]/g, "-");
+  if (t === "") return null;
+  const parts = /[\s,;]/.test(t) ? t.match(/-?\d+/g) : t.match(/-?\d/g);
+  if (!parts || parts.length !== 3) return null;
+  return parts.map(Number);
+}
+
+/** Tall med desimalkomma og minustegn, med fast antall desimaler. */
+export const fmt = (x, digits) => x.toFixed(digits).replace(".", ",").replace("-", "−");
+
+/** Indeksene som tekst for SVG, med strek over negative indekser. */
+export const hklSvg = (hkl) =>
+  hkl.map((n) => (n < 0 ? `<tspan text-decoration="overline">${-n}</tspan>` : String(n))).join("");
+
+/** Indeksene som ren tekst, med minustegn foran negative. */
+export const hklText = (hkl) => hkl.map((n) => (n < 0 ? `−${-n}` : String(n))).join(" ");

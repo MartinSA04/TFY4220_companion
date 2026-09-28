@@ -242,6 +242,64 @@ formulas:
     tex: "C_\\text{el} = \\dfrac{\\pi^2}{2}\\,Nk_B\\,\\dfrac{T}{T_F}"
     label: "Varmekapasiteten til elektrongassen for $T \\ll T_F$. Bare elektronene innenfor omtrent $k_BT$ fra $\\varepsilon_F$ tar opp energi, rundt én prosent av den klassiske verdien $\\tfrac32 Nk_B$ ved romtemperatur. I et metall ved lav temperatur er $C = \\gamma T + AT^3$, med gitterleddet fra Debyes $T^3$-lov."
 
+  # ── Laboratorieøvingene ──
+  - id: fotonenergi
+    section: Røntgendiffraksjon i laben
+    tex: "E = \\dfrac{hc}{\\lambda}"
+    label: "Energien til et foton med bølgelengde $\\lambda$. Med $\\lambda$ i ångström gir $hc = 12{,}398$ keV Å energien i keV. Mo $K_\\alpha$-linjen i røntgenlaben har $\\lambda = 0{,}7093$ Å, altså $E = 17{,}5$ keV."
+  - id: vinkelfeil
+    section: Røntgendiffraksjon i laben
+    tex: "\\dfrac{\\Delta d}{d} = \\dfrac{\\Delta a}{a} = -\\dfrac{\\Delta\\theta}{\\tan\\theta}"
+    label: "Hvordan en feil $\\Delta\\theta$ i vinkelen slår ut i planavstanden og gitterkonstanten, fra derivasjon av Braggs lov. $\\Delta\\theta$ er i radianer og halvparten av feilen i $2\\theta$. Samme vinkelfeil gir størst feil i $d$ ved små vinkler."
+  - id: scherrer
+    section: Røntgendiffraksjon i laben
+    tex: "t \\approx \\dfrac{0{,}9\\,\\lambda}{\\beta\\cos\\theta}"
+    label: "Scherrer-formelen: krystallittstørrelsen $t$ fra bredden $\\beta$ av en topp, målt som full bredde ved halv høyde i radianer på $2\\theta$-skalaen. Den gjelder når krystallittene er så små at de bestemmer bredden; bredden instrumentet gir, må trekkes fra først."
+  - id: elektron-bolgelengde
+    section: Elektronmikroskopi
+    tex: "\\lambda = \\dfrac{h}{\\sqrt{2meV\\left(1 + \\dfrac{eV}{2mc^2}\\right)}}"
+    label: "Bølgelengden til elektroner akselerert gjennom spenningen $V$. Parentesen er den relativistiske korreksjonen: $mc^2 = 511$ keV, så $eV/2mc^2 = 0{,}20$ ved 200 kV, der $\\lambda = 2{,}51$ pm."
+  - id: kameralikning
+    section: Elektronmikroskopi
+    tex: "R_{hkl}\\, d_{hkl} = \\lambda L"
+    label: "Kameralikningen. $R_{hkl}$ er avstanden fra sentrum til refleksen $hkl$ på diffraksjonsbildet, og $L$ er kameralengden. Den følger av Braggs lov for små vinkler, $2\\theta \\approx R_{hkl}/L$ og $2\\theta \\approx \\lambda/d_{hkl}$. Kamerakonstanten $\\lambda L$ kalibreres med en kjent krystall."
+  - id: vinkel-reflekser
+    section: Elektronmikroskopi
+    tex: "\\cos\\varphi = \\dfrac{h_1h_2 + k_1k_2 + l_1l_2}{|\\vec g_1|\\,|\\vec g_2|}"
+    label: "Vinkelen mellom refleksene $h_1k_1l_1$ og $h_2k_2l_2$ i et kubisk gitter, sett fra sentrum av diffraksjonsbildet, med $|\\vec g_i| = \\sqrt{h_i^2 + k_i^2 + l_i^2}$. Forholdet mellom avstandene er $R_1/R_2 = d_2/d_1 = |\\vec g_1|/|\\vec g_2|$."
+  - id: soneakse
+    section: Elektronmikroskopi
+    tex: "\\begin{aligned} &[UVW] \\parallel \\vec g_1 \\times \\vec g_2 \\\\ &hU + kV + lW = 0 \\end{aligned}"
+    label: "Soneaksen er retningen elektronstrålen går langs gjennom krystallen. I et kubisk gitter finnes den som kryssproduktet av to reflekser i bildet, regnet med indeksene. Hver refleks $hkl$ i bildet oppfyller Weiss' sonelov i andre linje."
+  - id: bolgetall
+    section: Infrarød spektroskopi
+    tex: "\\sigma = \\dfrac{1}{\\lambda} = \\dfrac{\\nu}{c}, \\qquad \\omega = 2\\pi c\\,\\sigma"
+    label: "Bølgetallet i IR-spektroskopi, uten faktoren $2\\pi$ som bølgevektoren $k = 2\\pi/\\lambda$ har. Med $\\sigma$ i cm$^{-1}$ må $c$ være i cm/s. 1000 cm$^{-1}$ svarer til $\\lambda = 10$ µm og en fotonenergi på 0,124 eV."
+  - id: planck-straling
+    section: Infrarød spektroskopi
+    tex: "I(\\nu) = \\dfrac{2h\\nu^3/c^2}{e^{h\\nu/k_BT} - 1}"
+    label: "Plancks strålingslov: effekten et svart legeme stråler ut per flate, romvinkel og frekvensenhet, i W m$^{-2}$ sr$^{-1}$ Hz$^{-1}$. Nevneren er den samme som i Planck-fordelingen for fononer."
+  - id: wien
+    section: Infrarød spektroskopi
+    tex: "\\begin{aligned} \\nu_\\text{maks} &= 5{,}879 \\cdot 10^{10}\\ \\tfrac{\\text{Hz}}{\\text{K}}\\cdot T \\\\ \\sigma_\\text{maks} &= 1{,}961\\ \\tfrac{\\text{cm}^{-1}}{\\text{K}}\\cdot T \\end{aligned}"
+    label: "Wiens forskyvningslov for toppen av $I(\\nu)$. Fordelingen per bølgelengde har toppen et annet sted, ved $\\lambda_\\text{maks}T = 2{,}898$ mm K, og $1/\\lambda_\\text{maks}$ er 1,76 ganger $\\sigma_\\text{maks}$."
+  - id: stefan-boltzmann
+    section: Infrarød spektroskopi
+    tex: "\\pi\\int_0^\\infty I(\\nu)\\,\\mathrm d\\nu = \\sigma_\\text{SB}\\,T^4"
+    label: "Stefan-Boltzmanns lov: den totale effekten et svart legeme stråler ut per flate. Faktoren $\\pi$ kommer av integralet over halvkulen, og $\\sigma_\\text{SB} = 2\\pi^5k_B^4/15c^2h^3 = 5{,}67 \\cdot 10^{-8}$ W m$^{-2}$ K$^{-4}$."
+  - id: frihetsgrader
+    section: Infrarød spektroskopi
+    tex: "3N - 6"
+    label: "Antall svingninger i et fritt molekyl med $N$ atomer: $3N$ koordinater minus 3 for translasjon og 3 for rotasjon. Et lineært molekyl har bare to rotasjoner og derfor $3N - 5$ svingninger. I en krystall med periodiske grensebetingelser trekkes ingenting fra, og $N$ celler med $s$ atomer gir $3Ns$ svingninger."
+  - id: redusert-masse
+    section: Infrarød spektroskopi
+    tex: "\\omega = \\sqrt{\\dfrac{C}{\\mu}}, \\qquad \\mu = \\dfrac{M_1M_2}{M_1 + M_2}"
+    label: "Frekvensen til to atomer bundet med én fjær med kraftkonstant $C$, med den reduserte massen $\\mu$. Snudd rundt gir den kraftkonstanten fra et målt bølgetall, $C = \\mu(2\\pi c\\sigma)^2$."
+  - id: kjede-grenser
+    section: Gittersvingninger
+    tex: "\\begin{aligned} \\omega_\\text{op}^2(0) &= 2C\\left(\\dfrac{1}{M_1} + \\dfrac{1}{M_2}\\right) \\\\ v &= a\\sqrt{\\dfrac{C}{2(M_1 + M_2)}} \\end{aligned}"
+    label: "Kjeden med to atomtyper ved $k \\to 0$: frekvensen i den optiske grenen og lydhastigheten i den akustiske. Hvert atom har en fjær på hver side, så den optiske frekvensen er $\\sqrt 2$ ganger frekvensen $\\sqrt{C/\\mu}$ til ett atompar med én fjær."
+
 glossary:
   - term: Bravais-gitter
     section: Gitter og basis
@@ -476,6 +534,65 @@ glossary:
     section: Fri elektrongass
     definition: "$T_F = \\varepsilon_F/k_B$, $10^4$ til $10^5$ K i metaller og langt over smeltepunktet. Fordi $T \\ll T_F$, er bare andelen omtrent $T/T_F$ av elektronene løftet over $\\varepsilon_F$, og elektronenes varmekapasitet er $C_\\text{el} = (\\pi^2/2)Nk_B\\,T/T_F$."
 
+  # ── Laboratorieøvingene ──
+  - term: Karakteristisk røntgenstråling
+    section: Røntgendiffraksjon i laben
+    definition: "Skarpe røntgenlinjer som et grunnstoff sender ut når et elektron faller ned i et hull i et indre skall. $K_\\alpha$ er overgangen fra L-skallet til K-skallet. Linjene ligger oppå bremsstrålingen."
+  - term: Bremsstråling
+    section: Røntgendiffraksjon i laben
+    definition: "Det kontinuerlige røntgenspekteret fra elektroner som bremses i anoden. Det strekker seg opp til energien $eV$ elektronene ble akselerert med."
+  - term: Bølgetall
+    section: Infrarød spektroskopi
+    definition: "Antall bølgelengder per lengdeenhet, $\\sigma = 1/\\lambda$, i IR-spektroskopi oppgitt i cm$^{-1}$. Bølgetallet er proporsjonalt med frekvensen og fotonenergien."
+  - term: Svart legeme
+    section: Infrarød spektroskopi
+    definition: "Et legeme som absorberer all stråling som treffer det. Spekteret det sender ut, avhenger bare av temperaturen og er gitt av Plancks strålingslov."
+  - term: Wiens forskyvningslov
+    section: Infrarød spektroskopi
+    definition: "Toppen av Planck-kurven $I(\\nu)$ ligger ved en frekvens som er proporsjonal med temperaturen."
+  - term: Stefan-Boltzmanns lov
+    section: Infrarød spektroskopi
+    definition: "Den totale effekten et svart legeme stråler ut per flate, er $\\sigma_\\text{SB}T^4$. Den er arealet under Planck-kurven ganget med $\\pi$."
+  - term: Interferogram
+    section: Infrarød spektroskopi
+    definition: "Detektorsignalet i et FTIR-spektrometer som funksjon av posisjonen til det bevegelige speilet i Michelson-interferometeret. Fourier-transformen av det er spekteret."
+  - term: IR-aktiv svingning
+    section: Infrarød spektroskopi
+    definition: "En svingning som kan absorbere infrarødt lys fordi dipolmomentet endrer seg under svingningen. En svingning der dipolmomentet er det samme hele tiden, er usynlig i et IR-spektrum."
+  - term: Redusert masse
+    section: Infrarød spektroskopi
+    definition: "$\\mu = M_1M_2/(M_1 + M_2)$. Med den kan to atomer bundet med én fjær regnes som én oscillator."
+  - term: Lysfeltbilde
+    section: Elektronmikroskopi
+    definition: "TEM-bilde dannet av den direkte strålen alene: objektivaperturen i bakre fokalplan slipper bare den gjennom. Områder som sprer mye, blir mørke mot lys bakgrunn. Forkortes BF (<em>bright field</em>)."
+  - term: Mørkfeltbilde
+    section: Elektronmikroskopi
+    definition: "TEM-bilde dannet av én eller flere diffrakterte stråler, med den direkte strålen stengt ute av objektivaperturen. Områder som sprer inn i den valgte refleksen, blir lyse mot mørk bakgrunn. Forkortes DF (<em>dark field</em>)."
+  - term: Masse-tykkelse-kontrast
+    section: Elektronmikroskopi
+    definition: "Kontrast i et TEM-bilde fordi tykke områder og tunge grunnstoffer sprer flere elektroner ut av den direkte strålen."
+  - term: Diffraksjonskontrast
+    section: Elektronmikroskopi
+    definition: "Kontrast i et TEM-bilde fordi hvor sterkt en krystall diffrakterer, avhenger av hvordan den står i forhold til strålen. I krystallinske prøver er den oftest sterkere enn masse-tykkelse-kontrasten."
+  - term: Kameralengde
+    section: Elektronmikroskopi
+    definition: "Den effektive avstanden $L$ fra prøven til diffraksjonsbildet i et TEM, satt av linsene. Den skalerer bildet og kalibreres med en krystall med kjente planavstander."
+  - term: Soneakse
+    section: Elektronmikroskopi
+    definition: "Retningen $[UVW]$ elektronstrålen går langs gjennom krystallen. Alle planene som gir reflekser i diffraksjonsbildet, er parallelle med den."
+  - term: SAED
+    section: Elektronmikroskopi
+    definition: "<em>Selected area electron diffraction</em>: diffraksjon fra et lite område av prøven, valgt med en apertur i bildeplanet. Gir diffraksjonsbildet til ett korn eller én fase."
+  - term: HRTEM
+    section: Elektronmikroskopi
+    definition: "Høyoppløsnings-TEM: bildet dannes av den direkte og de diffrakterte strålene sammen, uten apertur, så atomplanene blir synlige som striper. Fourier-transformen av bildet ligner diffraksjonsbildet fra samme område."
+  - term: Sinkblendestruktur
+    section: Elektronmikroskopi
+    definition: "Diamantstrukturen med to forskjellige atomer i basisen, for eksempel Ga i $(0,0,0)$ og As i $(\\tfrac14,\\tfrac14,\\tfrac14)$. GaAs, kubisk SiC og ZnS har denne strukturen."
+  - term: Wurtsittstruktur
+    section: Elektronmikroskopi
+    definition: "Den heksagonale varianten av sinkblendestrukturen. De tettpakkede dobbeltlagene av de to atomtypene er stablet ABAB i stedet for ABCABC, slik hcp forholder seg til fcc."
+
 # ── Tidligere eksamener → Eksamen-siden ──────────────────────────────────────
 # Lenker rett til PDF-ene hos NTNU; guiden hoster dem ikke selv. Datoene er lest
 # av forsiden på hvert sett, ikke gjettet fra filnavnet — IFY navngir flere av
@@ -617,6 +734,20 @@ symbols:
   - { tex: "D(\\varepsilon)", meaning: "Tilstandstettheten for elektronene, antall tilstander per energienhet", unit: "eV⁻¹", section: "Frie elektroner", term: "Tilstandstetthet", formula: elektron-tilstandstetthet, note: "$3N/2\\varepsilon_F$ ved Fermi-energien, med begge spinnretninger." }
   - { tex: "C_\\text{el}", meaning: "Varmekapasiteten til elektrongassen", unit: "J/K", section: "Frie elektroner", formula: elektron-varmekapasitet, note: "Rundt én prosent av den klassiske verdien $\\tfrac32 Nk_B$ ved romtemperatur." }
   - { tex: "\\gamma", meaning: "Koeffisienten til elektronleddet i $C = \\gamma T + AT^3$", unit: "mJ/(mol·K²)", section: "Frie elektroner", formula: elektron-varmekapasitet, note: "$0{,}695$ mJ/(mol·K²) målt for kobber. $AT^3$ er gitterleddet. Ikke cellevinkelen $\\gamma$." }
+  # ── Laboratorieøvingene ──
+  - { tex: "E", meaning: "Energien til et røntgenfoton, $hc/\\lambda$", unit: "keV", section: "Laboratorieøvingene", formula: fotonenergi, note: "Ikke det elektriske feltet $\\vec E$." }
+  - { tex: "t", meaning: "Krystallittstørrelsen i Scherrer-formelen", unit: "Å", section: "Laboratorieøvingene", formula: scherrer }
+  - { tex: "\\beta", meaning: "Bredden av en topp ved halv høyde, på $2\\theta$-skalaen", unit: "rad", section: "Laboratorieøvingene", formula: scherrer }
+  - { tex: "V", meaning: "Akselerasjonsspenningen i elektronmikroskopet", unit: "kV", section: "Laboratorieøvingene", formula: elektron-bolgelengde, note: "60 til 500 kV i et TEM. Ikke volumet $V$ eller indeksen $V$ i soneaksen $[UVW]$." }
+  - { tex: "R_{hkl}", meaning: "Avstanden fra sentrum til refleksen $hkl$ på diffraksjonsbildet", unit: "mm", section: "Laboratorieøvingene", formula: kameralikning, note: "Måles i mm eller piksler på bildet. Ikke naboavstanden $R$." }
+  - { tex: "L", meaning: "Kameralengden i elektronmikroskopet", unit: "m", section: "Laboratorieøvingene", term: "Kameralengde", formula: kameralikning, id: kameralengde, note: "Bare produktet $\\lambda L$ inngår. Ikke kjedelengden $L$ eller Lorenz-tallet $L$." }
+  - { tex: "[UVW]", meaning: "Soneaksen, retningen strålen går gjennom krystallen", section: "Laboratorieøvingene", term: "Soneakse", formula: soneakse, id: uvw }
+  - { tex: "\\varphi", meaning: "Vinkelen mellom to reflekser, sett fra sentrum av diffraksjonsbildet", unit: "°", section: "Laboratorieøvingene", formula: vinkel-reflekser }
+  - { tex: "\\sigma", meaning: "Bølgetallet, $1/\\lambda$", unit: "cm⁻¹", section: "Laboratorieøvingene", term: "Bølgetall", formula: bolgetall, id: sigma-bolgetall, note: "Skrivemåten i FTIR-laben. Ikke ledningsevnen $\\sigma$ eller avstanden $\\sigma$ i Lennard-Jones-potensialet." }
+  - { tex: "\\nu", meaning: "Frekvensen, $\\omega/2\\pi$", unit: "Hz", section: "Laboratorieøvingene", formula: bolgetall }
+  - { tex: "I(\\nu)", meaning: "Effekten et svart legeme stråler ut per flate, romvinkel og frekvensenhet", unit: "W m⁻² sr⁻¹ Hz⁻¹", section: "Laboratorieøvingene", term: "Svart legeme", formula: planck-straling, note: "Ikke intensiteten $I$ til en refleks i diffraksjon." }
+  - { tex: "\\sigma_\\text{SB}", meaning: "Stefan-Boltzmanns konstant", unit: "W m⁻² K⁻⁴", section: "Laboratorieøvingene", term: "Stefan-Boltzmanns lov", formula: stefan-boltzmann, note: "$5{,}67 \\cdot 10^{-8}$ W m⁻² K⁻⁴. Laboppgaven skriver den $\\sigma$." }
+  - { tex: "\\mu", meaning: "Den reduserte massen til et atompar", unit: "kg", section: "Laboratorieøvingene", term: "Redusert masse", formula: redusert-masse, note: "Ikke det kjemiske potensialet $\\mu$." }
   # ── Konstanter ──
   - { tex: "k_B", meaning: "Boltzmanns konstant", unit: "J/K", section: "Konstanter", id: kb, note: "$k_BT = 26$ meV ved romtemperatur. Ikke bølgevektoren $k$." }
   - { tex: "\\hbar", meaning: "Redusert Plancks konstant, $h/2\\pi$", unit: "J·s", section: "Konstanter", note: "$1{,}05 \\cdot 10^{-34}$ J·s." }

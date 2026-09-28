@@ -1,0 +1,167 @@
+---
+order: 91
+num: "L1"
+title: "Røntgendiffraksjon (XRD)"
+summary: "Hva du gjør på røntgenlaben og verktøyene til hver oppgave: Braggs lov med Mo Kα-stråling, silisium som referanseprøve, utslukkingene i diamantstrukturen, feilen i gitterkonstanten og oppslaget som identifiserer en ukjent pulverprøve."
+importance: useful
+tag: "Lab"
+part: "Laboratorieøvinger"
+updated: 2026-09-28
+---
+
+På røntgenlaben finner du ut hva et ukjent pulver består av, ut fra toppene i diffraktogrammet det gir. Først analyserer dere en referanseprøve av silisium med kjent gitterkonstant og sjekker oppsettet mot den. Så får dere data fra en ukjent prøve, regner ut planavstandene og slår dem opp i en database.
+
+Laboppgaven har forberedende oppgaver som skal være gjort før laben, oppgaver på laben og spørsmål til diskusjon i rapporten. Siden følger den samme rekkefølgen og gir formlene og fremgangsmåten til hver oppgave, men ikke svarene.
+
+## Oppsettet
+
+Røntgenrøret akselererer elektroner mot en anode av molybden. Elektronene som bremses i anoden, gir et kontinuerlig spekter, <Term name="Bremsstråling">bremsstråling</Term>. Oppå det ligger skarpe linjer, <Term name="Karakteristisk røntgenstråling">karakteristisk røntgenstråling</Term>, fra elektroner som faller ned i hull i de indre skallene. Laben bruker $K_\alpha$-linjen med $\lambda = 0{,}7093$ Å. Molybden sender også ut $K_{\alpha 2}$ ved $0{,}7136$ Å og $K_\beta$ ved $0{,}6323$ Å. Hvor mye av disse linjene og av bremsstrålingen som når prøven, avhenger av filteret eller monokromatoren i oppsettet.
+
+<Formula tex="E = \dfrac{hc}{\lambda}" caption="Fotonenergien. Med $\lambda$ i ångström gir $hc = 12{,}398$ keV Å energien rett i keV." />
+
+Pulveret ligger i et tynt kapillarrør med indre diameter 0,5 mm, og prøven roteres under målingen. Detektoren registrerer intensiteten som funksjon av spredningsvinkelen $2\theta$, vinkelen mellom den innfallende og den spredte strålen.
+
+<Callout type="warning" title="Aksen viser 2θ">
+Diffraktogrammet har spredningsvinkelen $2\theta$ på aksen, mens Braggs lov bruker $\theta$. Del på to før du regner.
+</Callout>
+
+## Fra vinkel til planavstand
+
+Braggs lov, <FormulaRef id="bragg" />, gir planavstanden fra vinkelen. I et pulverdiffraktogram regnes høyere ordener som egne reflekser: andre orden fra planene $(111)$ er refleksen $222$, med halve planavstanden. Sett derfor $n = 1$ og la indeksene bære ordenen. I et kubisk gitter er <Term name="Planavstand">planavstanden</Term> $d_{hkl} = a/\sqrt{h^2 + k^2 + l^2}$, så hver topp gir gitterkonstanten
+
+$$
+a = d_{hkl}\sqrt{h^2 + k^2 + l^2} \allowbreak = \frac{\lambda\sqrt{h^2 + k^2 + l^2}}{2\sin\theta}.
+$$
+
+Lengden av <Term name="Spredningsvektor">spredningsvektoren</Term> er $|\vec Q| = 4\pi\sin\theta/\lambda = 2\pi/d$. Den avhenger bare av planavstanden, ikke av bølgelengden.
+
+<Simulation
+  src="/sims/xrd-verktoy.js"
+  host="dom"
+  height={190}
+  title="Fra 2θ til d, Q og a"
+  caption="Én rad per topp. Med målt $2\theta$ gir verktøyet $d$ og $Q$, og med hkl også $a$. Med bare hkl gir det forventet $2\theta$ fra gitterkonstanten øverst, tegnet stiplet. Verktøyet vet ikke hvilke reflekser som er utslukket. «Kopier tabellen» gir en tabell du kan lime inn i et regneark."
+/>
+
+<Example label="Eksamensoppgave" title="Planavstanden fra spredningsvinkelen">
+<ExamRef id="2023-mai" task="5" />
+
+In a powder diffraction experiment, high-energy X-rays with photon energy $E$ = 80.0 keV are used. A Bragg diffraction peak is observed at a scattering angle $2\theta$ = 28.7°.
+
+<Quiz
+  question={"What is the corresponding layer spacing $d$?"}
+  options={["$d$ = 3.11 Å", "$d$ = 0.31 Å", "Cannot be answered because the sample orientation is not specified.", "$d$ = 3.11 Å$^{-1}$", "$d$ = 1.61 Å"]}
+  answer={1}
+  explanation={"Bølgelengden er $\\lambda = hc/E = 12{,}398/80{,}0$ Å $= 0{,}155$ Å. Vinkelen i Braggs lov er $\\theta = 14{,}35^\\circ$, så $d = \\lambda/(2\\sin\\theta) = 0{,}155/(2 \\cdot 0{,}248)$ Å $= 0{,}31$ Å. I et pulver står alltid noen krystallitter i riktig vinkel, så orienteringen trengs ikke."}
+/>
+</Example>
+
+## Før laben
+
+### Bragg og Laue
+
+Oppgaven spør hvorfor Braggs lov ser enklere ut enn Laue-betingelsen, <FormulaRef id="laue-betingelse" />, og hva det <Term name="Resiprokt gitter">resiproke gitteret</Term> er til. Tell hvor mange skalare ligninger hver betingelse er, og se på hva Braggs lov tar for gitt om planene og om spredningen. Det resiproke gitteret er mengden av alle $\vec G$, og hvert punkt svarer til en planfamilie: $\vec G_{hkl}$ står normalt på planene $(hkl)$ og har lengden $2\pi/d_{hkl}$.
+
+### Den første toppen
+
+Silisium er kubisk med $a = 5{,}4309$ Å, og den første toppen kommer fra planene $\{111\}$. Regn ut $d_{111}$, sett inn i Braggs lov med $\lambda = 0{,}7093$ Å, og gang vinkelen med to. Verktøyet over gjør regningen når du skriver 111 i hkl-feltet.
+
+### Atomene i cellen
+
+Silisium har <Term name="Diamantstruktur">diamantstrukturen</Term>: fcc-gitteret med basisen $(0,0,0)$ og $(\tfrac14,\tfrac14,\tfrac14)$ på hvert gitterpunkt. Den konvensjonelle kuben har fire gitterpunkter, hjørnet og de tre flatesentrene som grenser til det. Legg hver av de to basisvektorene til hvert av de fire punktene, så får du de åtte posisjonene $\vec r_j$ i relative koordinater.
+
+### Utslukkinger og tabellen
+
+Laboppgaven gir strukturfaktoren for silisium som
+
+$$
+S_{hkl} = \bigl[1 + (-1)^{h+k} + (-1)^{k+l} \allowbreak + (-1)^{h+l}\bigr] \allowbreak \bigl[f_\text{Si} + f_\text{Si}\,(-i)^{h+k+l}\bigr].
+$$
+
+Den første klammen kommer fra fcc-gitteret og den andre fra basisen. Refleksen er <Term name="Systematisk utslukking">utslukket</Term> når en av klammene er null, så regn ut hver for seg. Laboppgaven skriver $F_{hkl}$ og har motsatt fortegn i eksponenten; absoluttverdien, og dermed intensiteten, blir den samme.
+
+<Hints>
+<Hint>
+
+Den første klammen er enten 4 eller 0. Se på om $h$, $k$ og $l$ er alle partall, alle oddetall eller en blanding.
+
+</Hint>
+<Hint>
+
+I den andre klammen går $(-i)^{h+k+l}$ gjennom $1, -i, -1, i$ når $h+k+l$ er $0, 1, 2, 3$ modulo 4. Sett inn hver av de fire.
+
+</Hint>
+</Hints>
+
+Tabellen over de fem tillatte refleksene med lavest $|\vec Q|$ bygger du ved å gå gjennom $h^2 + k^2 + l^2 = 1, 2, 3, \dots$ i stigende rekkefølge og beholde det regelen tillater. Tallet 7 kan ikke skrives som en sum av tre kvadrater, så $h^2 + k^2 + l^2 = 7$ gir aldri en refleks i et kubisk gitter. Når du har indeksene, gir verktøyet $2\theta$, $d$ og $|\vec Q|$.
+
+## På laben
+
+### Referanseprøven av silisium
+
+Dere får diffraktogrammet av silisium som data og som plott. Du skal indeksere toppene, regne ut gitterkonstanten fra hver topp og snittet av dem, sammenligne med tabellverdien og kommentere usikkerheten.
+
+Skriv målt $2\theta$ og hkl for hver topp i verktøyet. Det gir $a$ fra hver topp og snittet, og de stiplede strekene viser hvor toppene skulle ligget med tabellverdien $a = 5{,}4309$ Å. Hvordan en feil i vinkelen slår ut, følger av å derivere Braggs lov:
+
+<Formula tex="\dfrac{\Delta d}{d} = \dfrac{\Delta a}{a} = -\dfrac{\Delta\theta}{\tan\theta}" caption="Feilen i planavstand og gitterkonstant fra en feil $\Delta\theta$ i vinkelen. $\Delta\theta$ er i radianer og halvparten av feilen i $2\theta$." />
+
+Skill mellom to slags feil: en tilfeldig feil når du leser av posisjonen til hver topp, og en systematisk feil som flytter alle toppene likt, for eksempel et nullpunkt på vinkelskalaen som er litt forskjøvet. De to gir forskjellig mønster når du plotter $a$ mot $2\theta$.
+
+<Hints>
+<Hint>
+
+Hvorfor er silisium en god referanse? Tenk på hva du må vite om referansen for å kunne skylde et avvik på oppsettet, og på hvor i vinkelområdet toppene ligger.
+
+</Hint>
+</Hints>
+
+### Oppsettet og prøven
+
+Skisser oppsettet med kilde, prøve og detektor, og tegn inn $\theta$ og $2\theta$ slik at sammenhengen med Braggs lov synes. Noter alt som trengs for å gjenta målingen: anode og bølgelengde, spenning og strøm i røret, vinkelområdet, steglengden og tiden per steg, diameteren på kapillaret, og hvilken prøve det er og hvordan den er laget.
+
+Oppgavene om rotasjon, kornstørrelse og kapillar bygger på fire sammenhenger:
+
+- I <Term name="Pulverdiffraksjon">pulverdiffraksjon</Term> gir en krystallitt bare en refleks når planene står i Bragg-vinkel mot strålen. Ringen blir jevn først når svært mange krystallitter bidrar, hver med sitt punkt på ringen.
+- Små krystallitter gir brede topper, etter Scherrer-formelen under.
+- Intensiteten i strålen avtar eksponentielt med veien gjennom prøven, så en tynn prøve sprer lite og en tykk prøve slipper lite ut.
+- Kapillaret står også i strålen, og det det sprer, havner i diffraktogrammet.
+
+<Formula tex="t \approx \dfrac{0{,}9\,\lambda}{\beta\cos\theta}" caption="Scherrer-formelen: krystallittstørrelsen $t$ fra bredden $\beta$ av toppen, full bredde ved halv høyde i radianer på $2\theta$-skalaen. Trekk fra bredden instrumentet gir, først." />
+
+<Hints>
+<Hint>
+
+Hvor mange krystallitter står i riktig vinkel for én bestemt refleks til enhver tid, og hva endrer rotasjonen på det?
+
+</Hint>
+</Hints>
+
+### Den ukjente prøven
+
+Dere får et datasett fra en ukjent prøve. Les av $2\theta$ og høyden $I$ for hver topp og skriv dem inn i verktøyet. Det gir $d$ for hver topp og de tre sterkeste til slutt. Den relative intensiteten er $I/I_\text{maks}$, i prosent av den sterkeste toppen.
+
+Oppslaget gjør du i [webmineral](http://webmineral.com/MySQL/xray.php). Skriv de tre sterkeste $d$-verdiene i feltene D1, D2 og D3, og velg MoKa1 (0,70930 Å) i listen «Selected X-Ray λ». Standarden er CuKa1, og da passer ikke vinklene i trefflisten med dine. Øk toleransen hvis ingenting passer, og bruk feltet Elements hvis du vet noe om hva prøven inneholder.
+
+<Hints>
+<Hint>
+
+Hvorfor pulver og ikke én krystall? Tenk på hvor mange reflekser én krystall i én stilling gir, og hva du måtte gjort for å få med alle.
+
+</Hint>
+</Hints>
+
+## Til rapporten
+
+Diskusjonsspørsmålene i laboppgaven knytter målingen til teorien fra kurset. Her er det du trenger til hvert av dem:
+
+- **Posisjon, intensitet og bredde** av en topp. Se hvilke størrelser som inngår i Braggs lov, i $|S_{hkl}|^2$ med <Term name="Atomformfaktor">atomformfaktoren</Term> inni, og i Scherrer-formelen, og hvilke av dem som hører til prøven og hvilke til oppsettet.
+- **$Q$ i stedet for $2\theta$.** Sammenlign hva $Q = 2\pi/d$ og $2\theta$ avhenger av.
+- **Ewald-kulen, én krystall og pulver.** Bruk <Term name="Ewald-kule">Ewald-kulen</Term>, og se hva som skjer med ett punkt $\vec G$ når krystallitten dreies i alle retninger. Det samme svarer på hvorfor pulveret gir skarpe ringer.
+- **Formfaktor, strukturfaktor og konvolusjon.** Krystallen er gitteret foldet med innholdet i én celle (<Term name="Konvolusjon">konvolusjon</Term>). Bruk konvolusjonsteoremet: Fourier-transformen av en konvolusjon er produktet av transformene.
+- **Formfaktoren for lette og tunge atomer.** Atomformfaktoren er Fourier-transformen av elektrontettheten i atomet. Tenk på hvor bred elektronskyen er i forhold til $1/|\vec Q|$, og sett inn $\vec Q = 0$.
+- **Strukturfaktoren for silisium.** Sett de åtte posisjonene inn i <FormulaRef id="strukturfaktor" /> og faktoriser summen i en fcc-del og en basisdel.
+- **$|\vec G|^2$ og $d_{hkl}$ i en kubisk celle.** I en kubisk celle er de resiproke vektorene like lange og står normalt på hverandre. Sjekk svaret mot $d_{hkl} = a/\sqrt{h^2 + k^2 + l^2}$.
+
+<Callout type="note" title="To konvensjoner for det resiproke gitteret">
+Kurset skriver $|\vec b_i| = 2\pi/a$ og $d_{hkl} = 2\pi/|\vec G_{hkl}|$. Mange krystallografer, og TEM-laboppgaven, dropper $2\pi$ og skriver $a^* = 1/a$ og $d_{hkl} = 1/|\vec g_{hkl}|$. Formelen for $|\vec G|^2$ i laboppgaven gjelder i begge, så lenge du bruker samme konvensjon hele veien.
+</Callout>
