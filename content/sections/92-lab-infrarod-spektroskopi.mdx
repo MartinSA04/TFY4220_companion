@@ -2,32 +2,38 @@
 order: 92
 num: "L2"
 title: "Infrarød spektroskopi (FTIR)"
-summary: "Hva du gjør på FTIR-laben og verktøyene til hver oppgave: Planck-kurven fra regnearket, hvordan et FTIR-spektrometer virker, svingningene i vann, CO₂ og polyetylen, og kraftkonstanten og lydhastigheten i silisiumkarbid fra kjeden med to atomtyper."
+summary: "Hva FTIR-laben måler og verktøyene til hver oppgave i laboppgaven: hvorfor en prøve absorberer infrarødt lys, Planck-kurven fra regnearket, kjeden med to atomtyper, svingningene i vann, CO₂ og polyetylen, og kraftkonstanten og lydhastigheten i silisiumkarbid."
 importance: useful
 tag: "Lab"
 part: "Laboratorieøvinger"
-updated: 2026-09-28
+updated: 2026-09-29
 ---
 
-På FTIR-laben måler du hvilke bølgetall infrarødt lys absorberes ved når det går gjennom luft, en film av polyetylen og en krystall av silisiumkarbid. Lyset absorberes når frekvensen treffer en svingning i prøven: i molekylene i luften og plasten, og i gitteret i SiC. Fra SiC-spekteret finner du kraftkonstanten og lydhastigheten med kjeden med to atomtyper.
+På FTIR-laben måler du ved hvilke bølgetall infrarødt lys absorberes når det går gjennom en prøve. Lyset absorberes når frekvensen er lik frekvensen til en svingning i prøven, så spekteret viser hvilke svingninger prøven har. Laben har tre prøver:
 
-Laboppgaven har to forberedende oppgaver, om Planck-kurven og om kjeden, og fire oppgaver på laben. Siden gir formlene og fremgangsmåten til hver av dem, men ikke svarene.
+- I luft svinger molekylene H₂O og CO₂, og du finner hvilke gasser som absorberer, og hvorfor.
+- I polyetylen svinger C–H-bindingene, og du finner kraftkonstanten deres.
+- I SiC svinger gitteret, og du finner kraftkonstanten og lydhastigheten.
 
-## Bølgetall
+Siden følger oppgavene i laboppgaven og gir verktøyene til hver av dem, men ikke svarene.
 
-IR-spektroskopi oppgir energien som <Term name="Bølgetall">bølgetallet</Term> $\sigma$ i cm$^{-1}$. Det er antall bølgelengder per centimeter, uten faktoren $2\pi$ som bølgevektoren $k = 2\pi/\lambda$ har.
+## Slik virker målingen
 
-<Formula tex="\sigma = \dfrac{1}{\lambda} = \dfrac{\nu}{c}, \qquad \omega = 2\pi c\,\sigma" caption="Bølgetallet og vinkelfrekvensen. Med $\sigma$ i cm$^{-1}$ må $c = 3{,}00 \cdot 10^{10}$ cm/s. 1000 cm$^{-1}$ svarer til $\lambda = 10$ µm og en fotonenergi på 0,124 eV." />
+Kilden er en glødende stav, en globar, som stråler omtrent som et <Term name="Svart legeme">svart legeme</Term>. Lyset går gjennom et Michelson-interferometer, så gjennom prøven og til detektoren. Det ene speilet i interferometeret flyttes, og signalet som funksjon av speilposisjonen er et <Term name="Interferogram">interferogram</Term>. Fourier-transformen av det er spekteret. En He-Ne-laser med $\lambda = 632{,}8$ nm går gjennom det samme interferometeret og holder rede på hvor speilet står.
 
-Laboppgaven bruker $\sigma$ både for bølgetallet og for Stefan-Boltzmanns konstant. Her skrives konstanten $\sigma_\text{SB}$.
+Først måles spekteret uten prøve, bakgrunnen $I_0(\sigma)$. Med prøven i strålen måles $I(\sigma)$, og transmisjonen er $I/I_0$. Luften i spektrometeret er med i begge målingene, så den faller ut av $I/I_0$ så lenge den er den samme.
 
-## Planck-kurven
+Et foton kan bare absorberes av en svingning med samme energi $\hbar\omega$ og samme bølgevektor $k$, og bare hvis dipolmomentet endrer seg mens atomene svinger. En slik svingning er en <Term name="IR-aktiv svingning">IR-aktiv svingning</Term>. IR-spektroskopi oppgir energien som <Term name="Bølgetall">bølgetallet</Term> $\sigma$:
 
-Kilden i spektrometeret er en glødende stav, en globar, som stråler omtrent som et <Term name="Svart legeme">svart legeme</Term>. Spekteret følger Plancks strålingslov:
+<Formula tex="\sigma = \dfrac{1}{\lambda} = \dfrac{\nu}{c}, \qquad \omega = 2\pi c\,\sigma" caption="Bølgetallet, uten faktoren $2\pi$ som bølgevektoren $k = 2\pi/\lambda$ har, og vinkelfrekvensen. Med $\sigma$ i cm$^{-1}$ må $c = 3{,}00 \cdot 10^{10}$ cm/s. 1000 cm$^{-1}$ er $\lambda = 10$ µm og en fotonenergi på 0,124 eV." />
 
-<Formula tex="I(\nu) = \dfrac{2h\nu^3/c^2}{e^{h\nu/k_BT} - 1}" caption="Effekten et svart legeme stråler ut per flate, romvinkel og frekvensenhet, i W m$^{-2}$ sr$^{-1}$ Hz$^{-1}$." />
+Laboppgaven bruker $\sigma$ også for Stefan-Boltzmanns konstant. Her skrives den $\sigma_\text{SB}$.
 
-Nevneren er den samme som i <Term name="Planck-fordelingen">Planck-fordelingen</Term> for fononer. Lyset i et hulrom er fotoner i termisk likevekt, og de fordeler seg over frekvensene på samme måte. Toppen følger <Term name="Wiens forskyvningslov">Wiens forskyvningslov</Term>, og arealet under kurven følger <Term name="Stefan-Boltzmanns lov">Stefan-Boltzmanns lov</Term>:
+## Før laben
+
+### Oppgave 1: Planck-kurven
+
+<Formula tex="I(\nu) = \dfrac{2h\nu^3/c^2}{e^{h\nu/k_BT} - 1}" caption="Plancks strålingslov: effekten et svart legeme stråler ut per flate, romvinkel og frekvensenhet, i W m$^{-2}$ sr$^{-1}$ Hz$^{-1}$. Nevneren er den samme som i Planck-fordelingen for fononer." />
 
 <Formula tex="\begin{aligned} \nu_\text{maks} &= 5{,}879 \cdot 10^{10}\ \tfrac{\text{Hz}}{\text{K}}\cdot T \\ \sigma_\text{maks} &= 1{,}961\ \tfrac{\text{cm}^{-1}}{\text{K}}\cdot T \end{aligned}" caption="Wiens forskyvningslov for toppen av $I(\nu)$, i frekvens og i bølgetall." />
 
@@ -37,7 +43,7 @@ Nevneren er den samme som i <Term name="Planck-fordelingen">Planck-fordelingen</
 Fordelingen per bølgelengde har toppen et annet sted enn $I(\nu)$. Formen $\lambda_\text{maks}T = 2{,}898$ mm K gjelder den, og $1/\lambda_\text{maks}$ er 1,76 ganger $\sigma_\text{maks}$. Spektrene på laben er tegnet mot $\sigma$, som er proporsjonal med $\nu$, så bruk formen for frekvens.
 </Callout>
 
-Regnearket fra laboppgaven tar temperaturen og regner ut $I(\nu)$ for bølgetall fra 1 til 50 000 cm$^{-1}$. Så summerer det arealet under kurven med trapeser, ganger med $\pi$ og setter svaret ved siden av $\sigma_\text{SB}T^4$. Verktøyet under gjør det samme med de samme konstantene:
+**a) Kurven og temperaturen.** Verktøyet under regner som regnearket i laboppgaven, med de samme konstantene:
 
 <Table
   columns={["Konstant", "I regnearket"]}
@@ -57,27 +63,61 @@ Regnearket fra laboppgaven tar temperaturen og regner ut $I(\nu)$ for bølgetall
   caption="$I(\nu)$ mot bølgetallet, med arealet under kurven fylt og den synlige delen i spektralfargene, merket med hvor stor del av effekten den er. Tallene under er regnearkets: trapesene på rutenettet 1, 100, 200, …, 50 000 cm$^{-1}$ summert og ganget med $\pi$, og $\sigma_\text{SB}T^4$. «Fest kurven» lar en temperatur stå igjen stiplet, og CSV-filen har hele tabellen. Spektrometeret tegner bølgetallet synkende mot høyre."
 />
 
-Forberedende oppgave 1 løser du med verktøyet og formlene over. Bølgetallene til IR-området følger av $\sigma = 1/\lambda$ med $\lambda$ i cm, og verktøyet viser hvor stor del av den utstrålte effekten som er synlig lys, 380 til 750 nm.
+**b) IR-området i bølgetall.** Bruk $\sigma = 1/\lambda$ med $\lambda$ i cm.
 
-## Spektrometeret
+**c) Glødetråden på 2800 K.** Wiens lov gir hvor toppen ligger. Gjør den om til bølgelengde og se hvilket område den er i. Verktøyet viser hvor stor del av effekten som er synlig lys, 380 til 750 nm.
 
-Et FTIR-spektrometer sender lyset fra kilden gjennom et Michelson-interferometer, så gjennom prøven og til detektoren. Det ene speilet i interferometeret flyttes. For ett bølgetall varierer signalet som $1 + \cos(2\pi\sigma\delta)$, der $\delta$ er forskjellen i veilengde mellom de to armene, to ganger speilforskyvningen. Med et bredt spekter summeres bidragene fra alle bølgetallene, og signalet som funksjon av speilposisjonen er et <Term name="Interferogram">interferogram</Term>. Fourier-transformen av det er spekteret. En He-Ne-laser med $\lambda = 632{,}8$ nm går gjennom det samme interferometeret, og stripene den gir, holder rede på hvor speilet står.
+### Oppgave 2: Kjeden med to atomtyper
 
-Først måles spekteret uten prøve, bakgrunnen $I_0(\sigma)$. Med prøven i strålen måles $I(\sigma)$, og transmisjonen er $I/I_0$. Luften i spektrometeret er med i begge målingene, så absorpsjon fra luften faller ut av $I/I_0$ så lenge luften er den samme i begge.
+Laboppgaven skriver $m_1$ og $m_2$ for massene; her skrives de $M_1$ og $M_2$.
+
+**a) Lys og fononer.** Et foton med bølgetall 1000 cm$^{-1}$ har $k = 2\pi\sigma$. Sammenlign det med sonegrensen $\pi/a$, og husk at fotonet og fononet må ha samme $\omega$ og samme $k$.
+
+<Simulation
+  src="/sims/foton-fonon.js"
+  host="dom"
+  height={260}
+  title="Lys og fononer i samme diagram"
+  caption="Den optiske og den akustiske grenen for en kjede med $M_1 = 2M_2$, og lyset $\omega = ck$ i de samme aksene. Dra glidebryteren for å forstørre $k$-aksen mot null. Tallene er typiske for en ionisk krystall: $a = 3$ Å og $\omega_0 = 10^{14}$ rad/s."
+/>
+
+**b) Gruppehastigheten.** Rekkeutvikle <Term name="Dispersjonsrelasjon">dispersjonsrelasjonen</Term> for $|ka| \ll 1$ med $\sin(ka/2) \approx ka/2$ og $\sqrt{1 - x} \approx 1 - x/2$, og deriver hver gren:
+
+<Formula tex="\begin{aligned} \omega^2 &= C\,\dfrac{M_1 + M_2}{M_1 M_2} \\ &\quad \times \Bigl[1 \pm \sqrt{1 - \beta\sin^2\tfrac{ka}{2}}\,\Bigr] \end{aligned}" caption="Kjeden med to atomtyper og samme kraftkonstant $C$, med ${\beta = 4M_1M_2/(M_1 + M_2)^2}$. Plusstegnet gir den optiske grenen og minustegnet den akustiske." />
+
+**c) Amplitudeforholdet.** Sett $M_1 = M_2$, og sett frekvensen til hver gren ved $k \to 0$ inn i den første bevegelsesligningen:
+
+$$
+(M_1\omega^2 - 2C)\,u \allowbreak + C\left(1 + e^{-ika}\right)v = 0.
+$$
+
+**d) Transversale svingninger.** Kraftkonstanten $C$ er svakere for de transversale svingningene. Se hvordan lydhastigheten i den <Term name="Akustisk gren">akustiske grenen</Term> og frekvensen i den <Term name="Optisk gren">optiske</Term> avhenger av $C$ ved $k \to 0$:
+
+<Formula tex="\begin{aligned} \omega_\text{op}^2(0) &= 2C\left(\dfrac{1}{M_1} + \dfrac{1}{M_2}\right) \\ v &= a\sqrt{\dfrac{C}{2(M_1 + M_2)}} \end{aligned}" caption="Kjeden med to atomtyper ved $k \to 0$, der $a$ er gitterkonstanten til kjeden." />
+
+## På laben
+
+### Oppgave 1: Spektrometeret
+
+**a) Synlig lys fra IR-kilden.** Kilden stråler omtrent som et svart legeme ved sin temperatur.
+
+<Hints>
+<Hint label="Hint: hvorfor IR-kilden lyser synlig">
+
+Still Planck-verktøyet på en temperatur nær den du finner i c, og se hvor langt kurven når mot store bølgetall.
+
+</Hint>
+</Hints>
+
+**b og c) Bakgrunnen og temperaturen.** Les av bølgetallet der bakgrunnen fra 6000 til 400 cm$^{-1}$ er høyest, og bruk Wiens lov, $\sigma_\text{maks} = 1{,}961$ cm$^{-1}$/K $\cdot\, T$.
 
 <Callout type="warning" title="Bakgrunnen er ikke en ren Planck-kurve">
-Bakgrunnen er Planck-kurven ganget med hvor godt interferometeret, speilene og detektoren slipper gjennom og registrerer hvert bølgetall, og luften absorberer i tillegg ved sine egne linjer. Temperaturen du får fra toppen med Wiens lov, er derfor et grovt anslag. Ta det med når du vurderer usikkerheten.
+Bakgrunnen er Planck-kurven ganget med hvor godt interferometeret, speilene og detektoren slipper gjennom og registrerer hvert bølgetall, og luften absorberer i tillegg ved sine egne linjer. Temperaturen fra Wiens lov er derfor et grovt anslag. Ta det med når du vurderer usikkerheten.
 </Callout>
 
-## Svingninger i molekyler
+### Oppgave 2: Vann og CO₂ i luften
 
-Et fritt molekyl med $N$ atomer har $3N$ koordinater. Tre av dem er translasjon og tre er rotasjon, og resten er svingninger:
-
-<Formula tex="3N - 6" caption="Antall svingninger i et fritt molekyl. Et lineært molekyl har bare to rotasjoner og derfor $3N - 5$ svingninger. En krystall med $N$ celler og $s$ atomer i hver har $3Ns$ svingninger, fordi ingenting trekkes fra med periodiske grensebetingelser." />
-
-Bare en <Term name="IR-aktiv svingning">IR-aktiv svingning</Term> absorberer infrarødt lys: dipolmomentet må endre seg mens atomene svinger. N₂ og O₂ har ingen slik svingning og absorberer ikke. To svingninger er degenererte når de har samme frekvens, for eksempel samme bevegelse i to retninger normalt på hverandre.
-
-Laboppgaven gir beregnede bølgetall for vann, CO₂ og oktan. Navnene på svingningene er de engelske som brukes på laben:
+Del a handler om H₂O og del b om CO₂, med de samme spørsmålene. Svingningene har engelske navn på laben:
 
 <Table
   columns={["Svingning", "Slik beveger atomene seg"]}
@@ -110,28 +150,49 @@ Laboppgaven gir beregnede bølgetall for vann, CO₂ og oktan. Navnene på sving
   ]}
 />
 
-### Vann og CO₂ i luften
+**Antall svingninger (a i, b i og b ii).** To svingninger er degenererte når de har samme frekvens, for eksempel samme bevegelse i to retninger normalt på hverandre.
 
-Molekylene i en gass roterer fritt, og hver svingning kan absorberes sammen med en endring i rotasjonen. Rotasjonsenergien er $E_J = hcB\,J(J+1)$ med $J = 0, 1, 2, \dots$ og $\Delta J = \pm 1$ ved absorpsjon, så båndet deler seg i linjer med avstand omtrent $2B$ på hver side av svingefrekvensen. Rotasjonskonstanten $B$ i cm$^{-1}$ er omvendt proporsjonal med treghetsmomentet til molekylet.
+<Formula tex="3N - 6" caption="Antall svingninger i et fritt molekyl med $N$ atomer: $3N$ koordinater minus tre for translasjon og tre for rotasjon. Et lineært molekyl har bare to rotasjoner og derfor $3N - 5$ svingninger." />
+
+**Mange enkeltlinjer (a iii og b iv).** Molekylene i en gass roterer fritt, og en svingning kan absorberes sammen med en endring i rotasjonen. Rotasjonsenergien er $E_J = hcB\,J(J+1)$ med $J = 0, 1, 2, \dots$ og $\Delta J = \pm 1$, så et bånd deler seg i linjer med avstand omtrent $2B$ på hver side av svingefrekvensen. Rotasjonskonstanten $B$ i cm$^{-1}$ er omvendt proporsjonal med treghetsmomentet til molekylet.
 
 <Hints>
-<Hint>
+<Hint label="Hint: hvorfor vann har flere enkeltlinjer enn CO₂">
 
-Hvorfor har vannbåndene så mange enkeltlinjer, og CO₂-båndene færre? Sammenlign treghetsmomentet til de to molekylene, og sammenlign linjeavstanden $2B$ med oppløsningen du måler med.
-
-</Hint>
-<Hint>
-
-Hvilke andre gasser er det i luft, og hvilke av dem har en svingning der dipolmomentet endrer seg?
+Sammenlign treghetsmomentet til de to molekylene, og sammenlign linjeavstanden $2B$ med oppløsningen du måler med.
 
 </Hint>
 </Hints>
 
-Når du puster inn i prøvekammeret og måler et prøvespekter, er luften ikke lenger den samme som i bakgrunnen.
+**Svingningen ved 1428 cm$^{-1}$ (b iii).** Bare en IR-aktiv svingning absorberer.
 
-### Polyetylen
+<Hints>
+<Hint label="Hint: hvorfor 1428 cm⁻¹ ikke absorberer">
 
-Polyetylen er lange kjeder av CH₂-grupper, og laboppgaven bruker oktan, H₃C(CH₂)₆CH₃, som modell. For C–H-strekket regner du hver binding som to atomer med én fjær, med den <Term name="Redusert masse">reduserte massen</Term> $\mu$:
+Tegn dipolmomentet til CO₂ i likevekt og midt i det symmetriske strekket.
+
+</Hint>
+</Hints>
+
+**Andre gasser og pusten (c og d).** Se etter bånd som ikke står i tabellen, og tenk på hvilke andre gasser i luft som har en IR-aktiv svingning. Når du puster inn i prøvekammeret, er luften i prøvespekteret ikke lenger den samme som i bakgrunnen, og $I/I_0$ viser forskjellen.
+
+### Oppgave 3: Polyetylen
+
+Laboppgaven bruker oktan, H₃C(CH₂)₆CH₃, som modell for kjedene i polyetylen, og tabellen over har de beregnede bølgetallene for den.
+
+**a) De sterkeste linjene.** Les av bølgetallene til de tre dypeste linjene i transmisjonen.
+
+<Hints>
+<Hint label="Hint: hva som bestemmer styrken og bredden til en linje">
+
+Tenk på hvor mye dipolmomentet endrer seg, hvor mange like bindinger strålen går gjennom, og hvor like omgivelsene til bindingene er i et fast stoff.
+
+</Hint>
+</Hints>
+
+**b) Svingningene i oktan.** Tell atomene og bruk $3N - 6$. Bevegelsene står i tabellen i oppgave 2.
+
+**c) Kraftkonstanten til C–H.** Regn hver C–H-binding som to atomer med én fjær, med den <Term name="Redusert masse">reduserte massen</Term> $\mu$:
 
 <Formula tex="\omega = \sqrt{\dfrac{C}{\mu}}, \qquad \mu = \dfrac{M_1M_2}{M_1 + M_2}" caption="To atomer bundet med én fjær. Snudd rundt gir den kraftkonstanten fra et målt bølgetall, $C = \mu(2\pi c\sigma)^2$." />
 
@@ -139,55 +200,17 @@ Polyetylen er lange kjeder av CH₂-grupper, og laboppgaven bruker oktan, H₃C(
 Regn i SI: $\sigma$ i m$^{-1}$, altså 100 ganger verdien i cm$^{-1}$, $c = 3{,}00 \cdot 10^8$ m/s og massene i kg. H har 1,008 u og C 12,011 u, og $1\ \text{u} = 1{,}661 \cdot 10^{-27}$ kg. Kraftkonstanten kommer ut i N/m.
 </Callout>
 
-Litteraturverdien slår du opp i CRC Handbook of Chemistry and Physics, som laboppgaven viser til.
+### Oppgave 4: Silisiumkarbid
 
-<Hints>
-<Hint>
+Kubisk SiC har <Term name="Sinkblendestruktur">sinkblendestrukturen</Term> med $a_0 = 4{,}359$ Å: fcc med Si i $(0,0,0)$ og C i $(\tfrac14,\tfrac14,\tfrac14)$. Langs en $\langle 111 \rangle$-retning ligger plan av Si og plan av C annenhver gang, og laboppgaven modellerer svingningene langs den retningen med kjeden med to atomtyper. Gitterkonstanten $a$ i kjeden er avstanden mellom to naboplan av Si, planavstanden $d_{111} = a_0/\sqrt 3$, og ikke kanten $a_0$ i kuben. Si har 28,086 u og C 12,011 u.
 
-Hva bestemmer styrken og bredden til en linje? Tenk på hvor mye dipolmomentet endrer seg, hvor mange like bindinger strålen går gjennom, og hvor like omgivelsene til bindingene er i et fast stoff.
+Del b i–iv i laboppgaven er disse fire stegene:
 
-</Hint>
-</Hints>
-
-## Silisiumkarbid og kjeden
-
-Kubisk SiC har <Term name="Sinkblendestruktur">sinkblendestrukturen</Term> med $a_0 = 4{,}359$ Å: fcc med Si i $(0,0,0)$ og C i $(\tfrac14,\tfrac14,\tfrac14)$. Langs en $\langle 111 \rangle$-retning ligger plan av Si og plan av C annenhver gang, og laboppgaven modellerer svingningene langs den retningen med kjeden med to atomtyper, $M_1$ og $M_2$ med samme kraftkonstant $C$. Ved $k \to 0$ gir <Term name="Dispersjonsrelasjon">dispersjonsrelasjonen</Term> for kjeden frekvensen i den <Term name="Optisk gren">optiske grenen</Term> og lydhastigheten i den <Term name="Akustisk gren">akustiske</Term>:
-
-<Formula tex="\begin{aligned} \omega_\text{op}^2(0) &= 2C\left(\dfrac{1}{M_1} + \dfrac{1}{M_2}\right) \\ v &= a\sqrt{\dfrac{C}{2(M_1 + M_2)}} \end{aligned}" caption="Kjeden med to atomtyper ved $k \to 0$, der $a$ er gitterkonstanten til kjeden. Si har 28,086 u og C 12,011 u." />
-
-Et foton kan bare absorberes av et fonon med samme energi $\hbar\omega$ og samme bølgevektor $k$. Forberedende oppgave 2a ber deg tegne lysets dispersjonsrelasjon sammen med fononenes:
-
-<Simulation
-  src="/sims/foton-fonon.js"
-  host="dom"
-  height={260}
-  title="Lys og fononer i samme diagram"
-  caption="Den optiske og den akustiske grenen for en kjede med $M_1 = 2M_2$, og lyset $\omega = ck$ i de samme aksene. Dra glidebryteren for å forstørre $k$-aksen mot null. Tallene er typiske for en ionisk krystall: $a = 3$ Å og $\omega_0 = 10^{14}$ rad/s."
-/>
-
-Resten av oppgave 2 bruker de samme formlene. Gruppehastigheten $v_g = \mathrm d\omega/\mathrm dk$ for $|ka| \ll 1$ finner du ved å rekkeutvikle dispersjonsrelasjonen for kjeden, som står i formelsamlingen, med $\sin(ka/2) \approx ka/2$ og $\sqrt{1 - x} \approx 1 - x/2$. Amplitudeforholdet $u/v$ får du ved å sette frekvensen til hver gren ved $k \to 0$ inn i den første bevegelsesligningen,
-
-$$
-(M_1\omega^2 - 2C)\,u \allowbreak + C\left(1 + e^{-ika}\right)v = 0.
-$$
-
-For den transversale og den longitudinale svingningen er alt likt bortsett fra kraftkonstanten, så se på hvordan $v$ og $\omega_\text{op}(0)$ avhenger av $C$.
-
-På laben finner du absorpsjonen fra TO- og LO-svingningen i SiC mellom 700 og 1000 cm$^{-1}$. Bølgetallene gir $\omega = 2\pi c\sigma$, formelen for $\omega_\text{op}(0)$ gir kraftkonstanten for hver, og med samme kraftkonstant i den akustiske grenen gir $v$ lydhastigheten for TA og LA.
-
-<Hints>
-<Hint>
-
-Gitterkonstanten $a$ i kjeden er ikke kanten $a_0$ i kuben. Den er avstanden mellom to nabo-plan av samme atom langs $\langle 111 \rangle$.
-
-</Hint>
-<Hint>
-
-Den avstanden er planavstanden $d_{111} = a_0/\sqrt{3}$ i kuben.
-
-</Hint>
-</Hints>
+1. Les av bølgetallene $\sigma_\text{TO}$ og $\sigma_\text{LO}$ i spekteret, mellom 700 og 1000 cm$^{-1}$.
+2. Regn om til vinkelfrekvens med $\omega = 2\pi c\sigma$.
+3. Løs $\omega_\text{op}^2(0) = 2C(1/M_1 + 1/M_2)$ for $C$, én gang for TO og én gang for LO.
+4. Sett hver $C$ inn i $v = a\sqrt{C/[2(M_1 + M_2)]}$ for TA og LA.
 
 <Callout type="warning" title="To fjærer per atom">
-I kjeden har hvert atom en fjær på hver side. Bruker du $\omega = \sqrt{C/\mu}$ fra to atomer med én fjær på SiC, blir kraftkonstanten dobbelt så stor som i kjedemodellen.
+I kjeden har hvert atom en fjær på hver side. Bruker du $\omega = \sqrt{C/\mu}$ for to atomer med én fjær på SiC, blir kraftkonstanten dobbelt så stor som i kjedemodellen.
 </Callout>
