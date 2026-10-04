@@ -243,6 +243,31 @@ formulas:
     tex: "C_\\text{el} = \\dfrac{\\pi^2}{2}\\,Nk_B\\,\\dfrac{T}{T_F}"
     label: "Varmekapasiteten til elektrongassen for $T \\ll T_F$. Bare elektronene innenfor omtrent $k_BT$ fra $\\varepsilon_F$ tar opp energi, rundt én prosent av den klassiske verdien $\\tfrac32 Nk_B$ ved romtemperatur. I et metall ved lav temperatur er $C = \\gamma T + AT^3$, med gitterleddet fra Debyes $T^3$-lov."
 
+  - id: bloch-funksjon
+    section: Energibånd
+    tex: "\\begin{aligned} &\\psi_{\\vec k}(\\vec r) = e^{i\\vec k\\cdot\\vec r}\\,u_{\\vec k}(\\vec r) \\\\ &u_{\\vec k}(\\vec r + \\vec R) = u_{\\vec k}(\\vec r) \\end{aligned}"
+    label: "Blochs teorem: løsningene av Schrödinger-ligningen i et periodisk potensial er planbølger ganger en funksjon med gitterets periodisitet. Ved en gittervektor får $\\psi_{\\vec k}$ fasefaktoren $e^{i\\vec k\\cdot\\vec R}$, men $|\\psi_{\\vec k}|^2$ er periodisk. $\\hbar\\vec k$ er krystallimpulsen, ikke impulsen til elektronet."
+  - id: sentralligningen
+    section: Energibånd
+    tex: "(\\lambda_k - \\varepsilon)\\,C_k + \\sum_G U_G\\,C_{k-G} = 0"
+    label: "Sentralligningen: Schrödinger-ligningen for potensialet $U(x) = \\sum_G U_G e^{iGx}$, skrevet for koeffisientene i $\\psi = \\sum_k C_k e^{ikx}$, med fri-elektronenergien $\\lambda_k = \\hbar^2k^2/2m$. Den kobler $C_k$ bare til $C_{k-G}$, så en løsning inneholder bølgevektorene $k$, $k \\pm g$, $k \\pm 2g$, … med $g = 2\\pi/a$. $U_0$ er middelverdien av potensialet."
+  - id: ekvivalente-k
+    section: Energibånd
+    tex: "\\varepsilon_n(\\vec k + \\vec G) = \\varepsilon_n(\\vec k)"
+    label: "Bølgevektorer som skiller seg med en resiprok gittervektor, gir samme tilstand. Alle tilstander kan derfor merkes med $\\vec k$ i første Brillouin-sone og båndindeksen $n = 1, 2, 3, \\dots$"
+  - id: tomt-gitter
+    section: Energibånd
+    tex: "\\varepsilon(\\vec k) = \\frac{\\hbar^2}{2m}\\,|\\vec k + \\vec G|^2"
+    label: "Båndene i det tomme gitteret, grensen $U \\to 0$: frie parabler sentrert i hver resiprok gittervektor, med $\\vec k$ i første Brillouin-sone. Der to parabler krysser, åpner et svakt potensial et båndgap."
+  - id: to-planbolger
+    section: Energibånd
+    tex: "\\varepsilon = \\tfrac12(\\lambda_{k-g} + \\lambda_k) \\allowbreak \\pm \\sqrt{\\tfrac14(\\lambda_{k-g} - \\lambda_k)^2 + U^2}"
+    label: "Energiene nær sonegrensen $k = \\pi/a$, fra sentralligningen med bare $C_k$ og $C_{k-g}$ og potensialet $U(x) = 2U\\cos(2\\pi x/a)$. På sonegrensen er $\\lambda_{k-g} = \\lambda_k$, så $\\varepsilon = \\lambda_k \\pm |U|$. Langt fra grensen er løsningene de frie energiene $\\lambda_k$ og $\\lambda_{k-g}$."
+  - id: baandgap
+    section: Energibånd
+    tex: "E_g = 2|U_G|"
+    label: "Båndgapet ved sonegrensen $k = G/2$ med nesten frie elektroner. Gapet ved $\\pi/a$ kommer fra $U_1$ og gapet ved $2\\pi/a$ fra $U_2$. For $U(x) = 2U\\cos(2\\pi x/a)$ er $E_g = 2|U|$ lik amplituden til cosinusen."
+
   # ── Laboratorieøvingene ──
   - id: fotonenergi
     section: Røntgendiffraksjon i laben
@@ -483,7 +508,7 @@ glossary:
     definition: "Ett kvant $\\hbar\\omega(k)$ av en gittersvingning, slik et foton er et kvant av det elektromagnetiske feltet. Svingningen med bølgevektor $k$ har energien $(n + \\tfrac12)\\hbar\\omega(k)$ med $n$ fononer. Fononer er bosoner og følger Bose-Einstein-statistikk, så $n$ er ubegrenset. De bestemmer varmekapasiteten og varmeledningsevnen til faste stoffer."
   - term: Krystallimpuls
     section: Fononer
-    definition: "$\\hbar\\vec k$ for et fonon. Den inngår som impuls i bevaringslovene ved spredning av fotoner, nøytroner og elektroner, men den fysiske impulsen til en gittersvingning med $k \\ne 0$ er null, for atomene beveger seg bare i forhold til hverandre."
+    definition: "$\\hbar\\vec k$ for et fonon eller et elektron i en krystall. Den inngår som impuls i bevaringslovene ved spredning, bevart opp til en resiprok gittervektor: $\\vec k + \\vec q = \\vec k' + \\vec G$ når et elektron tar opp et fonon. Den er ikke den fysiske impulsen. En gittersvingning med $k \\ne 0$ har fysisk impuls null, for atomene beveger seg bare i forhold til hverandre, og en Bloch-funksjon er ikke en egenfunksjon av impulsoperatoren."
 
   - term: Dulong-Petits lov
     section: Varmekapasitet
@@ -534,6 +559,31 @@ glossary:
   - term: Fermi-temperatur
     section: Fri elektrongass
     definition: "$T_F = \\varepsilon_F/k_B$, $10^4$ til $10^5$ K i metaller og langt over smeltepunktet. Fordi $T \\ll T_F$, er bare andelen omtrent $T/T_F$ av elektronene løftet over $\\varepsilon_F$, og elektronenes varmekapasitet er $C_\\text{el} = (\\pi^2/2)Nk_B\\,T/T_F$."
+
+  - term: Energibånd
+    section: Energibånd
+    definition: "Et område av energier der elektronene i en krystall har tilstander, $\\varepsilon_n(\\vec k)$ med båndindeksen $n$. Hvert bånd har én tilstand per tillatt $\\vec k$ i første Brillouin-sone og spinnretning, altså $2N$ tilstander i en krystall med $N$ primitive celler: to elektroner per celle."
+  - term: Båndgap
+    section: Energibånd
+    definition: "Et område av energier uten tilstander mellom to bånd, med bredden $E_g$. Med nesten frie elektroner åpner gapene seg ved sonegrensene, der elektronbølgene Bragg-reflekteres, og ved $k = G/2$ er $E_g = 2|U_G|$. 1,1 eV i silisium og 5,4 eV i diamant."
+  - term: Nesten frie elektroner
+    section: Energibånd
+    definition: "Modellen der ledningselektronene er frie elektroner med et svakt periodisk potensial fra ionene. Båndene følger de frie parablene $\\hbar^2k^2/2m$ unntatt nær sonegrensene, der potensialet åpner båndgap. Passer for metaller som natrium og aluminium."
+  - term: Bloch-funksjon
+    section: Energibånd
+    definition: "En løsning $\\psi_{\\vec k}(\\vec r) = e^{i\\vec k\\cdot\\vec r}u_{\\vec k}(\\vec r)$ av Schrödinger-ligningen med et periodisk potensial, der $u_{\\vec k}$ har gitterets periodisitet. Blochs teorem sier at alle løsningene kan skrives slik. $\\psi_{\\vec k}$ selv er ikke periodisk, men sannsynlighetstettheten $|\\psi_{\\vec k}|^2$ er det."
+  - term: Sentralligningen
+    section: Energibånd
+    definition: "Schrödinger-ligningen for et periodisk potensial skrevet for koeffisientene $C_k$ i en sum av planbølger, $(\\lambda_k - \\varepsilon)C_k + \\sum_G U_G C_{k-G} = 0$. Den er eksakt. Den kobler $C_k$ bare til koeffisientene med $k - G$, og det gir Blochs teorem."
+  - term: Redusert soneskjema
+    section: Energibånd
+    definition: "Båndene $\\varepsilon_n(\\vec k)$ tegnet med $\\vec k$ bare i første Brillouin-sone, ett bånd for hver $n$. Det går fordi $\\vec k$ og $\\vec k + \\vec G$ gir samme tilstand. I det utvidede soneskjemaet ligger bånd $n$ i Brillouin-sone nummer $n$ og følger den frie parabelen."
+  - term: Tomt gitter
+    section: Energibånd
+    definition: "Grensen $U \\to 0$ av modellen med nesten frie elektroner. Båndene er de frie parablene $\\hbar^2|\\vec k + \\vec G|^2/2m$ med $\\vec k$ i første Brillouin-sone. Det gir hvor de laveste båndene ligger og hvor mange som har samme energi, før potensialet åpner gapene."
+  - term: Isolator
+    section: Energibånd
+    definition: "Et stoff der hvert bånd er enten fullt eller tomt, med et stort båndgap over det øverste fulle båndet, som 5,4 eV i diamant. Er gapet så lite at noen elektroner eksiteres over det ved romtemperatur, som 1,1 eV i silisium, er stoffet en halvleder. Et metall har minst ett bånd som er delvis fylt."
 
   # ── Laboratorieøvingene ──
   - term: Karakteristisk røntgenstråling
@@ -735,6 +785,15 @@ symbols:
   - { tex: "D(\\varepsilon)", meaning: "Tilstandstettheten for elektronene, antall tilstander per energienhet", unit: "eV⁻¹", section: "Frie elektroner", term: "Tilstandstetthet", formula: elektron-tilstandstetthet, note: "$3N/2\\varepsilon_F$ ved Fermi-energien, med begge spinnretninger." }
   - { tex: "C_\\text{el}", meaning: "Varmekapasiteten til elektrongassen", unit: "J/K", section: "Frie elektroner", formula: elektron-varmekapasitet, note: "Rundt én prosent av den klassiske verdien $\\tfrac32 Nk_B$ ved romtemperatur." }
   - { tex: "\\gamma", meaning: "Koeffisienten til elektronleddet i $C = \\gamma T + AT^3$", unit: "mJ/(mol·K²)", section: "Frie elektroner", formula: elektron-varmekapasitet, note: "$0{,}695$ mJ/(mol·K²) målt for kobber. $AT^3$ er gitterleddet. Ikke cellevinkelen $\\gamma$." }
+  # ── Energibånd ──
+  - { tex: "U(\\vec r),\\ U_G", meaning: "Det periodiske potensialet elektronene beveger seg i, og Fourier-komponentene", unit: "eV", section: "Energibånd", formula: sentralligningen, id: u-g, note: "$U(x) = \\sum_G U_G e^{iGx}$. $U_1$ og $U_2$ er komponentene for $G = g$ og $2g$. Ikke parpotensialet $U(r)$ eller den indre energien $U$." }
+  - { tex: "\\psi_{\\vec k}", meaning: "Bloch-funksjonen med bølgevektor $\\vec k$", section: "Energibånd", term: "Bloch-funksjon", formula: bloch-funksjon, note: "Skrives $\\psi_{n\\vec k}$ når båndet må skilles ut." }
+  - { tex: "u_{\\vec k}(\\vec r)", meaning: "Den periodiske delen av Bloch-funksjonen", section: "Energibånd", formula: bloch-funksjon, note: "Har gitterets periodisitet. Ikke utsvinget $u_n$ i atomkjeden." }
+  - { tex: "C_k", meaning: "Koeffisienten til planbølgen $e^{ikx}$ i bølgefunksjonen", section: "Energibånd", term: "Sentralligningen", formula: sentralligningen, note: "Ikke kraftkonstanten $C$ eller varmekapasiteten $C_V$." }
+  - { tex: "\\lambda_k", meaning: "Energien til et fritt elektron, $\\hbar^2k^2/2m$", unit: "eV", section: "Energibånd", formula: sentralligningen, note: "Ikke bølgelengden $\\lambda$." }
+  - { tex: "g", meaning: "Den korteste resiproke gittervektoren i én dimensjon, $2\\pi/a$", unit: "m⁻¹", section: "Energibånd", formula: to-planbolger, note: "Ikke refleksen $\\vec g$ i elektrondiffraksjon." }
+  - { tex: "\\varepsilon_n(\\vec k)", meaning: "Energien i bånd $n$ ved bølgevektoren $\\vec k$", unit: "eV", section: "Energibånd", term: "Energibånd", formula: ekvivalente-k, note: "$n = 1, 2, 3, \\dots$ er båndindeksen. Ikke elektrontettheten $n$." }
+  - { tex: "E_g", meaning: "Båndgapet", unit: "eV", section: "Energibånd", term: "Båndgap", formula: baandgap, id: eg, note: "1,1 eV i silisium og 5,4 eV i diamant. Ikke det elektriske feltet $\\vec E$." }
   # ── Laboratorieøvingene ──
   - { tex: "E", meaning: "Energien til et røntgenfoton, $hc/\\lambda$", unit: "keV", section: "Laboratorieøvingene", formula: fotonenergi, note: "Ikke det elektriske feltet $\\vec E$." }
   - { tex: "t", meaning: "Krystallittstørrelsen i Scherrer-formelen", unit: "Å", section: "Laboratorieøvingene", formula: scherrer }
