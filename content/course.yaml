@@ -1,7 +1,7 @@
 # TFY4220 Faste stoffers fysikk — interaktiv pensumguide.
 # Innholdet er under arbeid; metadataene under er hentet fra NTNUs emneside.
 
-schemaVersion: 4
+schemaVersion: 5
 
 code: TFY4220
 title: Faste stoffers fysikk
@@ -28,9 +28,10 @@ exam:
   format: Skriftlig skoleeksamen
   aids: "Kode C: bestemt, enkel kalkulator og spesifiserte trykte/håndskrevne hjelpemidler tillatt"
 
-# Formelsamlingen. Merk: ingen formel er merket `memorize` — hva som havner på
-# det utdelte formelarket er ikke kjent før nær eksamen, og guiden skal ikke
-# påstå noe om det. Sett `memorize: true` per formel når arket foreligger.
+# Formelsamlingen. Merk: ingen formel er merket `onSheet: false` — hva som havner
+# på det utdelte formelarket er ikke kjent før nær eksamen, og guiden skal ikke
+# påstå noe om det. Sett `onSheet: false` på formlene som mangler på arket når
+# det foreligger.
 formulas:
   - id: gittervektor
     section: Gitter og basis
