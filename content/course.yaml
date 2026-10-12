@@ -48,7 +48,7 @@ formulas:
   - id: atomer-per-celle
     section: Enhetsceller og pakning
     tex: "N = N_\\mathrm{i} + \\dfrac{N_\\mathrm{f}}{2} + \\dfrac{N_\\mathrm{k}}{4} + \\dfrac{N_\\mathrm{h}}{8}"
-    label: "Antall atomer per enhetscelle ved deling med naboceller, i en celle med <b>rette vinkler</b>: indre (i) telles helt, flate (f) halvt, kant (k) kvart og hjørne (h) åttendedels. Ellers teller du den andelen av en hel omdreining hvert hjørne dekker."
+    label: "Antall atomer per enhetscelle ved deling med naboceller, i en celle med <b>rette vinkler</b>: indre (i) telles helt, flate (f) halvt, kant (k) kvart og hjørne (h) åttendedels. Ellers teller et hjørne med sin andel av romvinkelen rundt punktet og en kant med sin andel av en hel omdreining."
   - id: pakningsgrad
     section: Enhetsceller og pakning
     tex: "f = \\dfrac{N \\cdot \\tfrac{4}{3}\\pi r^3}{V_\\text{celle}}"
@@ -68,7 +68,7 @@ formulas:
   - id: primitiv-fcc
     section: Primitive celler i bcc og fcc
     tex: "\\vec{a}_1 = \\tfrac{a}{2}(\\hat{x}{+}\\hat{y}), \\quad \\vec{a}_2 = \\tfrac{a}{2}(\\hat{y}{+}\\hat{z}), \\quad \\vec{a}_3 = \\tfrac{a}{2}(\\hat{z}{+}\\hat{x})"
-    label: "Primitive gittervektorer for fcc, fra et hjørne til de tre nærmeste flatesentrene. Cellen er et romboeder med volum $a^3/4$."
+    label: "Primitive gittervektorer for fcc, fra et hjørne til tre av de nærmeste flatesentrene. Cellen er et romboeder med volum $a^3/4$."
   - id: rotasjonsbegrensning
     section: Symmetri
     tex: "2\\cos\\theta = m, \\qquad m \\in \\mathbb{Z}"
@@ -87,8 +87,8 @@ formulas:
     label: "Spredningsvektoren. Ved elastisk spredning er $|\\vec{k}_f| = |\\vec{k}_i| = 2\\pi/\\lambda$, og $2\\theta$ er vinkelen mellom innfallende og spredt stråle."
   - id: spredningsamplitude
     section: Spredningsvektoren
-    tex: "F(\\vec{Q}) = \\int \\rho(\\vec{r})\\, e^{i\\vec{Q}\\cdot\\vec{r}}\\, \\mathrm{d}V"
-    label: "Spredningsamplituden: bidraget fra hvert volumelement, summert med faseforskjellen $\\vec{Q}\\cdot\\vec{r}$. Dette er Fourier-transformen av spredningstettheten. Detektoren måler intensiteten $I \\propto |F|^2$, så fasen går tapt."
+    tex: "F(\\vec{Q}) = \\int \\rho(\\vec{r})\\, e^{-i\\vec{Q}\\cdot\\vec{r}}\\, \\mathrm{d}V"
+    label: "Spredningsamplituden: bidraget fra hvert volumelement, summert med faseforskjellen $-\\vec{Q}\\cdot\\vec{r}$. Dette er Fourier-transformen av spredningstettheten. Detektoren måler intensiteten $I \\propto |F|^2$, så fasen går tapt."
   - id: fourier-tetthet
     section: Det resiproke gitteret
     tex: "\\rho(\\vec{r}) = \\sum_{\\vec{G}} \\rho_{\\vec{G}}\\, e^{i\\vec{G}\\cdot\\vec{r}}"
@@ -112,19 +112,19 @@ formulas:
     label: "Ringvinklene i et pulverbilde av et kubisk gitter, fra Braggs lov med $d_{hkl} = a/\\sqrt{h^2+k^2+l^2}$. Ringene ligger etter $h^2+k^2+l^2$, og hvilke som faktisk vises, avgjør strukturfaktoren."
   - id: strukturfaktor
     section: Strukturfaktoren
-    tex: "S_{hkl} = \\sum_j f_j\\, e^{2\\pi i (hx_j + ky_j + lz_j)}"
+    tex: "S_{hkl} = \\sum_j f_j\\, e^{-2\\pi i (hx_j + ky_j + lz_j)}"
     label: "Strukturfaktoren: summen over atomene i basisen, hvert med sin atomformfaktor $f_j$ og fasen fra posisjonen $(x_j, y_j, z_j)$ i relative koordinater. Amplituden fra hele krystallen er $N$ celler ganger $S$, og intensiteten er $I \\propto |S_{hkl}|^2$."
   - id: formfaktor
     section: Strukturfaktoren
-    tex: "f_j(\\vec{Q}) = \\int \\rho_j(\\vec{r})\\, e^{i\\vec{Q}\\cdot\\vec{r}}\\, \\mathrm{d}V"
+    tex: "f_j(\\vec{Q}) = \\int \\rho_j(\\vec{r})\\, e^{-i\\vec{Q}\\cdot\\vec{r}}\\, \\mathrm{d}V"
     label: "Atomformfaktoren: Fourier-transformen av elektrontettheten i ett atom. Den er lik antall elektroner for $\\vec Q = 0$ og avtar med økende $|\\vec Q|$, så reflekser ved store vinkler er svakere."
   - id: strukturfaktor-bcc
     section: Systematiske utslukkinger
-    tex: "\\begin{aligned} S_{hkl} &= f\\left[1 + e^{i\\pi(h+k+l)}\\right] \\\\ &= \\begin{cases} 2f & h+k+l \\text{ partall} \\\\ 0 & h+k+l \\text{ oddetall} \\end{cases} \\end{aligned}"
+    tex: "\\begin{aligned} S_{hkl} &= f\\left[1 + e^{-i\\pi(h+k+l)}\\right] \\\\ &= \\begin{cases} 2f & h+k+l \\text{ partall} \\\\ 0 & h+k+l \\text{ oddetall} \\end{cases} \\end{aligned}"
     label: "Strukturfaktoren for bcc regnet i den konvensjonelle kuben, med like atomer i $(0,0,0)$ og $(\\tfrac12,\\tfrac12,\\tfrac12)$. Utvalgsregel: bare reflekser med $h+k+l$ partall."
   - id: strukturfaktor-fcc
     section: Systematiske utslukkinger
-    tex: "S_{hkl} = f\\bigl[1 + e^{i\\pi(h+k)} \\allowbreak + e^{i\\pi(h+l)} + e^{i\\pi(k+l)}\\bigr]"
+    tex: "S_{hkl} = f\\bigl[1 + e^{-i\\pi(h+k)} \\allowbreak + e^{-i\\pi(h+l)} + e^{-i\\pi(k+l)}\\bigr]"
     label: "Strukturfaktoren for fcc i den konvensjonelle kuben, med atomer i $(0,0,0)$, $(\\tfrac12,\\tfrac12,0)$, $(\\tfrac12,0,\\tfrac12)$ og $(0,\\tfrac12,\\tfrac12)$. Den er $4f$ når $h, k, l$ er alle partall eller alle oddetall, og $0$ ellers."
   - id: brillouin-betingelse
     section: Brillouin-soner
@@ -155,7 +155,7 @@ formulas:
   - id: dispersjon-enatomig
     section: Gittersvingninger
     tex: "\\omega(k) = 2\\sqrt{\\dfrac{C}{M}}\\,\\left|\\sin\\dfrac{ka}{2}\\right|"
-    label: "Dispersjonsrelasjonen for en kjede av atomer med masse $M$ i avstand $a$, med kraftkonstant $C$ mellom nærmeste naboer. Kraftkonstanten skrives også $K$ eller $\\gamma$. $\\omega$ er periodisk i $k$ med periode $2\\pi/a$, så alle svingninger ligger i første Brillouin-sone $-\\pi/a < k \\le \\pi/a$, og maksimum $2\\sqrt{C/M}$ er på sonegrensen."
+    label: "Dispersjonsrelasjonen for en kjede av atomer med masse $M$ i avstand $a$, med kraftkonstant $C$ mellom nærmeste naboer. Kraftkonstanten skrives også $K$ eller $\\gamma$. $k$ og $k + 2\\pi/a$ gir samme utsving på alle atomene, så alle svingninger ligger i første Brillouin-sone $-\\pi/a < k \\le \\pi/a$, og $\\omega$ er periodisk med periode $2\\pi/a$. Maksimum $2\\sqrt{C/M}$ er på sonegrensen."
   - id: lydhastighet
     section: Gittersvingninger
     tex: "v = \\dfrac{\\omega}{k} = a\\sqrt{\\dfrac{C}{M}}, \\qquad v_g = \\dfrac{\\mathrm d\\omega}{\\mathrm dk}"
@@ -167,7 +167,7 @@ formulas:
   - id: fonon-energi
     section: Fononer
     tex: "\\begin{aligned} E_n(k) &= \\left(n + \\tfrac12\\right)\\hbar\\omega(k) \\\\ \\vec p &= \\hbar\\vec k \\end{aligned}"
-    label: "Energien i gittersvingningen med bølgevektor $k$ og $n$ fononer, med nullpunktsenergien $\\tfrac12\\hbar\\omega$, og krystallimpulsen til et fonon. Fononer er bosoner, så $n$ kan være vilkårlig stor. Den fysiske impulsen til en svingning med $k \\ne 0$ er null."
+    label: "Energien i gittersvingningen med bølgevektor $k$ og $n$ fononer, med nullpunktsenergien $\\tfrac12\\hbar\\omega$, og krystallimpulsen til et fonon. $n$ har ingen øvre grense, så fononer er bosoner. Den fysiske impulsen til en svingning med $k \\ne 0$ er null."
 
   - id: planck-fordeling
     section: Varmekapasitet
@@ -200,7 +200,7 @@ formulas:
   - id: debye-t3
     section: Debye-modellen
     tex: "\\begin{aligned} C_V &= \\frac{12\\pi^4}{5}\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\\\ &\\approx 234\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\end{aligned}"
-    label: "Debyes $T^3$-lov, gyldig for $T$ under omtrent $\\theta_D/50$. Fra $U = 9Nk_BT\\,(T/\\theta_D)^3\\int_0^{\\theta_D/T} x^3\\,\\mathrm dx/(e^x - 1)$ med integralet $\\pi^4/15$ når $T \\to 0$. Bare andelen $(T/\\theta_D)^3$ av svingningene er eksitert, hver med energi omtrent $k_BT$. For $T \\gg \\theta_D$ gir samme integral $3Nk_B$."
+    label: "Debyes $T^3$-lov, gyldig for $T$ under omtrent $\\theta_D/50$. Fra $U = 9Nk_BT\\,(T/\\theta_D)^3\\int_0^{\\theta_D/T} x^3\\,\\mathrm dx/(e^x - 1)$ med integralet $\\pi^4/15$ når $T \\to 0$. Bare andelen $(T/\\theta_D)^3$ av svingningene er eksitert, hver med energi omtrent $k_BT$. For $T \\gg \\theta_D$ er integralet $(\\theta_D/T)^3/3$, og det samme uttrykket for $U$ gir $U = 3Nk_BT$ og Dulong-Petits $C_V = 3Nk_B$."
 
   - id: drude-ledningsevne
     section: Drude-modellen
@@ -272,7 +272,7 @@ formulas:
   - id: fotonenergi
     section: Røntgendiffraksjon i laben
     tex: "E = \\dfrac{hc}{\\lambda}"
-    label: "Energien til et foton med bølgelengde $\\lambda$. Med $\\lambda$ i ångström gir $hc = 12{,}398$ keV Å energien i keV. Mo $K_\\alpha$-linjen i røntgenlaben har $\\lambda = 0{,}7093$ Å, altså $E = 17{,}5$ keV."
+    label: "Energien til et foton med bølgelengde $\\lambda$. Med $\\lambda$ i ångström gir $hc = 12{,}398$ keV Å energien i keV. Mo $K_{\\alpha 1}$-linjen i røntgenlaben har $\\lambda = 0{,}7093$ Å, altså $E = 17{,}5$ keV."
   - id: vinkelfeil
     section: Røntgendiffraksjon i laben
     tex: "\\dfrac{\\Delta d}{d} = \\dfrac{\\Delta a}{a} = -\\dfrac{\\Delta\\theta}{\\tan\\theta}"
@@ -296,7 +296,7 @@ formulas:
   - id: soneakse
     section: Elektronmikroskopi
     tex: "\\begin{aligned} &[UVW] \\parallel \\vec g_1 \\times \\vec g_2 \\\\ &hU + kV + lW = 0 \\end{aligned}"
-    label: "Soneaksen er retningen elektronstrålen går langs gjennom krystallen. I et kubisk gitter finnes den som kryssproduktet av to reflekser i bildet, regnet med indeksene. Hver refleks $hkl$ i bildet oppfyller Weiss' sonelov i andre linje."
+    label: "Soneaksen er retningen elektronstrålen går langs gjennom krystallen. I et kubisk gitter finnes den som kryssproduktet av to reflekser i bildet, regnet med indeksene. Soneaksen står normalt på planet bildet ligger i, og begge refleksene ligger i det planet, så kryssproduktet deres er parallelt med soneaksen. Hver refleks $hkl$ i bildet oppfyller Weiss' sonelov i andre linje."
   - id: bolgetall
     section: Infrarød spektroskopi
     tex: "\\sigma = \\dfrac{1}{\\lambda} = \\dfrac{\\nu}{c}, \\qquad \\omega = 2\\pi c\\,\\sigma"
@@ -401,7 +401,7 @@ glossary:
     definition: "Tre heltall $(hkl)$ som navngir en familie av gitterplan: les av skjæringspunktene med aksene i gitterkonstanter, inverter og reduser til minste heltall med samme forhold. En indeks $0$ betyr at planet er parallelt med aksen, og strek over betyr negativ, som i $(\\bar{1}00)$."
   - term: Planfamilie
     section: Miller-indekser
-    definition: "Alle planene med samme Miller-indekser: parallelle, med lik avstand, og til sammen gjennom alle gitterpunktene. Symmetriekvivalente familier samles i krøllparenteser; kubens seks flater er $\\{100\\}$."
+    definition: "Alle planene med samme Miller-indekser: parallelle og med lik avstand. Symmetriekvivalente familier samles i krøllparenteser; kubens seks flater er $\\{100\\}$."
   - term: Krystallretning
     section: Retninger og planavstand
     definition: "Retningen $u\\vec{a}_1 + v\\vec{a}_2 + w\\vec{a}_3$, skrevet $[uvw]$ med minste heltall. $\\vec{a}_1$ peker langs $[100]$ og $-\\vec{a}_2$ langs $[0\\bar{1}0]$. I kubiske gitter står $[hkl]$ normalt på planet $(hkl)$."
@@ -440,13 +440,13 @@ glossary:
     definition: "Diffraksjon fra et pulver av små krystallkorn i alle orienteringer, også kalt Debye-Scherrer-metoden. Hvert $\\vec G$ smøres ut til en kuleflate med radius $|\\vec G|$, snittet med Ewald-kulen er en sirkel, og de spredte strålene danner en kjegle med halv toppvinkel $2\\theta$. Resultatet er ringer, avlest som intensitet mot $2\\theta$."
   - term: Faseproblemet
     section: Faseproblemet
-    definition: "Detektoren måler $|F(\\vec Q)|^2$, og fasen til $F$ går tapt fordi den svinger med strålingens frekvens. Tettheten kan derfor ikke regnes ut direkte ved å transformere målingen tilbake. Strukturen bestemmes ved å regne ut $|S_{hkl}|^2$ for en modell og sammenligne med de målte intensitetene."
+    definition: "Detektoren måler $|F(\\vec Q)|^2$, og fasen til $F$ går tapt fordi detektoren bare måler tidsmiddelet av intensiteten. Tettheten kan derfor ikke regnes ut direkte ved å transformere målingen tilbake. Strukturen bestemmes ved å regne ut $|S_{hkl}|^2$ for en modell og sammenligne med de målte intensitetene."
   - term: Strukturfaktor
     section: Strukturfaktoren
-    definition: "Summen $S_{hkl} = \\sum_j f_j e^{2\\pi i(hx_j + ky_j + lz_j)}$ over atomene i basisen, med posisjonene i relative koordinater. Den bestemmer styrken til refleksen $(hkl)$: $F = NS_{hkl}$ og $I \\propto |S_{hkl}|^2$. Den faktoriserer alltid i en faktor for gitteret og en for basisen."
+    definition: "Summen $S_{hkl} = \\sum_j f_j e^{-2\\pi i(hx_j + ky_j + lz_j)}$ over atomene i basisen, med posisjonene i relative koordinater. Den bestemmer styrken til refleksen $(hkl)$: $F = NS_{hkl}$ og $I \\propto |S_{hkl}|^2$. Regnet i den konvensjonelle cellen til et sentrert gitter er den sentreringens faktor ganger basisens faktor."
   - term: Atomformfaktor
     section: Strukturfaktoren
-    definition: "Spredningsamplituden fra ett atom, $f_j(\\vec Q) = \\int \\rho_j e^{i\\vec Q\\cdot\\vec r}\\,\\mathrm{d}V$. For røntgen er den lik antall elektroner ved $\\vec Q = 0$ og avtar med $|\\vec Q|$. Tunge atomer dominerer derfor et røntgenbilde, og hydrogen er nesten usynlig."
+    definition: "Spredningsamplituden fra ett atom, $f_j(\\vec Q) = \\int \\rho_j e^{-i\\vec Q\\cdot\\vec r}\\,\\mathrm{d}V$. For røntgen er den lik antall elektroner ved $\\vec Q = 0$, så tunge atomer dominerer et røntgenbilde, og hydrogen er nesten usynlig. Den avtar med $|\\vec Q|$."
   - term: Systematisk utslukking
     section: Systematiske utslukkinger
     definition: "En refleks som oppfyller $\\vec Q = \\vec G$, men likevel mangler fordi strukturfaktoren er null: bidragene fra atomene i basisen er i motfase. Regelen for hvilke $(hkl)$ som overlever, kalles utvalgsregelen; for bcc er den $h+k+l$ partall, for fcc at $h, k, l$ er alle partall eller alle oddetall."
@@ -468,7 +468,7 @@ glossary:
     definition: "Energien som frigjøres når et fritt atom tar imot et elektron og blir et negativt ion. $3{,}61$ eV for klor."
   - term: Van der Waals-binding
     section: Van der Waals-binding
-    definition: "Bindingen mellom nøytrale atomer med fylte skall, som i edelgasskrystallene. Øyeblikksdipolen i det ene atomet induserer en dipol i det andre, og de to tiltrekker hverandre med en energi som avtar som $-1/r^6$. Bindingen er svak, $0{,}02$ til $0{,}17$ eV per atom, og uten retning, så edelgassene krystalliserer i fcc."
+    definition: "Bindingen mellom nøytrale atomer med fylte skall, som i edelgasskrystallene. Øyeblikksdipolen i det ene atomet induserer en dipol i det andre, og de to tiltrekker hverandre med en energi som avtar som $-1/r^6$. Bindingen er svak, $0{,}02$ til $0{,}17$ eV per atom, og uten retning, så atomene pakker tett. Edelgassene unntatt helium krystalliserer i fcc."
   - term: Lennard-Jones-potensialet
     section: Van der Waals-binding
     definition: "$U(r) = 4\\varepsilon[(\\sigma/r)^{12} - (\\sigma/r)^{6}]$: van der Waals-tiltrekningen $-r^{-6}$ pluss Pauli-frastøtningen $+r^{-12}$ når elektronskyene overlapper. $\\varepsilon$ og $\\sigma$ måles i gassfase; for argon er de $0{,}0104$ eV og $3{,}40$ Å."
@@ -493,7 +493,7 @@ glossary:
     definition: "Parpotensialet erstattet med parabelen $U(a) + \\tfrac12 U''(a)(r - a)^2$ rundt likevekt, så kraften mellom naboatomer følger Hookes lov med kraftkonstanten $C = U''(a)$. Gjelder for små utsving, og gir et harmonisk gitter der alle svingninger er uavhengige."
   - term: Dispersjonsrelasjon
     section: Gittersvingninger
-    definition: "Sammenhengen $\\omega(k)$ mellom frekvensen og bølgevektoren til en bølge i gitteret. For kjeden med én atomtype er den $\\omega = 2\\sqrt{C/M}\\,|\\sin(ka/2)|$. Den er periodisk med $2\\pi/a$, så alt ligger i første Brillouin-sone, og stigningen $\\mathrm d\\omega/\\mathrm dk$ er gruppehastigheten."
+    definition: "Sammenhengen $\\omega(k)$ mellom frekvensen og bølgevektoren til en bølge i gitteret. For kjeden med én atomtype er den $\\omega = 2\\sqrt{C/M}\\,|\\sin(ka/2)|$. $k$ og $k + 2\\pi/a$ gir samme svingning, så alt ligger i første Brillouin-sone, og $\\omega(k)$ er periodisk med $2\\pi/a$. Stigningen $\\mathrm d\\omega/\\mathrm dk$ er gruppehastigheten."
   - term: Gruppehastighet
     section: Gittersvingninger
     definition: "$v_g = \\mathrm d\\omega/\\mathrm dk$, hastigheten til en bølgepakke og dermed til energi og signaler. For lange bølger er den lik fasehastigheten $\\omega/k$, som er lydhastigheten $a\\sqrt{C/M}$. På sonegrensen er den null: bølgen står stille og transporterer ingen energi."
@@ -505,14 +505,14 @@ glossary:
     definition: "En gren med endelig $\\omega$ ved $k = 0$, der atomene i cellen svinger i motfase med massesenteret i ro, $u/v = -M_2/M_1$. Finnes bare med minst to atomer i den primitive cellen: $s$ atomer gir $3s - 3$ optiske grener (LO og TO). I ionekrystaller er svingningen et oscillerende dipolmoment som kobler til infrarødt lys, derav navnet."
   - term: Fonon
     section: Fononer
-    definition: "Ett kvant $\\hbar\\omega(k)$ av en gittersvingning, slik et foton er et kvant av det elektromagnetiske feltet. Svingningen med bølgevektor $k$ har energien $(n + \\tfrac12)\\hbar\\omega(k)$ med $n$ fononer. Fononer er bosoner og følger Bose-Einstein-statistikk, så $n$ er ubegrenset. De bestemmer varmekapasiteten og varmeledningsevnen til faste stoffer."
+    definition: "Ett kvant $\\hbar\\omega(k)$ av en gittersvingning, slik et foton er et kvant av det elektromagnetiske feltet. Svingningen med bølgevektor $k$ har energien $(n + \\tfrac12)\\hbar\\omega(k)$ med $n$ fononer, og $n$ har ingen øvre grense. Fononer er derfor bosoner og følger Bose-Einstein-statistikk. I isolatorer bærer de nesten all varmeledningen, og ved romtemperatur står de for nesten hele varmekapasiteten."
   - term: Krystallimpuls
     section: Fononer
     definition: "$\\hbar\\vec k$ for et fonon eller et elektron i en krystall. Den inngår som impuls i bevaringslovene ved spredning, bevart opp til en resiprok gittervektor: $\\vec k + \\vec q = \\vec k' + \\vec G$ når et elektron tar opp et fonon. Den er ikke den fysiske impulsen. En gittersvingning med $k \\ne 0$ har fysisk impuls null, for atomene beveger seg bare i forhold til hverandre, og en Bloch-funksjon er ikke en egenfunksjon av impulsoperatoren."
 
   - term: Dulong-Petits lov
     section: Varmekapasitet
-    definition: "Den klassiske varmekapasiteten $C_V = 3Nk_B$, per mol $3R = 24{,}9$ J/(mol·K), fra ekvipartisjonsprinsippet: hver av de $3N$ svingningene bærer $k_BT$. Stemmer ved høy temperatur, men målt går $C_V \\to 0$ som $T^3$ når $T \\to 0$."
+    definition: "Den klassiske varmekapasiteten $C_V = 3Nk_B$, per mol $3R = 24{,}9$ J/(mol·K), fra ekvipartisjonsprinsippet: hver av de $3N$ svingningene bærer $k_BT$. Stemmer ved høy temperatur, men målt går $C_V \\to 0$ når $T \\to 0$, i isolatorer som $T^3$."
   - term: Planck-fordelingen
     section: Varmekapasitet
     definition: "Middelantallet fononer i en svingning med frekvens $\\omega$ ved temperaturen $T$, $\\langle n \\rangle = 1/(e^{\\hbar\\omega/k_BT} - 1)$, også kalt Bose-Einstein-fordelingen. Middelenergien $\\hbar\\omega\\langle n \\rangle$ er $k_BT$ for $\\hbar\\omega \\ll k_BT$ og eksponentielt liten for $\\hbar\\omega \\gg k_BT$: svingningen er frosset ut."
@@ -521,7 +521,7 @@ glossary:
     definition: "Modellen der alle $3N$ svingninger har samme frekvens $\\omega_E$, med Einstein-temperaturen $\\theta_E = \\hbar\\omega_E/k_B$ som eneste parameter. Den gir $3Nk_B$ ved høy $T$ og et fall mot null ved lav, men fallet er eksponentielt og for bratt, fordi de akustiske svingningene med lav frekvens mangler. Passer for de optiske grenene."
   - term: Periodiske grensebetingelser
     section: Tilstandstettheten
-    definition: "Kravet $u_{n+N} = u_n$ for en kjede av $N$ atomer, som om den var lukket til en ring. Løpende bølger er fortsatt løsninger, men bare med $k = 2\\pi m/L$, så $k$ er diskret med avstand $2\\pi/L$ og første Brillouin-sone rommer $N$ verdier. Passer for store krystaller; faste ender passer for nanokrystaller."
+    definition: "Kravet $u_{n+N} = u_n$ for en kjede av $N$ atomer, som om den var lukket til en ring. Løpende bølger er fortsatt løsninger, men bare med $k = 2\\pi m/L$, så $k$ er diskret med avstand $2\\pi/L$ og første Brillouin-sone rommer $N$ verdier. For en stor krystall gir periodiske og faste ender like mange svingninger i hvert frekvensintervall, og periodiske grensebetingelser er enklest å regne med."
   - term: Tilstandstetthet
     section: Tilstandstettheten
     definition: "Antall tilstander per frekvens- eller energienhet. For gittersvingninger i én dimensjon er $D(\\omega) = (L/\\pi)/(\\mathrm d\\omega/\\mathrm dk)$, som divergerer der gruppehastigheten er null, og i tre dimensjoner er antallet med bølgevektor under $k$ lik $Vk^3/6\\pi^2$ per polarisasjon. For frie elektroner i tre dimensjoner er $D(\\varepsilon) \\propto \\sqrt{\\varepsilon}$, med $D(\\varepsilon_F) = 3N/2\\varepsilon_F$."
@@ -574,13 +574,13 @@ glossary:
     definition: "En løsning $\\psi_{\\vec k}(\\vec r) = e^{i\\vec k\\cdot\\vec r}u_{\\vec k}(\\vec r)$ av Schrödinger-ligningen med et periodisk potensial, der $u_{\\vec k}$ har gitterets periodisitet. Blochs teorem sier at alle løsningene kan skrives slik. $\\psi_{\\vec k}$ selv er ikke periodisk, men sannsynlighetstettheten $|\\psi_{\\vec k}|^2$ er det."
   - term: Sentralligningen
     section: Energibånd
-    definition: "Schrödinger-ligningen for et periodisk potensial skrevet for koeffisientene $C_k$ i en sum av planbølger, $(\\lambda_k - \\varepsilon)C_k + \\sum_G U_G C_{k-G} = 0$. Den er eksakt. Den kobler $C_k$ bare til koeffisientene med $k - G$, og det gir Blochs teorem."
+    definition: "Schrödinger-ligningen for et periodisk potensial skrevet for koeffisientene $C_k$ i en sum av planbølger, $(\\lambda_k - \\varepsilon)C_k + \\sum_G U_G C_{k-G} = 0$. Den er eksakt. Den kobler $C_k$ bare til koeffisientene med $k - G$, så løsningene har formen i Blochs teorem."
   - term: Redusert soneskjema
     section: Energibånd
-    definition: "Båndene $\\varepsilon_n(\\vec k)$ tegnet med $\\vec k$ bare i første Brillouin-sone, ett bånd for hver $n$. Det går fordi $\\vec k$ og $\\vec k + \\vec G$ gir samme tilstand. I det utvidede soneskjemaet ligger bånd $n$ i Brillouin-sone nummer $n$ og følger den frie parabelen."
+    definition: "Båndene $\\varepsilon_n(\\vec k)$ tegnet med $\\vec k$ bare i første Brillouin-sone, ett bånd for hver $n$. Tegningen er fullstendig fordi $\\vec k$ og $\\vec k + \\vec G$ gir samme tilstand. I det utvidede soneskjemaet ligger bånd $n$ i Brillouin-sone nummer $n$ og følger den frie parabelen."
   - term: Tomt gitter
     section: Energibånd
-    definition: "Grensen $U \\to 0$ av modellen med nesten frie elektroner. Båndene er de frie parablene $\\hbar^2|\\vec k + \\vec G|^2/2m$ med $\\vec k$ i første Brillouin-sone. Det gir hvor de laveste båndene ligger og hvor mange som har samme energi, før potensialet åpner gapene."
+    definition: "Grensen $U \\to 0$ av modellen med nesten frie elektroner. Båndene er de frie parablene $\\hbar^2|\\vec k + \\vec G|^2/2m$ med $\\vec k$ i første Brillouin-sone. Grensen viser hvor de laveste båndene ligger og hvor mange som har samme energi, før potensialet åpner gapene."
   - term: Isolator
     section: Energibånd
     definition: "Et stoff der hvert bånd er enten fullt eller tomt, med et stort båndgap over det øverste fulle båndet, som 5,4 eV i diamant. Er gapet så lite at noen elektroner eksiteres over det ved romtemperatur, som 1,1 eV i silisium, er stoffet en halvleder. Et metall har minst ett bånd som er delvis fylt."

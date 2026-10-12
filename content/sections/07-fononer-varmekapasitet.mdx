@@ -20,10 +20,10 @@ updated: 2026-09-27
 
 ## Varmekapasiteten til et fast stoff
 
-Varmekapasiteten sier hvor mye energi som skal til for å varme stoffet én
+Varmekapasiteten er energien som skal til for å varme stoffet én
 grad, $C_V = (\partial U/\partial T)_V$. Et fast stoff utvider seg så lite
 ved oppvarming at arbeidet $p\,\mathrm dV$ kan neglisjeres, så $C_V$ og
-$C_p$ er praktisk talt like. Nesten hele den indre energien $U$ sitter i
+$C_p$ er praktisk talt like. Nesten all varmen du tilfører, går til
 gittersvingningene.
 
 Klassisk er hvert atom en harmonisk oscillator i tre retninger, med energien
@@ -34,9 +34,9 @@ bærer $k_BT$, og $N$ atomer i tre retninger har $U = 3Nk_BT$:
 
 <Formula tex={"\\begin{aligned} C_V &= 3Nk_B \\\\ C_V^\\text{mol} &= 3R = 24{,}9\\ \\text{J/(mol\\,K)} \\end{aligned}"} caption={"Dulong-Petits lov. Den klassiske varmekapasiteten er konstant, uavhengig av stoff og temperatur."} />
 
-Ved romtemperatur stemmer det for de fleste stoffer. Men målingene viser to
-ting loven ikke har: alle faste stoffer får $C_V \to 0$ når $T \to 0$, og
-fallet går som $T^3$ i isolatorer. Diamant er ikke engang i nærheten av
+Ved romtemperatur stemmer loven for de fleste stoffer. Ved lav temperatur
+stemmer den ikke: alle faste stoffer får $C_V \to 0$ når $T \to 0$, og i
+isolatorer går fallet som $T^3$. Diamant er ikke engang i nærheten av
 $3R$ ved romtemperatur, bare 6,1 J/(mol·K), og når først $3R$ ved rundt
 2000 K. Det trengs en kvantemodell, og den første var Einsteins fra 1907.
 
@@ -47,7 +47,7 @@ I termisk likevekt ved temperaturen $T$ er sannsynligheten for $n$ fononer
 proporsjonal med Boltzmann-faktoren $e^{-n\hbar\omega/k_BT}$, og middelet
 av $n$ er
 
-<Formula tex={"\\langle n \\rangle = \\frac{1}{e^{\\hbar\\omega/k_BT} - 1}"} caption={"Planck-fordelingen: middelantallet fononer i en svingning med frekvens $\\omega$ ved temperaturen $T$. Den gjelder for alle bosoner, og for fotoner er den Plancks strålingslov."} />
+<Formula tex={"\\langle n \\rangle = \\frac{1}{e^{\\hbar\\omega/k_BT} - 1}"} caption={"Planck-fordelingen: middelantallet fononer i en svingning med frekvens $\\omega$ ved temperaturen $T$. Den gjelder for kvanter som kan lages og forsvinne fritt, som fononer og fotoner. For fotoner gir den Plancks strålingslov."} />
 
 <Derivation title="Middelet av n">
 
@@ -90,27 +90,36 @@ temperaturen synker, fryser stadig flere av svingningene ut.
 ## Einstein-modellen
 
 Einstein antok at alle de $3N$ svingningene har samme frekvens $\omega_E$.
-Da er $U = 3N\hbar\omega_E\langle n \rangle$, og den deriverte med hensyn på
-$T$ gir, med Einstein-temperaturen $\theta_E = \hbar\omega_E/k_B$,
+Da er $U = 3N\hbar\omega_E\langle n \rangle$. Med $x = \hbar\omega_E/k_BT$ er
+$\mathrm dx/\mathrm dT = -x/T$, så
+
+$$
+\frac{\mathrm d\langle n \rangle}{\mathrm dT} = \frac{x}{T}\,\frac{e^x}{(e^x - 1)^2}
+$$
+
+Faktoren foran er $3N\hbar\omega_E = 3Nk_BT\,x$. Med Einstein-temperaturen
+$\theta_E = \hbar\omega_E/k_B$, slik at $x = \theta_E/T$, blir
 
 <Formula tex={"\\begin{aligned} C_V &= 3Nk_B\\,\\frac{x^2 e^{x}}{\\left(e^{x} - 1\\right)^2} \\\\ x &= \\frac{\\theta_E}{T} = \\frac{\\hbar\\omega_E}{k_BT} \\end{aligned}"} caption={"Varmekapasiteten i Einstein-modellen. Einstein-temperaturen $\\theta_E$ er den eneste parameteren, og $C_V$ er den samme funksjonen av $T/\\theta_E$ for alle stoffer."} />
 
 For $T \gg \theta_E$ går uttrykket mot $3Nk_B$, Dulong-Petits verdi. For
 $T \ll \theta_E$ går det mot $3Nk_B\,(\theta_E/T)^2\,e^{-\theta_E/T}$, som er
-null for alle praktiske formål. Modellen har altså fallet, og det var
-gjennombruddet. Men fallet er for bratt. Målt går $C_V$ som $T^3$, ikke
+null for alle praktiske formål. Einstein-modellen var den første som
+ga fallet mot null. Men fallet er for bratt. Målt går $C_V$ som $T^3$, ikke
 eksponentielt. Grunnen er at krystallen har akustiske svingninger med
 vilkårlig lav frekvens, og de er eksitert uansett hvor lav temperaturen
 er. Én felles frekvens beskriver de optiske grenene godt, for de er nesten
-flate, men ikke de akustiske. Vi trenger å vite hvor mange svingninger
-krystallen har ved hver frekvens.
+flate, men ikke de akustiske. For å finne $U$ når svingningene har ulike frekvenser,
+summerer du $\hbar\omega\langle n \rangle$ over alle svingningene. Da må du
+vite hvor mange svingninger krystallen har ved hver frekvens.
 
 ## Tillatte k-verdier og tilstandstettheten
 
 Regningen så langt var for en uendelig kjede med kontinuerlig $k$. En
-virkelig krystall har $N$ atomer, og enden må håndteres. Faste ender passer
-for nanokrystaller. For en stor krystall bruker vi periodiske
-grensebetingelser, $u_{n+N} = u_n$, som om kjeden var lukket til en ring.
+virkelig krystall har $N$ atomer, og endene må behandles. For en stor
+krystall gir faste og periodiske ender praktisk talt like mange svingninger i
+hvert frekvensintervall. Periodiske grensebetingelser er enklest å regne med:
+$u_{n+N} = u_n$, som om kjeden var lukket til en ring.
 Løpende bølger er da fortsatt løsninger, men $e^{ikNa} = 1$ krever
 
 <Formula tex={"\\begin{aligned} k &= \\frac{2\\pi}{L}\\,m \\\\ m &= 0, \\pm1, \\pm2, \\dots \\end{aligned}"} caption={"De tillatte bølgevektorene for en kjede av $N$ atomer med lengde $L = Na$ og periodiske grensebetingelser. Avstanden mellom dem er $\\Delta k = 2\\pi/L$, og første Brillouin-sone rommer nøyaktig $N$ av dem, én per atom."} />
@@ -161,8 +170,8 @@ $v_g = 0$. Kontroll: $\int_0^{\omega_m} D\,\mathrm d\omega = (2N/\pi)(\pi/2) = N
 
 </Example>
 
-I tre dimensjoner gjelder det samme for en kube med kant $L$: $\vec k$ har
-komponentene $2\pi m_x/L$, $2\pi m_y/L$ og $2\pi m_z/L$, og hver svingning
+I en kube med kant $L$ og periodiske grensebetingelser i alle tre retninger
+har $\vec k$ komponentene $2\pi m_x/L$, $2\pi m_y/L$ og $2\pi m_z/L$, og hver svingning
 tar volumet $(2\pi/L)^3$ i $k$-rommet. Antall svingninger med bølgevektor
 mindre enn $k$ er kulevolumet delt på volumet per svingning:
 
@@ -170,8 +179,8 @@ mindre enn $k$ er kulevolumet delt på volumet per svingning:
 
 ## Debye-modellen
 
-Debye antok at $\omega = vk$ for alle $k$, med lydhastigheten $v$. Det er
-de akustiske grenene for lange bølger, strukket til hele sonen, og de
+Debye antok at $\omega = vk$ for alle $k$, med lydhastigheten $v$. Denne dispersjonsrelasjonen
+er de akustiske grenene for lange bølger, strukket til hele sonen, og de
 optiske grenene er ikke med. Med $k = \omega/v$ i $N(k)$ er
 
 <Formula tex={"D(\\omega) = \\frac{\\mathrm dN}{\\mathrm d\\omega} = \\frac{V\\omega^2}{2\\pi^2 v^3}"} caption={"Tilstandstettheten i Debye-modellen, per polarisasjon. Parabelen stopper ved grensefrekvensen $\\omega_D$."} />
@@ -239,12 +248,18 @@ where $x = \frac{\hbar\omega}{k_BT}$ and $\Theta_D$ is the Debye temperature.
   question={"What is the corresponding heat capacity for a sample with $N = N_A$ (Avogadro's number) atoms in the high-$T$ limit? ($R$ is the universal gas constant.)"}
   options={["1.5 R", "2.5R", "3.0 R", "2.0 R", "1.0 R"]}
   answer={3}
-  explanation={"Ved høy $T$ er den øvre grensen $\\Theta_D/T$ liten, så $x$ er liten i hele integralet og $e^x - 1 \\approx x$. Integralet er da $\\tfrac12(\\Theta_D/T)^2$, som gir $E = 2Nk_BT$ og $C = 2Nk_B = 2R$ for $N = N_A$. Prøven har to frihetsgrader per atom i stedet for tre, som et todimensjonalt gitter."}
+  explanation={"Ved høy $T$ er den øvre grensen $\\Theta_D/T$ liten, så $x$ er liten i hele integralet og $e^x - 1 \\approx x$. Integralet er da $\\tfrac12(\\Theta_D/T)^2$, som gir $E = 2Nk_BT$ og $C = 2Nk_B = 2R$ for $N = N_A$. Prøven svinger i to retninger per atom i stedet for tre, som et todimensjonalt gitter."}
 />
 </Example>
 
 For $T \ll \theta_D$ går $x_D \to \infty$, og integralet er da tallet
 $\pi^4/15$:
+
+$$
+U = \frac{3\pi^4}{5}\,Nk_B\,\frac{T^4}{\theta_D^3}
+$$
+
+Deriver med hensyn på $T$:
 
 <Formula tex={"\\begin{aligned} C_V &= \\frac{12\\pi^4}{5}\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\\\ &\\approx 234\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\end{aligned}"} caption={"Debyes $T^3$-lov, gyldig for $T$ under omtrent $\\theta_D/50$. Der stemmer den med målingene på isolatorer."} />
 
@@ -329,7 +344,7 @@ $C_V \propto T^d$.
 
 <KeyTakeaways>
 
-- Klassisk bærer hver svingning $k_BT$, så $U = 3Nk_BT$ og $C_V = 3Nk_B = 3R$ per mol (Dulong-Petit). Målt går $C_V \to 0$ som $T^3$.
+- Klassisk bærer hver svingning $k_BT$, så $U = 3Nk_BT$ og $C_V = 3Nk_B = 3R$ per mol (Dulong-Petit). Målt går $C_V \to 0$, i isolatorer som $T^3$.
 - Planck-fordelingen $\langle n \rangle = 1/(e^{\hbar\omega/k_BT} - 1)$ gir middelenergien $\hbar\omega\langle n \rangle$: $k_BT$ for $\hbar\omega \ll k_BT$, eksponentielt liten for $\hbar\omega \gg k_BT$. Svingninger med for høy frekvens fryser ut.
 - Einstein-modellen gir alle $3N$ svingninger frekvensen $\omega_E$. Den når $3Nk_B$ ved høy $T$ og faller eksponentielt ved lav, for fort, fordi de akustiske svingningene mangler.
 - Periodiske grensebetingelser gir $k = 2\pi m/L$, $N$ verdier i første Brillouin-sone. Tilstandstettheten er $D(\omega) = (L/\pi)/(\mathrm d\omega/\mathrm dk)$ i én dimensjon og $N(k) = Vk^3/6\pi^2$ per polarisasjon i tre.

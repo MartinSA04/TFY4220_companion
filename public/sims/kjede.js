@@ -274,7 +274,7 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
       const yTop = gy(Math.sqrt(2 / M2));
       const yBot = gy(Math.sqrt(2 / M1));
       s += `<rect x="${P(g.x)}" y="${P(yTop)}" width="${P(g.w)}" height="${P(yBot - yTop)}" fill="var(--orange)" fill-opacity="0.14"/>`;
-      s += `<text x="${P(g.x + g.w - 4)}" y="${P((yTop + yBot) / 2 + 4)}" text-anchor="end" style="fill:var(--muted);${MONO}">forbudt</text>`;
+      s += `<text x="${P(g.x + g.w - 4)}" y="${P((yTop + yBot) / 2 + 4)}" text-anchor="end" style="fill:var(--muted);${MONO}">gap</text>`;
       s += plot((qq) => omegaDi(qq, "ak"), "var(--fg)");
       s += plot((qq) => omegaDi(qq, "op"), "var(--fg)");
       s += `<text x="${P(gx(0))}" y="${P(gy(omegaDi(0, "op")) - 6)}" text-anchor="middle" style="fill:var(--fg);${MONO}">optisk</text>`;

@@ -23,12 +23,12 @@ updated: 2026-08-24
 
 Den konvensjonelle kuben rommer 2 gitterpunkter i bcc og 4 i fcc, så ingen av de
 to er primitive celler. De primitive cellene finnes selvsagt, men begge er
-romboedre. I bcc går de primitive vektorene fra et hjørne til de tre nærmeste
-romsentrene, i fcc til de tre nærmeste flatesentrene.
+romboedre. I bcc går de primitive vektorene fra et hjørne til tre av de åtte
+nærmeste romsentrene, i fcc til tre av de tolv nærmeste flatesentrene.
 
 <Formula tex={"\\vec{a}_1 = \\tfrac{a}{2}(\\hat{x}{+}\\hat{y}{-}\\hat{z}), \\quad \\vec{a}_2 = \\tfrac{a}{2}({-}\\hat{x}{+}\\hat{y}{+}\\hat{z}), \\quad \\vec{a}_3 = \\tfrac{a}{2}(\\hat{x}{-}\\hat{y}{+}\\hat{z})"} caption={"Primitive gittervektorer for <b>bcc</b>, fra et hjørne til tre av romsentrene."} />
 
-<Formula tex={"\\vec{a}_1 = \\tfrac{a}{2}(\\hat{x}{+}\\hat{y}), \\quad \\vec{a}_2 = \\tfrac{a}{2}(\\hat{y}{+}\\hat{z}), \\quad \\vec{a}_3 = \\tfrac{a}{2}(\\hat{z}{+}\\hat{x})"} caption={"Primitive gittervektorer for <b>fcc</b>, fra et hjørne til de tre nærmeste flatesentrene."} />
+<Formula tex={"\\vec{a}_1 = \\tfrac{a}{2}(\\hat{x}{+}\\hat{y}), \\quad \\vec{a}_2 = \\tfrac{a}{2}(\\hat{y}{+}\\hat{z}), \\quad \\vec{a}_3 = \\tfrac{a}{2}(\\hat{z}{+}\\hat{x})"} caption={"Primitive gittervektorer for <b>fcc</b>, fra et hjørne til tre av de nærmeste flatesentrene."} />
 
 Volumet $|\vec a_1 \cdot (\vec a_2 \times \vec a_3)|$ blir $a^3/2$ for bcc og
 $a^3/4$ for fcc. Det stemmer med tellingen i kuben: 2 og 4 gitterpunkter per
@@ -37,23 +37,22 @@ romboedrene skjuler den kubiske symmetrien.
 
 ## Tettpakkede strukturer
 
-Pakningsgraden $0{,}74$ fra fcc er den høyeste som finnes.
-
-<Statement kind="theorem" name="Tettest mulig pakking">
-
-Ingen pakking av like kuler er tettere enn $\pi/\sqrt{18} \approx 0{,}74$, og
-både fcc og hcp når grensen. Kepler formodet dette i 1611; beviset kom først i
-1998, ved Thomas Hales.
-
-</Statement>
-
-Grensen nås ved å stable tette lag. Legg et lag kuler så tett de kan ligge,
+Legg et lag kuler så tett de kan ligge,
 hver med seks naboer i planet, og kall posisjonene A. Neste lag legger seg i
 fordypningene mellom kulene, kall dem B. For det tredje laget har du to valg:
 over A igjen, eller over de fordypningene B ikke brukte, kalt C.
 
 - ABABAB gir <Term name="Heksagonal tettpakking">heksagonal tettpakking</Term> (hcp).
 - ABCABC gir fcc.
+
+Begge stablingene har pakningsgraden $0{,}74$, og det er den høyeste som finnes.
+
+<Statement kind="theorem" name="Tettest mulig pakking">
+
+Ingen pakking av like kuler er tettere enn $\pi/\sqrt{18} \approx 0{,}74$.
+Kepler formodet dette i 1611; beviset kom først i 1998, ved Thomas Hales.
+
+</Statement>
 
 <Simulation
   src={"/sims/stabling.js"}
@@ -64,10 +63,10 @@ over A igjen, eller over de fordypningene B ikke brukte, kalt C.
 />
 
 At ABCABC er den samme strukturen som fcc, er ikke lett å se direkte: lagene
-ligger normalt på kubens romdiagonal, ikke på noen av flatene. hcp er heller
+ligger normalt på kubens romdiagonal, ikke på noen av flatene. hcp er
 ikke noe eget Bravais-gitter. Lag B ser andre omgivelser enn lag A, så
 strukturen er det heksagonale gitteret med en basis på to atomer, på samme måte
-som honeycomb-nettet var det trekantede gitteret med to.
+som honeycomb-nettet var det heksagonale gitteret med to.
 
 ## Strukturer som gitter pluss basis
 
@@ -100,11 +99,9 @@ enkelt kubisk, og basisen har to atomer.
 </Callout>
 
 <Term name="Diamantstruktur">Diamantstrukturen</Term> er fcc med to like atomer
-i basisen, forskjøvet en kvart romdiagonal. Hvert atom har bare 4 naboer, mot
-12 i fcc, og pakningsgraden er $0{,}34$. Strukturen er altså svært åpen, og det
-er de rettede kovalente bindingene som holder den oppe. Silisium
-og germanium krystalliserer slik, og derfor går strukturen igjen i alt som
-handler om halvledere.
+i basisen, forskjøvet en kvart romdiagonal. Hvert atom har bare 4 nærmeste naboer,
+mot 12 i fcc, så strukturen er svært åpen, og det er de rettede kovalente
+bindingene som holder den oppe. Silisium og germanium krystalliserer slik.
 
 <Example label="Eksamensoppgave" title="Diamantstrukturen og steinsalt">
 <ExamRef id="2016-mai" task="3 b–c" />
@@ -181,8 +178,10 @@ $\tfrac12 : 1 : 1$ og heter $(122)$. Kubens flate normalt på $\vec a_1$
 skjærer i $1$, $\infty$, $\infty$ og heter $(100)$.
 
 $(hkl)$ navngir ikke ett enkelt plan, men en <Term name="Planfamilie">familie</Term>
-av parallelle plan med lik avstand, som til sammen går gjennom alle
-gitterpunktene. Symmetrien gjør i tillegg flere familier likeverdige: kubens
+av parallelle plan med lik avstand. I et enkelt kubisk gitter går planene til
+sammen gjennom alle gitterpunktene. I bcc og fcc, med indeksene til kuben,
+ligger noen gitterpunkter mellom planene: romsenteret i bcc ligger midt mellom
+to $(100)$-plan. Symmetrien gjør i tillegg flere familier likeverdige: kubens
 seks flater er $(100)$, $(010)$, $(001)$, $(\bar100)$, $(0\bar10)$ og
 $(00\bar1)$, og samlingen skrives $\{100\}$.
 
@@ -201,8 +200,21 @@ Retninger i krystallen skrives med hakeparenteser:
 $u\vec a_1 + v\vec a_2 + w\vec a_3$, redusert til minste heltall på samme måte.
 $\vec a_1$ peker langs $[100]$ og $-\vec a_2$ langs $[0\bar10]$.
 
-I kubiske gitter, og bare der, står retningen $[hkl]$ normalt på planet
-$(hkl)$. Normalen gir også avstanden mellom naboplanene i familien
+Planet som skjærer aksene i $x_1a$, $x_2a$ og $x_3a$ har ligningen
+$x/x_1 + y/x_2 + z/x_3 = a$. Gang med det minste tallet som gjør koeffisientene
+$1/x_i$ til heltall. Koeffisientene er da $h$, $k$ og $l$, og ligningen blir
+$hx + ky + lz = \text{konst}$. Derfor inverterer du skjæringspunktene.
+
+I et enkelt kubisk gitter er $hx + ky + lz$ et helt antall $a$ i hvert
+gitterpunkt, så familien består av planene
+
+$$
+hx + ky + lz = na, \qquad n = 0, \pm1, \pm2, \dots
+$$
+
+Normalvektoren er $(h, k, l)$, så i kubiske gitter står $[hkl]$ normalt på
+$(hkl)$. Plan nummer $n$ ligger $na/\sqrt{h^2 + k^2 + l^2}$ fra origo, og
+naboplanene har dermed avstanden
 (<FormulaRef id="planavstand-kubisk" />).
 
 <Formula tex={"d_{hkl} = \\dfrac{a}{\\sqrt{h^2 + k^2 + l^2}}"} caption={"Planavstanden i kubiske gitter. Høyere indekser gir mindre avstand."} />
@@ -243,14 +255,11 @@ unntatt $\{100\}$: jo høyere indekser, desto tettere ligger planene.
   explanation={"Hjørneatomet og senteratomet er ulike grunnstoffer, så de har ulike omgivelser og kan ikke være punkter i samme gitter. Gitteret er enkelt kubisk med basisen Cs $+$ Cl."}
 />
 
-<SelfCheck question={"Diamantstrukturen har 8 atomer i den konvensjonelle cellen, og nærmeste nabo ligger en kvart romdiagonal unna. Vis at pakningsgraden er $0{,}34$."}>
+<SelfCheck question={"Hvor langt er det mellom naboplanene i $(220)$-familien i silisium, og hvorfor er svaret ikke det samme som for $(110)$?"}>
 
-Naboavstanden er $d = a\sqrt3/4$, så kuleradien er $r = a\sqrt3/8$. Da er
-
-$f = \dfrac{8 \cdot \tfrac43 \pi r^3}{a^3} = \dfrac{32\pi}{3}\left(\dfrac{\sqrt3}{8}\right)^3 = \dfrac{\pi\sqrt3}{16} \approx 0{,}34$
-
-Under halvparten av fcc sine $0{,}74$. Gitteret er det samme, så forskjellen
-ligger i basisen og i hvor store kulene er.
+$d_{220} = a/\sqrt{2^2 + 2^2 + 0^2} = 5{,}431\ \text{Å}/\sqrt8 = 1{,}92$ Å. Indeksene $(220)$ er ikke
+redusert til minste heltall, så de navngir planene med halv avstand: $(220)$ har
+dobbelt så mange plan per lengde som $(110)$, og $d_{220} = d_{110}/2$.
 
 </SelfCheck>
 

@@ -11,8 +11,8 @@ updated: 2026-10-04
 <LearningGoals>
 
 - Forklare hvorfor et periodisk potensial åpner <Term name="Båndgap">båndgap</Term> ved sonegrensene, fra Bragg-refleksjon og de to stående bølgene.
-- Bruke <Term name="Bloch-funksjon">Blochs teorem</Term> og forklare hvorfor $\hbar\vec k$ ikke er impulsen til elektronet.
 - Sette opp <Term name="Sentralligningen">sentralligningen</Term> og løse den med to planbølger nær en sonegrense, som gir <FormulaRef id="baandgap" />.
+- Bruke <Term name="Bloch-funksjon">Blochs teorem</Term> og forklare hvorfor $\hbar\vec k$ ikke er impulsen til elektronet.
 - Tegne båndene i det <Term name="Tomt gitter">tomme gitteret</Term> i redusert soneskjema.
 - Telle tilstandene i et bånd og avgjøre om et stoff er metall eller isolator ut fra antallet valenselektroner per primitiv celle.
 
@@ -35,11 +35,6 @@ områder av energier som ingen tilstand har. Disse områdene er
 med et svakt periodisk potensial, er
 <Term name="Nesten frie elektroner">modellen med nesten frie elektroner</Term>.
 
-Hvor Fermi-energien havner i forhold til gapene, avgjør hvordan stoffet leder.
-Finnes det tomme tilstander like over Fermi-energien, er stoffet et metall.
-Ligger Fermi-energien i et gap, er stoffet en halvleder når gapet er lite og
-en isolator når det er stort.
-
 ## Bragg-refleksjon ved sonegrensen
 
 En planbølge $e^{ikx}$ Bragg-reflekteres av gitteret når $2a\sin\theta = n\lambda$.
@@ -49,7 +44,7 @@ $$
 n\lambda = 2a \quad\Rightarrow\quad k = \frac{2\pi}{\lambda} = \pm\frac{n\pi}{a}
 $$
 
-Det er nettopp grensene til Brillouin-sonene. Ved $k = \pi/a$ reflekteres
+Disse $k$-verdiene er nettopp grensene til Brillouin-sonene. Ved $k = \pi/a$ reflekteres
 bølgen $e^{i\pi x/a}$ til $e^{-i\pi x/a}$, som reflekteres tilbake igjen.
 Tilstandene der er stående bølger satt sammen av de to:
 
@@ -76,17 +71,93 @@ elektronet er lavest ved ionene. $\psi(+)$ har derfor lavere energi enn en
 løpende bølge, og $\psi(-)$ har høyere. Begge har $k = \pi/a$, og ingen tilstand
 har en energi mellom dem. Forskjellen er båndgapet $E_g$.
 
-## Blochs teorem
+## Sentralligningen
 
 Regn hvert elektron for seg, i et effektivt potensial fra ionene og de andre
-elektronene. Potensialet er periodisk, så $U(\vec r + \vec R) = U(\vec r)$ for
-alle gittervektorer $\vec R$ i krystallen, og Schrödinger-ligningen er
+elektronene. I én dimensjon er potensialet periodisk, $U(x + a) = U(x)$, og
+Schrödinger-ligningen er
 
 $$
-\left[-\frac{\hbar^2}{2m}\nabla^2 + U(\vec r)\right]\psi(\vec r) = \varepsilon\,\psi(\vec r)
+\left[-\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + U(x)\right]\psi(x) = \varepsilon\,\psi(x)
 $$
 
-Bloch viste i 1928 at løsningene har formen
+For å finne energiene skriver du både $U$ og $\psi$ som summer av planbølger.
+Da blir Schrödinger-ligningen et sett algebraiske ligninger for koeffisientene.
+Fordi $U$ er periodisk med perioden $a$, kan den skrives som en Fourier-rekke
+over de resiproke gittervektorene $G$, som er heltall ganger $g = 2\pi/a$:
+
+$$
+U(x) = \sum_G U_G\,e^{iGx}
+$$
+
+Hvert ledd har perioden $a$ fordi $e^{iGa} = 1$. $U_0$ er middelverdien av
+potensialet, og komponentene med $G = \pm g$ og $G = \pm 2g$ kalles $U_1$ og $U_2$. Bølgefunksjonen er en sum av alle planbølger som de periodiske
+grensebetingelsene tillater:
+
+$$
+\psi(x) = \sum_k C_k\,e^{ikx}
+$$
+
+Sett begge summene inn i Schrödinger-ligningen. Den kinetiske energien gjør
+hver $e^{ikx}$ til $\lambda_k e^{ikx}$, med fri-elektronenergien
+$\lambda_k = \hbar^2k^2/2m$, og produktet $U\psi$ blir en dobbeltsum:
+
+$$
+\sum_k \lambda_k C_k\,e^{ikx} + \sum_G\sum_k U_G C_k\,e^{i(k+G)x} \allowbreak = \varepsilon\sum_k C_k\,e^{ikx}
+$$
+
+Med $k$ i stedet for
+$k + G$ som summeindeks blir dobbeltsummen
+$\sum_G\sum_k U_G C_{k-G}\,e^{ikx}$. Planbølgene er uavhengige, så
+koeffisienten foran hver $e^{ikx}$ må være null:
+
+<Formula tex={"(\\lambda_k - \\varepsilon)\\,C_k + \\sum_G U_G\\,C_{k-G} = 0"} caption={"Sentralligningen. Den er Schrödinger-ligningen skrevet om til algebraiske ligninger, uten noen tilnærming."} />
+
+<Term name="Sentralligningen">Sentralligningen</Term> kobler $C_k$ bare til
+koeffisientene $C_{k-G}$. En løsning inneholder derfor bare bølgevektorene
+$k$, $k \pm g$, $k \pm 2g$ og så videre:
+
+$$
+\psi_k(x) = \sum_G C_{k-G}\,e^{i(k-G)x} \allowbreak = e^{ikx}\sum_G C_{k-G}\,e^{-iGx}
+$$
+
+Summen til høyre er en funksjon $u_k(x)$ med $u_k(x + a) = u_k(x)$, fordi
+$e^{-iGa} = 1$. Løsningen har altså formen $\psi_k(x) = e^{ikx}u_k(x)$ med
+periodisk $u_k$.
+
+For en valgt $k$ er sentralligningen et uendelig sett av lineære ligninger i
+koeffisientene $C_k, C_{k \pm g}, C_{k \pm 2g}, \dots$ De har en løsning der ikke alle
+koeffisientene er null bare når determinanten er null, og nullpunktene er
+energiene $\varepsilon$ ved denne $k$.
+
+<Example label="Eksamensoppgave" title="Determinanten fra sentralligningen">
+<ExamRef id="2022-mai" task="28" />
+
+$$
+\begin{matrix}
+U_2 & U_1 & \lambda_{k-2g} + U_0 - \varepsilon & U_1 & U_2 & 0 & 0 & 0 & 0 \\
+0 & U_2 & U_1 & \lambda_{k-g} + U_0 - \varepsilon & U_1 & U_2 & 0 & 0 & 0 \\
+0 & 0 & U_2 & U_1 & \lambda_k + U_0 - \varepsilon & U_1 & U_2 & 0 & 0 \\
+0 & 0 & 0 & U_2 & U_1 & \lambda_{k+g} + U_0 - \varepsilon & U_1 & U_2 & 0 \\
+0 & 0 & 0 & 0 & U_2 & U_1 & \lambda_{k+2g} + U_0 - \varepsilon & U_1 & U_2
+\end{matrix}
+$$
+
+Here, $U_i$ are Fourier coefficients of the potential, and $\lambda_k = \hbar k/2m$.
+
+<Quiz
+  question={"Which statement relating to the central equation is <em>incorrect</em>?"}
+  options={["$U_2$ and higher order terms of the potential can be omitted for sufficiently weak and smoothly varying electron-lattice potentials.", "$U_0$ is half the spatially averaged value of the potential", "It is always sufficient to solve for the $k$ values within the 1st Brillouin zone.", "The given block is a determinant whose solutions give the energy eigenvalues for the chosen value of $k$.", "The central equation is an algebraic equation containing exactly the same information as the Schrödinger equation for a periodic potential."]}
+  answer={1}
+  explanation={"$U_0$ er Fourier-komponenten med $G = 0$, altså middelverdien av $U(x)$, ikke halvparten av den. Den flytter alle energiene like mye. De andre påstandene stemmer: et glatt, svakt potensial har små høyere komponenter, $k$ og $k + G$ gir samme tilstand, og sentralligningen er Schrödinger-ligningen uten tilnærming."}
+/>
+</Example>
+
+## Blochs teorem
+
+I tre dimensjoner er $U(\vec r + \vec R) = U(\vec r)$ for alle gittervektorer
+$\vec R$ i krystallen. Regningen over gir da, med $\vec k$ og $\vec G$ i stedet
+for $k$ og $G$, Blochs teorem, som Bloch viste i 1928:
 
 <Formula tex={"\\begin{aligned} &\\psi_{\\vec k}(\\vec r) = e^{i\\vec k\\cdot\\vec r}\\,u_{\\vec k}(\\vec r) \\\\ &u_{\\vec k}(\\vec r + \\vec R) = u_{\\vec k}(\\vec r) \\end{aligned}"} caption={"Blochs teorem. Løsningene i et periodisk potensial er planbølger ganger en funksjon med samme periodisitet som potensialet."} />
 
@@ -128,85 +199,17 @@ $$
 />
 </Example>
 
-## Sentralligningen
-
-Fordi $U$ er periodisk med perioden $a$, kan den skrives som en Fourier-rekke
-over de resiproke gittervektorene $G$, som er heltall ganger $g = 2\pi/a$:
-
-$$
-U(x) = \sum_G U_G\,e^{iGx}
-$$
-
-Hvert ledd har perioden $a$ fordi $e^{iGa} = 1$. $U_0$ er middelverdien av
-potensialet, og komponentene med $G = \pm g$ og $G = \pm 2g$ kalles $U_1$ og $U_2$. Bølgefunksjonen er en sum av alle planbølger som de periodiske
-grensebetingelsene tillater:
-
-$$
-\psi(x) = \sum_k C_k\,e^{ikx}
-$$
-
-Satt inn i Schrödinger-ligningen gir det
-
-$$
-\sum_k \lambda_k C_k\,e^{ikx} + \sum_G\sum_k U_G C_k\,e^{i(k+G)x} \allowbreak = \varepsilon\sum_k C_k\,e^{ikx}
-$$
-
-med fri-elektronenergien $\lambda_k = \hbar^2k^2/2m$. Med $k$ i stedet for
-$k + G$ som summeindeks blir dobbeltsummen
-$\sum_G\sum_k U_G C_{k-G}\,e^{ikx}$. Planbølgene er uavhengige, så
-koeffisienten foran hver $e^{ikx}$ må være null:
-
-<Formula tex={"(\\lambda_k - \\varepsilon)\\,C_k + \\sum_G U_G\\,C_{k-G} = 0"} caption={"Sentralligningen. Den er Schrödinger-ligningen skrevet om til algebraiske ligninger, uten noen tilnærming."} />
-
-<Term name="Sentralligningen">Sentralligningen</Term> kobler $C_k$ bare til
-koeffisientene $C_{k-G}$. En løsning inneholder derfor bare bølgevektorene
-$k$, $k \pm g$, $k \pm 2g$ og så videre:
-
-$$
-\psi_k(x) = \sum_G C_{k-G}\,e^{i(k-G)x} \allowbreak = e^{ikx}\sum_G C_{k-G}\,e^{-iGx}
-$$
-
-Summen til høyre er en funksjon $u_k(x)$ med $u_k(x + a) = u_k(x)$, fordi
-$e^{-iGa} = 1$. Det er Blochs teorem.
-
-For en valgt $k$ er sentralligningen et uendelig sett av lineære ligninger i
-koeffisientene $C_k, C_{k \pm g}, C_{k \pm 2g}, \dots$ De har en løsning der ikke alle
-koeffisientene er null bare når determinanten er null, og nullpunktene er
-energiene $\varepsilon$ ved denne $k$.
-
-<Example label="Eksamensoppgave" title="Determinanten fra sentralligningen">
-<ExamRef id="2022-mai" task="28" />
-
-$$
-\begin{matrix}
-U_2 & U_1 & \lambda_{k-2g} + U_0 - \varepsilon & U_1 & U_2 & 0 & 0 & 0 & 0 \\
-0 & U_2 & U_1 & \lambda_{k-g} + U_0 - \varepsilon & U_1 & U_2 & 0 & 0 & 0 \\
-0 & 0 & U_2 & U_1 & \lambda_k + U_0 - \varepsilon & U_1 & U_2 & 0 & 0 \\
-0 & 0 & 0 & U_2 & U_1 & \lambda_{k+g} + U_0 - \varepsilon & U_1 & U_2 & 0 \\
-0 & 0 & 0 & 0 & U_2 & U_1 & \lambda_{k+2g} + U_0 - \varepsilon & U_1 & U_2
-\end{matrix}
-$$
-
-Here, $U_i$ are Fourier coefficients of the potential, and $\lambda_k = \hbar k/2m$.
-
-<Quiz
-  question={"Which statement relating to the central equation is <em>incorrect</em>?"}
-  options={["$U_2$ and higher order terms of the potential can be omitted for sufficiently weak and smoothly varying electron-lattice potentials.", "$U_0$ is half the spatially averaged value of the potential", "It is always sufficient to solve for the $k$ values within the 1st Brillouin zone.", "The given block is a determinant whose solutions give the energy eigenvalues for the chosen value of $k$.", "The central equation is an algebraic equation containing exactly the same information as the Schrödinger equation for a periodic potential."]}
-  answer={1}
-  explanation={"$U_0$ er Fourier-komponenten med $G = 0$, altså middelverdien av $U(x)$, ikke halvparten av den. Den flytter alle energiene like mye. De andre påstandene stemmer: et glatt, svakt potensial har små høyere komponenter, $k$ og $k + G$ gir samme tilstand, og sentralligningen er Schrödinger-ligningen uten tilnærming."}
-/>
-</Example>
-
 ## Ekvivalente bølgevektorer og det tomme gitteret
 
-Løsningen med $k + G$ inneholder nøyaktig de samme planbølgene som løsningen
-med $k$, så de er samme tilstand og har samme energi:
-
-<Formula tex={"\\varepsilon_n(\\vec k + \\vec G) = \\varepsilon_n(\\vec k)"} caption={"Bølgevektorer som skiller seg med en resiprok gittervektor, er ekvivalente. Båndindeksen $n$ skiller de mange løsningene ved samme $\\vec k$."} />
-
 Sentralligningen har mange løsninger for hver $\vec k$, og båndindeksen
-$n = 1, 2, 3, \dots$ skiller dem. Alle tilstandene kan derfor merkes med
-$\vec k$ i første Brillouin-sone og $n$. Det er
+$n = 1, 2, 3, \dots$ skiller dem. Løsningen med $k + G$ inneholder nøyaktig de
+samme planbølgene som løsningen med $k$, så de er samme tilstand og har samme
+energi:
+
+<Formula tex={"\\varepsilon_n(\\vec k + \\vec G) = \\varepsilon_n(\\vec k)"} caption={"Bølgevektorer som skiller seg med en resiprok gittervektor, er ekvivalente."} />
+
+Alle tilstandene kan derfor merkes med
+$\vec k$ i første Brillouin-sone og $n$. Denne merkingen er
 <Term name="Redusert soneskjema">redusert soneskjema</Term>, slik som for
 gittersvingningene, der en $k$ utenfor sonen beskriver samme svingning som en
 $k$ inne i den.
@@ -268,8 +271,10 @@ $$
 U(x) = 2U\cos\frac{2\pi x}{a} \allowbreak = U e^{igx} + U e^{-igx}
 $$
 
-Da er $U_1 = U$, og det er nok å beholde $C_k$ og $C_{k-g}$. Sentralligningen
-blir to ligninger:
+Da er $U_1 = U$. For å finne de to energiene nær sonegrensen holder det å
+beholde $C_k$ og $C_{k-g}$, så lenge $|U|$ er mye mindre enn avstanden fra
+$\lambda_k$ til de øvrige $\lambda_{k-G}$. Er potensialet sterkere, blander de
+andre planbølgene seg inn. Sentralligningen blir to ligninger:
 
 $$
 \begin{aligned}
@@ -295,7 +300,9 @@ $$
 \varepsilon = \lambda_k \pm |U|
 $$
 
-Gapet er dobbelt så stort som Fourier-komponenten:
+Gapet er dobbelt så stort som Fourier-komponenten. Ved $k = G/2$ for en
+vilkårlig $G$ har planbølgene $k$ og $k - G$ samme frie energi, og regningen
+over, med $U_G$ i stedet for $U$, gir
 
 <Formula tex={"E_g = 2|U_G|"} caption={"Båndgapet ved sonegrensen $k = G/2$. For $U(x) = 2U\\cos(2\\pi x/a)$ er gapet lik amplituden $2|U|$ til cosinusen."} />
 
@@ -303,11 +310,13 @@ Den første ligningen gir forholdet $C_{k-g}/C_k = (\varepsilon - \lambda_k)/U$,
 som er $\pm 1$ på sonegrensen. Tilstandene på kantene av gapet er de to
 stående bølgene fra Bragg-bildet. Med brønnene ved ionene er $U < 0$. På den
 nederste kanten er da $C_{k-g}$ og $C_k$ like, som gir $\psi(+) \propto \cos(\pi x/a)$.
-Nær grensen går begge båndene som parabler i $k - \pi/a$, og de møter grensen
-med horisontal tangent.
+Skriv $k = \pi/a + K$. Da er
+$\tfrac12(\lambda_{k-g} + \lambda_k) = (\hbar^2/2m)(\pi^2/a^2 + K^2)$ og
+$\lambda_k - \lambda_{k-g} = (\hbar^2/2m)(4\pi/a)K$, så begge leddene i formelen
+for $\varepsilon$ inneholder bare $K^2$. Begge båndene går derfor som parabler i
+$K$ nær grensen og møter den med horisontal tangent.
 
-Gapet ved $k = 2\pi/a$ kobler $k$ og $k - 2g$ og er på samme måte gitt av
-$U_2$. Hvert gap er altså bestemt av sin egen Fourier-komponent. Et glatt
+For $G = 2g$ gir formelen for $E_g$ gapet ved $k = 2\pi/a$, som er gitt av $U_2$. Hvert gap er altså bestemt av sin egen Fourier-komponent. Et glatt
 potensial har små høyere komponenter og gir små gap høyt oppe.
 
 <Simulation
@@ -329,8 +338,8 @@ som er $N$ ganger avstanden $2\pi/L$ mellom to tillatte $k$, så den rommer $N$
 av dem.
 
 Hver $k$ i hvert bånd har plass til to elektroner, ett med hvert spinn. Et bånd
-rommer altså $2N$ elektroner, to per primitiv celle. Det samme gjelder i tre
-dimensjoner. Krystallen har volumet $V = NV_c$, der $V_c$ er volumet av den
+rommer altså $2N$ elektroner, to per primitiv celle, også i tre dimensjoner.
+Krystallen har volumet $V = NV_c$, der $V_c$ er volumet av den
 primitive cellen, så hver tillatt $\vec k$ tar
 volumet $(2\pi)^3/V$, og første sone, med volumet $(2\pi)^3/V_c$, rommer $N$ av
 dem.
@@ -348,7 +357,7 @@ per primitiv celle avgjør om det øverste båndet blir fullt:
 
 I to og tre dimensjoner kan to bånd overlappe i energi. Et fritt elektron i
 hjørnet av første sone har mye høyere energi enn et midt på en sideflate, og
-et svakt potensial endrer ikke det. Toppen av bånd 1 i hjørnet kan da ligge
+et svakt potensial endrer ikke denne forskjellen. Toppen av bånd 1 i hjørnet kan da ligge
 over bunnen av bånd 2 midt på sideflaten, og begge båndene blir delvis fylt.
 De toverdige jordalkalimetallene, som magnesium og kalsium, er metaller av
 denne grunnen.
@@ -367,12 +376,16 @@ denne grunnen.
 Ved $T = 0$ har både halvledere og isolatorer bare fulle og tomme bånd.
 Forskjellen er hvor stort gapet er. Silisium har $E_g = 1{,}1$ eV, og ved
 romtemperatur eksiteres nok elektroner over gapet til at det leder litt.
-Diamant har $E_g = 5{,}4$ eV og leder nesten ikke. Gapet avgjør også hvilket
-lys stoffet tar opp. I en isolator eller halvleder kan et foton bare
-absorberes hvis det løfter et elektron fra et fullt bånd til et tomt, altså
-hvis $h\nu \ge E_g$. Synlig lys har
-fotonenergier fra 1,6 til 3,3 eV, så diamant er gjennomsiktig og silisium
-ikke.
+Diamant har $E_g = 5{,}4$ eV og leder nesten ikke.
+
+<Derivation title="Hvorfor diamant er gjennomsiktig og silisium ikke">
+
+Gapet avgjør også hvilket lys elektronene tar opp. I en isolator eller
+halvleder kan et elektron bare ta opp et foton som løfter det fra et fullt bånd
+til et tomt, altså når $h\nu \ge E_g$. Synlig lys har fotonenergier fra 1,6 til
+3,3 eV, så diamant er gjennomsiktig og silisium ikke.
+
+</Derivation>
 
 ## Sjekk deg selv
 
@@ -397,8 +410,8 @@ det kvadratiske gitteret og 3 ganger større i det enkle kubiske.
 
 - Et periodisk potensial åpner båndgap ved sonegrensene, der elektronbølgene Bragg-reflekteres.
 - På kantene av gapet er tilstandene stående bølger. $\psi(+) \propto \cos(\pi x/a)$ samler elektronene ved ionene og ligger lavest, $\psi(-) \propto \sin(\pi x/a)$ samler dem mellom ionene.
-- Blochs teorem: $\psi_{\vec k} = e^{i\vec k\cdot\vec r}u_{\vec k}$, der $u_{\vec k}$ er periodisk i gitteret. $\hbar\vec k$ er krystallimpulsen og ikke impulsen til elektronet.
 - Sentralligningen er Schrödinger-ligningen for et periodisk potensial, skrevet for koeffisientene til planbølgene. Den kobler $k$ bare til $k - G$.
+- Blochs teorem: $\psi_{\vec k} = e^{i\vec k\cdot\vec r}u_{\vec k}$, der $u_{\vec k}$ er periodisk i gitteret. $\hbar\vec k$ er krystallimpulsen og ikke impulsen til elektronet.
 - $\vec k$ og $\vec k + \vec G$ er samme tilstand, så alle bånd kan tegnes i første Brillouin-sone. I det tomme gitteret er båndene de frie parablene $\hbar^2|\vec k + \vec G|^2/2m$.
 - Nær sonegrensen gir to planbølger båndgapet $E_g = 2|U_G|$.
 - Hvert bånd rommer $2N$ elektroner, to per primitiv celle. Et oddetall valenselektroner per primitiv celle gir et metall. Et partall gir en isolator eller en halvleder, hvis ikke båndene overlapper.

@@ -48,7 +48,7 @@ function intensity(type, [h, k, l], r) {
     const allOdd = !even(h) && !even(k) && !even(l);
     lat = allEven || allOdd ? 4 : 0;
   }
-  const ph = (2 * Math.PI * (h + k + l)) / type.shift;
+  const ph = (-2 * Math.PI * (h + k + l)) / type.shift;
   const re = 1 + r * Math.cos(ph);
   const im = r * Math.sin(ph);
   return lat * lat * (re * re + im * im);

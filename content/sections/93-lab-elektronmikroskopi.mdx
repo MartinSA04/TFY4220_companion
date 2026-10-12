@@ -9,7 +9,7 @@ part: "Laboratorieøvinger"
 updated: 2026-09-29
 ---
 
-På TEM-laben ser du på nanotråder av GaAs som ligger på et underlag av silisium, både som bilder og som diffraksjonsbilder fra de samme områdene. Laboppgaven foreslår at du finner krystallstrukturen til trådene, om de er sinkblende eller wurtsitt, og sammenligner med silisium. For det må du indeksere diffraksjonsbildene og finne soneaksen.
+På TEM-laben ser du på nanotråder av GaAs som ligger på et underlag av silisium, både som bilder og som diffraksjonsbilder fra de samme områdene. Laboppgaven foreslår at du finner krystallstrukturen til trådene, om de er sinkblende eller wurtsitt, og sammenligner med silisium. For å finne strukturen må du indeksere diffraksjonsbildene og finne soneaksen.
 
 Siden følger oppgavene i laboppgaven og gir verktøyene til hver av dem, men ikke svarene.
 
@@ -19,7 +19,7 @@ Et TEM akselererer elektroner gjennom en spenning $V$ på 60 til 500 kV. Da er f
 
 <Formula tex="\lambda = \dfrac{h}{\sqrt{2meV\left(1 + \dfrac{eV}{2mc^2}\right)}}" caption="Bølgelengden til elektroner akselerert gjennom $V$. Uten parentesen er det $\lambda = h/p$ med den klassiske impulsen $p = \sqrt{2meV}$. Ved 200 kV er $\lambda = 2{,}51$ pm." />
 
-Det er omtrent hundre ganger kortere enn planavstandene i en krystall, så Bragg-vinklene blir under en grad. <Term name="Ewald-kule">Ewald-kulen</Term> har radius $2\pi/\lambda$, mye større enn avstanden mellom punktene i det resiproke gitteret, og er nesten flat over et helt plan av gitterpunkter. Prøven er tynn, rundt 100 nm, og Fourier-transformen av en tynn plate er lang i retningen normalt på platen, så punktene i det resiproke gitteret blir lange i den retningen (<Term name="Konvolusjon">konvolusjon</Term>). Kulen treffer derfor mange punkter samtidig, og diffraksjonsbildet er et snitt gjennom det resiproke gitteret normalt på strålen. Laboppgaven regner med <Term name="Kinematisk diffraksjonsteori">kinematisk diffraksjon</Term> som i kurset, selv om elektronene ofte spres flere ganger i en ekte prøve.
+Bølgelengden ved 200 kV, 2,51 pm, er omtrent hundre ganger kortere enn planavstandene i en krystall, så Bragg-vinklene blir under en grad. <Term name="Ewald-kule">Ewald-kulen</Term> har radius $2\pi/\lambda$, mye større enn avstanden mellom punktene i det resiproke gitteret, og er nesten flat over et helt plan av gitterpunkter. Prøven er tynn, rundt 100 nm, og Fourier-transformen av en tynn plate er lang i retningen normalt på platen, så punktene i det resiproke gitteret blir lange i den retningen (<Term name="Konvolusjon">konvolusjon</Term>). Kulen treffer derfor mange punkter samtidig, og diffraksjonsbildet er et snitt gjennom det resiproke gitteret normalt på strålen. Laboppgaven regner med <Term name="Kinematisk diffraksjonsteori">kinematisk diffraksjon</Term>, der hvert elektron spres høyst én gang, selv om elektronene ofte spres flere ganger i en ekte prøve.
 
 Objektivlinsen samler elektronene etter prøven. Stråler fra samme punkt i prøven samles i samme punkt i bildeplanet, og stråler i samme retning samles i samme punkt i bakre fokalplan, der diffraksjonsbildet dannes. Linsene under velger hvilket av de to planene som forstørres opp på detektoren, så det samme området kan vises som bilde og som diffraksjonsbilde. En apertur i ett av planene bestemmer hva du ser:
 
@@ -61,10 +61,10 @@ Nanotrådene kan også vokse i den heksagonale <Term name="Wurtsittstruktur">wur
 
 ### Utslukkingsreglene
 
-Med de fire fcc-punktene og de to basisatomene gir <FormulaRef id="strukturfaktor" />
+Hvert av de åtte atomene i den konvensjonelle kuben står i et fcc-punkt pluss en basisvektor, $(0,0,0)$ for Ga eller $(\tfrac14,\tfrac14,\tfrac14)$ for As. Fasen i <FormulaRef id="strukturfaktor" /> deler seg da i en faktor fra fcc-punktet og en fra basisvektoren, og summen over de åtte atomene blir produktet av en sum over de fire fcc-punktene og en sum over de to basisatomene:
 
 $$
-S_{hkl} = \bigl[1 + e^{i\pi(h+k)} + e^{i\pi(h+l)} \allowbreak + e^{i\pi(k+l)}\bigr] \allowbreak \bigl[f_\text{Ga} + f_\text{As}\,e^{i\pi(h+k+l)/2}\bigr].
+S_{hkl} = \bigl[1 + e^{-i\pi(h+k)} + e^{-i\pi(h+l)} \allowbreak + e^{-i\pi(k+l)}\bigr] \allowbreak \bigl[f_\text{Ga} + f_\text{As}\,e^{-i\pi(h+k+l)/2}\bigr].
 $$
 
 For silisium er de to formfaktorene i den andre klammen like. Ga og As har atomnummer 31 og 33, så $f_\text{Ga}$ og $f_\text{As}$ er nesten like, men ikke helt.
@@ -79,17 +79,17 @@ Regn ut den andre klammen for $h+k+l = 0, 1, 2, 3$ modulo 4, først med like for
 
 ### Refleksene langs [001] og [112]
 
-En refleks $hkl$ ligger i bildet langs soneaksen $[UVW]$ når den oppfyller Weiss' sonelov, $hU + kV + lW = 0$. List opp små $hkl$ som oppfyller den, og stryk dem som utslukkingsreglene forbyr. Planavstandene får du fra $d_{hkl} = a/\sqrt{h^2 + k^2 + l^2}$ med gitterkonstantene over.
+Diffraksjonsbildet er snittet gjennom det resiproke gitteret normalt på strålen, så refleksen $hkl$ er med når $\vec G_{hkl}$ står normalt på soneaksen $[UVW]$. Med $\vec G_{hkl} = h\vec b_1 + k\vec b_2 + l\vec b_3$ og $\vec r_{UVW} = U\vec a_1 + V\vec a_2 + W\vec a_3$ er $\vec G_{hkl}\cdot\vec r_{UVW} = 2\pi(hU + kV + lW)$, ettersom $\vec a_i\cdot\vec b_j = 2\pi\delta_{ij}$. Refleksen ligger derfor i bildet når den oppfyller Weiss' sonelov, $hU + kV + lW = 0$. List opp små $hkl$ som oppfyller den, og stryk dem som utslukkingsreglene forbyr. Planavstandene får du fra $d_{hkl} = a/\sqrt{h^2 + k^2 + l^2}$ med gitterkonstantene over.
 
 ## På laben
 
 ### Oversiktsbilder og kontrast
 
-Ved lav forstørrelse skal du finne eksempler på begge typer kontrast. <Term name="Masse-tykkelse-kontrast">Masse-tykkelse-kontrast</Term> kommer av at tykke områder og tunge atomer sprer flere elektroner ut av den direkte strålen. <Term name="Diffraksjonskontrast">Diffraksjonskontrast</Term> kommer av at en krystall diffrakterer mye sterkere i noen stillinger enn i andre, og den er som regel den sterkeste i krystallinske prøver. Diffraksjonskontrasten endrer seg når prøven vippes litt, masse-tykkelse-kontrasten gjør det ikke.
+Ved lav forstørrelse skal du finne eksempler på <Term name="Masse-tykkelse-kontrast">masse-tykkelse-kontrast</Term> og <Term name="Diffraksjonskontrast">diffraksjonskontrast</Term>. Masse-tykkelse-kontrast kommer av at tykke områder og tunge atomer sprer flere elektroner ut av den direkte strålen. Diffraksjonskontrast kommer av at en krystall diffrakterer mye sterkere i noen stillinger enn i andre, og den er som regel den sterkeste i krystallinske prøver. Diffraksjonskontrasten endrer seg når prøven vippes litt, masse-tykkelse-kontrasten gjør det ikke.
 
 ### Lysfelt og mørkfelt
 
-Tabellen øverst viser hva aperturen slipper gjennom i <Term name="Lysfeltbilde">lysfelt</Term> og <Term name="Mørkfeltbilde">mørkfelt</Term>, og det avgjør også om strålegangen i laboppgavens figur 2 gir det ene eller det andre. Et mørkfeltbilde med en refleks som bare én del av tråden gir, viser hvor den delen er.
+Tabellen øverst viser hva aperturen slipper gjennom i <Term name="Lysfeltbilde">lysfelt</Term> og <Term name="Mørkfeltbilde">mørkfelt</Term>, og strålegangen i laboppgavens figur 2 er lysfelt eller mørkfelt etter hvilken stråle aperturen slipper gjennom. Et mørkfeltbilde med en refleks som bare én del av tråden gir, viser hvor den delen er.
 
 <Hints>
 <Hint label="Hint: hvorfor lysfelt og mørkfelt ikke er nøyaktig omvendte">
@@ -107,7 +107,7 @@ Tenk på hvilke elektroner som er med i hvert av dem, og hvilke som ikke er med 
 
 <Formula tex="\cos\varphi = \dfrac{h_1h_2 + k_1k_2 + l_1l_2}{|\vec g_1|\,|\vec g_2|}" caption="Vinkelen mellom to reflekser i et kubisk gitter, sett fra sentrum av bildet, med $|\vec g_i| = \sqrt{h_i^2 + k_i^2 + l_i^2}$. Forholdet mellom avstandene er $R_1/R_2 = |\vec g_1|/|\vec g_2|$." />
 
-<Formula tex="\begin{aligned} &[UVW] \parallel \vec g_1 \times \vec g_2 \\ &hU + kV + lW = 0 \end{aligned}" caption="Soneaksen, retningen strålen går gjennom krystallen, som kryssprodukt av to reflekser regnet med indeksene. Hver refleks $hkl$ i bildet oppfyller Weiss' sonelov i andre linje." />
+<Formula tex="\begin{aligned} &[UVW] \parallel \vec g_1 \times \vec g_2 \\ &hU + kV + lW = 0 \end{aligned}" caption="Soneaksen, retningen strålen går gjennom krystallen, som kryssprodukt av to reflekser regnet med indeksene. Soneaksen står normalt på planet bildet ligger i, og $\vec g_1$ og $\vec g_2$ ligger begge i det planet, så kryssproduktet deres er parallelt med soneaksen. Hver refleks $hkl$ i bildet oppfyller Weiss' sonelov i andre linje." />
 
 Underlaget av silisium står med $[001]$ langs strålen. En indeksert refleks fra silisium gir $\lambda L$, og så gir $d = \lambda L/R$ planavstandene i trådene på bilder tatt med samme kameralengde. Uten kalibrering bruker du forholdet $R_1/R_2$, og kvadratet av det er et forhold mellom heltall.
 
@@ -116,7 +116,7 @@ Underlaget av silisium står med $[001]$ langs strålen. En indeksert refleks fr
 3. Velg fortegn og rekkefølge på indeksene så vinkelen stemmer.
 4. Regn ut soneaksen og sjekk at resten av refleksene oppfyller soneloven. Refleksen i $\vec g_1 + \vec g_2$ har indeksene lagt sammen.
 
-Symmetrien i bildet hjelper: en kube har firetallig symmetri om $\langle 100 \rangle$, tretallig om $\langle 111 \rangle$ og totallig om $\langle 110 \rangle$, og står strålen langs en av dem, har bildet samme symmetri.
+Symmetrien i bildet hjelper: en kube har firetallig symmetri om $\langle 100 \rangle$, tretallig om $\langle 111 \rangle$ og totallig om $\langle 110 \rangle$. Står strålen langs $\langle 100 \rangle$ eller $\langle 110 \rangle$, har bildet samme symmetri som aksen. Langs $\langle 111 \rangle$ er bildet sekstallig. Intensiteten $|S_{hkl}|^2$ er den samme i $\vec G$ og $-\vec G$, ettersom $S_{-\vec G}$ er den komplekskonjugerte av $S_{\vec G}$ når $f_j$ er reelle, og tretallig symmetri sammen med denne inversjonen gir sekstallig. Et sekstallig bilde langs $\langle 111 \rangle$ viser derfor ikke alene at tråden er wurtsitt.
 
 <Simulation
   src="/sims/tem-indeksering.js"
@@ -127,7 +127,7 @@ Symmetrien i bildet hjelper: en kube har firetallig symmetri om $\langle 100 \ra
 />
 
 <Callout type="note" title="Med eller uten 2π">
-Laboppgaven skriver $d_{hkl} = 1/|\vec g_{hkl}|$, uten $2\pi$, slik krystallografer gjør. Kurset skriver $d_{hkl} = 2\pi/|\vec G_{hkl}|$. Det er samme gitter med en annen lengdeskala, og forhold og vinkler er de samme.
+Laboppgaven skriver $d_{hkl} = 1/|\vec g_{hkl}|$, uten $2\pi$, slik krystallografer gjør. Kurset skriver $d_{hkl} = 2\pi/|\vec G_{hkl}|$. De to skrivemåtene gir det samme resiproke gitteret med en annen lengdeskala, og forhold og vinkler er de samme.
 </Callout>
 
 ### HRTEM og Fourier-transformen

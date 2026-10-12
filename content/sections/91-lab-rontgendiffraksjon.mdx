@@ -2,14 +2,14 @@
 order: 91
 num: "L1"
 title: "Røntgendiffraksjon (XRD)"
-summary: "Hva røntgenlaben måler og verktøyene til hver oppgave i laboppgaven: hvordan et pulver gir topper i diffraktogrammet, Braggs lov med Mo Kα-stråling, utslukkingene i diamantstrukturen, feilen i gitterkonstanten fra silisium og oppslaget som identifiserer en ukjent prøve."
+summary: "Hva røntgenlaben måler og verktøyene til hver oppgave i laboppgaven: hvordan et pulver gir topper i diffraktogrammet, Braggs lov med Mo Kα1-stråling, utslukkingene i diamantstrukturen, feilen i gitterkonstanten fra silisium og oppslaget som identifiserer en ukjent prøve."
 importance: useful
 tag: "Lab"
 part: "Laboratorieøvinger"
 updated: 2026-09-29
 ---
 
-På røntgenlaben finner du ut hvilket stoff et ukjent pulver er, ut fra vinklene der det sprer røntgenstråling. Først sjekker dere oppsettet mot silisium, som har kjent struktur og gitterkonstant. Så gjør dere toppene fra den ukjente prøven om til planavstander og slår dem opp i en database.
+På røntgenlaben finner du ut hvilket stoff et ukjent pulver er, ut fra vinklene der det sprer røntgenstråling. Først sjekker du oppsettet mot silisium, som har kjent struktur og gitterkonstant. Så gjør du toppene fra den ukjente prøven om til planavstander og slår dem opp i en database.
 
 Siden følger oppgavene i laboppgaven og gir verktøyene til hver av dem, men ikke svarene.
 
@@ -21,14 +21,14 @@ Prøven er et pulver av små krystallitter som ligger i alle retninger. For hver
 Diffraktogrammet har spredningsvinkelen $2\theta$ på aksen, mens Braggs lov bruker $\theta$. Del på to før du regner.
 </Callout>
 
-Posisjonen, intensiteten og bredden til en topp er gitt av hver sin formel:
+Posisjonen, intensiteten og bredden til en topp kommer av hver sin størrelse:
 
 <Table
   columns={["Egenskap", "Gitt av"]}
   rowHeader={false}
   rows={[
     ["posisjon", "Braggs lov $2d\\sin\\theta = \\lambda$, med $d_{hkl} = a/\\sqrt{h^2+k^2+l^2}$"],
-    ["intensitet", "$I \\propto |S_{hkl}|^2$, med atomformfaktorene $f_j$ i strukturfaktoren"],
+    ["intensitet", "$|S_{hkl}|^2$, med atomformfaktorene $f_j$ i strukturfaktoren, ganget med antallet familier i $\\{hkl\\}$ og med vinkelavhengige faktorer fra oppsettet"],
     ["bredde", "Scherrer-formelen for krystallittstørrelsen, pluss bredden instrumentet gir"],
   ]}
 />
@@ -66,7 +66,7 @@ In a powder diffraction experiment, high-energy X-rays with photon energy $E$ = 
 
 ### Bragg og Laue
 
-Det <Term name="Resiprokt gitter">resiproke gitteret</Term> er mengden av alle $\vec G$ i Laue-betingelsen, <FormulaRef id="laue-betingelse" />. Hvert punkt svarer til en planfamilie: $\vec G_{hkl}$ står normalt på planene $(hkl)$ og har lengden $2\pi/d_{hkl}$.
+Det <Term name="Resiprokt gitter">resiproke gitteret</Term> er alle vektorer $\vec G$ med $e^{i\vec G\cdot\vec R} = 1$ for hver gittervektor $\vec R$. De er heltallskombinasjonene av vektorene i <FormulaRef id="resiproke-vektorer" />, og du får en refleks når $\vec Q$ er en av dem, <FormulaRef id="laue-betingelse" />. Hvert punkt svarer til en planfamilie: $\vec G_{hkl}$ står normalt på planene $(hkl)$ og har lengden $2\pi/d_{hkl}$.
 
 <Hints>
 <Hint label="Hint: hvorfor Braggs lov ser enklere ut">
@@ -100,7 +100,7 @@ Tabellen over de fem tillatte refleksene med minst $|\vec Q|$ bygger du ved å g
 
 ### Referanseprøven av silisium
 
-Tabellen fra før laben gir indeksene, og verktøyet gir $a$ fra hver topp og snittet når du skriver inn $2\theta$ og hkl. En feil i vinkelen slår ut slik, fra Braggs lov derivert:
+Tabellen fra før laben gir indeksene, og verktøyet gir $a$ fra hver topp og snittet når du skriver inn $2\theta$ og hkl. En feil $\Delta\theta$ i vinkelen gir en feil i $d$. Deriver $\ln d = \ln\lambda - \ln(2\sin\theta)$ med hensyn på $\theta$, og bruk at $a = d\sqrt{h^2+k^2+l^2}$, der roten er et fast tall for hver topp:
 
 <Formula tex="\dfrac{\Delta d}{d} = \dfrac{\Delta a}{a} = -\dfrac{\Delta\theta}{\tan\theta}" caption="Feilen i planavstand og gitterkonstant fra en feil $\Delta\theta$ i vinkelen. $\Delta\theta$ er i radianer og halvparten av feilen i $2\theta$." />
 
@@ -116,7 +116,7 @@ Et avvik kan bare skyldes oppsettet hvis du stoler på referansen. Tenk på hvor
 
 ### Oppsettet
 
-Røntgenrøret akselererer elektroner mot en anode av molybden. Oppå et kontinuerlig spekter av <Term name="Bremsstråling">bremsstråling</Term> ligger skarpe linjer av <Term name="Karakteristisk røntgenstråling">karakteristisk røntgenstråling</Term>. Laben bruker $K_\alpha$-linjen, $\lambda = 0{,}7093$ Å, men molybden sender også ut $K_{\alpha 2}$ ved $0{,}7136$ Å og $K_\beta$ ved $0{,}6323$ Å. Hvor mye av dem og av bremsstrålingen som når prøven, avhenger av filteret eller monokromatoren.
+Røntgenrøret akselererer elektroner mot en anode av molybden. Oppå et kontinuerlig spekter av <Term name="Bremsstråling">bremsstråling</Term> ligger skarpe linjer av <Term name="Karakteristisk røntgenstråling">karakteristisk røntgenstråling</Term>. Laben bruker $K_{\alpha 1}$-linjen, $\lambda = 0{,}7093$ Å, men molybden sender også ut $K_{\alpha 2}$ ved $0{,}7136$ Å og $K_\beta$ ved $0{,}6323$ Å. Hvor mye av dem og av bremsstrålingen som når prøven, avhenger av filteret eller monokromatoren.
 
 <Formula tex="E = \dfrac{hc}{\lambda}" caption="Fotonenergien. Med $\lambda$ i ångström gir $hc = 12{,}398$ keV Å energien rett i keV." />
 
@@ -140,6 +140,12 @@ Den beste kornstørrelsen (her 1 til 10 µm), den beste diameteren på kapillare
 - Kapillaret står også i strålen, og det det sprer, havner i diffraktogrammet.
 
 <Formula tex="t \approx \dfrac{0{,}9\,\lambda}{\beta\cos\theta}" caption="Scherrer-formelen: krystallittstørrelsen $t$ fra bredden $\beta$ av toppen, full bredde ved halv høyde i radianer på $2\theta$-skalaen. Trekk fra bredden instrumentet gir, først." />
+
+<Derivation title="Hvorfor små krystallitter gir brede topper">
+
+En krystallitt med tykkelse $t$ er et gitter avskåret etter lengden $t$, så hvert resiprokt gitterpunkt får bredden $\Delta|\vec Q| \approx 2\pi/t$. Fra $|\vec Q| = 4\pi\sin\theta/\lambda$ følger $\beta = \Delta(2\theta) \approx \lambda/(t\cos\theta)$. Faktoren $0{,}9$ kommer av formen på krystallittene og av at $\beta$ måles ved halv høyde.
+
+</Derivation>
 
 ### Den ukjente prøven
 
@@ -165,5 +171,5 @@ Diskusjonsspørsmålene i laboppgaven, med verktøyet til hvert:
 - **Ewald-kulen, én krystall mot pulver, og de skarpe ringene.** Bruk <Term name="Ewald-kule">Ewald-kulen</Term>, og se hva som skjer med ett punkt $\vec G$ når krystallitten dreies i alle retninger.
 - **Fourier-transformen, formfaktor og strukturfaktor.** Spredningsamplituden, <FormulaRef id="spredningsamplitude" />, er Fourier-transformen av elektrontettheten. Krystallen er gitteret foldet med innholdet i én celle (<Term name="Konvolusjon">konvolusjon</Term>), og transformen av en konvolusjon er produktet av transformene.
 - **Formfaktoren for lette og tunge atomer.** <Term name="Atomformfaktor">Atomformfaktoren</Term>, <FormulaRef id="formfaktor" />, er transformen av elektrontettheten i ett atom. Sammenlign bredden på elektronskyen med $1/|\vec Q|$, og sett inn $\vec Q = 0$.
-- **Strukturfaktoren for silisium.** Sett de åtte posisjonene inn i <FormulaRef id="strukturfaktor" /> og faktoriser summen i en fcc-del og en basisdel. Laboppgaven har motsatt fortegn i eksponenten; $|S_{hkl}|$ blir den samme.
+- **Strukturfaktoren for silisium.** Sett de åtte posisjonene inn i <FormulaRef id="strukturfaktor" /> og faktoriser summen i en fcc-del og en basisdel. Med $\vec G\cdot\vec r_j = 2\pi(hx_j + ky_j + lz_j)$ og fortegnet $e^{-i\vec G\cdot\vec r_j}$ blir basisfaktoren $f_\text{Si} + f_\text{Si}\,(-i)^{h+k+l}$, slik laboppgaven skriver den.
 - **$|\vec G|^2$ og $d_{hkl}$ i en kubisk celle.** I en kubisk celle er de resiproke vektorene like lange og står normalt på hverandre. Laboppgaven skriver $a^* = 1/a$ uten $2\pi$. Sjekk svaret mot $d_{hkl} = a/\sqrt{h^2 + k^2 + l^2}$.

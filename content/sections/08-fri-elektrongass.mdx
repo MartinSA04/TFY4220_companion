@@ -1,7 +1,7 @@
 ---
 order: 8
 title: "Den frie elektrongassen"
-summary: "Drude-modellen for ledningselektronene i et metall gir Ohms lov, Hall-effekten og Wiedemann-Franz’ lov, og Sommerfelds kvantemodell gir Fermi-energien, tilstandstettheten og elektronenes bidrag til varmekapasiteten."
+summary: "Drude-modellen for ledningselektronene i et metall gir Ohms lov, Hall-effekten og Wiedemann-Franz’ lov, og fri-elektronmodellen gir Fermi-energien, tilstandstettheten og elektronenes bidrag til varmekapasiteten."
 importance: core
 tag: "Uke 39"
 part: "Del III: Elektroniske egenskaper"
@@ -42,8 +42,10 @@ $$
 $$
 
 Farten $\vec v_0$ rett etter kollisjonen har tilfeldig retning, så middelet
-av den er null. Middelet av $t$ er $\tau$. Middelfarten er derfor
-drifthastigheten
+av den er null. Kollisjonene kommer tilfeldig: sannsynligheten for en
+kollisjon i et kort tidsrom $\mathrm dt$ er $\mathrm dt/\tau$, uansett hvor
+lenge det er siden forrige. Da er middelet av tiden $t$ siden forrige
+kollisjon også $\tau$, og middelfarten er derfor drifthastigheten
 
 $$
 \langle \vec v \rangle = -\frac{e\tau}{m}\,\vec E
@@ -54,8 +56,8 @@ feltet:
 
 <Formula tex={"\\vec j = \\frac{ne^2\\tau}{m}\\,\\vec E = \\sigma\\vec E"} caption={"Ohms lov i Drude-modellen. Ledningsevnen $\\sigma = ne^2\\tau/m$ er stor når det er mange ledningselektroner og lang tid mellom kollisjonene."} />
 
-Dette var den første mikroskopiske forklaringen på Ohms lov. Modellen sier
-ikke hvor stor $\tau$ er, så den må finnes fra den målte ledningsevnen.
+Drude-modellen ga den første mikroskopiske forklaringen på Ohms lov. Modellen
+gir ingen verdi for $\tau$, så du må finne $\tau$ fra den målte ledningsevnen.
 
 ## Hall-effekten
 
@@ -70,6 +72,9 @@ $$
 F_y = -e\left(E_y - v_xB_z\right) \allowbreak = -e\left(E_y + \frac{j_xB_z}{ne}\right) = 0
 $$
 
+Løst for $E_y$ er $E_y = -j_xB_z/ne$, og Hall-koeffisienten
+$R_H = E_y/j_xB_z$ blir for ledningselektronene
+
 <Formula tex={"R_H = \\frac{E_y}{j_xB_z} = -\\frac{1}{ne}"} caption={"Hall-koeffisienten for ledningselektroner med tetthet $n$ og ladning $-e$. For positive bærere er den positiv."} />
 
 Alle tre størrelsene i $R_H$ kan måles, så
@@ -77,18 +82,27 @@ Alle tre størrelsene i $R_H$ kan måles, så
 direkte, uten at man trenger $\tau$. Fortegnet viser om bærerne er negative
 eller positive. For alkalimetallene gir målt $R_H$ omtrent ett elektron per
 atom, som ventet med ett valenselektron. Noen metaller, blant dem aluminium,
-har positiv $R_H$, og det kan ingen modell med frie elektroner forklare.
+har positiv $R_H$, og et positivt fortegn kan ikke forklares med negative
+ledningselektroner.
 
 ## Varmeledning og Wiedemann-Franz’ lov
 
-Ledningselektronene frakter også varme. Fra kinetisk gassteori er
-varmeledningsevnen
+Ledningselektronene frakter også varme. Målinger viser at forholdet mellom
+varmeledningsevnen og den elektriske ledningsevnen er omtrent det samme for
+alle metaller og proporsjonalt med temperaturen:
+
+<Formula tex={"\\frac{K}{\\sigma} = LT"} caption={"Wiedemann-Franz’ lov. Lorenz-tallet $L$ er nesten det samme for alle metaller. For kobber er det målt til $2{,}23 \\cdot 10^{-8}$ W Ω/K² ved 0 °C."} />
+
+Drude-modellen gir både $K$ og $\sigma$, så du kan regne ut forholdet. Fra
+kinetisk gassteori er varmeledningsevnen
 
 $$
 K = \tfrac13\,C\langle v \rangle\,\ell = \tfrac13\,C\langle v \rangle^2\tau
 $$
 
-der $C$ er varmekapasiteten per volum og $\ell = \langle v \rangle\tau$ er
+der $\langle v \rangle$ er middelfarten til den termiske bevegelsen, ikke
+drifthastigheten $\langle \vec v \rangle$ fra Ohms lov, $C$ er
+varmekapasiteten per volum og $\ell = \langle v \rangle\tau$ er
 den <Term name="Fri veilengde">frie veilengden</Term>, strekningen et elektron
 går mellom to kollisjoner. Med verdiene for en klassisk ideell gass,
 $C = \tfrac32 nk_B$ og $\langle v \rangle^2 = 8k_BT/\pi m$ fra
@@ -98,12 +112,6 @@ $$
 K = \frac13\cdot\frac32 nk_B\cdot\frac{8k_BT}{\pi m}\,\tau \allowbreak = \frac{4}{\pi}\,\frac{nk_B^2T\tau}{m}
 $$
 
-Målinger viser at forholdet mellom varmeledningsevnen og den elektriske
-ledningsevnen er omtrent det samme for alle metaller og proporsjonalt med
-temperaturen:
-
-<Formula tex={"\\frac{K}{\\sigma} = LT"} caption={"Wiedemann-Franz’ lov. Lorenz-tallet $L$ er nesten det samme for alle metaller. For kobber er det målt til $2{,}23 \\cdot 10^{-8}$ W Ω/K² ved 0 °C."} />
-
 I Drude-modellen forsvinner både $n$ og $\tau$ fra forholdet:
 
 $$
@@ -112,7 +120,7 @@ $$
 
 Modellen forklarer altså hvorfor forholdet er det samme for alle metaller,
 og tallet er under halvparten av det målte. Varmekapasiteten stemmer derimot
-ikke i det hele tatt. Hvis hvert elektron bar $\tfrac32 k_B$, skulle et metall
+ikke i det hele tatt. Hvis hvert elektron bidro med $\tfrac32 k_B$ til varmekapasiteten, skulle et metall
 med ett valenselektron ha $\tfrac32 R$ per mol i tillegg til gitterets $3R$ fra
 <Term name="Dulong-Petits lov">Dulong-Petits lov</Term>. Målt ligger metaller
 på omtrent $3R$ ved romtemperatur, akkurat som isolatorer. Elektronenes bidrag
@@ -122,8 +130,8 @@ er rundt hundre ganger mindre enn Drude-modellen sier.
 
 Drude-modellen tar ikke hensyn til Pauli-prinsippet, som sier at to elektroner
 ikke kan være i samme kvantetilstand. Sommerfeld la dette inn i modellen i
-1927 og beholdt resten, altså frie elektroner uten vekselvirkning. Hvert
-elektron oppfyller da Schrödinger-ligningen for en fri partikkel i en boks med volum $V = L^3$:
+1927 og beholdt resten, altså frie elektroner uten vekselvirkning. Denne
+modellen er fri-elektronmodellen. Hvert elektron oppfyller da Schrödinger-ligningen for en fri partikkel i en boks med volum $V = L^3$:
 
 $$
 -\frac{\hbar^2}{2m}\nabla^2\psi = \varepsilon\psi
@@ -131,9 +139,11 @@ $$
 
 Med <Term name="Periodiske grensebetingelser">periodiske grensebetingelser</Term>
 er løsningene plane bølger $\psi = e^{i\vec k\cdot\vec r}$ med energien
-$\varepsilon = \hbar^2k^2/2m$. De tillatte bølgevektorene er de samme som for
-gittersvingningene. Hver komponent av $\vec k$ er et heltall ganger $2\pi/L$,
-så hver tillatt $\vec k$ tar volumet $(2\pi/L)^3$ i $k$-rommet. Hver $\vec k$
+$\varepsilon = \hbar^2k^2/2m$. Grensebetingelsen er
+$\psi(x + L, y, z) = \psi(x, y, z)$, og tilsvarende i $y$ og $z$. For en
+planbølge gir den $e^{ik_xL} = 1$, så $k_x = 2\pi n_x/L$ med heltallig $n_x$,
+slik som for gittersvingningene. Hver tillatt $\vec k$ tar derfor volumet
+$(2\pi/L)^3$ i $k$-rommet. Hver $\vec k$
 har plass til to elektroner, ett med hvert spinn.
 
 Ved temperaturen $T$ er sannsynligheten for at en tilstand med energi
@@ -142,18 +152,35 @@ $\varepsilon$ er besatt, gitt ved
 
 <Formula tex={"f(\\varepsilon) = \\frac{1}{e^{(\\varepsilon - \\mu)/k_BT} + 1}"} caption={"Fermi-Dirac-fordelingen. Det kjemiske potensialet $\\mu$ er energien det koster å legge til ett elektron. Ved $\\varepsilon = \\mu$ er $f = \\tfrac12$, langt under er $f = 1$ og langt over er $f = 0$."} />
 
-Fordelingen ligner Planck-fordelingen for fononer, men med $+1$ i nevneren,
-så $f$ blir aldri større enn 1. Ved $T = 0$ er $f$ et trappetrinn. Alle
-tilstander under $\mu$ er fylt, og alle over er tomme. Energien der trinnet
-står ved $T = 0$, er <Term name="Fermi-energi">Fermi-energien</Term>
-$\varepsilon_F$. Ved $T > 0$ rundes trinnet av over noen få $k_BT$.
+Siden en tilstand har ingen eller ett elektron, blir $f$ aldri større enn 1.
+Ved $T = 0$ er $f$ et trappetrinn. Alle tilstander under $\mu$ er fylt, og alle
+over er tomme. Energien der trinnet står ved $T = 0$, er
+<Term name="Fermi-energi">Fermi-energien</Term> $\varepsilon_F$. Ved $T > 0$
+rundes trinnet av over noen få $k_BT$.
+
+<Derivation title="Hvorfor +1 i nevneren">
+
+Pauli-prinsippet tillater ingen eller ett elektron i en tilstand. Elektroner
+kan flytte mellom tilstanden og resten av metallet, så sannsynligheten for $n$
+elektroner i tilstanden er proporsjonal med $e^{-n(\varepsilon - \mu)/k_BT}$,
+der $\mu$ er energien det koster å legge til ett elektron. Med
+$x = (\varepsilon - \mu)/k_BT$ og $n = 0$ eller $1$ er
+
+$$
+f = \frac{0 + 1 \cdot e^{-x}}{1 + e^{-x}} = \frac{1}{e^{x} + 1}
+$$
+
+For fononer kan $n$ være $0, 1, 2, \dots$ uten grense, og den geometriske
+rekken gir $-1$ i nevneren.
+
+</Derivation>
 
 ## Fermi-kula
 
 Ved $T = 0$ fyller de $N$ elektronene tilstandene med lavest energi, to per
 $\vec k$. Energien avhenger bare av $|\vec k|$, så de fylte tilstandene ligger
 i en kule i $k$-rommet, <Term name="Fermi-kule">Fermi-kula</Term>, med radius
-$k_F$. Antallet elektroner er to spinn ganger antall tillatte $\vec k$ per
+$k_F$. Overflaten av kula er Fermi-flaten. Antallet elektroner er to spinn ganger antall tillatte $\vec k$ per
 volum i $k$-rommet ganger volumet av kula:
 
 $$
@@ -203,7 +230,7 @@ romtemperatur.
 ## Tilstandstettheten
 
 Den samme regningen med en kule med radius $k = \sqrt{2m\varepsilon}/\hbar$
-gir antallet elektroner med energi under $\varepsilon$:
+gir antallet tilstander med energi under $\varepsilon$:
 
 $$
 N(\varepsilon) = \frac{V}{3\pi^2}\left(\frac{2m\varepsilon}{\hbar^2}\right)^{3/2} \allowbreak = N\left(\frac{\varepsilon}{\varepsilon_F}\right)^{3/2}
@@ -214,8 +241,10 @@ per energienhet, $D(\varepsilon) = \mathrm dN/\mathrm d\varepsilon$:
 
 <Formula tex={"D(\\varepsilon) = \\frac{V}{2\\pi^2}\\left(\\frac{2m}{\\hbar^2}\\right)^{3/2}\\sqrt{\\varepsilon} \\allowbreak = \\frac{3N}{2\\varepsilon_F}\\sqrt{\\frac{\\varepsilon}{\\varepsilon_F}}"} caption={"Tilstandstettheten for frie elektroner i tre dimensjoner, med begge spinnretninger regnet med. Ved Fermi-energien er $D(\\varepsilon_F) = 3N/2\\varepsilon_F$."} />
 
-$D$ vokser med energien fordi et kuleskall med tykkelse $\mathrm d\varepsilon$
-rommer flere tilstander jo større radien er. Antallet elektroner med energi
+Et skall med energibredde $\mathrm d\varepsilon$ har arealet $4\pi k^2$ og
+tykkelsen $\mathrm dk = (m/\hbar^2k)\,\mathrm d\varepsilon$ i $k$-rommet.
+Volumet av skallet, og dermed $D$, vokser derfor som $k \propto \sqrt{\varepsilon}$.
+Antallet elektroner med energi
 mellom $\varepsilon$ og $\varepsilon + \mathrm d\varepsilon$ er
 $D(\varepsilon)f(\varepsilon)\,\mathrm d\varepsilon$.
 
@@ -290,10 +319,28 @@ $$
 U(T) - U(0) \approx N\,\frac{T}{T_F}\,k_BT \allowbreak\quad\Rightarrow\quad C_\text{el} = \frac{\mathrm dU}{\mathrm dT} \approx 2Nk_B\,\frac{T}{T_F}
 $$
 
-Den fulle regningen integrerer $\varepsilon D(\varepsilon)f(\varepsilon)$ over
-alle energier og gir samme form med en annen tallfaktor:
+Den fulle regningen gir også $C_\text{el} \propto Nk_B\,T/T_F$, men med
+faktoren $\pi^2/2$ i stedet for 2:
 
 <Formula tex={"C_\\text{el} = \\frac{\\pi^2}{2}\\,Nk_B\\,\\frac{T}{T_F}"} caption={"Varmekapasiteten til elektrongassen for $T \\ll T_F$. Den er lineær i $T$ og ved romtemperatur rundt én prosent av den klassiske verdien $\\tfrac32 Nk_B$."} />
+
+<Derivation title="Den fulle regningen">
+
+Ved $T \ll T_F$ er $\mu \approx \varepsilon_F$, og bare $f$ avhenger av $T$, så
+$C_\text{el} = \int \varepsilon D(\varepsilon)\,\partial f/\partial T\,\mathrm d\varepsilon$.
+Antallet elektroner $\int Df\,\mathrm d\varepsilon$ er fast, så
+$\int \varepsilon_F D\,\partial f/\partial T\,\mathrm d\varepsilon = 0$, og du kan
+trekke dette integralet fra. Bare energier innenfor noen få $k_BT$ fra
+$\varepsilon_F$ bidrar, så $D$ kan settes lik $D(\varepsilon_F)$. Med
+$x = (\varepsilon - \varepsilon_F)/k_BT$ er
+
+$$
+C_\text{el} = D(\varepsilon_F)\int (\varepsilon - \varepsilon_F)\frac{\partial f}{\partial T}\,\mathrm d\varepsilon \allowbreak = D(\varepsilon_F)\,k_B^2T\int_{-\infty}^{\infty}\frac{x^2e^x}{(e^x + 1)^2}\,\mathrm dx \allowbreak = \frac{\pi^2}{3}\,D(\varepsilon_F)\,k_B^2T
+$$
+
+Med $D(\varepsilon_F) = 3N/2k_BT_F$ er $C_\text{el} = \tfrac{\pi^2}{2}Nk_B\,T/T_F$.
+
+</Derivation>
 
 For kobber ved 300 K er $C_\text{el}/\tfrac32 Nk_B = (\pi^2/3)(T/T_F) = 0{,}012$.
 Drude-modellen tar feil med en faktor 80.
@@ -314,11 +361,16 @@ C = \gamma T + AT^3
 $$
 
 Ved romtemperatur er gitterleddet størst. Men $T^3$ faller raskere enn $T$,
-og under noen få kelvin dominerer elektronene. For kobber er målt
-$\gamma = 0{,}695$ mJ/(mol K²), mot $0{,}505$ mJ/(mol K²) fra
-fri-elektronmodellen, og med $\theta_D = 343$ K er de to leddene like store
+og under noen få kelvin dominerer elektronene.
+
+<Derivation title="Varmekapasiteten til kobber ved lav temperatur">
+
+For kobber er målt $\gamma = 0{,}695$ mJ/(mol K²), mot $0{,}505$ mJ/(mol K²)
+fra fri-elektronmodellen, og med $\theta_D = 343$ K er de to leddene like store
 ved 3,8 K. Målinger plottes gjerne som $C/T$ mot $T^2$, som gir en rett linje
 med skjæringspunktet $\gamma$ og stigningstallet $A$.
+
+</Derivation>
 
 <Compare>
 
@@ -348,7 +400,7 @@ med skjæringspunktet $\gamma$ og stigningstallet $A$.
 
 ## Wiedemann-Franz’ lov med Fermi-hastigheten
 
-Sommerfeld-modellen forklarer også hvorfor Drude kom så nær Lorenz-tallet. I
+Fri-elektronmodellen forklarer også hvorfor Drude kom så nær Lorenz-tallet. I
 $K = \tfrac13 C v^2\tau$ er det bare elektronene nær $\varepsilon_F$ som tar
 opp varme, og de beveger seg med $v_F$. Med $C = C_\text{el}/V$ og
 $k_BT_F = \tfrac12 mv_F^2$ er
@@ -367,8 +419,13 @@ feilene opphever nesten hverandre i $K$, og derfor kom Lorenz-tallet så nær.
 
 ## Hva elektronene spres av
 
-Når et elektrisk felt virker, forskyves hele Fermi-kula litt i $k$-rommet, og
-$\sigma = ne^2\tau/m$ gjelder fortsatt. Men elektronene som skifter tilstand og
+For en fri partikkel er $\hbar\vec k = m\vec v$, så Newtons andre lov gir
+$\hbar\,\mathrm d\vec k/\mathrm dt = -e\vec E$ for hvert elektron i et elektrisk
+felt. I middel har hvert elektron akselerert i tiden $\tau$ siden forrige
+kollisjon, så hele Fermi-kula står forskjøvet med
+$\delta\vec k = -e\tau\vec E/\hbar$. Hvert elektron får da den ekstra
+hastigheten $\hbar\,\delta\vec k/m = -e\tau\vec E/m$. Denne hastigheten er
+drifthastigheten fra Drude-modellen, så $\sigma = ne^2\tau/m$ gjelder fortsatt. Men elektronene som skifter tilstand og
 spres, er de ved Fermi-flaten. De beveger seg med $v_F$, så den frie
 veilengden er $\ell = v_F\tau$.
 
@@ -413,8 +470,11 @@ millioner av atomavstander. Elektronene kolliderer altså ikke med hvert ion,
 slik Drude antok. En elektronbølge i et perfekt periodisk gitter spres ikke av
 ionene. Den spres bare der gitteret avviker fra det periodiske: av
 gittersvingningene, altså fononene, og av urenheter og defekter.
-Resistiviteten er derfor en sum av et fononbidrag, som går mot null når
-$T \to 0$, og et bidrag fra urenhetene, som ikke avhenger av temperaturen.
+Fononer og urenheter gir hver sin kollisjonsrate, og ratene legges sammen,
+$1/\tau = 1/\tau_\text{fonon} + 1/\tau_\text{urenhet}$. Siden
+$\rho = m/ne^2\tau$, er resistiviteten en sum av et fononbidrag, som går mot
+null når $T \to 0$, og et bidrag fra urenhetene, som ikke avhenger av
+temperaturen.
 Elektronene spres heller ikke mye på hverandre. Et elektron ved Fermi-flaten
 kan bare spres til en tom tilstand, og nesten alle tilstander i nærheten er
 fylt.
@@ -456,7 +516,7 @@ fylt.
 <SelfCheck question={"Vis at tilstandstettheten til en todimensjonal elektrongass med areal $L^2$ ikke avhenger av energien."}>
 
 I to dimensjoner tar hver tillatt $\vec k$ arealet $(2\pi/L)^2$, og hver har
-plass til to elektroner. Antallet elektroner med bølgetall under $k$ er
+plass til to elektroner. Antallet tilstander med bølgetall under $k$ er
 
 $$
 N(k) = 2\cdot\left(\frac{L}{2\pi}\right)^2\cdot\pi k^2 = \frac{L^2k^2}{2\pi}

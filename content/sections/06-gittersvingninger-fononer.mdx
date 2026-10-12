@@ -47,8 +47,8 @@ $$
 u_n = A\,e^{ikna}
 $$
 
-Så lenge $\lambda \gg a$ merker bølgen ikke at gitteret er diskret, og
-krystallen oppfører seg som et kontinuum. Men den korteste bølgelengden som
+Så lenge $\lambda \gg a$, har naboatomer nesten samme utsving, og bølgen
+ser ut som i et kontinuerlig medium. Men den korteste bølgelengden som
 gir et nytt mønster, er $\lambda = 2a$: annethvert atom opp, annethvert ned.
 En bølge med $\lambda = 2a/3$ treffer nøyaktig de samme atomene med nøyaktig
 de samme utsvingene, så det er samme svingning. Generelt gir $k$ og
@@ -83,20 +83,17 @@ $$
 \end{aligned}
 $$
 
+Sammenhengen mellom $\omega$ og $k$ er <Term name="Dispersjonsrelasjon">dispersjonsrelasjonen</Term>:
+
 <Formula tex={"\\omega(k) = 2\\sqrt{\\frac{C}{M}}\\,\\left|\\sin\\frac{ka}{2}\\right|"} caption={"Dispersjonsrelasjonen for en kjede med én atomtype. $\\omega$ er periodisk i $k$ med periode $2\\pi/a$ og har maksimum $2\\sqrt{C/M}$ på sonegrensen."} />
 
-Sammenhengen mellom $\omega$ og $k$ er dispersjonsrelasjonen, og den er hele
-innholdet i modellen. Den har to grenser som er verdt å kjenne.
-
 For lange bølger, $ka \ll 1$, er $\sin(ka/2) \approx ka/2$ og
-$\omega \approx a\sqrt{C/M}\;k$. Frekvensen er proporsjonal med $k$, som for
-lyd, og det er lydbølger dette er. Hastigheten
+$\omega \approx a\sqrt{C/M}\;k$. Frekvensen er proporsjonal med $k$, og
+svingningene er lydbølger. Et signal beveger seg med gruppehastigheten
+$v_g = \mathrm d\omega/\mathrm dk$, og når $\omega$ er proporsjonal med $k$,
+er den lik fasehastigheten $\omega/k$. Begge er lydhastigheten:
 
-<Formula tex={"v = \\frac{\\omega}{k} = a\\sqrt{\\frac{C}{M}}"} caption={"Lydhastigheten i kjeden, fra grensen $ka \\ll 1$. Her er fasehastigheten $\\omega/k$ og gruppehastigheten $\\mathrm d\\omega/\\mathrm dk$ like, så en bølgepakke beholder formen."} />
-
-er lydhastigheten. Et signal beveger seg med gruppehastigheten
-$v_g = \mathrm d\omega/\mathrm dk$, og for lange bølger er den lik
-fasehastigheten $\omega/k$.
+<Formula tex={"v = \\frac{\\omega}{k} = a\\sqrt{\\frac{C}{M}}"} caption={"Lydhastigheten i kjeden, fra grensen $ka \\ll 1$."} />
 
 På sonegrensen, $k = \pi/a$, er $\lambda = 2a$ og $\omega = 2\sqrt{C/M}$.
 Gruppehastigheten er
@@ -118,7 +115,7 @@ reflektert bølge står stille. Ingen energi transporteres.
   question={"Given a 1D chain with lattice spacing $a$. For wave vector $k$ approaching $-\\pi/a$, the group velocity $v_g$ and the phase velocity $v$ of phonons will generally - (complete the sentence)"}
   options={["have $v_g \\to 0$ and $v = 0$.", "be equal.", "have $v_g = -v$.", "have $v_g \\to 0$ and $v \\ne 0$.", "have $v_g \\ne 0$ and $v \\to \\infty$."]}
   answer={3}
-  explanation={"På sonegrensen er $\\omega = 2\\sqrt{C/M}$, maksimum av dispersjonsrelasjonen, så $v_g = \\mathrm d\\omega/\\mathrm dk = 0$ og bølgen står stille. Fasehastigheten $v = \\omega/k$ er endelig og ikke null, for både $\\omega$ og $k$ er endelige der. Fortegnet til $k$ endrer ikke noe av dette."}
+  explanation={"På sonegrensen er $\\omega = 2\\sqrt{C/M}$, maksimum av dispersjonsrelasjonen, så $v_g = \\mathrm d\\omega/\\mathrm dk = 0$ og bølgen står stille. Fasehastigheten $v = \\omega/k = 2a\\sqrt{C/M}/\\pi$ er endelig fordi $k \\ne 0$, og ikke null fordi $\\omega \\ne 0$. Fortegnet til $k$ endrer ikke noe av dette."}
 />
 </Example>
 
@@ -257,15 +254,10 @@ $$
 \frac{u}{v} = -\frac{M_2}{M_1}
 $$
 
-De to atomene svinger i motfase, og $M_1 u + M_2 v = 0$ sier at
-massesenteret i cellen står i ro. I en ionekrystall som NaCl har de to
-undergitrene motsatt ladning, så den optiske svingningen er et oscillerende
-dipolmoment. Den kobler til lys. Frekvensen $\sqrt{2C(1/M_1 + 1/M_2)}$
-ligger i det infrarøde, og navnet optisk kommer derfra. Lysets
-dispersjonsrelasjon $\omega = ck/n$ er så bratt at den krysser den optiske
-grenen praktisk talt ved $k = 0$: et foton med $\hbar\omega = 30$ meV har
-$k \approx 10^5$ m$^{-1}$, mens sonegrensen ligger ved $10^{10}$ m$^{-1}$.
-Lys eksiterer derfor bare optiske fononer med $k \approx 0$.
+De to atomene svinger i motfase, og $M_1 u + M_2 v = 0$, så massesenteret i
+cellen står i ro. I en ionekrystall som NaCl har de to undergitrene motsatt
+ladning, så den optiske svingningen er et oscillerende dipolmoment som kobler
+til infrarødt lys, og navnet optisk kommer derfra.
 
 På sonegrensen står begge grenene stille. I den akustiske grenen,
 $\omega^2 = 2C/M_1$, gir den andre ligningen $v = 0$: de lette atomene står i
@@ -274,6 +266,14 @@ du $M_1 = M_2$, lukker gapet seg, og de to grenene er kurven for én atomtype
 brettet inn i den halvparten så store sonen, for den virkelige
 gitterkonstanten er da $a/2$.
 
+<Derivation title="Optiske fononer og infrarødt lys">
+Frekvensen $\sqrt{2C(1/M_1 + 1/M_2)}$ ligger i det infrarøde. Lysets
+dispersjonsrelasjon $\omega = ck/n$ er så bratt at den krysser den optiske
+grenen praktisk talt ved $k = 0$: et foton med $\hbar\omega = 30$ meV har
+$k \approx 10^5$ m$^{-1}$, mens sonegrensen ligger ved $10^{10}$ m$^{-1}$.
+Lys eksiterer derfor bare optiske fononer med $k \approx 0$.
+</Derivation>
+
 ## Tre dimensjoner
 
 Kjeden beskriver én polarisasjon. I tre dimensjoner har hver bølgevektor
@@ -281,9 +281,11 @@ $\vec k$ tre: én longitudinal, med utsving langs $\vec k$, og to
 transversale, med utsving på tvers. Hver har sin egen dispersjonsrelasjon,
 og den longitudinale ligger vanligvis høyest, for det koster mer å presse
 atomene sammen enn å skyve dem sidelengs. Med $s$ atomer i den primitive
-cellen får hver polarisasjon én akustisk gren og $s - 1$ optiske. Krystallen
-har derfor 3 akustiske og $3s - 3$ optiske grener, $3s$ i alt, som forkortes
-LA, TA, LO og TO. Kobber har ett atom i den primitive cellen og bare tre
+cellen har bevegelsesligningene $3s$ ukjente amplituder, tre utsving per
+atom, så determinanten gir $3s$ grener. I tre av dem, én for hver retning,
+flytter hele cellen seg under ett, og $\omega \to 0$ når $k \to 0$. De er
+akustiske, og de andre $3s - 3$ er optiske. Grenene forkortes LA, TA, LO og
+TO. Kobber har ett atom i den primitive cellen og bare tre
 akustiske grener. Silisium, diamant og NaCl har to atomer og tre optiske
 grener i tillegg. Jern er bcc med to atomer i den konvensjonelle kuben, men
 ett i den primitive cellen, og har ingen optiske grener.
@@ -320,16 +322,20 @@ $3s - 3 = 3$ optiske grener.
 ## Fononer
 
 Energien til en harmonisk oscillator er kvantisert, $E = (n + \tfrac12)\hbar\omega$
-med heltallig $n$. Gittersvingningene er også kvantisert. En kjede av $N$
-atomer med én atomtype kan skrives om til $N$ uavhengige harmoniske
-oscillatorer, én for hver tillatt $k$, og hver av dem involverer alle
-atomene i kjeden. Energien i svingningen med bølgevektor $k$ er
+med heltallig $n$. Gittersvingningene er også kvantisert. Hver løpende bølge
+$u_n = u\,e^{i(kna - \omega t)}$ fra regningen over er en løsning for seg,
+med én frekvens $\omega(k)$. Bevegelsesligningene er lineære, så enhver
+bevegelse av kjeden er en sum av slike bølger som svinger uavhengig av
+hverandre. Hver bølge er altså en harmonisk oscillator med frekvensen
+$\omega(k)$, der alle atomene i kjeden er med. Energien i svingningen med bølgevektor $k$ er
 
 <Formula tex={"E_n(k) = \\left(n + \\tfrac12\\right)\\hbar\\omega(k)"} caption={"Energien i svingningen med bølgevektor $k$. $n$ er antall fononer i den, og $\\omega(k)$ er dispersjonsrelasjonen fra den klassiske regningen. Leddet $\\tfrac12\\hbar\\omega$ er nullpunktsenergien."} />
 
 Ett kvant $\hbar\omega(k)$ er et fonon. Tallet $n$ er antall fononer i
-svingningen, og det kan være så stort det vil: fononer er bosoner, som
-fotoner, og følger Bose-Einstein-statistikk. Pauli-prinsippet gjelder ikke.
+svingningen. Oscillatoren har et nivå for hver $n = 0, 1, 2, \dots$, så én
+svingning kan ha hvor mange fononer som helst. Partikler som kan dele
+tilstand slik, er bosoner. Fononer er altså bosoner, som fotoner, og følger
+Bose-Einstein-statistikk. Pauli-prinsippet gjelder ikke.
 Dispersjonsrelasjonen $\omega(k)$ er den samme som den klassiske regningen
 ga, så alt som står over om grener, gruppehastighet og sonegrensen, gjelder
 fononene.
@@ -339,15 +345,18 @@ har impulsen
 
 <Formula tex={"\\vec p = \\hbar\\vec k"} caption={"Krystallimpulsen til et fonon. Den inngår i bevaringslovene ved spredning, men den fysiske impulsen til en gittersvingning med $k \\ne 0$ er null, for atomene beveger seg bare i forhold til hverandre."} />
 
-Den kalles krystallimpuls. Den fysiske impulsen er null, for i en svingning
-med $k \ne 0$ beveger atomene seg bare i forhold til hverandre:
+Den kalles krystallimpuls. Den fysiske impulsen i en svingning med
+$u_n = u\,e^{i(kna - \omega t)}$ er
 
 $$
-\sum_n M u_n = Mu\sum_n e^{ikna} = 0
+p = \sum_n M\dot u_n = -i\omega M u\,e^{-i\omega t}\sum_n e^{ikna}
 $$
 
-Fononene bestemmer varmekapasiteten og varmeledningsevnen til faste
-stoffer, og de formidler tiltrekningen mellom elektroner i en superleder.
+Lukk kjeden til en ring av $N$ atomer, så er $k = 2\pi m/Na$ med heltallig
+$m$. Summen er en geometrisk rekke,
+$\sum_n e^{ikna} = (1 - e^{ikNa})/(1 - e^{ika})$. For $k \ne 0$ er
+$e^{ikNa} = 1$ og $e^{ika} \ne 1$, så summen er null. Atomene beveger seg
+altså bare i forhold til hverandre, og den fysiske impulsen er null.
 
 ## Sjekk deg selv
 

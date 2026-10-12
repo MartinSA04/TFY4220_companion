@@ -2,7 +2,7 @@
 order: 92
 num: "L2"
 title: "Infrarød spektroskopi (FTIR)"
-summary: "Hva FTIR-laben måler og verktøyene til hver oppgave i laboppgaven: hvorfor en prøve absorberer infrarødt lys, Planck-kurven fra regnearket, kjeden med to atomtyper, svingningene i vann, CO₂ og polyetylen, og kraftkonstanten og lydhastigheten i silisiumkarbid."
+summary: "Hva FTIR-laben måler og verktøyene til hver oppgave i laboppgaven: hvorfor en prøve absorberer infrarødt lys, Planck-kurven fra regnearket, kjeden med to atomtyper, svingningene i vann, CO₂ og polyetylen samt kraftkonstanten og lydhastigheten i silisiumkarbid."
 importance: useful
 tag: "Lab"
 part: "Laboratorieøvinger"
@@ -21,9 +21,9 @@ Siden følger oppgavene i laboppgaven og gir verktøyene til hver av dem, men ik
 
 Kilden er en glødende stav, en globar, som stråler omtrent som et <Term name="Svart legeme">svart legeme</Term>. Lyset går gjennom et Michelson-interferometer, så gjennom prøven og til detektoren. Det ene speilet i interferometeret flyttes, og signalet som funksjon av speilposisjonen er et <Term name="Interferogram">interferogram</Term>. Fourier-transformen av det er spekteret. En He-Ne-laser med $\lambda = 632{,}8$ nm går gjennom det samme interferometeret og holder rede på hvor speilet står.
 
-Først måles spekteret uten prøve, bakgrunnen $I_0(\sigma)$. Med prøven i strålen måles $I(\sigma)$, og transmisjonen er $I/I_0$. Luften i spektrometeret er med i begge målingene, så den faller ut av $I/I_0$ så lenge den er den samme.
+Først måles spekteret uten prøve, bakgrunnen $I_0(\sigma)$. Med prøven i strålen måles $I(\sigma)$, og transmisjonen er $I/I_0$. Luften i spektrometeret er med i begge målingene, så den faller ut av $I/I_0$ så lenge sammensetningen er den samme i begge målingene.
 
-Et foton kan bare absorberes av en svingning med samme energi $\hbar\omega$ og samme bølgevektor $k$, og bare hvis dipolmomentet endrer seg mens atomene svinger. En slik svingning er en <Term name="IR-aktiv svingning">IR-aktiv svingning</Term>. IR-spektroskopi oppgir energien som <Term name="Bølgetall">bølgetallet</Term> $\sigma$:
+Et foton kan bare absorberes av en svingning med samme energi $\hbar\omega$ og samme bølgevektor $k$, og bare hvis dipolmomentet endrer seg mens atomene svinger. En svingning der dipolmomentet endrer seg, er en <Term name="IR-aktiv svingning">IR-aktiv svingning</Term>. IR-spektroskopi oppgir energien som <Term name="Bølgetall">bølgetallet</Term> $\sigma$:
 
 <Formula tex="\sigma = \dfrac{1}{\lambda} = \dfrac{\nu}{c}, \qquad \omega = 2\pi c\,\sigma" caption="Bølgetallet, uten faktoren $2\pi$ som bølgevektoren $k = 2\pi/\lambda$ har, og vinkelfrekvensen. Med $\sigma$ i cm$^{-1}$ må $c = 3{,}00 \cdot 10^{10}$ cm/s. 1000 cm$^{-1}$ er $\lambda = 10$ µm og en fotonenergi på 0,124 eV." />
 
@@ -71,7 +71,7 @@ Fordelingen per bølgelengde har toppen et annet sted enn $I(\nu)$. Formen $\lam
 
 Laboppgaven skriver $m_1$ og $m_2$ for massene; her skrives de $M_1$ og $M_2$.
 
-**a) Lys og fononer.** Et foton med bølgetall 1000 cm$^{-1}$ har $k = 2\pi\sigma$. Sammenlign det med sonegrensen $\pi/a$, og husk at fotonet og fononet må ha samme $\omega$ og samme $k$.
+**a) Lys og fononer.** Et foton med bølgetall 1000 cm$^{-1}$ har $k = 2\pi\sigma$. Sammenlign bølgevektoren $k$ med sonegrensen $\pi/a$, og husk at fotonet og fononet må ha samme $\omega$ og samme $k$.
 
 <Simulation
   src="/sims/foton-fonon.js"
@@ -117,7 +117,7 @@ Bakgrunnen er Planck-kurven ganget med hvor godt interferometeret, speilene og d
 
 ### Oppgave 2: Vann og CO₂ i luften
 
-Del a handler om H₂O og del b om CO₂, med de samme spørsmålene. Svingningene har engelske navn på laben:
+Del a handler om H₂O og del b om CO₂. Svingningene har engelske navn på laben:
 
 <Table
   columns={["Svingning", "Slik beveger atomene seg"]}
@@ -154,12 +154,12 @@ Del a handler om H₂O og del b om CO₂, med de samme spørsmålene. Svingninge
 
 <Formula tex="3N - 6" caption="Antall svingninger i et fritt molekyl med $N$ atomer: $3N$ koordinater minus tre for translasjon og tre for rotasjon. Et lineært molekyl har bare to rotasjoner og derfor $3N - 5$ svingninger." />
 
-**Mange enkeltlinjer (a iii og b iv).** Molekylene i en gass roterer fritt, og en svingning kan absorberes sammen med en endring i rotasjonen. Rotasjonsenergien er $E_J = hcB\,J(J+1)$ med $J = 0, 1, 2, \dots$ og $\Delta J = \pm 1$, så et bånd deler seg i linjer med avstand omtrent $2B$ på hver side av svingefrekvensen. Rotasjonskonstanten $B$ i cm$^{-1}$ er omvendt proporsjonal med treghetsmomentet til molekylet.
+**Mange enkeltlinjer (a iii og b iv).** Molekylene i en gass roterer fritt, og et foton kan eksitere en svingning og samtidig endre rotasjonen. For et lineært molekyl er rotasjonsenergien $E_J = hcB\,J(J+1)$ med $J = 0, 1, 2, \dots$ og $\Delta J = \pm 1$. En overgang fra $J$ til $J+1$ endrer energien med $2hcB(J+1)$, så båndet deler seg i linjer med avstand omtrent $2B$ på hver side av svingefrekvensen. I CO₂ mangler annenhver $J$, så avstanden er $4B$. Vann er ikke lineært og har et mindre regelmessig mønster. Rotasjonskonstantene i cm$^{-1}$ er omvendt proporsjonale med treghetsmomentene til molekylet.
 
 <Hints>
 <Hint label="Hint: hvorfor vann har flere enkeltlinjer enn CO₂">
 
-Sammenlign treghetsmomentet til de to molekylene, og sammenlign linjeavstanden $2B$ med oppløsningen du måler med.
+Sammenlign treghetsmomentet til de to molekylene, og sammenlign linjeavstanden med oppløsningen du måler med.
 
 </Hint>
 </Hints>
@@ -174,7 +174,7 @@ Tegn dipolmomentet til CO₂ i likevekt og midt i det symmetriske strekket.
 </Hint>
 </Hints>
 
-**Andre gasser og pusten (c og d).** Se etter bånd som ikke står i tabellen, og tenk på hvilke andre gasser i luft som har en IR-aktiv svingning. Når du puster inn i prøvekammeret, er luften i prøvespekteret ikke lenger den samme som i bakgrunnen, og $I/I_0$ viser forskjellen.
+**Andre gasser og pusten (c og d).** Se etter bånd som ikke står i tabellen, og tenk på hvilke andre gasser i luft som har en IR-aktiv svingning. Når du puster inn i prøvekammeret, har luften i prøvekammeret en annen sammensetning enn da du målte bakgrunnen, og $I/I_0$ viser forskjellen.
 
 ### Oppgave 3: Polyetylen
 

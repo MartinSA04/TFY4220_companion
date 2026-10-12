@@ -1,7 +1,7 @@
 ---
 order: 3
 title: "Diffraksjon og det resiproke gitteret"
-summary: "Hvorfor det trengs røntgen, elektroner eller nøytroner for å se atomer, Braggs lov for refleksjon fra gitterplan, og det resiproke gitteret som gjør diffraksjonsbildet til et kart over krystallen."
+summary: "Hvorfor det trengs røntgen, elektroner eller nøytroner for å se atomer, Braggs lov for refleksjon fra gitterplan og det resiproke gitteret som gjør diffraksjonsbildet til et kart over krystallen."
 importance: core
 tag: "Uke 35"
 part: "Del I: Krystallstruktur"
@@ -44,7 +44,7 @@ ut.
 
 ## Braggs lov
 
-Den eldste beskrivelsen av røntgendiffraksjon er Braggs. En krystall inneholder
+Den enkleste beskrivelsen av røntgendiffraksjon er Braggs. En krystall inneholder
 familier av parallelle plan med lik avstand $d$
 (<Term name="Planfamilie">planfamiliene</Term>), og hvert plan reflekterer en
 liten del av strålen speilende, med samme vinkel ut som inn. Strålen som
@@ -115,29 +115,35 @@ $\lambda = 1.54$ Å is used for diffraction.
 
 ## Spredningsvektoren
 
-Braggs lov gir vinklene, men sier ingenting om hvor sterke refleksene blir, og
-den forklarer ikke hvorfor plan av matematiske punkter skulle reflektere noe
-som helst. Begge deler krever spredningsteori.
+Med Braggs lov finner du vinklene, men ikke hvor sterke refleksene blir, og
+loven antar at plan av matematiske punkter reflekterer. Begge deler krever
+spredningsteori.
 
 <Term name="Kinematisk diffraksjonsteori">Kinematisk diffraksjonsteori</Term>
-gjør to antakelser. Spredningen er elastisk, så innkommende og spredt bølge
-har samme bølgelengde, og hver bølge spres høyst én gang i prøven. En planbølge
+antar at spredningen er elastisk, så innkommende og spredt bølge har samme
+bølgelengde, og at hver bølge spres høyst én gang i prøven. En planbølge
 beskrives av bølgevektoren $\vec k$, som peker langs utbredelsesretningen og
 har lengde $k = 2\pi/\lambda$. Inn kommer $\vec k_i$, ut går $\vec k_f$, med
 $|\vec k_f| = |\vec k_i|$.
 
-Endringen samles i <Term name="Spredningsvektor">spredningsvektoren</Term>
+Endringen i bølgevektor er <Term name="Spredningsvektor">spredningsvektoren</Term>
 $\vec Q = \vec k_f - \vec k_i$. De to bølgevektorene er like lange og spenner
-vinkelen $2\theta$, så geometrien gir $|\vec Q| = 2k\sin\theta$.
+vinkelen $2\theta$, så $\vec k_i$, $\vec k_f$ og $\vec Q$ danner en likebeint
+trekant. Halverer du toppvinkelen, får du to rettvinklede trekanter med
+hypotenus $k$ og vinkel $\theta$, så halve $|\vec Q|$ er $k\sin\theta$ og
+$|\vec Q| = 2k\sin\theta$.
 
 <Formula tex={"\\vec{Q} = \\vec{k}_f - \\vec{k}_i, \\qquad |\\vec{Q}| = \\dfrac{4\\pi}{\\lambda}\\sin\\theta"} caption={"Spredningsvektoren. $2\\theta$ er vinkelen mellom innfallende og spredt stråle."} />
 
 Et volumelement $\mathrm{d}V$ i posisjon $\vec r$ sprer med amplitude
-proporsjonal med tettheten $\rho(\vec r)$ der, og bidraget kommer fram med en
-faseforskjell $\vec Q \cdot \vec r$ relativt til origo. Summen over hele prøven
-er
+proporsjonal med tettheten $\rho(\vec r)$ der. Sammenlignet med en bølge som
+spres i origo, når den innkommende bølgen volumelementet med fasen
+$\vec k_i \cdot \vec r$. Den spredte bølgen har $\hat k_f \cdot \vec r$ kortere
+vei til detektoren, så den får fasen $-\vec k_f \cdot \vec r$. Faseforskjellen
+er $(\vec k_i - \vec k_f)\cdot\vec r = -\vec Q \cdot \vec r$. Summen over hele
+prøven er
 
-<Formula tex={"F(\\vec{Q}) = \\int \\rho(\\vec{r})\\, e^{i\\vec{Q}\\cdot\\vec{r}}\\, \\mathrm{d}V"} caption={"Spredningsamplituden er Fourier-transformen av spredningstettheten."} />
+<Formula tex={"F(\\vec{Q}) = \\int \\rho(\\vec{r})\\, e^{-i\\vec{Q}\\cdot\\vec{r}}\\, \\mathrm{d}V"} caption={"Spredningsamplituden er Fourier-transformen av spredningstettheten."} />
 
 Hva <Term name="Spredningstetthet">spredningstettheten</Term> $\rho$ er,
 avhenger av proben: elektrontettheten for røntgen, kjernene for nøytroner og
@@ -166,15 +172,21 @@ periodisitet.
 
 </Statement>
 
-Kravet løses av $\vec G = m_1\vec b_1 + m_2\vec b_2 + m_3\vec b_3$ med
-heltallige $m_i$, der de primitive vektorene konstrueres fra de direkte:
+Skriv $\vec G = m_1\vec b_1 + m_2\vec b_2 + m_3\vec b_3$ og krev
+$\vec a_i \cdot \vec b_j = 2\pi\delta_{ij}$. Med
+$\vec R = n_1\vec a_1 + n_2\vec a_2 + n_3\vec a_3$ er da
+$\vec G \cdot \vec R = 2\pi(n_1 m_1 + n_2 m_2 + n_3 m_3)$, et helt multiplum av
+$2\pi$ når $m_i$ er heltall. Kravet $\vec a_2 \cdot \vec b_1 = \vec a_3 \cdot \vec b_1 = 0$
+betyr at $\vec b_1$ står normalt på både $\vec a_2$ og $\vec a_3$, så
+$\vec b_1 = c\,\vec a_2 \times \vec a_3$. Kravet $\vec a_1 \cdot \vec b_1 = 2\pi$
+bestemmer $c = 2\pi/\big(\vec a_1 \cdot (\vec a_2 \times \vec a_3)\big)$:
 
 <Formula tex={"\\vec{b}_1 = 2\\pi\\,\\dfrac{\\vec{a}_2 \\times \\vec{a}_3}{\\vec{a}_1 \\cdot (\\vec{a}_2 \\times \\vec{a}_3)}"} caption={"Konstruksjonen av $\\vec b_1$; $\\vec b_2$ og $\\vec b_3$ følger syklisk. Nevneren er volumet av den primitive cellen."} />
 
-Kryssproduktet sørger for at $\vec b_1$ står normalt på både $\vec a_2$ og
-$\vec a_3$, og normeringen gir $\vec a_i \cdot \vec b_j = 2\pi\delta_{ij}$. Da
-er $\vec G \cdot \vec R = 2\pi(n_1 m_1 + n_2 m_2 + n_3 m_3)$, et helt
-multiplum av $2\pi$ for hvert eneste par. Det resiproke gitteret er selv et
+Alle $\vec G$ i definisjonen har denne formen. Skriv en vilkårlig vektor som
+$\vec G = \sum_i x_i \vec b_i$. Med $\vec R = \vec a_j$ er
+$\vec G \cdot \vec a_j = 2\pi x_j$, og det er et helt multiplum av $2\pi$ bare
+når $x_j$ er et heltall. Det resiproke gitteret er selv et
 Bravais-gitter; det ligger i $k$-rommet, og lengdene måles i inverse meter. For
 enkel kubisk med kant $a$ peker $\vec b_i$ langs aksene med lengde $2\pi/a$,
 så det resiproke gitteret er også enkelt kubisk.
@@ -260,13 +272,19 @@ $\vec a_i \cdot \vec Q = 2\pi m_i$.
 </Statement>
 
 Et diffraksjonsbilde er dermed et kart over krystallens resiproke gitter: hver
-refleks er ett resiprokt gitterpunkt, avlest i $\vec Q$. Slik ble strukturer
-bestemt lenge før noen kunne avbilde atomer direkte, og slik viste
-diffraksjonsbildet fra DNA-fibre dobbeltheliksen i 1953.
+refleks er ett resiprokt gitterpunkt, avlest i $\vec Q$. Slik ble
+krystallstrukturer bestemt lenge før noen kunne avbilde atomer direkte.
 
-Braggs lov følger av betingelsen. Vektoren
-$\vec G_{hkl} = h\vec b_1 + k\vec b_2 + l\vec b_3$ står normalt på
-planfamilien $(hkl)$, og den korteste i den retningen gir planavstanden:
+Braggs lov følger av betingelsen. Planet $(hkl)$ nærmest origo skjærer aksene i
+$\vec a_1/h$, $\vec a_2/k$ og $\vec a_3/l$, med $h$, $k$ og $l$ uten felles
+faktor. Vektorene $\vec a_1/h - \vec a_2/k$ og $\vec a_2/k - \vec a_3/l$ ligger i planet.
+Med $\vec G_{hkl} = h\vec b_1 + k\vec b_2 + l\vec b_3$ og
+$\vec a_i \cdot \vec b_j = 2\pi\delta_{ij}$ gir begge skalarproduktet
+$2\pi - 2\pi = 0$, så $\vec G_{hkl}$ står normalt på familien. Avstanden fra
+origo til planet er projeksjonen av $\vec a_1/h$ på normalen,
+$(\vec a_1/h)\cdot\vec G_{hkl}/|\vec G_{hkl}| = 2\pi/|\vec G_{hkl}|$. Er en
+indeks null, er planet parallelt med aksen og regningen den samme.
+Planavstanden er altså
 
 <Formula tex={"d_{hkl} = \\dfrac{2\\pi}{|\\vec{G}_{hkl}|}"} caption={"Planavstanden fra den korteste resiproke gittervektoren normalt på familien. Gjelder i alle gitre."} />
 
@@ -294,9 +312,13 @@ transformen av gitteret, som er deltafunksjoner på de resiproke gitterpunktene
 og bestemmer hvor refleksene kan stå, og transformen av basisen, som bestemmer
 hvor sterk hver enkelt refleks blir.
 
-Samme teorem forklarer hvorfor målte reflekser aldri er uendelig skarpe:
-instrumentet måler det sanne signalet konvolvert med sin egen
-oppløsningsfunksjon, så hver topp arver en bredde fra apparatet.
+<Derivation title="Instrumentets bidrag til toppbredden">
+
+Instrumentet måler det sanne signalet konvolvert med sin egen
+oppløsningsfunksjon. Hver topp arver derfor en bredde fra apparatet, og en
+refleks er aldri uendelig skarp.
+
+</Derivation>
 
 ## Sjekk deg selv
 
@@ -322,7 +344,7 @@ $\vec b_2 = (2\pi/a)\hat y$ og $\vec b_3 = (2\pi/a)\hat z$. Da er
 $|\vec G_{hkl}| = \dfrac{2\pi}{a}\sqrt{h^2 + k^2 + l^2}$
 
 og dermed $d_{hkl} = 2\pi/|\vec G_{hkl}| = a/\sqrt{h^2 + k^2 + l^2}$, samme
-formel som Miller-indeksene ga (<FormulaRef id="planavstand-kubisk" />).
+formel som <FormulaRef id="planavstand-kubisk" />.
 
 </SelfCheck>
 

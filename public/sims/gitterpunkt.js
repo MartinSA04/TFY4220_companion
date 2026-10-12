@@ -225,32 +225,13 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
 
     const near = (v) => Math.abs(s - v) < 0.004;
     let where;
-    let note;
-    if (near(0) || near(1)) {
-      where = "i sentrum av en sekskant";
-      note =
-        "Ingen av de to karbonatomene sitter på et gitterpunkt. Simon og Delft velger denne.";
-    } else if (near(1 / 3)) {
-      where = "på et A-atom";
-      note =
-        "Nå ligger det ene atomet på gitterpunktet, slik Cornell tegner det. A og B er begge karbon, og skiller seg bare ved plassen i basisen.";
-    } else if (near(2 / 3)) {
-      where = "på et B-atom";
-      note =
-        "Samme beskrivelse som forrige, med A og B byttet om. Ingen av dem er mer opprinnelig enn den andre.";
-    } else if (near(1 / 2)) {
-      where = "midt på en C–C-binding";
-      note =
-        "Gitterpunktet ligger i tomrommet mellom to kjerner, og beskrivelsen er like gyldig.";
-    } else {
-      where = "i et tomrom";
-      note = "Basiskoordinatene er stygge, og beskrivelsen er like riktig.";
-    }
+    if (near(0) || near(1)) where = "i sentrum av en sekskant";
+    else if (near(1 / 3)) where = "på et A-atom";
+    else if (near(2 / 3)) where = "på et B-atom";
+    else if (near(1 / 2)) where = "midt på en C–C-binding";
+    else where = "i et tomrom";
 
-    return (
-      `<b>Gitterpunktet ligger ${where}.</b> ${basis} ${note}<br>` +
-      "Atomene har ikke flyttet seg. Bare krysshårene har det."
-    );
+    return `<b>Gitterpunktet ligger ${where}.</b> ${basis}`;
   }
 
   sync();
