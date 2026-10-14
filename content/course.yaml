@@ -76,7 +76,7 @@ formulas:
   - id: planavstand-kubisk
     section: Retninger og planavstand
     tex: "d_{hkl} = \\dfrac{a}{\\sqrt{h^2 + k^2 + l^2}}"
-    label: "Avstanden mellom naboplan i familien $(hkl)$ i et kubisk gitter med gitterkonstant $a$. I kubiske gitter står retningen $[hkl]$ normalt på planet $(hkl)$."
+    label: "Avstanden mellom naboplan i familien $(hkl)$, med indeksene regnet i kuben med kant $a$. I bcc og fcc kan de virkelige gitterplanene ligge tettere; de navngis av indekser som ikke er redusert, som $(200)$ med $d_{200} = a/2$. I kubiske gitter står retningen $[hkl]$ normalt på planet $(hkl)$."
   - id: bragg
     section: Braggs lov
     tex: "2d\\sin\\theta = n\\lambda"
@@ -200,7 +200,7 @@ formulas:
   - id: debye-t3
     section: Debye-modellen
     tex: "\\begin{aligned} C_V &= \\frac{12\\pi^4}{5}\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\\\ &\\approx 234\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\end{aligned}"
-    label: "Debyes $T^3$-lov, gyldig for $T$ under omtrent $\\theta_D/50$. Fra $U = 9Nk_BT\\,(T/\\theta_D)^3\\int_0^{\\theta_D/T} x^3\\,\\mathrm dx/(e^x - 1)$ med integralet $\\pi^4/15$ når $T \\to 0$. Bare andelen $(T/\\theta_D)^3$ av svingningene er eksitert, hver med energi omtrent $k_BT$. For $T \\gg \\theta_D$ er integralet $(\\theta_D/T)^3/3$, og det samme uttrykket for $U$ gir $U = 3Nk_BT$ og Dulong-Petits $C_V = 3Nk_B$."
+    label: "Debyes $T^3$-lov for $T \\ll \\theta_D$: i modellen innenfor 1 % under $\\theta_D/12$, i målinger på virkelige krystaller under omtrent $\\theta_D/50$. Fra $U = 9Nk_BT\\,(T/\\theta_D)^3\\int_0^{\\theta_D/T} x^3\\,\\mathrm dx/(e^x - 1)$ med integralet $\\pi^4/15$ når $T \\to 0$. Bare andelen $(T/\\theta_D)^3$ av svingningene er eksitert, hver med energi omtrent $k_BT$. For $T \\gg \\theta_D$ er integralet $(\\theta_D/T)^3/3$, og det samme uttrykket for $U$ gir $U = 3Nk_BT$ og Dulong-Petits $C_V = 3Nk_B$."
 
   - id: drude-ledningsevne
     section: Drude-modellen
@@ -288,11 +288,11 @@ formulas:
   - id: kameralikning
     section: Elektronmikroskopi
     tex: "R_{hkl}\\, d_{hkl} = \\lambda L"
-    label: "Kameralikningen. $R_{hkl}$ er avstanden fra sentrum til refleksen $hkl$ på diffraksjonsbildet, og $L$ er kameralengden. Den følger av Braggs lov for små vinkler, $2\\theta \\approx R_{hkl}/L$ og $2\\theta \\approx \\lambda/d_{hkl}$. Kamerakonstanten $\\lambda L$ kalibreres med en kjent krystall."
+    label: "Kameraligningen. $R_{hkl}$ er avstanden fra sentrum til refleksen $hkl$ på diffraksjonsbildet, og $L$ er kameralengden. Den følger av Braggs lov for små vinkler, $2\\theta \\approx R_{hkl}/L$ og $2\\theta \\approx \\lambda/d_{hkl}$. Kamerakonstanten $\\lambda L$ kalibreres med en kjent krystall."
   - id: vinkel-reflekser
     section: Elektronmikroskopi
-    tex: "\\cos\\varphi = \\dfrac{h_1h_2 + k_1k_2 + l_1l_2}{|\\vec g_1|\\,|\\vec g_2|}"
-    label: "Vinkelen mellom refleksene $h_1k_1l_1$ og $h_2k_2l_2$ i et kubisk gitter, sett fra sentrum av diffraksjonsbildet, med $|\\vec g_i| = \\sqrt{h_i^2 + k_i^2 + l_i^2}$. Forholdet mellom avstandene er $R_1/R_2 = d_2/d_1 = |\\vec g_1|/|\\vec g_2|$."
+    tex: "\\cos\\varphi = \\dfrac{h_1h_2 + k_1k_2 + l_1l_2}{\\sqrt{h_1^2 + k_1^2 + l_1^2}\\,\\sqrt{h_2^2 + k_2^2 + l_2^2}}"
+    label: "Vinkelen mellom refleksene $h_1k_1l_1$ og $h_2k_2l_2$ i et kubisk gitter, sett fra sentrum av diffraksjonsbildet. Refleksen er $\\vec g = \\vec G/2\\pi$ med lengden $1/d$, parallell med $(h, k, l)$ i et kubisk gitter. Forholdet mellom avstandene er $R_1/R_2 = d_2/d_1 = |\\vec g_1|/|\\vec g_2|$."
   - id: soneakse
     section: Elektronmikroskopi
     tex: "\\begin{aligned} &[UVW] \\parallel \\vec g_1 \\times \\vec g_2 \\\\ &hU + kV + lW = 0 \\end{aligned}"
@@ -398,7 +398,7 @@ glossary:
     definition: "fcc-gitteret med en basis på to like atomer, i $(0,0,0)$ og $(\\tfrac14,\\tfrac14,\\tfrac14)$. Hvert atom har 4 naboer, og pakningsgraden er bare $0{,}34$; det er de kovalente bindingene som holder strukturen oppe. Karbon, silisium og germanium krystalliserer slik."
   - term: Miller-indekser
     section: Miller-indekser
-    definition: "Tre heltall $(hkl)$ som navngir en familie av gitterplan: les av skjæringspunktene med aksene i gitterkonstanter, inverter og reduser til minste heltall med samme forhold. En indeks $0$ betyr at planet er parallelt med aksen, og strek over betyr negativ, som i $(\\bar{1}00)$."
+    definition: "Tre heltall $(hkl)$ som navngir en familie av gitterplan: les av skjæringspunktene med aksene i gitterkonstanter, inverter og reduser til minste heltall med samme forhold. En indeks $0$ betyr at planet er parallelt med aksen, og strek over betyr negativ, som i $(\\bar{1}00)$. Indekser som ikke er redusert, som $(200)$, navngir familien med halve avstanden til $(100)$."
   - term: Planfamilie
     section: Miller-indekser
     definition: "Alle planene med samme Miller-indekser: parallelle og med lik avstand. Symmetriekvivalente familier samles i krøllparenteser; kubens seks flater er $\\{100\\}$."
@@ -407,7 +407,7 @@ glossary:
     definition: "Retningen $u\\vec{a}_1 + v\\vec{a}_2 + w\\vec{a}_3$, skrevet $[uvw]$ med minste heltall. $\\vec{a}_1$ peker langs $[100]$ og $-\\vec{a}_2$ langs $[0\\bar{1}0]$. I kubiske gitter står $[hkl]$ normalt på planet $(hkl)$."
   - term: Planavstand
     section: Retninger og planavstand
-    definition: "Avstanden $d$ mellom naboplan i en familie. I kubiske gitter er $d_{hkl} = a/\\sqrt{h^2+k^2+l^2}$, så familier med høye indekser ligger tett."
+    definition: "Avstanden $d$ mellom naboplan i en familie. Med indeksene regnet i kuben er $d_{hkl} = a/\\sqrt{h^2+k^2+l^2}$, så familier med høye indekser ligger tett."
   - term: Braggs lov
     section: Braggs lov
     definition: "Kravet $2d\\sin\\theta = n\\lambda$ for konstruktiv refleksjon fra en familie av parallelle plan med avstand $d$. Planene virker som svake speil, og gangforskjellen mellom naboplan er $2d\\sin\\theta$. Siden $\\sin\\theta \\le 1$ gir hver planfamilie bare et endelig antall refleksjonsordener $n$."
@@ -422,7 +422,7 @@ glossary:
     definition: "Tettheten $\\rho(\\vec{r})$ som sprer bølgen: elektrontettheten for røntgen, kjernene for nøytroner og begge deler for elektroner. Valget av probe avgjør derfor hva et eksperiment ser."
   - term: Resiprokt gitter
     section: Det resiproke gitteret
-    definition: "Mengden av vektorer $\\vec{G}$ med $e^{i\\vec{G}\\cdot\\vec{R}} = 1$, altså $\\vec{G}\\cdot\\vec{R} = 2\\pi \\cdot \\text{heltall}$, for alle gittervektorer $\\vec{R}$. Det er selv et Bravais-gitter i $k$-rommet, generert av $\\vec{b}_1, \\vec{b}_2, \\vec{b}_3$, og store avstander i det direkte gitteret gir små i det resiproke."
+    definition: "Mengden av vektorer $\\vec{G}$ med $e^{i\\vec{G}\\cdot\\vec{R}} = 1$, altså $\\vec{G}\\cdot\\vec{R} = 2\\pi \\cdot \\text{heltall}$, for alle gittervektorer $\\vec{R}$. Det er selv et Bravais-gitter i $k$-rommet, generert av $\\vec{b}_1, \\vec{b}_2, \\vec{b}_3$, og store avstander i det direkte gitteret gir små i det resiproke. Den korteste $\\vec G$ i en retning står normalt på en familie av gitterplan, og $|\\vec G| = 2\\pi/d$."
   - term: Diffraksjonsbetingelsen
     section: Diffraksjonsbetingelsen
     definition: "Betingelsen $\\vec{Q} = \\vec{G}$, også kalt Laue-betingelsen: spredningsamplituden er null med mindre spredningsvektoren er en resiprok gittervektor. Komponentvis er den de tre Laue-ligningene $\\vec{a}_i \\cdot \\vec{Q} = 2\\pi m_i$. Ekvivalent med Braggs lov."
@@ -431,7 +431,7 @@ glossary:
     definition: "Integralet $(f \\circledast g)(x) = \\int f(x')\\, g(x - x')\\, \\mathrm{d}x'$: den ene funksjonen stemples ut på hvert punkt av den andre. En krystalltetthet er gitteret konvolvert med basisens tetthet, og konvolusjonsteoremet $\\mathcal{F}(f \\circledast g) = \\mathcal{F}(f) \\cdot \\mathcal{F}(g)$ sier at transformen da faktoriserer."
   - term: Ewald-kule
     section: Ewald-kulen
-    definition: "Kulen med radius $k = 2\\pi/\\lambda$ om halen til $\\vec k_i$, tegnet i det resiproke rommet med spissen av $\\vec k_i$ i origo. Hvert resiprokt gitterpunkt på kuleflaten gir en refleks, for da er $\\vec k_f - \\vec k_i$ en resiprok gittervektor med $|\\vec k_f| = |\\vec k_i|$. Punkter med $|\\vec G| > 2k$ kan aldri gi refleks."
+    definition: "Kulen med radius $k = 2\\pi/\\lambda$ om halen til $\\vec k_i$, tegnet i $k$-rommet med spissen av $\\vec k_i$ i origo. Hvert resiprokt gitterpunkt på kuleflaten gir en refleks, for da er $\\vec k_f - \\vec k_i$ en resiprok gittervektor med $|\\vec k_f| = |\\vec k_i|$. Punkter med $|\\vec G| > 2k$ kan aldri gi refleks."
   - term: Laue-metoden
     section: Diffraksjonsmetoder
     definition: "Diffraksjon fra en énkrystall i ro, bestrålt med et kontinuerlig spekter. Hver bølgelengde har sin egen Ewald-kule gjennom origo, og alle resiproke gitterpunkter mellom den minste og den største kulen gir refleks. Bildet viser krystallens symmetri direkte."
@@ -449,7 +449,7 @@ glossary:
     definition: "Spredningsamplituden fra ett atom, $f_j(\\vec Q) = \\int \\rho_j e^{-i\\vec Q\\cdot\\vec r}\\,\\mathrm{d}V$. For røntgen er den lik antall elektroner ved $\\vec Q = 0$, så tunge atomer dominerer et røntgenbilde, og hydrogen er nesten usynlig. Den avtar med $|\\vec Q|$."
   - term: Systematisk utslukking
     section: Systematiske utslukkinger
-    definition: "En refleks som oppfyller $\\vec Q = \\vec G$, men likevel mangler fordi strukturfaktoren er null: bidragene fra atomene i basisen er i motfase. Regelen for hvilke $(hkl)$ som overlever, kalles utvalgsregelen; for bcc er den $h+k+l$ partall, for fcc at $h, k, l$ er alle partall eller alle oddetall."
+    definition: "En refleks som mangler fordi strukturfaktoren er null: bidragene fra atomene i basisen er i motfase. Regnet i den konvensjonelle kuben er utslukkingene punktene kuben la til det resiproke gitteret, så bcc- og fcc-gitteret selv mister ingen refleks. Regelen for hvilke $(hkl)$ som overlever, kalles utvalgsregelen; for bcc er den $h+k+l$ partall, for fcc at $h, k, l$ er alle partall eller alle oddetall."
   - term: Brillouin-sone
     section: Brillouin-soner
     definition: "Den første Brillouin-sonen er Wigner-Seitz-cellen til det resiproke gitteret: alle $\\vec k$ som ligger nærmere origo enn noe annet resiprokt gitterpunkt. Grensene er planene som halverer vektorene $\\vec G$ normalt, og en bølge med $\\vec k$ på grensen oppfyller diffraksjonsbetingelsen. For fcc er sonen et avkuttet oktaeder, for bcc et rombedodekaeder."
@@ -459,7 +459,7 @@ glossary:
     definition: "Energien som må tilføres for å dele krystallen opp i frie, nøytrale atomer i ro, uendelig langt fra hverandre og med samme elektronkonfigurasjon som i krystallen (<em>cohesive energy</em>). Oppgis per atom: $0{,}02$ eV for Ne, $7{,}37$ eV for diamant og $8{,}90$ eV for W."
   - term: Gitterenergi
     section: Kohesjonsenergi
-    definition: "Kohesjonsenergien til en ionekrystall regnet fra frie <b>ioner</b> i stedet for frie atomer. Den er større enn kohesjonsenergien med det det koster å lage ionene: for NaCl er gitterenergien $7{,}9$ eV per ionpar og kohesjonsenergien $7{,}9 - 5{,}14 + 3{,}61 = 6{,}4$ eV."
+    definition: "Kohesjonsenergien til en ionekrystall regnet fra frie <b>ioner</b> i stedet for frie atomer. Den er større enn kohesjonsenergien med energien det koster å lage ionene: for NaCl er gitterenergien $7{,}9$ eV per ionpar og kohesjonsenergien $7{,}9 - 5{,}14 + 3{,}61 = 6{,}4$ eV per ionpar, eller $3{,}2$ eV per atom."
   - term: Ioniseringsenergi
     section: Kohesjonsenergi
     definition: "Energien som skal til for å fjerne det løsest bundne elektronet fra et fritt atom, så det blir et positivt ion. $5{,}14$ eV for natrium."
@@ -508,7 +508,7 @@ glossary:
     definition: "Ett kvant $\\hbar\\omega(k)$ av en gittersvingning, slik et foton er et kvant av det elektromagnetiske feltet. Svingningen med bølgevektor $k$ har energien $(n + \\tfrac12)\\hbar\\omega(k)$ med $n$ fononer, og $n$ har ingen øvre grense. Fononer er derfor bosoner og følger Bose-Einstein-statistikk. I isolatorer bærer de nesten all varmeledningen, og ved romtemperatur står de for nesten hele varmekapasiteten."
   - term: Krystallimpuls
     section: Fononer
-    definition: "$\\hbar\\vec k$ for et fonon eller et elektron i en krystall. Den inngår som impuls i bevaringslovene ved spredning, bevart opp til en resiprok gittervektor: $\\vec k + \\vec q = \\vec k' + \\vec G$ når et elektron tar opp et fonon. Den er ikke den fysiske impulsen. En gittersvingning med $k \\ne 0$ har fysisk impuls null, for atomene beveger seg bare i forhold til hverandre, og en Bloch-funksjon er ikke en egenfunksjon av impulsoperatoren."
+    definition: "$\\hbar\\vec k$ for et fonon eller et elektron i en krystall. Krystallen er lik seg selv bare ved forskyvninger med en gittervektor $\\vec R$, og det som er bevart, er fasefaktoren $e^{i\\vec k\\cdot\\vec R}$, som bestemmer $\\vec k$ bare opp til en resiprok gittervektor. Krystallimpulsen inngår som impuls i bevaringslovene ved spredning, bevart opp til en resiprok gittervektor: $\\vec k + \\vec q = \\vec k' + \\vec G$ når et elektron tar opp et fonon. Den er ikke den fysiske impulsen. En gittersvingning med $k \\ne 0$ har fysisk impuls null, for atomene beveger seg bare i forhold til hverandre, og en Bloch-funksjon er ikke en egenfunksjon av impulsoperatoren."
 
   - term: Dulong-Petits lov
     section: Varmekapasitet
@@ -530,7 +530,7 @@ glossary:
     definition: "Modellen med $\\omega = vk$ for alle $k$, altså de akustiske grenene strukket til hele sonen og ingen optiske. Det gir $D(\\omega) = V\\omega^2/2\\pi^2v^3$ per polarisasjon opp til grensefrekvensen $\\omega_D$, som gir riktig antall svingninger. Den gir Dulong-Petit ved høy $T$ og $T^3$-loven ved lav."
   - term: Debye-temperatur
     section: Debye-modellen
-    definition: "$\\theta_D = \\hbar\\omega_D/k_B$, temperaturen der $k_BT$ er lik den høyeste fononenergien i Debye-modellen, og stoffets eneste parameter i den. Høy for stive, lette stoffer: diamant 2230 K, silisium 645 K, kobber 343 K, bly 105 K. Under omtrent $\\theta_D/50$ er $C_V = 234\\,Nk_B(T/\\theta_D)^3$."
+    definition: "$\\theta_D = \\hbar\\omega_D/k_B$, temperaturen der $k_BT$ er lik den høyeste fononenergien i Debye-modellen, og stoffets eneste parameter i den. Høy for stive, lette stoffer: diamant 2230 K, silisium 645 K, kobber 343 K, bly 105 K. For $T \\ll \\theta_D$ er $C_V = 234\\,Nk_B(T/\\theta_D)^3$, i modellen under omtrent $\\theta_D/12$ og i målinger under omtrent $\\theta_D/50$."
 
   - term: Drude-modellen
     section: Drude-modellen
@@ -543,7 +543,7 @@ glossary:
     definition: "Strekningen $\\ell$ et elektron går mellom to kollisjoner. I fri-elektronmodellen er $\\ell = v_F\\tau$, som er 39 nm i kobber ved romtemperatur og rundt 0,2 cm i svært rent kobber ved 4 K. Elektronene spres av fononer, urenheter og defekter, ikke av ionene i et perfekt gitter."
   - term: Hall-effekten
     section: Hall-effekten
-    definition: "Et magnetfelt $B_z$ normalt på en strøm $j_x$ bøyer bærerne av mot den ene kanten av lederen, og ladningen som hoper seg opp, gir et elektrisk felt $E_y$ på tvers av strømmen. Hall-koeffisienten $R_H = E_y/j_xB_z = -1/ne$ gir tettheten av bærere, og fortegnet viser om de er negative eller positive."
+    definition: "Et magnetfelt $B_z$ normalt på en strøm $j_x$ bøyer bærerne av mot én kant av lederen (elektronene mot $-y$ når strømmen går i $+x$ og feltet i $+z$), og ladningen som hoper seg opp, gir et elektrisk felt $E_y$ på tvers av strømmen. Hall-koeffisienten $R_H = E_y/j_xB_z = -1/ne$ gir tettheten av bærere, og fortegnet viser om de er negative eller positive."
   - term: Wiedemann-Franz’ lov
     section: Varmeledning
     definition: "Forholdet $K/\\sigma$ mellom varmeledningsevnen og den elektriske ledningsevnen er omtrent det samme for alle metaller og proporsjonalt med $T$, $K/\\sigma = LT$. Fri-elektronmodellen gir Lorenz-tallet $L = (\\pi^2/3)(k_B/e)^2 = 2{,}44 \\cdot 10^{-8}$ W Ω/K²."
@@ -786,7 +786,7 @@ symbols:
   - { tex: "C_\\text{el}", meaning: "Varmekapasiteten til elektrongassen", unit: "J/K", section: "Frie elektroner", formula: elektron-varmekapasitet, note: "Rundt én prosent av den klassiske verdien $\\tfrac32 Nk_B$ ved romtemperatur." }
   - { tex: "\\gamma", meaning: "Koeffisienten til elektronleddet i $C = \\gamma T + AT^3$", unit: "mJ/(mol·K²)", section: "Frie elektroner", formula: elektron-varmekapasitet, note: "$0{,}695$ mJ/(mol·K²) målt for kobber. $AT^3$ er gitterleddet. Ikke cellevinkelen $\\gamma$." }
   # ── Energibånd ──
-  - { tex: "U(\\vec r),\\ U_G", meaning: "Det periodiske potensialet elektronene beveger seg i, og Fourier-komponentene", unit: "eV", section: "Energibånd", formula: sentralligningen, id: u-g, note: "$U(x) = \\sum_G U_G e^{iGx}$. $U_1$ og $U_2$ er komponentene for $G = g$ og $2g$. Ikke parpotensialet $U(r)$ eller den indre energien $U$." }
+  - { tex: "U(\\vec r),\\ U_G", meaning: "Det periodiske potensialet elektronene beveger seg i, og Fourier-komponentene", unit: "eV", section: "Energibånd", formula: sentralligningen, id: u-g, note: "$U(x) = \\sum_G U_G e^{iGx}$. $U_1$ og $U_2$ er komponentene for $G = \\pm g$ og $\\pm 2g$, like fordi potensialet er symmetrisk om et ion. Ikke parpotensialet $U(r)$ eller den indre energien $U$." }
   - { tex: "\\psi_{\\vec k}", meaning: "Bloch-funksjonen med bølgevektor $\\vec k$", section: "Energibånd", term: "Bloch-funksjon", formula: bloch-funksjon, note: "Skrives $\\psi_{n\\vec k}$ når båndet må skilles ut." }
   - { tex: "u_{\\vec k}(\\vec r)", meaning: "Den periodiske delen av Bloch-funksjonen", section: "Energibånd", formula: bloch-funksjon, note: "Har gitterets periodisitet. Ikke utsvinget $u_n$ i atomkjeden." }
   - { tex: "C_k", meaning: "Koeffisienten til planbølgen $e^{ikx}$ i bølgefunksjonen", section: "Energibånd", term: "Sentralligningen", formula: sentralligningen, note: "Ikke kraftkonstanten $C$ eller varmekapasiteten $C_V$." }

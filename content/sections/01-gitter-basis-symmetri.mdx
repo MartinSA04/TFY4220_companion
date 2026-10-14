@@ -32,8 +32,8 @@ avstander og orientering.
 
 </Statement>
 
-Gitteret bestemmer hvordan mønsteret gjentas, og basisen bestemmer hva som gjentas. Legg
-merke til kravet om lik orientering, for det er det som avgjør testen under.
+Gitteret bestemmer hvordan mønsteret gjentas, og basisen bestemmer hva som gjentas.
+Kravet om lik orientering avgjør Bravais-testen under.
 
 <Term name="Primitive gittervektorer">De primitive gittervektorene</Term>
 genererer punktene (<FormulaRef id="gittervektor" />), og basisatomene oppgis
@@ -41,19 +41,24 @@ relativt til gitterpunktet (<FormulaRef id="basis-posisjon" />).
 
 <Formula tex={"\\vec{R} = n_1\\vec{a}_1 + n_2\\vec{a}_2 + n_3\\vec{a}_3"} caption={"Gittervektoren, der $n_i$ er heltall. Mengden av alle slike $\\vec R$ <em>er</em> Bravais-gitteret."} />
 
-Gitterpunktene er matematiske punkter. Atomene kommer fra basisen.
-
 <Simulation
   src={"/sims/gitterpunkt.js"}
   host={"dom"}
-  title={"Skyv gitterets origo"}
-  caption={"Atomene står stille. Du flytter gitterets origo gjennom dem, og krysshårene viser gitterpunktene."}
+  title={"Gitterets origo"}
+  caption={"Honeycomb-nettet i grafén, med gitterpunktene tegnet som krysshår oppå de faste atomene."}
   height={340}
 />
 
-Gitterpunktet lander på et karbonatom, midt på en binding eller i et tomrom, alt
-etter hvor du legger origo. Alle tre beskriver samme krystall, og bare
-basiskoordinatene endrer seg.
+I grafén lander gitterpunktet på et karbonatom, midt på en binding eller i et
+tomrom, alt etter hvor du legger origo. Alle tre beskriver samme krystall, og
+bare basiskoordinatene endrer seg.
+
+<Callout title="Gitterpunkt og atom">
+
+Et gitterpunkt er et matematisk punkt, ikke et atom. Hvor du legger origo,
+endrer bare basiskoordinatene, og krystallen er den samme.
+
+</Callout>
 
 ## Bravais-testen
 
@@ -120,12 +125,18 @@ basis på to karbonatomer.
   src={"/sims/gitter-basis.js"}
   host={"dom"}
   title={"Gitter + basis"}
-  caption={"Krysshåret markerer gitterpunktet. Figuren starter på honeycomb-nettet; skyv forskyvningen mot 0."}
+  caption={"Det heksagonale gitteret, basisen og krystallen de gir sammen. Krysshåret markerer et gitterpunkt, og forskyvningen er avstanden mellom de to basisatomene, regnet som en andel av honeycomb-forskyvningen $(\\vec a_1 + \\vec a_2)/3$."}
   height={300}
 />
 
-Punktene flytter seg jevnt, men mønsteret er bare et Bravais-gitter når
-forskyvningen er nøyaktig null.
+La $\vec d$ være forskyvningen mellom to like atomer i basisen. Fra atom 1 ligger
+atom 2 i $+\vec d$, og fra atom 2 ligger atom 1 i $-\vec d$. Omgivelseslistene
+er like bare når $+\vec d$ og $-\vec d$ skiller seg med en gittervektor, altså
+når $2\vec d$ er en gittervektor. Med $60^\circ$
+mellom $\vec a_1$ og $\vec a_2$ er honeycomb-forskyvningen
+$(\vec a_1 + \vec a_2)/3$, og på veien dit fra null er $2\vec d$ en gittervektor
+bare ved $\vec d = 0$. Atomene flytter seg jevnt, men strukturen er et
+Bravais-gitter bare der.
 
 <Example label="Eksamensoppgave" title="Hvilken påstand om Bravais-gitre er feil?">
 <ExamRef id="2023-mai" task="1" />
@@ -169,8 +180,8 @@ overlapp når den gjentas med alle $\vec R$. To valg er i bruk.
 
 </Compare>
 
-Du regner med den konvensjonelle. Den viser symmetrien, og det er kantlengden i
-den tabellene oppgir. <Term name="Wigner-Seitz-celle">Wigner–Seitz-cellen</Term>,
+Du regner med den konvensjonelle. Den viser symmetrien, og tabellene oppgir
+kantlengden til den. <Term name="Wigner-Seitz-celle">Wigner–Seitz-cellen</Term>,
 alle punkter nærmere ett gitterpunkt enn noe annet, er både primitiv og
 symmetrisk.
 
@@ -179,7 +190,16 @@ i enkel kubisk er den også naboavstanden.
 <Term name="Koordinasjonstall">Koordinasjonstallet</Term> teller naboene til et
 atom.
 
-Atomene deles med nabocellene, så tellingen følger hvor i cellen de sitter
+<Callout title="Konvensjonell celle">
+
+Du regner i den konvensjonelle kuben. Den har 2 gitterpunkter i bcc og 4 i fcc,
+og kanten $a$ er naboavstanden bare i enkel kubisk.
+
+</Callout>
+
+Et atom på randen av cellen deles med nabocellene. I en celle med rette vinkler
+deles et hjørneatom av åtte celler, et kantatom av fire og et flateatom av to,
+så de teller $\tfrac18$, $\tfrac14$ og $\tfrac12$
 (<FormulaRef id="atomer-per-celle" />). Forskyver du cellen litt, slipper du
 brøkene.
 
@@ -208,7 +228,9 @@ $f = \dfrac{4 \cdot \tfrac43 \pi r^3}{a^3} = \dfrac{16\pi}{3}\left(\dfrac{\sqrt2
 </Example>
 
 I bcc berører kulene langs romdiagonalen (<FormulaRef id="naboavstand-bcc" />),
-og resten er identisk.
+og resten av regningen går likt. Jo flere naboer hvert atom har, desto tettere
+ligger kulene: sc, bcc og fcc har 6, 8 og 12 naboer og pakningsgraden $0{,}52$,
+$0{,}68$ og $0{,}74$.
 
 <Table
   columns={["Struktur", "Atomer per celle", "Koordinasjonstall", "Naboavstand", "Pakningsgrad", "Eksempler"]}
@@ -218,7 +240,7 @@ og resten er identisk.
     ["Flatesentrert (fcc)", "4", "12", "$0{,}707a$", "$0{,}740$", "Al, Ca, Pb"],
   ]}
   align={["left", "right", "right", "right", "right", "left"]}
-  caption="Nøkkeltall for de kubiske gitrene. Høyere koordinasjonstall gir tettere pakking."
+  caption="Nøkkeltall for de kubiske gitrene."
 />
 
 <Example label="Eksamensoppgave" title="Gitterpunkter i BaTiO$_3$">
@@ -251,16 +273,27 @@ A face centered (fcc) unit cell has side length $a = 4.20$ Å.
 
 ## De 5 gitrene i planet
 
-De fem typene er fem områder i ett parameterrom: lengdene $|\vec a_1|$ og
-$|\vec a_2|$ og vinkelen $\varphi$. Slå på «Sentrert» i hvert av dem.
+Et gitter i planet er gitt ved lengdene $|\vec a_1|$ og $|\vec a_2|$ og vinkelen
+$\varphi$ mellom dem. Like lengder, en rett vinkel eller $\varphi = 120^\circ$ gir
+mer symmetri, og de spesielle verdiene deler parameterrommet i fire systemer:
+skjevt, rektangulært, kvadratisk og heksagonalt.
 
 <Simulation
   src={"/sims/bravais2d.js"}
   host={"dom"}
   title={"2D-gitter"}
-  caption={"Ringene er sentreringspunkter, og de stiplede vektorene er de primitive i det sentrerte tilfellet."}
+  caption={"Et plant gitter gitt ved $|\\vec a_1|$, $|\\vec a_2|$ og $\\varphi$. Ringene er sentreringspunktene, og de stiplede vektorene er de primitive vektorene i det sentrerte gitteret."}
   height={340}
 />
+
+Et ekstra punkt midt i hver celle gir et nytt gitter i bare ett av de fire
+systemene. Et sentrert kvadrat er et kvadratisk gitter med side $a/\sqrt2$,
+rotert $45^\circ$, et sentrert skjevt gitter er fortsatt skjevt, og en sentrert
+heksagonal celle gir et rektangulært gitter med sidene $a/2$ og $a\sqrt3/2$. Et
+sentrert rektangel har derimot ingen rektangulær primitiv celle. Den primitive
+cellen er en rombe med sidene fra et hjørne til to sentre, men gitteret har
+fortsatt speillinjene til rektangelet. Det sentrerte rektangulære gitteret er
+altså nytt, og 4 systemer gir 5 gitre.
 
 <Table
   columns={["Gittertype", "Betingelser"]}
@@ -274,12 +307,10 @@ $|\vec a_2|$ og vinkelen $\varphi$. Slå på «Sentrert» i hvert av dem.
   caption="De fem 2D-Bravais-gitrene, ordnet etter økende symmetri."
 />
 
-<Callout type="tip" title="Sentrering gir sjelden noe nytt">
+<Callout title="Sentrering i planet">
 
-Et sentrert kvadrat er et kvadratisk gitter med side $a/\sqrt2$, rotert
-$45^\circ$. En sentrert heksagonal celle gir et rektangulært gitter. Bare det
-rektangulære systemet får noe nytt ut av sentrering, og derfor gir 4 systemer
-5 gitre.
+Sentrering gir et nytt gitter bare i det rektangulære systemet. Derfor gir 4
+systemer 5 gitre.
 
 </Callout>
 
@@ -289,13 +320,17 @@ Tre lengder og tre vinkler gir 7
 <Term name="Krystallsystem">krystallsystemer</Term>. Med
 <Term name="Sentrering">sentreringene</Term> P, C, I, F og R blir det 14 gitre.
 En sentrering teller bare når den verken senker symmetrien eller kan erstattes av
-en mindre celle i samme system.
+en mindre celle i samme system. Sentrerer du to motstående flater i en kube, er
+den tredje aksen ikke lenger lik de to andre. Symmetrien faller til tetragonal,
+så C-sentrert kubisk er ikke blant de 14. Flatesentrert tetragonal er det samme
+gitteret som romsentrert tetragonal, beskrevet med en celle som har
+grunnflateside $a/\sqrt2$ og halve volumet.
 
 <Simulation
   src={"/sims/bravais3d.js"}
   host={"dom"}
   title={"3D-gitter"}
-  caption={"Dra i cellen for å snu på den. Lengdene og vinklene låses der systemet krever det."}
+  caption={"Den konvensjonelle cellen i hvert krystallsystem, med kantene $a$, $b$, $c$ og vinklene $\\alpha$, $\\beta$, $\\gamma$ merket. I «Hvorfor ikke?» er den mindre cellen tegnet i fiolett."}
   height={430}
 />
 
@@ -331,7 +366,7 @@ og gjør stoffet krystallinsk.
   src={"/sims/symmetri.js"}
   host={"dom"}
   title={"Symmetri"}
-  caption={"Motivet er asymmetrisk begge veier, så speiling og $180^\\circ$-rotasjon gir ulike bilder."}
+  caption={"Den valgte operasjonen virker på en vimpel som er asymmetrisk begge veier. I rotasjonsmodus ligger regulære $n$-kanter kant mot kant rundt ett hjørne."}
   height={330}
 />
 
@@ -352,11 +387,13 @@ Translasjonssymmetrien begrenser hvilke rotasjoner som er mulige.
 
 La $\vec a$ være den <em>korteste</em> gittervektoren langs en gitterrekke, med
 punkter i $A = -\vec a$, $O = \vec 0$ og $B = +\vec a$. En $n$-tellig akse
-gjennom $O$ betyr at $\theta = 2\pi/n$ avbilder gitteret på seg selv. Roter $A$
-med $+\theta$ til $C$ og $B$ med $-\theta$ til $D$. Begge er gitterpunkter i
-samme høyde over rekken, så $\vec D - \vec C = 2a\cos\theta\,\hat a$ er en
-gittervektor parallell med $\vec a$. Enhver slik er $m\vec a$ med $m$ heltall,
-siden $\vec a$ er den korteste. Altså er $2\cos\theta = m$, og
+gjennom $O$ betyr at rotasjon med $\theta = 2\pi/n$ avbilder gitteret på seg
+selv, og da gjør rotasjon med $-\theta$ det også. Roter $A$ med $+\theta$ til $C$
+og $B$ med $-\theta$ til $D$. Med $\vec a$ langs $x$-aksen er
+$C = (-a\cos\theta, -a\sin\theta)$ og $D = (a\cos\theta, -a\sin\theta)$, to
+gitterpunkter i samme avstand fra rekken. Da er
+$\vec D - \vec C = 2a\cos\theta\,\hat a$ en gittervektor parallell med $\vec a$.
+Enhver slik er $m\vec a$ med $m$ heltall, siden $\vec a$ er den korteste. Altså er $2\cos\theta = m$, og
 $|2\cos\theta| \le 2$ gir $m \in \{-2, -1, 0, 1, 2\}$.
 
 </Statement>
@@ -370,32 +407,41 @@ $2\cos 72^\circ = 0{,}618$, en gittervektor kortere enn den korteste. Et molekyl
 kan godt ha en slik akse; det er kravet om periodisk gjentakelse som utelukker
 den.
 
+<Callout title="Tillatte rotasjonsakser">
+
+Et gitter tillater bare $n = 1, 2, 3, 4$ og $6$, fordi $2\cos(2\pi/n)$ må være
+et heltall. En femtellig akse er utelukket i en krystall, men ikke i et molekyl.
+
+</Callout>
+
 ## Sjekk deg selv
 
 <Quiz
-  question={"Honeycomb-nettet (grafén) er best beskrevet som …"}
+  question={"Grafén har to like atomer i basisen, forskjøvet $\\vec d = (\\vec a_1 + \\vec a_2)/3$. Flytt det ene atomet til $\\vec d = (\\vec a_1 + \\vec a_2)/2$, midt i den primitive cellen. Hva blir strukturen?"}
   options={[
-    "et heksagonalt Bravais-gitter",
-    "et heksagonalt Bravais-gitter med en basis på to atomer",
-    "et kvadratisk Bravais-gitter med en basis på tre atomer",
-    "et sentrert rektangulært Bravais-gitter"
+    "et heksagonalt gitter med en basis på to atomer",
+    "et rektangulært Bravais-gitter med ett atom i basisen",
+    "et heksagonalt Bravais-gitter med halvparten så stor celle",
+    "et sentrert rektangulært gitter med en basis på to atomer"
   ]}
   answer={1}
-  explanation={"Omgivelseslistene fra de to atomene er dreid $180^\\circ$, så punktmengden er ikke selv et gitter. Gitteret er heksagonalt, basisen har to atomer."}
+  explanation={"Nå er $2\\vec d = \\vec a_1 + \\vec a_2$ en gittervektor, så begge atomene er gitterpunkter. Punktmengden er det heksagonale gitteret med et punkt midt i hver celle, og det er et rektangulært gitter med sidene $a/2$ og $a\\sqrt3/2$. To atomer i basisen krever at $2\\vec d$ ikke er en gittervektor, som i grafén. Og et sentrert kvadrat blir et mindre kvadrat, men en sentrert heksagonal celle blir ikke en mindre heksagonal celle."}
 />
 
 <Quiz
-  question={"Hvor mange gitterpunkter hører til den konvensjonelle bcc-cellen?"}
-  options={["1", "2", "4", "8"]}
+  question={"Hvor mange gitterpunkter har den konvensjonelle cellen i basesentrert (C) ortorombisk, med ekstra punkter midt på topp- og bunnflaten?"}
+  options={["1", "2", "3", "4"]}
   answer={1}
-  explanation={"$8 \\times \\tfrac18 = 1$ fra hjørnene, pluss punktet i sentrum. Cellen er altså ikke primitiv."}
+  explanation={"De åtte hjørnene teller $\\tfrac18$ hver og gir 1. De to flatesentrene deles hvert med cellen på andre siden av flaten og teller $\\tfrac12$, til sammen 1. Summen er 2. Svaret 3 teller flatesentrene som hele punkter, og 4 er fcc, der alle seks flatene er sentrert."}
 />
 
-<SelfCheck question={"Et kvadratisk gitter får et ekstra punkt midt i hver celle. Hvilken av de fem 2D-gittertypene er resultatet?"}>
+<SelfCheck question={"Et rektangulært gitter med $|\\vec a_2| = \\sqrt3\\,|\\vec a_1|$ får et ekstra punkt midt i hver celle. Hvilken av de fem 2D-gittertypene er resultatet?"}>
 
-Fortsatt kvadratisk. De nye primitive vektorene går til de to nærmeste
-sentreringspunktene, er like lange og står vinkelrett på hverandre. Resultatet er
-et kvadratisk gitter med side $a/\sqrt2$, rotert $45^\circ$.
+Heksagonalt. Sentrumspunktet ligger
+$\sqrt{(|\vec a_1|/2)^2 + (\sqrt3\,|\vec a_1|/2)^2} = |\vec a_1|$ fra hjørnet,
+like langt som naboen langs $\vec a_1$, og vektoren dit står $60^\circ$ fra
+$\vec a_1$. To like lange primitive vektorer med $60^\circ$ (eller $120^\circ$)
+mellom seg gir det heksagonale gitteret.
 
 </SelfCheck>
 

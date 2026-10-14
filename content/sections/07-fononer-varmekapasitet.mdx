@@ -83,9 +83,13 @@ For $k_BT \gg \hbar\omega$ er $e^x \approx 1 + x$, og $\langle E \rangle \approx
 er den klassiske verdien. For $k_BT \ll \hbar\omega$ er
 $\langle E \rangle \approx \hbar\omega\,e^{-\hbar\omega/k_BT}$, som går
 eksponentielt mot null. Svingningen kan bare ta imot energi i porsjoner på
-$\hbar\omega$, og når $k_BT$ er mye mindre enn det, får den ingenting. Den
-er frosset ut. Det er hele grunnen til at $C_V$ faller: etter hvert som
-temperaturen synker, fryser stadig flere av svingningene ut.
+$\hbar\omega$, og når $k_BT$ er mye mindre enn $\hbar\omega$, får den
+nesten ingenting. Svingningen er frosset ut. Når temperaturen synker,
+fryser stadig flere av svingningene ut, og derfor faller $C_V$.
+
+<Callout title="Frosne svingninger">
+En svingning bærer $k_BT$ når $k_BT \gg \hbar\omega$ og nesten ingenting når $k_BT \ll \hbar\omega$. Jo lavere temperaturen er, jo flere svingninger er frosset ut, og $C_V$ faller.
+</Callout>
 
 ## Einstein-modellen
 
@@ -106,35 +110,57 @@ For $T \gg \theta_E$ går uttrykket mot $3Nk_B$, Dulong-Petits verdi. For
 $T \ll \theta_E$ går det mot $3Nk_B\,(\theta_E/T)^2\,e^{-\theta_E/T}$, som er
 null for alle praktiske formål. Einstein-modellen var den første som
 ga fallet mot null. Men fallet er for bratt. Målt går $C_V$ som $T^3$, ikke
-eksponentielt. Grunnen er at krystallen har akustiske svingninger med
-vilkårlig lav frekvens, og de er eksitert uansett hvor lav temperaturen
-er. Én felles frekvens beskriver de optiske grenene godt, for de er nesten
-flate, men ikke de akustiske. For å finne $U$ når svingningene har ulike frekvenser,
-summerer du $\hbar\omega\langle n \rangle$ over alle svingningene. Da må du
-vite hvor mange svingninger krystallen har ved hver frekvens.
+eksponentielt. Krystallen har akustiske svingninger med vilkårlig lav
+frekvens, så ved enhver temperatur finnes det svingninger med
+$\hbar\omega < k_BT$, og de bærer energi. Én felles frekvens beskriver de
+optiske grenene godt, for de er nesten flate, men ikke de akustiske.
+
+<Callout title="Einstein-modellen">
+Med én frekvens for alle $3N$ svingninger gir modellen $3Nk_B$ ved høy temperatur og et eksponentielt fall ved lav. Fallet er for bratt, for de akustiske svingningene med lav frekvens mangler.
+</Callout>
+
+For å finne $U$ når svingningene har ulike frekvenser, summerer du
+$\hbar\omega\langle n \rangle$ over alle svingningene. Da må du vite hvor
+mange svingninger krystallen har ved hver frekvens.
 
 ## Tillatte k-verdier og tilstandstettheten
 
 Regningen så langt var for en uendelig kjede med kontinuerlig $k$. En
-virkelig krystall har $N$ atomer, og endene må behandles. For en stor
-krystall gir faste og periodiske ender praktisk talt like mange svingninger i
-hvert frekvensintervall. Periodiske grensebetingelser er enklest å regne med:
-$u_{n+N} = u_n$, som om kjeden var lukket til en ring.
-Løpende bølger er da fortsatt løsninger, men $e^{ikNa} = 1$ krever
+virkelig krystall har $N$ atomer, og endene må behandles. Periodiske
+grensebetingelser er enklest å regne med: $u_{n+N} = u_n$, som om kjeden
+var lukket til en ring. Løpende bølger er da fortsatt løsninger, men
+$e^{ikNa} = 1$ krever
 
-<Formula tex={"\\begin{aligned} k &= \\frac{2\\pi}{L}\\,m \\\\ m &= 0, \\pm1, \\pm2, \\dots \\end{aligned}"} caption={"De tillatte bølgevektorene for en kjede av $N$ atomer med lengde $L = Na$ og periodiske grensebetingelser. Avstanden mellom dem er $\\Delta k = 2\\pi/L$, og første Brillouin-sone rommer nøyaktig $N$ av dem, én per atom."} />
+<Formula tex={"\\begin{aligned} k &= \\frac{2\\pi}{L}\\,m \\\\ m &= 0, \\pm1, \\pm2, \\dots \\end{aligned}"} caption={"De tillatte bølgevektorene for en kjede av $N$ atomer med lengde $L = Na$ og periodiske grensebetingelser."} />
 
-Bølgevektoren er diskret. Med $N = 6$ er de tillatte verdiene
-$0, \pm\pi/3a, \pm 2\pi/3a$ og $\pi/a$, seks i alt, for $-\pi/a$ og $\pi/a$
-er samme svingning. Hver tillatt $k$ er én harmonisk oscillator med energi
-$(n + \tfrac12)\hbar\omega(k)$, og en kjede av $N$ atomer har $N$ av dem.
+Bølgevektoren er diskret, med avstanden $\Delta k = 2\pi/L$ mellom de
+tillatte verdiene. Med $N = 6$ er de tillatte verdiene i første
+Brillouin-sone $0, \pm\pi/3a, \pm 2\pi/3a$ og $\pi/a$, seks i alt, for
+$-\pi/a$ og $\pi/a$ er samme svingning. Sonen rommer altså nøyaktig $N$
+verdier, én per atom. Hver tillatt $k$ er én harmonisk oscillator med
+energi $(n + \tfrac12)\hbar\omega(k)$, og en kjede av $N$ atomer har $N$ av
+dem.
+
+Faste ender gir i stedet stående bølger med $k = \pi m/L$, dobbelt så tett,
+men bare med $k > 0$. Begge valgene gir én svingning per $\pi/L$ i $|k|$, så
+for en stor krystall gir de like mange svingninger i hvert
+frekvensintervall, og valget av ender endrer ikke varmekapasiteten.
 
 Tilstandstettheten $D(\omega)$ er antall svingninger per frekvensenhet.
 Svingningene ligger jevnt i $k$, én per $\Delta k = 2\pi/L$, og både $k$ og
 $-k$ gir samme $\omega$. Antallet i intervallet $\mathrm d\omega$ er derfor
 $2 \cdot (L/2\pi)\,\mathrm dk$:
 
-<Formula tex={"D(\\omega) = \\frac{L}{\\pi}\\,\\frac{1}{\\mathrm d\\omega/\\mathrm dk} = \\frac{L}{\\pi v_g}"} caption={"Tilstandstettheten i én dimensjon. Der dispersjonskurven er flat, hoper svingningene seg opp i frekvens, og $D$ divergerer der gruppehastigheten er null. I et gap er $D = 0$."} />
+<Formula tex={"D(\\omega) = \\frac{L}{\\pi}\\,\\frac{1}{\\mathrm d\\omega/\\mathrm dk} = \\frac{L}{\\pi v_g}"} caption={"Tilstandstettheten i én dimensjon."} />
+
+Der dispersjonskurven er flat, dekker et lite frekvensintervall et stort
+stykke av $k$-aksen, og svingningene hoper seg opp i frekvens. Der
+gruppehastigheten er null, divergerer $D$. I et gap har ingen svingning
+frekvensen, og $D = 0$.
+
+<Callout title="Tilstandstettheten">
+Periodiske grensebetingelser gir én svingning per $2\pi/L$ i $k$, $N$ i første Brillouin-sone. $D(\omega)$ er stor der dispersjonskurven er flat og divergerer der $v_g = 0$.
+</Callout>
 
 <Example title="tilstandstettheten til kjeden">
 
@@ -193,11 +219,14 @@ $$
 \int_0^{\omega_D} D(\omega)\,\mathrm d\omega = \frac{V\omega_D^3}{6\pi^2 v^3} = N
 $$
 
-<Formula tex={"\\begin{aligned} \\omega_D &= v\\left(\\frac{6\\pi^2 N}{V}\\right)^{1/3} \\\\ \\theta_D &= \\frac{\\hbar\\omega_D}{k_B} \\end{aligned}"} caption={"Debye-frekvensen og Debye-temperaturen. $\\theta_D$ er temperaturen der $k_BT$ er lik den høyeste fononenergien i modellen, og den er stoffets eneste parameter."} />
+<Formula tex={"\\begin{aligned} \\omega_D &= v\\left(\\frac{6\\pi^2 N}{V}\\right)^{1/3} \\\\ \\theta_D &= \\frac{\\hbar\\omega_D}{k_B} \\end{aligned}"} caption={"Debye-frekvensen og Debye-temperaturen."} />
 
-I $k$-rommet er $k_D = (6\pi^2N/V)^{1/3}$ radien i en kule med samme volum
-som Brillouin-sonen. Debye-temperaturen er høy for stive, lette stoffer og
-lav for myke, tunge:
+Debye-temperaturen $\theta_D$ er temperaturen der $k_BT$ er lik den høyeste
+fononenergien $\hbar\omega_D$ i modellen, og den er stoffets eneste
+parameter. I $k$-rommet er $k_D = (6\pi^2N/V)^{1/3}$ radien i en kule med
+samme volum som Brillouin-sonen. Siden $\omega_D$ er proporsjonal med
+lydhastigheten, og $v = a\sqrt{C/M}$ for kjeden, er $\theta_D$ høy for
+stive, lette stoffer og lav for myke, tunge:
 
 <Table
   columns={["Stoff", "$\\theta_D$"]}
@@ -210,8 +239,12 @@ lav for myke, tunge:
     ["diamant", "2230 K"],
   ]}
   rowHeader={false}
-  caption="Debye-temperaturer. Romtemperatur er over $\theta_D$ for bly og natrium, like under for kobber og langt under for diamant."
+  caption="Debye-temperaturer."
 />
+
+Romtemperatur er over $\theta_D$ for bly og natrium, like under for kobber
+og langt under for diamant. Derfor er diamant så langt fra $3R$ ved
+romtemperatur.
 
 Den indre energien er summen over de tre polarisasjonene, med samme $v$
 for alle tre:
@@ -252,8 +285,8 @@ where $x = \frac{\hbar\omega}{k_BT}$ and $\Theta_D$ is the Debye temperature.
 />
 </Example>
 
-For $T \ll \theta_D$ går $x_D \to \infty$, og integralet er da tallet
-$\pi^4/15$:
+For $T \ll \theta_D$ går $x_D \to \infty$, og integralet i $U$ blir tallet
+$\int_0^\infty x^3\,\mathrm dx/(e^x - 1) = \pi^4/15$:
 
 $$
 U = \frac{3\pi^4}{5}\,Nk_B\,\frac{T^4}{\theta_D^3}
@@ -261,7 +294,7 @@ $$
 
 Deriver med hensyn på $T$:
 
-<Formula tex={"\\begin{aligned} C_V &= \\frac{12\\pi^4}{5}\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\\\ &\\approx 234\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\end{aligned}"} caption={"Debyes $T^3$-lov, gyldig for $T$ under omtrent $\\theta_D/50$. Der stemmer den med målingene på isolatorer."} />
+<Formula tex={"\\begin{aligned} C_V &= \\frac{12\\pi^4}{5}\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\\\ &\\approx 234\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\end{aligned}"} caption={"Debyes $T^3$-lov, for $T \\ll \\theta_D$."} />
 
 Loven har et enkelt bilde. Ved $T \ll \theta_D$ er bare svingningene med
 $\hbar\omega \lesssim k_BT$ eksitert. I $k$-rommet fyller de en kule med
@@ -271,6 +304,18 @@ omtrent $k_BT$, så $U \sim 3Nk_BT\,(T/\theta_D)^3$, og den deriverte går som
 $T^3$. Einstein-modellen har ingen slike svingninger, og derfor faller den
 for fort.
 
+Grensen $x_D \to \infty$ krever at $T$ er langt under $\theta_D$. Ved
+$T = \theta_D/10$ ligger $T^3$-loven 3 % over hele Debye-uttrykket, og
+under $\theta_D/12$ er avviket mindre enn 1 %. Målinger på virkelige
+isolatorer følger $T^3$ først under omtrent $\theta_D/50$. Loven krever at
+alle eksiterte svingninger ligger på den rette delen av
+dispersjonsrelasjonen, og de virkelige kurvene bøyer av fra $\omega = vk$
+lenge før sonegrensen, slik sinuskurven for kjeden gjør.
+
+<Callout title="$T^3$-loven">
+Ved $T \ll \theta_D$ er bare andelen $(T/\theta_D)^3$ av svingningene eksitert, hver med omtrent $k_BT$, så $C_V \propto T^3$. I modellen holder loven under omtrent $\theta_D/12$, i målinger under omtrent $\theta_D/50$.
+</Callout>
+
 <Example label="Eksamensoppgave" title="Varmekapasiteten til diamant">
 <ExamRef id="2021-jun" task="26" />
 
@@ -278,7 +323,7 @@ for fort.
   question={"Diamond has a Debye temperature of about 1860 K. Estimate the heat capacity of diamond at 140 K using the Debye formalism."}
   options={["1.2 J mol$^{-1}$ K$^{-1}$", "0.8 J mol$^{-1}$ K$^{-1}$", "24.9 J mol$^{-1}$ K$^{-1}$", "1.7 J mol$^{-1}$ K$^{-1}$", "6.1 J mol$^{-1}$ K$^{-1}$"]}
   answer={1}
-  explanation={"$T = 140$ K er langt under $\\theta_D$, så $T^3$-loven gjelder. Per mol er $Nk_B = R = 8{,}31$ J/(mol·K) og $(140/1860)^3 = 4{,}26 \\cdot 10^{-4}$, så $C_V = 234 \\cdot 4{,}26 \\cdot 10^{-4} \\cdot R = 0{,}83$ J/(mol·K). Alternativet 24,9 J/(mol·K) er Dulong-Petits verdi, som diamant først når langt over romtemperatur."}
+  explanation={"$T/\\theta_D = 140/1860 = 1/13$, under grensen $\\theta_D/12$, så i Debye-modellen er $T^3$-loven innenfor 1 % av hele uttrykket. Per mol er $Nk_B = R = 8{,}31$ J/(mol·K) og $(140/1860)^3 = 4{,}26 \\cdot 10^{-4}$, så $C_V = 234 \\cdot 4{,}26 \\cdot 10^{-4} \\cdot R = 0{,}83$ J/(mol·K). Alternativet 24,9 J/(mol·K) er Dulong-Petits verdi, som diamant først når langt over romtemperatur."}
 />
 </Example>
 
@@ -286,7 +331,7 @@ for fort.
   src={"/sims/varmekapasitet.js"}
   host={"dom"}
   title={"Varmekapasiteten i Einstein- og Debye-modellen"}
-  caption={"Øverst tilstandstettheten $D(\\omega)$ i den valgte modellen, fylt etter hvor mye av $k_BT$ hver svingning bærer ved temperaturen $T$: svingninger til høyre for linjen $\\hbar\\omega = k_BT$ er frosset ut. Nederst $C_V$ mot $T$ for begge modellene med samme $\\theta$. Skyv $T$ ned: Debye-parabelen beholder eksiterte svingninger nær $\\omega = 0$ og faller som $T^3$, Einsteins ene frekvens fryser ut på én gang."}
+  caption={"Øverst tilstandstettheten $D(\\omega)$ i den valgte modellen, Debyes parabel eller Einsteins ene frekvens som en stolpe ved $\\omega_E = \\omega_D$, fylt etter hvor stor del av $k_BT$ hver svingning bærer ved temperaturen $T$, med linjen $\\hbar\\omega = k_BT$. Nederst $C_V$ mot $T$ for begge modellene med samme $\\theta$, og et merke ved den valgte temperaturen."}
   height={440}
 />
 
@@ -304,17 +349,17 @@ for fort.
 ## Sjekk deg selv
 
 <Quiz
-  question={"Hvorfor faller varmekapasiteten under $3R$ ved lav temperatur?"}
-  options={["Svingninger med $\\hbar\\omega \\gg k_BT$ kan bare ta imot energi i porsjoner på $\\hbar\\omega$, og fryser ut", "Atomene slutter å svinge når $T \\to 0$", "Kraftkonstanten $C$ avtar med temperaturen", "Ekvipartisjonsprinsippet gjelder bare for gasser"]}
+  question={"Ved romtemperatur er $k_BT = 26$ meV. Hva er middelenergien $\\langle E \\rangle$, uten nullpunktsleddet, i en svingning med $\\hbar\\omega = 40$ meV?"}
+  options={["Omtrent 11 meV", "Omtrent 26 meV", "Omtrent 20 meV", "Nesten 0 meV"]}
   answer={0}
-  explanation={"Middelenergien i en svingning er $\\hbar\\omega/(e^{\\hbar\\omega/k_BT} - 1)$. Når $k_BT \\ll \\hbar\\omega$ er den eksponentielt liten, så svingningen bidrar ikke til $U$ og ikke til $C_V$. Atomene svinger fortsatt, med nullpunktsenergien $\\tfrac12\\hbar\\omega$."}
+  explanation={"Med $x = \\hbar\\omega/k_BT = 1{,}54$ er $\\langle E \\rangle = 40\\ \\text{meV}/(e^{1{,}54} - 1) = 40/3{,}66$ meV $= 11$ meV, rundt 40 % av den klassiske verdien $k_BT = 26$ meV. Svingningen er bare delvis frosset ut, for fallet er eksponentielt først når $k_BT \\ll \\hbar\\omega$, og her er $\\hbar\\omega$ bare 1,5 ganger $k_BT$. 20 meV er nullpunktsenergien $\\tfrac12\\hbar\\omega$, som ikke avhenger av $T$."}
 />
 
 <Quiz
-  question={"Einstein-modellen gir $C_V \\to 0$ eksponentielt, målingene gir $T^3$. Hva mangler i modellen?"}
-  options={["De akustiske svingningene med lav frekvens, som er eksitert ved enhver temperatur", "Nullpunktsenergien", "De optiske grenene", "Bidraget fra elektronene"]}
+  question={"Diamant av isotopen $^{13}$C i stedet for $^{12}$C har de samme bindingene og den samme gitterkonstanten. Hvordan endres varmekapasiteten ved 20 K?"}
+  options={["Omtrent 13 % høyere", "Omtrent 13 % lavere", "Omtrent 8 % høyere", "Uendret"]}
   answer={0}
-  explanation={"Einstein gir alle svingningene samme frekvens, så alle fryser ut samtidig. Krystallen har akustiske svingninger med $\\omega \\to 0$, og ved temperaturen $T$ er andelen $(T/\\theta_D)^3$ av dem eksitert. Det gir $T^3$-loven."}
+  explanation={"Isotopen endrer bare massen, så kraftkonstanten $C$ og $N/V$ er de samme. Lydhastigheten $v = a\\sqrt{C/M}$ synker med faktoren $\\sqrt{12/13}$, og $\\theta_D \\propto \\omega_D \\propto v$ synker like mye. Ved 20 K er $T$ under $\\theta_D/50$, så $C_V \\propto (T/\\theta_D)^3$ øker med $(13/12)^{3/2} = 1{,}13$. Med lavere frekvenser er flere svingninger eksitert ved samme $T$. 13 % lavere har retningen feil, 8 % glemmer kvadratroten og potensen 3, og uendret glemmer at frekvensene avhenger av massen."}
 />
 
 <SelfCheck question={"En lagdelt krystall har atomer som bare kan svinge i planet, så gitteret er todimensjonalt. Vis at Debye-modellen gir $C_V \\propto T^2$ ved lav temperatur."}>
@@ -349,6 +394,6 @@ $C_V \propto T^d$.
 - Einstein-modellen gir alle $3N$ svingninger frekvensen $\omega_E$. Den når $3Nk_B$ ved høy $T$ og faller eksponentielt ved lav, for fort, fordi de akustiske svingningene mangler.
 - Periodiske grensebetingelser gir $k = 2\pi m/L$, $N$ verdier i første Brillouin-sone. Tilstandstettheten er $D(\omega) = (L/\pi)/(\mathrm d\omega/\mathrm dk)$ i én dimensjon og $N(k) = Vk^3/6\pi^2$ per polarisasjon i tre.
 - Debye-modellen setter $\omega = vk$ opp til $\omega_D = v(6\pi^2N/V)^{1/3}$, så $D(\omega) = V\omega^2/2\pi^2v^3$. Debye-temperaturen er $\theta_D = \hbar\omega_D/k_B$.
-- For $T \ll \theta_D$ er $C_V = (12\pi^4/5)\,Nk_B\,(T/\theta_D)^3$: bare andelen $(T/\theta_D)^3$ av svingningene er eksitert, hver med energi omtrent $k_BT$.
+- For $T \ll \theta_D$ er $C_V = (12\pi^4/5)\,Nk_B\,(T/\theta_D)^3$: bare andelen $(T/\theta_D)^3$ av svingningene er eksitert, hver med energi omtrent $k_BT$. Målinger følger loven under omtrent $\theta_D/50$.
 
 </KeyTakeaways>

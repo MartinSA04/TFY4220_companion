@@ -46,7 +46,7 @@ Lengden av <Term name="Spredningsvektor">spredningsvektoren</Term> er $|\vec Q| 
   host="dom"
   height={190}
   title="Fra 2θ til d, Q og a"
-  caption="Én rad per topp. Med målt $2\theta$ gir verktøyet $d$ og $Q$, og med hkl også $a$. Med bare hkl gir det forventet $2\theta$ fra gitterkonstanten øverst, tegnet stiplet. Verktøyet vet ikke hvilke reflekser som er utslukket. «Kopier tabellen» gir en tabell du kan lime inn i et regneark."
+  caption="Én rad per topp. Fra målt $2\theta$ regner verktøyet ut $d$ og $Q$, og med hkl også $a$. Fra hkl alene gir det forventet $2\theta$ fra gitterkonstanten øverst, tegnet stiplet."
 />
 
 <Example label="Eksamensoppgave" title="Planavstanden fra spredningsvinkelen">
@@ -94,17 +94,23 @@ $$
 
 Den første klammen er fcc-gitteret, <FormulaRef id="strukturfaktor-fcc" />, og den andre er basisen. I den andre går $(-i)^{h+k+l}$ gjennom $1, -i, -1, i$ når $h+k+l$ er $0, 1, 2, 3$ modulo 4. En refleks er <Term name="Systematisk utslukking">utslukket</Term> når en av klammene er null.
 
-Tabellen over de fem tillatte refleksene med minst $|\vec Q|$ bygger du ved å gå gjennom $h^2 + k^2 + l^2 = 1, 2, 3, \dots$ i stigende rekkefølge og beholde det regelen tillater, for $|\vec Q|$ øker med $h^2 + k^2 + l^2$. Tallet 7 kan ikke skrives som en sum av tre kvadrater. Når du har indeksene, gir verktøyet $2\theta$, $d$ og $|\vec Q|$.
+Tabellen over de fem tillatte refleksene med minst $|\vec Q|$ bygger du ved å gå gjennom $h^2 + k^2 + l^2 = 1, 2, 3, \dots$ i stigende rekkefølge og beholde dem som ikke er utslukket, for $|\vec Q|$ øker med $h^2 + k^2 + l^2$. Tallet 7 kan ikke skrives som en sum av tre kvadrater, så den verdien hopper du over. Når du har indeksene, gir verktøyet $2\theta$, $d$ og $|\vec Q|$. Utslukkingene må du finne selv, for verktøyet regner ut en vinkel for alle hkl.
 
 ## På laben
 
 ### Referanseprøven av silisium
 
-Tabellen fra før laben gir indeksene, og verktøyet gir $a$ fra hver topp og snittet når du skriver inn $2\theta$ og hkl. En feil $\Delta\theta$ i vinkelen gir en feil i $d$. Deriver $\ln d = \ln\lambda - \ln(2\sin\theta)$ med hensyn på $\theta$, og bruk at $a = d\sqrt{h^2+k^2+l^2}$, der roten er et fast tall for hver topp:
+Tabellen fra før laben gir indeksene, og verktøyet gir $a$ fra hver topp og snittet når du skriver inn $2\theta$ og hkl. En feil $\Delta\theta$ i vinkelen gir en feil i $d$. Her er $\Delta\theta$ i radianer og halvparten av feilen i $2\theta$. Deriver $\ln d = \ln\lambda - \ln(2\sin\theta)$ med hensyn på $\theta$, og bruk at $a = d\sqrt{h^2+k^2+l^2}$, der roten er et fast tall for hver topp:
 
-<Formula tex="\dfrac{\Delta d}{d} = \dfrac{\Delta a}{a} = -\dfrac{\Delta\theta}{\tan\theta}" caption="Feilen i planavstand og gitterkonstant fra en feil $\Delta\theta$ i vinkelen. $\Delta\theta$ er i radianer og halvparten av feilen i $2\theta$." />
+<Formula tex="\dfrac{\Delta d}{d} = \dfrac{\Delta a}{a} = -\dfrac{\Delta\theta}{\tan\theta}" caption="Feilen i planavstand og gitterkonstant fra en feil $\Delta\theta$ i vinkelen." />
+
+Minustegnet sier at en vinkel som er målt for stor, gir for liten $a$. Den samme $\Delta\theta$ gir mindre feil i $a$ jo større $\theta$ er, ettersom $\tan\theta$ vokser.
 
 En tilfeldig feil i avlesningen gir spredning i $a$ uten mønster. En systematisk feil, som et nullpunkt på vinkelskalaen som er litt forskjøvet, flytter alle toppene like mye, og da følger avviket i $a$ formelen over. Plott $a$ mot $2\theta$ for å se hvilken du har.
+
+<Callout title="Tilfeldig eller systematisk feil">
+En tilfeldig feil gir spredning i $a$ uten mønster. Et forskjøvet nullpunkt gir et avvik $\Delta a/a = -\Delta\theta/\tan\theta$, som avtar mot store vinkler.
+</Callout>
 
 <Hints>
 <Hint label="Hint: hvorfor silisium er en god referanse">
@@ -116,9 +122,9 @@ Et avvik kan bare skyldes oppsettet hvis du stoler på referansen. Tenk på hvor
 
 ### Oppsettet
 
-Røntgenrøret akselererer elektroner mot en anode av molybden. Oppå et kontinuerlig spekter av <Term name="Bremsstråling">bremsstråling</Term> ligger skarpe linjer av <Term name="Karakteristisk røntgenstråling">karakteristisk røntgenstråling</Term>. Laben bruker $K_{\alpha 1}$-linjen, $\lambda = 0{,}7093$ Å, men molybden sender også ut $K_{\alpha 2}$ ved $0{,}7136$ Å og $K_\beta$ ved $0{,}6323$ Å. Hvor mye av dem og av bremsstrålingen som når prøven, avhenger av filteret eller monokromatoren.
+Røntgenrøret akselererer elektroner mot en anode av molybden. Oppå et kontinuerlig spekter av <Term name="Bremsstråling">bremsstråling</Term> ligger skarpe linjer av <Term name="Karakteristisk røntgenstråling">karakteristisk røntgenstråling</Term>. Laben bruker $K_{\alpha 1}$-linjen, $\lambda = 0{,}7093$ Å, men molybden sender også ut $K_{\alpha 2}$ ved $0{,}7136$ Å og $K_\beta$ ved $0{,}6323$ Å. Hvor mye av dem og av bremsstrålingen som når prøven, avhenger av filteret eller monokromatoren. Fotonenergien regner du ut fra bølgelengden, og med $\lambda$ i ångström og $hc = 12{,}398$ keV Å kommer den rett ut i keV:
 
-<Formula tex="E = \dfrac{hc}{\lambda}" caption="Fotonenergien. Med $\lambda$ i ångström gir $hc = 12{,}398$ keV Å energien rett i keV." />
+<Formula tex="E = \dfrac{hc}{\lambda}" caption="Fotonenergien." />
 
 Tegn $\theta$ og $2\theta$ inn i skissen, slik at sammenhengen med Braggs lov synes. Notatene skal være nok til at en annen kan ta opp det samme diffraktogrammet: kilden, røret, hvordan detektoren beveger seg og prøven.
 
@@ -137,9 +143,11 @@ Den beste kornstørrelsen (her 1 til 10 µm), den beste diameteren på kapillare
 - En topp får riktig intensitet først når svært mange krystallitter står i Bragg-vinkel for den.
 - Små krystallitter gir brede topper, etter Scherrer-formelen.
 - Intensiteten avtar eksponentielt med veien gjennom prøven, så en tynn prøve sprer lite og en tykk slipper lite ut.
-- Kapillaret står også i strålen, og det det sprer, havner i diffraktogrammet.
+- Kapillaret står også i strålen, og strålingen kapillaret sprer, havner i diffraktogrammet.
 
-<Formula tex="t \approx \dfrac{0{,}9\,\lambda}{\beta\cos\theta}" caption="Scherrer-formelen: krystallittstørrelsen $t$ fra bredden $\beta$ av toppen, full bredde ved halv høyde i radianer på $2\theta$-skalaen. Trekk fra bredden instrumentet gir, først." />
+Scherrer-formelen gir krystallittstørrelsen $t$ fra bredden $\beta$ av toppen. Bredden er full bredde ved halv høyde, i radianer på $2\theta$-skalaen, og du trekker fra bredden instrumentet gir, før du setter inn:
+
+<Formula tex="t \approx \dfrac{0{,}9\,\lambda}{\beta\cos\theta}" caption="Scherrer-formelen for krystallittstørrelsen $t$." />
 
 <Derivation title="Hvorfor små krystallitter gir brede topper">
 
@@ -151,7 +159,7 @@ En krystallitt med tykkelse $t$ er et gitter avskåret etter lengden $t$, så hv
 
 Skriv $2\theta$ og intensiteten $I$ for hver topp inn i verktøyet, så gir det $d$ og de tre sterkeste toppene. Den relative intensiteten er $I/I_\text{maks}$.
 
-Oppslaget gjør du i [webmineral](http://webmineral.com/MySQL/xray.php). Skriv de tre sterkeste $d$-verdiene i feltene D1, D2 og D3, og velg MoKa1 (0,70930 Å) i listen «Selected X-Ray λ». Med standarden CuKa1 passer ikke vinklene i trefflisten med dine. Øk toleransen hvis ingenting passer, og bruk feltet Elements hvis du vet hva prøven inneholder.
+Oppslaget gjør du i [webmineral](http://webmineral.com/MySQL/xray.php). Skriv de tre sterkeste $d$-verdiene i feltene D1, D2 og D3, og velg MoKa1 (0,70930 Å) i listen «Selected X-Ray λ». Vinklene i trefflisten regnes ut fra $d$ med bølgelengden du velger, så med standarden CuKa1 passer de ikke med dine. Øk toleransen hvis ingenting passer, og bruk feltet Elements hvis du vet hva prøven inneholder.
 
 <Hints>
 <Hint label="Hint: hvorfor pulver og ikke én krystall">
@@ -169,7 +177,7 @@ Diskusjonsspørsmålene i laboppgaven, med verktøyet til hvert:
 - **Hva som gir bredden her.** Regn ut bredden Scherrer-formelen gir for krystallitter på 1 µm, og sammenlign med toppene dine.
 - **$Q$ i stedet for $2\theta$.** Sammenlign hva $|\vec Q| = 2\pi/d$ og $2\theta$ avhenger av.
 - **Ewald-kulen, én krystall mot pulver, og de skarpe ringene.** Bruk <Term name="Ewald-kule">Ewald-kulen</Term>, og se hva som skjer med ett punkt $\vec G$ når krystallitten dreies i alle retninger.
-- **Fourier-transformen, formfaktor og strukturfaktor.** Spredningsamplituden, <FormulaRef id="spredningsamplitude" />, er Fourier-transformen av elektrontettheten. Krystallen er gitteret foldet med innholdet i én celle (<Term name="Konvolusjon">konvolusjon</Term>), og transformen av en konvolusjon er produktet av transformene.
+- **Fourier-transformen, formfaktor og strukturfaktor.** Spredningsamplituden, <FormulaRef id="spredningsamplitude" />, er Fourier-transformen av elektrontettheten. Krystallen er gitteret <Term name="Konvolusjon">konvolvert</Term> med innholdet i én celle, og transformen av en konvolusjon er produktet av transformene.
 - **Formfaktoren for lette og tunge atomer.** <Term name="Atomformfaktor">Atomformfaktoren</Term>, <FormulaRef id="formfaktor" />, er transformen av elektrontettheten i ett atom. Sammenlign bredden på elektronskyen med $1/|\vec Q|$, og sett inn $\vec Q = 0$.
-- **Strukturfaktoren for silisium.** Sett de åtte posisjonene inn i <FormulaRef id="strukturfaktor" /> og faktoriser summen i en fcc-del og en basisdel. Med $\vec G\cdot\vec r_j = 2\pi(hx_j + ky_j + lz_j)$ og fortegnet $e^{-i\vec G\cdot\vec r_j}$ blir basisfaktoren $f_\text{Si} + f_\text{Si}\,(-i)^{h+k+l}$, slik laboppgaven skriver den.
+- **Strukturfaktoren for silisium.** Sett de åtte atomposisjonene i kuben, de fire fcc-punktene og de samme forskjøvet med $(\tfrac14,\tfrac14,\tfrac14)$, inn i <FormulaRef id="strukturfaktor" /> og faktoriser summen i en fcc-del og en basisdel. Med $\vec G\cdot\vec r_j = 2\pi(hx_j + ky_j + lz_j)$ og fortegnet $e^{-i\vec G\cdot\vec r_j}$ blir basisfaktoren $f_\text{Si} + f_\text{Si}\,(-i)^{h+k+l}$, slik laboppgaven skriver den.
 - **$|\vec G|^2$ og $d_{hkl}$ i en kubisk celle.** I en kubisk celle er de resiproke vektorene like lange og står normalt på hverandre. Laboppgaven skriver $a^* = 1/a$ uten $2\pi$. Sjekk svaret mot $d_{hkl} = a/\sqrt{h^2 + k^2 + l^2}$.

@@ -2,7 +2,7 @@
 order: 93
 num: "L3"
 title: "Elektronmikroskopi (TEM)"
-summary: "Hva TEM-laben måler og verktøyene til hver oppgave i laboppgaven: hvorfor diffraksjonsbildet er et snitt gjennom det resiproke gitteret, bilde og diffraksjonsbilde i samme instrument, strukturene og utslukkingene i silisium og GaAs, indeksering med kameralikningen og soneaksen."
+summary: "Hva TEM-laben måler og verktøyene til hver oppgave i laboppgaven: hvorfor diffraksjonsbildet er et snitt gjennom det resiproke gitteret, bilde og diffraksjonsbilde i samme instrument, strukturene og utslukkingene i silisium og GaAs, indeksering med kameraligningen og soneaksen."
 importance: useful
 tag: "Lab"
 part: "Laboratorieøvinger"
@@ -15,11 +15,17 @@ Siden følger oppgavene i laboppgaven og gir verktøyene til hver av dem, men ik
 
 ## Slik virker målingen
 
-Et TEM akselererer elektroner gjennom en spenning $V$ på 60 til 500 kV. Da er farten så høy at impulsen må regnes relativistisk:
+Et TEM akselererer elektroner gjennom en spenning $V$ på 60 til 500 kV. Den kinetiske energien $eV$ er da ikke liten mot hvileenergien $mc^2 = 511$ keV, så impulsen må regnes relativistisk:
 
-<Formula tex="\lambda = \dfrac{h}{\sqrt{2meV\left(1 + \dfrac{eV}{2mc^2}\right)}}" caption="Bølgelengden til elektroner akselerert gjennom $V$. Uten parentesen er det $\lambda = h/p$ med den klassiske impulsen $p = \sqrt{2meV}$. Ved 200 kV er $\lambda = 2{,}51$ pm." />
+<Formula tex="\lambda = \dfrac{h}{\sqrt{2meV\left(1 + \dfrac{eV}{2mc^2}\right)}}" caption="Bølgelengden til elektroner akselerert gjennom $V$. Uten parentesen er det $\lambda = h/p$ med den klassiske impulsen $p = \sqrt{2meV}$." />
 
-Bølgelengden ved 200 kV, 2,51 pm, er omtrent hundre ganger kortere enn planavstandene i en krystall, så Bragg-vinklene blir under en grad. <Term name="Ewald-kule">Ewald-kulen</Term> har radius $2\pi/\lambda$, mye større enn avstanden mellom punktene i det resiproke gitteret, og er nesten flat over et helt plan av gitterpunkter. Prøven er tynn, rundt 100 nm, og Fourier-transformen av en tynn plate er lang i retningen normalt på platen, så punktene i det resiproke gitteret blir lange i den retningen (<Term name="Konvolusjon">konvolusjon</Term>). Kulen treffer derfor mange punkter samtidig, og diffraksjonsbildet er et snitt gjennom det resiproke gitteret normalt på strålen. Laboppgaven regner med <Term name="Kinematisk diffraksjonsteori">kinematisk diffraksjon</Term>, der hvert elektron spres høyst én gang, selv om elektronene ofte spres flere ganger i en ekte prøve.
+Ved 200 kV er $eV/2mc^2 = 0{,}20$, og formelen gir $\lambda = 2{,}51$ pm. Den klassiske impulsen alene ville gitt en bølgelengde som er 9 % for lang.
+
+Bølgelengden 2,51 pm er omtrent hundre ganger kortere enn planavstandene i en krystall, så Bragg-vinklene blir under en grad. <Term name="Ewald-kule">Ewald-kulen</Term> har radius $2\pi/\lambda$, mye større enn avstanden mellom punktene i det resiproke gitteret, og er nesten flat over et helt plan av gitterpunkter. Prøven er tynn, rundt 100 nm. Krystallen er da et gitter avskåret til en tynn plate, og Fourier-transformen av en tynn plate er lang i retningen normalt på platen. Det resiproke gitteret blir <Term name="Konvolusjon">konvolvert</Term> med den transformen, så hvert punkt blir strukket ut normalt på platen. Kulen treffer derfor mange punkter samtidig, og diffraksjonsbildet er et snitt gjennom det resiproke gitteret normalt på strålen. Laboppgaven regner med <Term name="Kinematisk diffraksjonsteori">kinematisk diffraksjon</Term>, der hvert elektron spres høyst én gang, selv om elektronene ofte spres flere ganger i en ekte prøve.
+
+<Callout title="Diffraksjonsbildet">
+Diffraksjonsbildet i et TEM er et snitt gjennom det resiproke gitteret normalt på strålen.
+</Callout>
 
 Objektivlinsen samler elektronene etter prøven. Stråler fra samme punkt i prøven samles i samme punkt i bildeplanet, og stråler i samme retning samles i samme punkt i bakre fokalplan, der diffraksjonsbildet dannes. Linsene under velger hvilket av de to planene som forstørres opp på detektoren, så det samme området kan vises som bilde og som diffraksjonsbilde. En apertur i ett av planene bestemmer hva du ser:
 
@@ -79,7 +85,7 @@ Regn ut den andre klammen for $h+k+l = 0, 1, 2, 3$ modulo 4, først med like for
 
 ### Refleksene langs [001] og [112]
 
-Diffraksjonsbildet er snittet gjennom det resiproke gitteret normalt på strålen, så refleksen $hkl$ er med når $\vec G_{hkl}$ står normalt på soneaksen $[UVW]$. Med $\vec G_{hkl} = h\vec b_1 + k\vec b_2 + l\vec b_3$ og $\vec r_{UVW} = U\vec a_1 + V\vec a_2 + W\vec a_3$ er $\vec G_{hkl}\cdot\vec r_{UVW} = 2\pi(hU + kV + lW)$, ettersom $\vec a_i\cdot\vec b_j = 2\pi\delta_{ij}$. Refleksen ligger derfor i bildet når den oppfyller Weiss' sonelov, $hU + kV + lW = 0$. List opp små $hkl$ som oppfyller den, og stryk dem som utslukkingsreglene forbyr. Planavstandene får du fra $d_{hkl} = a/\sqrt{h^2 + k^2 + l^2}$ med gitterkonstantene over.
+Diffraksjonsbildet er snittet gjennom det resiproke gitteret normalt på strålen, så refleksen $hkl$ er med når $\vec G_{hkl}$ står normalt på soneaksen $[UVW]$. Med $\vec G_{hkl} = h\vec b_1 + k\vec b_2 + l\vec b_3$ og $\vec r_{UVW} = U\vec a_1 + V\vec a_2 + W\vec a_3$ er $\vec G_{hkl}\cdot\vec r_{UVW} = 2\pi(hU + kV + lW)$, ettersom $\vec a_i\cdot\vec b_j = 2\pi\delta_{ij}$. Refleksen ligger derfor i bildet når den oppfyller Weiss' sonelov, $hU + kV + lW = 0$. List opp små $hkl$ som oppfyller den, og stryk dem som utslukkingsreglene forbyr. Planavstandene får du fra $d_{hkl} = a/\sqrt{h^2 + k^2 + l^2}$ med $a = 5{,}431$ Å for silisium og $5{,}653$ Å for GaAs.
 
 ## På laben
 
@@ -89,7 +95,7 @@ Ved lav forstørrelse skal du finne eksempler på <Term name="Masse-tykkelse-kon
 
 ### Lysfelt og mørkfelt
 
-Tabellen øverst viser hva aperturen slipper gjennom i <Term name="Lysfeltbilde">lysfelt</Term> og <Term name="Mørkfeltbilde">mørkfelt</Term>, og strålegangen i laboppgavens figur 2 er lysfelt eller mørkfelt etter hvilken stråle aperturen slipper gjennom. Et mørkfeltbilde med en refleks som bare én del av tråden gir, viser hvor den delen er.
+I <Term name="Lysfeltbilde">lysfelt</Term> slipper aperturen bare den direkte strålen gjennom, og i <Term name="Mørkfeltbilde">mørkfelt</Term> én diffraktert stråle, så strålegangen i laboppgavens figur 2 er lysfelt eller mørkfelt etter hvilken stråle aperturen slipper gjennom. Et mørkfeltbilde med en refleks som bare én del av tråden gir, viser hvor den delen er.
 
 <Hints>
 <Hint label="Hint: hvorfor lysfelt og mørkfelt ikke er nøyaktig omvendte">
@@ -101,15 +107,23 @@ Tenk på hvilke elektroner som er med i hvert av dem, og hvilke som ikke er med 
 
 ### Diffraksjonsbilder og indeksering
 
-Å indeksere et diffraksjonsbilde er å gi hver refleks sine indekser $hkl$. Avstanden $R_{hkl}$ fra sentrum, der den direkte strålen treffer, til refleksen er knyttet til planavstanden gjennom <Term name="Kameralengde">kameralengden</Term> $L$:
+Å indeksere et diffraksjonsbilde er å gi hver refleks sine indekser $hkl$. Refleksen ligger i avstanden $R_{hkl}$ fra sentrum, der den direkte strålen treffer. Med <Term name="Kameralengde">kameralengden</Term> $L$ er $2\theta \approx R_{hkl}/L$, og Braggs lov for små vinkler gir $2\theta \approx \lambda/d_{hkl}$. Sammen gir de kameraligningen:
 
-<Formula tex="R_{hkl}\, d_{hkl} = \lambda L" caption="Kameralikningen, fra Braggs lov for små vinkler: $2\theta \approx R_{hkl}/L$ og $2\theta \approx \lambda/d_{hkl}$. Kamerakonstanten $\lambda L$ er den samme for alle bilder tatt med samme innstilling." />
+<Formula tex="R_{hkl}\, d_{hkl} = \lambda L" caption="Kameraligningen. Kamerakonstanten $\lambda L$ er den samme for alle bilder tatt med samme innstilling." />
 
-<Formula tex="\cos\varphi = \dfrac{h_1h_2 + k_1k_2 + l_1l_2}{|\vec g_1|\,|\vec g_2|}" caption="Vinkelen mellom to reflekser i et kubisk gitter, sett fra sentrum av bildet, med $|\vec g_i| = \sqrt{h_i^2 + k_i^2 + l_i^2}$. Forholdet mellom avstandene er $R_1/R_2 = |\vec g_1|/|\vec g_2|$." />
+Underlaget av silisium står med $[001]$ langs strålen. En indeksert refleks fra silisium gir $\lambda L$, og så gir $d = \lambda L/R$ planavstandene i trådene på bilder tatt med samme kameralengde. Uten kalibrering bruker du forholdet mellom to avstander. Kameraligningen gir $R_1/R_2 = d_2/d_1$, og med $d_{hkl} = a/\sqrt{h^2 + k^2 + l^2}$ er $(R_1/R_2)^2 = (h_1^2 + k_1^2 + l_1^2)/(h_2^2 + k_2^2 + l_2^2)$, et forhold mellom heltall.
 
-<Formula tex="\begin{aligned} &[UVW] \parallel \vec g_1 \times \vec g_2 \\ &hU + kV + lW = 0 \end{aligned}" caption="Soneaksen, retningen strålen går gjennom krystallen, som kryssprodukt av to reflekser regnet med indeksene. Soneaksen står normalt på planet bildet ligger i, og $\vec g_1$ og $\vec g_2$ ligger begge i det planet, så kryssproduktet deres er parallelt med soneaksen. Hver refleks $hkl$ i bildet oppfyller Weiss' sonelov i andre linje." />
+Laboppgaven skriver refleksene som vektorer $\vec g_{hkl} = \vec G_{hkl}/2\pi$, med lengden $1/d_{hkl}$. I et kubisk gitter er $\vec g_{hkl}$ parallell med $(h, k, l)$, så vinkelen $\varphi$ mellom to reflekser, sett fra sentrum av bildet, er vinkelen mellom indeksvektorene:
 
-Underlaget av silisium står med $[001]$ langs strålen. En indeksert refleks fra silisium gir $\lambda L$, og så gir $d = \lambda L/R$ planavstandene i trådene på bilder tatt med samme kameralengde. Uten kalibrering bruker du forholdet $R_1/R_2$, og kvadratet av det er et forhold mellom heltall.
+<Formula tex="\cos\varphi = \dfrac{h_1h_2 + k_1k_2 + l_1l_2}{\sqrt{h_1^2 + k_1^2 + l_1^2}\,\sqrt{h_2^2 + k_2^2 + l_2^2}}" caption="Vinkelen mellom to reflekser i et kubisk gitter." />
+
+<Callout type="note" title="Med eller uten 2π">
+Laboppgaven skriver $d_{hkl} = 1/|\vec g_{hkl}|$, uten $2\pi$, slik krystallografer gjør. Kurset skriver $d_{hkl} = 2\pi/|\vec G_{hkl}|$. De to skrivemåtene gir det samme resiproke gitteret med en annen lengdeskala, og forhold og vinkler er de samme.
+</Callout>
+
+Soneaksen står normalt på planet bildet ligger i, og to reflekser $\vec g_1$ og $\vec g_2$ som ikke ligger på linje med sentrum, ligger begge i det planet. Kryssproduktet deres er derfor parallelt med soneaksen, og i et kubisk gitter kan du regne det ut med indeksene:
+
+<Formula tex="\begin{aligned} &[UVW] \parallel \vec g_1 \times \vec g_2 \\ &hU + kV + lW = 0 \end{aligned}" caption="Soneaksen fra to reflekser i bildet, og Weiss' sonelov, som hver refleks $hkl$ i bildet oppfyller." />
 
 1. Velg to reflekser nær sentrum som ikke ligger på linje med sentrum, og mål $R_1$, $R_2$ og vinkelen $\varphi$ mellom dem.
 2. Finn mulige $h^2 + k^2 + l^2$ fra $(R_1/R_2)^2$. Begynn med små indekser, og bruk bare reflekser utslukkingsreglene tillater.
@@ -118,17 +132,15 @@ Underlaget av silisium står med $[001]$ langs strålen. En indeksert refleks fr
 
 Symmetrien i bildet hjelper: en kube har firetallig symmetri om $\langle 100 \rangle$, tretallig om $\langle 111 \rangle$ og totallig om $\langle 110 \rangle$. Står strålen langs $\langle 100 \rangle$ eller $\langle 110 \rangle$, har bildet samme symmetri som aksen. Langs $\langle 111 \rangle$ er bildet sekstallig. Intensiteten $|S_{hkl}|^2$ er den samme i $\vec G$ og $-\vec G$, ettersom $S_{-\vec G}$ er den komplekskonjugerte av $S_{\vec G}$ når $f_j$ er reelle, og tretallig symmetri sammen med denne inversjonen gir sekstallig. Et sekstallig bilde langs $\langle 111 \rangle$ viser derfor ikke alene at tråden er wurtsitt.
 
+Verktøyet under gjelder bare kubiske krystaller og sjekker ikke om refleksene du foreslår, er tillatt.
+
 <Simulation
   src="/sims/tem-indeksering.js"
   host="dom"
   height={280}
   title="Sjekk en indeksering"
-  caption="Skriv inn to reflekser du foreslår og det du målte. Verktøyet viser forventet $R_1/R_2$ og $\varphi$ ved siden av de målte og soneaksen fra kryssproduktet, og tegner punktene $m\vec g_1 + n\vec g_2$ som forslaget gir, med den målte andre refleksen som en ring. Ligger ringen på et punkt, stemmer forslaget. Verktøyet sjekker ikke om refleksene er tillatt, og det gjelder bare kubiske krystaller."
+  caption="Forventet $R_1/R_2$ og $\varphi$ for to foreslåtte reflekser ved siden av de målte, og soneaksen fra kryssproduktet. Punktene er $m\vec g_1 + n\vec g_2$ fra forslaget, og ringen er den målte andre refleksen."
 />
-
-<Callout type="note" title="Med eller uten 2π">
-Laboppgaven skriver $d_{hkl} = 1/|\vec g_{hkl}|$, uten $2\pi$, slik krystallografer gjør. Kurset skriver $d_{hkl} = 2\pi/|\vec G_{hkl}|$. De to skrivemåtene gir det samme resiproke gitteret med en annen lengdeskala, og forhold og vinkler er de samme.
-</Callout>
 
 ### HRTEM og Fourier-transformen
 
@@ -141,7 +153,7 @@ Retningen trådene vokser i, finner du fra bildet og diffraksjonsbildet av samme
 <Hints>
 <Hint label="Hint: hva som skjer når prøven vippes">
 
-Tenk på den nesten flate Ewald-kulen og de lange punktene, og på hvilke punkter kulen skjærer når krystallen dreies litt bort fra soneaksen.
+Tenk på den nesten flate Ewald-kulen og de resiproke gitterpunktene, som er strukket ut normalt på den tynne prøven, og på hvilke punkter kulen skjærer når krystallen dreies litt bort fra soneaksen.
 
 </Hint>
 <Hint label="Hint: hvordan wurtsitt og sinkblende skiller seg i diffraksjonsbildet">

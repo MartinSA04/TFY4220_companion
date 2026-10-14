@@ -71,10 +71,20 @@ elektronet er lavest ved ionene. $\psi(+)$ har derfor lavere energi enn en
 løpende bølge, og $\psi(-)$ har høyere. Begge har $k = \pi/a$, og ingen tilstand
 har en energi mellom dem. Forskjellen er båndgapet $E_g$.
 
+<Callout title="Stående bølger ved sonegrensen">
+
+Ved $k = \pi/a$ er tilstandene stående bølger. $\psi(+)$ samler elektronet ved
+ionene og ligger lavest, $\psi(-)$ samler det mellom ionene og ligger høyest,
+og forskjellen er båndgapet.
+
+</Callout>
+
 ## Sentralligningen
 
-Regn hvert elektron for seg, i et effektivt potensial fra ionene og de andre
-elektronene. I én dimensjon er potensialet periodisk, $U(x + a) = U(x)$, og
+Bragg-bildet sier hvor gapene ligger, men ikke hvor store de er eller hvordan
+båndene går mellom sonegrensene. Begge deler krever energiene fra
+Schrödinger-ligningen. Regn hvert elektron for seg, i et effektivt potensial
+fra ionene og de andre elektronene. I én dimensjon er potensialet periodisk, $U(x + a) = U(x)$, og
 Schrödinger-ligningen er
 
 $$
@@ -91,7 +101,10 @@ U(x) = \sum_G U_G\,e^{iGx}
 $$
 
 Hvert ledd har perioden $a$ fordi $e^{iGa} = 1$. $U_0$ er middelverdien av
-potensialet, og komponentene med $G = \pm g$ og $G = \pm 2g$ kalles $U_1$ og $U_2$. Bølgefunksjonen er en sum av alle planbølger som de periodiske
+potensialet. Med origo i et ion er potensialet symmetrisk, $U(-x) = U(x)$, så
+$U_{-G} = U_G$. Komponentene med
+$G = \pm g$ er da like og kalles $U_1$, og komponentene med $G = \pm 2g$ kalles
+$U_2$. Bølgefunksjonen er en sum av alle planbølger som de periodiske
 grensebetingelsene tillater:
 
 $$
@@ -111,7 +124,11 @@ $k + G$ som summeindeks blir dobbeltsummen
 $\sum_G\sum_k U_G C_{k-G}\,e^{ikx}$. Planbølgene er uavhengige, så
 koeffisienten foran hver $e^{ikx}$ må være null:
 
-<Formula tex={"(\\lambda_k - \\varepsilon)\\,C_k + \\sum_G U_G\\,C_{k-G} = 0"} caption={"Sentralligningen. Den er Schrödinger-ligningen skrevet om til algebraiske ligninger, uten noen tilnærming."} />
+<Formula tex={"(\\lambda_k - \\varepsilon)\\,C_k + \\sum_G U_G\\,C_{k-G} = 0"} caption={"Sentralligningen for koeffisientene $C_k$ til planbølgene i $\\psi$."} />
+
+Ingen tilnærming er gjort på veien, så sentralligningen inneholder det samme
+som Schrödinger-ligningen. Leddet med $G = 0$ er $U_0C_k$, så $U_0$ legger seg
+til hver $\lambda_k$ og flytter alle energiene like mye.
 
 <Term name="Sentralligningen">Sentralligningen</Term> kobler $C_k$ bare til
 koeffisientene $C_{k-G}$. En løsning inneholder derfor bare bølgevektorene
@@ -156,8 +173,9 @@ Here, $U_i$ are Fourier coefficients of the potential, and $\lambda_k = \hbar k/
 ## Blochs teorem
 
 I tre dimensjoner er $U(\vec r + \vec R) = U(\vec r)$ for alle gittervektorer
-$\vec R$ i krystallen. Regningen over gir da, med $\vec k$ og $\vec G$ i stedet
-for $k$ og $G$, Blochs teorem, som Bloch viste i 1928:
+$\vec R$ i krystallen. Sentralligningen kobler da $\vec k$ bare til
+$\vec k - \vec G$, så løsningene har formen i Blochs teorem, som Bloch viste i
+1928:
 
 <Formula tex={"\\begin{aligned} &\\psi_{\\vec k}(\\vec r) = e^{i\\vec k\\cdot\\vec r}\\,u_{\\vec k}(\\vec r) \\\\ &u_{\\vec k}(\\vec r + \\vec R) = u_{\\vec k}(\\vec r) \\end{aligned}"} caption={"Blochs teorem. Løsningene i et periodisk potensial er planbølger ganger en funksjon med samme periodisitet som potensialet."} />
 
@@ -180,13 +198,29 @@ $$
 Det siste leddet er null bare når $u_{\vec k}$ er konstant, altså for frie
 elektroner. En Bloch-funksjon er derfor ikke en egenfunksjon av impulsen, og
 $\hbar\vec k$ er ikke impulsen til elektronet. Den er
-<Term name="Krystallimpuls">krystallimpulsen</Term>, som for fononene, og den
-er bevart opp til en resiprok gittervektor. Når et elektron tar opp et fonon
-med bølgevektor $\vec q$, er
+<Term name="Krystallimpuls">krystallimpulsen</Term>, som for fononene.
+Krystallen er lik seg selv bare ved forskyvninger med en gittervektor
+$\vec R$, og ved en slik forskyvning får $\psi_{\vec k}$ fasefaktoren
+$e^{i\vec k\cdot\vec R}$. Det er denne fasefaktoren som er bevart, og den
+bestemmer $\vec k$ bare opp til en resiprok gittervektor, ettersom
+$e^{i\vec G\cdot\vec R} = 1$. Når et elektron tar opp et fonon med
+bølgevektor $\vec q$, har elektronet og fononet sammen fasefaktoren
+$e^{i(\vec k + \vec q)\cdot\vec R}$ før støtet, og elektronet alene har
+$e^{i\vec k'\cdot\vec R}$ etter. De to er like for alle $\vec R$ bare når
 
 $$
 \vec k + \vec q = \vec k' + \vec G
 $$
+
+Med $\vec G = 0$ har ligningen formen til vanlig impulsbevaring.
+
+<Callout title="Krystallimpuls">
+
+$\hbar\vec k$ i en Bloch-funksjon er krystallimpulsen og ikke impulsen til
+elektronet. Den er bevart opp til en resiprok gittervektor,
+$\vec k + \vec q = \vec k' + \vec G$.
+
+</Callout>
 
 <Example label="Eksamensoppgave" title="Impulsoperatoren på en Bloch-tilstand">
 <ExamRef id="2023-mai" task="20" />
@@ -210,9 +244,14 @@ energi:
 
 Alle tilstandene kan derfor merkes med
 $\vec k$ i første Brillouin-sone og $n$. Denne merkingen er
-<Term name="Redusert soneskjema">redusert soneskjema</Term>, slik som for
-gittersvingningene, der en $k$ utenfor sonen beskriver samme svingning som en
-$k$ inne i den.
+<Term name="Redusert soneskjema">redusert soneskjema</Term>.
+Gittersvingningene merkes på samme måte, men av en annen grunn. En
+gittersvingning har bare utsving i atomene, så en $k$ utenfor sonen gir de
+samme utsvingene som en $k$ inne i den og ingen ny svingning. Bølgefunksjonen
+finnes også mellom atomene, og der er $e^{ikx}$ og $e^{i(k+G)x}$ forskjellige
+funksjoner. For elektronene er $k$ og $k + G$ ekvivalente fordi begge
+løsningene er summer over de samme planbølgene. En fri planbølge med $k$ langt
+utenfor sonen havner derfor i et høyere bånd ved en $k$ inne i sonen.
 
 I grensen $U \to 0$, det <Term name="Tomt gitter">tomme gitteret</Term>, er
 hver planbølge en løsning for seg. En $\vec k$ i første sone er ekvivalent med
@@ -221,10 +260,23 @@ alle $\vec k + \vec G$, så den har alle energiene
 <Formula tex={"\\varepsilon(\\vec k) = \\frac{\\hbar^2}{2m}\\,|\\vec k + \\vec G|^2"} caption={"Båndene i det tomme gitteret. I redusert soneskjema er de frie parabler sentrert i hver resiprok gittervektor."} />
 
 I én dimensjon er bånd 1 parabelen $\hbar^2k^2/2m$ fra $-\pi/a$ til $\pi/a$.
-Bånd 2 er parablene sentrert i $\pm g$, som møter bånd 1 på sonegrensene, og
-bånd 3 er de samme parablene der de krysser hverandre ved $k = 0$. Der to
-parabler møtes, har to planbølger samme energi, og der åpner et svakt potensial
-et gap.
+Parablene sentrert i $\pm g$ møter bånd 1 på sonegrensene og krysser
+hverandre ved $k = 0$, med energien $\hbar^2g^2/2m$. Delene under krysset er
+bånd 2, og delene over er bånd 3. Bånd 2 er altså den frie parabelen for
+$\pi/a < |k| < 2\pi/a$ flyttet med $g$ inn i første sone, og bånd 3 er den
+frie parabelen for $2\pi/a < |k| < 3\pi/a$. Krysset ved $k = 0$ er grensen
+$k = \pm 2\pi/a$ mellom andre og tredje Brillouin-sone, flyttet inn på samme
+måte. Der to parabler møtes, har to planbølger samme energi. I det tomme
+gitteret krysser parablene der uten gap, og et svakt potensial åpner et gap
+på samme sted.
+
+<Callout title="Redusert soneskjema">
+
+$\vec k$ og $\vec k + \vec G$ er samme tilstand, så alle båndene kan tegnes med
+$\vec k$ i første Brillouin-sone. De frie energiene fra $k$ utenfor sonen blir
+bånd 2, 3 og så videre.
+
+</Callout>
 
 I tre dimensjoner har flere $\vec G$ samme lengde, og mange bånd faller
 sammen. For et enkelt kubisk gitter langs $[100]$, med $\vec k = (k_x, 0, 0)$,
@@ -240,8 +292,11 @@ gir de minste $\vec G$ disse båndene:
     ["12–15", "$\\bar110,$ $\\bar1\\bar10,$ $\\bar101,$ $\\bar10\\bar1$", "${(k_x - g)^2 + g^2}$"],
   ]}
   rowHeader={false}
-  caption="De laveste båndene i det tomme gitteret for enkel kubisk langs $[100]$, med energien i enheter av $\hbar^2/2m$ og $g = 2\pi/a$. For alle $k_x$ har bånd 4–7 samme energi."
+  caption="De laveste båndene i det tomme gitteret for enkel kubisk langs $[100]$, med energien i enheter av $\hbar^2/2m$ og $g = 2\pi/a$."
 />
+
+De fire $\vec G$ som står vinkelrett på $[100]$, gir samme $|\vec k + \vec G|$,
+så bånd 4–7 har samme energi for alle $k_x$.
 
 <Example label="Eksamensoppgave" title="Det tomme gitteret for enkel kubisk">
 <ExamRef id="2025-mai" task="25" />
@@ -273,8 +328,12 @@ $$
 
 Da er $U_1 = U$. For å finne de to energiene nær sonegrensen holder det å
 beholde $C_k$ og $C_{k-g}$, så lenge $|U|$ er mye mindre enn avstanden fra
-$\lambda_k$ til de øvrige $\lambda_{k-G}$. Er potensialet sterkere, blander de
-andre planbølgene seg inn. Sentralligningen blir to ligninger:
+$\lambda_k$ til de øvrige $\lambda_{k-G}$. På sonegrensen er de nærmeste av dem,
+$\lambda_{k+g}$ og $\lambda_{k-2g}$, lik $9\lambda_k$, så avstanden er
+$8\lambda_k$. For $a = 3$ Å er $\lambda_k = 4{,}2$ eV ved $k = \pi/a$, og
+avstanden er 33 eV, langt over et $|U|$ på under 1 eV. Er potensialet
+sterkere, blander de andre planbølgene seg inn. Sentralligningen blir to
+ligninger:
 
 $$
 \begin{aligned}
@@ -291,39 +350,52 @@ $$
 
 som gir
 
-<Formula tex={"\\varepsilon = \\tfrac12(\\lambda_{k-g} + \\lambda_k) \\allowbreak \\pm \\sqrt{\\tfrac14(\\lambda_{k-g} - \\lambda_k)^2 + U^2}"} caption={"De to båndene nær sonegrensen. Langt fra grensen er $|\\lambda_{k-g} - \\lambda_k| \\gg |U|$, og løsningene er de frie energiene $\\lambda_k$ og $\\lambda_{k-g}$."} />
+<Formula tex={"\\varepsilon = \\tfrac12(\\lambda_{k-g} + \\lambda_k) \\allowbreak \\pm \\sqrt{\\tfrac14(\\lambda_{k-g} - \\lambda_k)^2 + U^2}"} caption={"De to båndene nær sonegrensen."} />
 
-På sonegrensen er $k - g = -\pi/a$, så de to frie energiene er like, og
-løsningene er
+Langt fra grensen er $|\lambda_{k-g} - \lambda_k| \gg |U|$, kvadratroten blir
+$\tfrac12|\lambda_{k-g} - \lambda_k|$, og løsningene er de frie energiene
+$\lambda_k$ og $\lambda_{k-g}$. På sonegrensen er $k - g = -\pi/a$, så de to
+frie energiene er like, og løsningene er
 
 $$
 \varepsilon = \lambda_k \pm |U|
 $$
 
-Gapet er dobbelt så stort som Fourier-komponenten. Ved $k = G/2$ for en
-vilkårlig $G$ har planbølgene $k$ og $k - G$ samme frie energi, og regningen
+Gapet er dobbelt så stort som Fourier-komponenten, og i det tomme gitteret,
+der $U = 0$, lukker gapet seg. Ved $k = G/2$ for en vilkårlig $G$ har planbølgene $k$ og $k - G$ samme frie energi, og regningen
 over, med $U_G$ i stedet for $U$, gir
 
 <Formula tex={"E_g = 2|U_G|"} caption={"Båndgapet ved sonegrensen $k = G/2$. For $U(x) = 2U\\cos(2\\pi x/a)$ er gapet lik amplituden $2|U|$ til cosinusen."} />
 
-Den første ligningen gir forholdet $C_{k-g}/C_k = (\varepsilon - \lambda_k)/U$,
+Den første av de to ligningene, $(\lambda_k - \varepsilon)\,C_k + U\,C_{k-g} = 0$,
+gir forholdet $C_{k-g}/C_k = (\varepsilon - \lambda_k)/U$,
 som er $\pm 1$ på sonegrensen. Tilstandene på kantene av gapet er de to
 stående bølgene fra Bragg-bildet. Med brønnene ved ionene er $U < 0$. På den
 nederste kanten er da $C_{k-g}$ og $C_k$ like, som gir $\psi(+) \propto \cos(\pi x/a)$.
 Skriv $k = \pi/a + K$. Da er
 $\tfrac12(\lambda_{k-g} + \lambda_k) = (\hbar^2/2m)(\pi^2/a^2 + K^2)$ og
-$\lambda_k - \lambda_{k-g} = (\hbar^2/2m)(4\pi/a)K$, så begge leddene i formelen
-for $\varepsilon$ inneholder bare $K^2$. Begge båndene går derfor som parabler i
+$\lambda_k - \lambda_{k-g} = (\hbar^2/2m)(4\pi/a)K$, så både middelverdien og
+$(\lambda_{k-g} - \lambda_k)^2$ under kvadratroten i formelen for de to båndene
+inneholder bare $K^2$. Begge båndene går derfor som parabler i
 $K$ nær grensen og møter den med horisontal tangent.
 
-For $G = 2g$ gir formelen for $E_g$ gapet ved $k = 2\pi/a$, som er gitt av $U_2$. Hvert gap er altså bestemt av sin egen Fourier-komponent. Et glatt
-potensial har små høyere komponenter og gir små gap høyt oppe.
+For $G = 2g$ gir formelen for $E_g$ gapet ved $k = 2\pi/a$, som er gitt av
+$U_2$ og i redusert soneskjema ligger ved $k = 0$. Hvert gap er altså bestemt
+av sin egen Fourier-komponent. Et glatt potensial har små høyere komponenter
+og gir små gap høyt oppe.
+
+<Callout title="Størrelsen på gapet">
+
+Gapet ved $k = G/2$ er $E_g = 2|U_G|$. Hvert gap har sin egen
+Fourier-komponent, $U_1$ ved $\pi/a$ og $U_2$ ved $2\pi/a$.
+
+</Callout>
 
 <Simulation
   src={"/sims/energibaand.js"}
   host={"dom"}
   title={"Bånd og stående bølger i en kjede"}
-  caption={"Elektroner i en kjede med $a = 3$ Å og $U(x) = 2U_1\\cos(2\\pi x/a) + 2U_2\\cos(4\\pi x/a)$, med $U_1, U_2 \\le 0$ så brønnene ligger ved ionene. Nederst båndene fra sentralligningen, gjentatt med perioden $2\\pi/a$, de frie parablene stiplet og båndgapene oransje. De åpne prikkene er samme tilstand ved $k \\pm 2\\pi/a$. Øverst sannsynlighetstettheten $|\\psi|^2$ for den merkede tilstanden, der den stiplede linja er en planbølge. Gapet ved $\\pi/a$ følger $|U_1|$, og gapet ved $k = 0$ følger $|U_2|$."}
+  caption={"Elektroner i en kjede med $a = 3$ Å og $U(x) = 2U_1\\cos(2\\pi x/a) + 2U_2\\cos(4\\pi x/a)$, med $U_1, U_2 \\le 0$ så brønnene ligger ved ionene. Nederst båndene fra sentralligningen, gjentatt med perioden $2\\pi/a$, de frie parablene stiplet og båndgapene oransje. De åpne prikkene er samme tilstand ved $k \\pm 2\\pi/a$. Øverst sannsynlighetstettheten $|\\psi|^2$ for den merkede tilstanden, der den stiplede linja er en planbølge."}
   height={500}
 />
 
@@ -349,18 +421,29 @@ dem.
 Ved $T = 0$ fyller elektronene båndene nedenfra, og antallet valenselektroner
 per primitiv celle avgjør om det øverste båndet blir fullt:
 
-- Et oddetall gir et halvfylt bånd øverst, så stoffet er et metall. Natrium og
-  kobber har ett valenselektron per primitiv celle, aluminium har tre.
+- Et oddetall gir et halvfylt bånd øverst, så stoffet er et metall. Inne i
+  dette båndet skiller Fermi-flaten de fylte tilstandene fra de tomme. Natrium
+  og kobber har ett valenselektron per primitiv celle, aluminium har tre.
 - Et partall kan fylle et helt antall bånd. Er det et gap over det øverste
-  fulle båndet, er stoffet en isolator eller en halvleder. Diamant har to
-  atomer og åtte valenselektroner i den primitive cellen, som fyller fire bånd.
+  fulle båndet, er stoffet en isolator eller en halvleder. Hvert bånd er da
+  fullt eller tomt, og stoffet har ingen Fermi-flate. Diamant har to atomer og
+  åtte valenselektroner i den primitive cellen, som fyller fire bånd.
 
-I to og tre dimensjoner kan to bånd overlappe i energi. Et fritt elektron i
-hjørnet av første sone har mye høyere energi enn et midt på en sideflate, og
-et svakt potensial endrer ikke denne forskjellen. Toppen av bånd 1 i hjørnet kan da ligge
-over bunnen av bånd 2 midt på sideflaten, og begge båndene blir delvis fylt.
-De toverdige jordalkalimetallene, som magnesium og kalsium, er metaller av
-denne grunnen.
+I to og tre dimensjoner kan to bånd overlappe i energi. I et kvadratisk gitter
+har et fritt elektron i hjørnet av første sone $k^2 = 2(\pi/a)^2$, dobbelt så
+mye som midt på en sideflate, der $k^2 = (\pi/a)^2$, så energien er dobbelt så
+høy. Et svakt potensial flytter energiene med størrelser som $|U_G|$, langt
+mindre enn denne forskjellen. Toppen av bånd 1 i hjørnet ligger da over bunnen
+av bånd 2 midt på sideflaten, og begge båndene blir delvis fylt. De toverdige
+jordalkalimetallene, som magnesium og kalsium, er metaller av denne grunnen.
+
+<Callout title="Metall eller isolator">
+
+Hvert bånd rommer to elektroner per primitiv celle. Et oddetall
+valenselektroner per primitiv celle gir et metall, og et partall gir en
+isolator eller en halvleder bare når båndene ikke overlapper.
+
+</Callout>
 
 <Example label="Eksamensoppgave" title="Valenselektroner i en isolator">
 <ExamRef id="2025-mai" task="31" />
@@ -374,9 +457,11 @@ denne grunnen.
 </Example>
 
 Ved $T = 0$ har både halvledere og isolatorer bare fulle og tomme bånd.
-Forskjellen er hvor stort gapet er. Silisium har $E_g = 1{,}1$ eV, og ved
-romtemperatur eksiteres nok elektroner over gapet til at det leder litt.
-Diamant har $E_g = 5{,}4$ eV og leder nesten ikke.
+Forskjellen er hvor stort gapet er. Andelen elektroner som eksiteres over
+gapet, faller eksponentielt når $E_g/k_BT$ øker. Ved romtemperatur er
+$k_BT = 26$ meV, så $E_g/k_BT$ er omtrent 40 i silisium, med $E_g = 1{,}1$ eV,
+og omtrent 200 i diamant, med $E_g = 5{,}4$ eV. Silisium har derfor nok
+eksiterte elektroner til å lede litt, og diamant leder nesten ikke.
 
 <Derivation title="Hvorfor diamant er gjennomsiktig og silisium ikke">
 
@@ -391,18 +476,18 @@ til et tomt, altså når $h\nu \ge E_g$. Synlig lys har fotonenergier fra 1,6 ti
 
 <Quiz
   question={"I et svakt potensial er Fourier-komponenten $U_1$ lik −0,5 eV og $U_2$ lik −0,1 eV. Hvor stort er båndgapet ved $k = 2\\pi/a$?"}
-  options={["Omtrent 0,2 eV", "Omtrent 1,0 eV", "Omtrent 1,2 eV", "Null, for gapet ligger bare ved $\\pi/a$"]}
-  answer={0}
-  explanation={"Ved $k = 2\\pi/a$ har planbølgene $k$ og $k - 2g$ samme energi, og de kobles av $U_2$. Gapet er derfor omtrent $2|U_2| = 0{,}2$ eV. $U_1$ bestemmer gapet ved $\\pi/a$, som er 1,0 eV."}
+  options={["Omtrent 0,1 eV", "Omtrent 0,2 eV", "Omtrent 1,0 eV", "Omtrent 1,2 eV"]}
+  answer={1}
+  explanation={"Ved $k = 2\\pi/a$ har planbølgene $k$ og $k - 2g$ samme frie energi, og de kobles av $U_2$. Gapet er derfor omtrent $2|U_2| = 0{,}2$ eV. Uten faktoren 2 får du 0,1 eV. Med $U_1$ får du 1,0 eV, men $U_1$ bestemmer gapet ved $\\pi/a$. Summen 1,2 eV blander to gap som hver har sin egen Fourier-komponent."}
 />
 
-<SelfCheck question={"Et fritt elektron har $\\vec k$ i et hjørne av første Brillouin-sone. Hvor mange ganger større er energien enn for et fritt elektron midt på en sideflate, i et kvadratisk gitter og i et enkelt kubisk gitter?"}>
+<SelfCheck question={"I et kvadratisk gitter har et fritt elektron i hjørnet av første Brillouin-sone dobbelt så høy energi som midt på en sideflate. Hvor mange ganger høyere er energien i hjørnet i et enkelt kubisk gitter, og hva betyr forskjellen for overlappen mellom bånd 1 og 2?"}>
 
-Midt på en sideflate er $\vec k = (\pi/a, 0)$ eller $(\pi/a, 0, 0)$, så
-$k^2 = (\pi/a)^2$. I hjørnet er $\vec k = (\pi/a, \pi/a)$ i to dimensjoner og
-$(\pi/a, \pi/a, \pi/a)$ i tre, så $k^2 = 2(\pi/a)^2$ og $3(\pi/a)^2$. Energien
-til et fritt elektron er proporsjonal med $k^2$, så den er 2 ganger større i
-det kvadratiske gitteret og 3 ganger større i det enkle kubiske.
+Midt på en sideflate er $\vec k = (\pi/a, 0, 0)$, så $k^2 = (\pi/a)^2$. I
+hjørnet er $\vec k = (\pi/a, \pi/a, \pi/a)$, så $k^2 = 3(\pi/a)^2$. Energien til
+et fritt elektron er proporsjonal med $k^2$, så den er 3 ganger høyere i
+hjørnet. Toppen av bånd 1 ligger da enda lenger over bunnen av bånd 2 enn i det
+kvadratiske gitteret, og et svakt potensial hindrer overlappen enda mindre.
 
 </SelfCheck>
 

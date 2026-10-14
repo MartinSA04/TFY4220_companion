@@ -23,9 +23,15 @@ Kilden er en glødende stav, en globar, som stråler omtrent som et <Term name="
 
 Først måles spekteret uten prøve, bakgrunnen $I_0(\sigma)$. Med prøven i strålen måles $I(\sigma)$, og transmisjonen er $I/I_0$. Luften i spektrometeret er med i begge målingene, så den faller ut av $I/I_0$ så lenge sammensetningen er den samme i begge målingene.
 
-Et foton kan bare absorberes av en svingning med samme energi $\hbar\omega$ og samme bølgevektor $k$, og bare hvis dipolmomentet endrer seg mens atomene svinger. En svingning der dipolmomentet endrer seg, er en <Term name="IR-aktiv svingning">IR-aktiv svingning</Term>. IR-spektroskopi oppgir energien som <Term name="Bølgetall">bølgetallet</Term> $\sigma$:
+Et foton kan bare absorberes av en svingning med samme energi $\hbar\omega$, og bare hvis dipolmomentet endrer seg mens atomene svinger. I en krystall må svingningen også ha samme bølgevektor $k$ som fotonet. En svingning der dipolmomentet endrer seg, er en <Term name="IR-aktiv svingning">IR-aktiv svingning</Term>.
 
-<Formula tex="\sigma = \dfrac{1}{\lambda} = \dfrac{\nu}{c}, \qquad \omega = 2\pi c\,\sigma" caption="Bølgetallet, uten faktoren $2\pi$ som bølgevektoren $k = 2\pi/\lambda$ har, og vinkelfrekvensen. Med $\sigma$ i cm$^{-1}$ må $c = 3{,}00 \cdot 10^{10}$ cm/s. 1000 cm$^{-1}$ er $\lambda = 10$ µm og en fotonenergi på 0,124 eV." />
+<Callout title="IR-aktiv svingning">
+En svingning absorberer infrarødt lys bare hvis dipolmomentet endrer seg mens atomene svinger, og bare ved sin egen frekvens.
+</Callout>
+
+IR-spektroskopi oppgir energien som <Term name="Bølgetall">bølgetallet</Term> $\sigma = 1/\lambda$, uten faktoren $2\pi$ som bølgevektoren $k = 2\pi/\lambda$ har. Med $\sigma$ i cm$^{-1}$ må $c$ i $\omega = 2\pi c\sigma$ være $3{,}00 \cdot 10^{10}$ cm/s.
+
+<Formula tex="\sigma = \dfrac{1}{\lambda} = \dfrac{\nu}{c}, \qquad \omega = 2\pi c\,\sigma" caption="Bølgetallet og vinkelfrekvensen. 1000 cm$^{-1}$ er $\lambda = 10$ µm og en fotonenergi på 0,124 eV." />
 
 Laboppgaven bruker $\sigma$ også for Stefan-Boltzmanns konstant. Her skrives den $\sigma_\text{SB}$.
 
@@ -37,7 +43,9 @@ Laboppgaven bruker $\sigma$ også for Stefan-Boltzmanns konstant. Her skrives de
 
 <Formula tex="\begin{aligned} \nu_\text{maks} &= 5{,}879 \cdot 10^{10}\ \tfrac{\text{Hz}}{\text{K}}\cdot T \\ \sigma_\text{maks} &= 1{,}961\ \tfrac{\text{cm}^{-1}}{\text{K}}\cdot T \end{aligned}" caption="Wiens forskyvningslov for toppen av $I(\nu)$, i frekvens og i bølgetall." />
 
-<Formula tex="\pi\int_0^\infty I(\nu)\,\mathrm d\nu = \sigma_\text{SB}\,T^4" caption="Stefan-Boltzmanns lov, med $\sigma_\text{SB} = 5{,}67 \cdot 10^{-8}$ W m$^{-2}$ K$^{-4}$. Faktoren $\pi$ kommer av integralet over halvkulen." />
+<Formula tex="\pi\int_0^\infty I(\nu)\,\mathrm d\nu = \sigma_\text{SB}\,T^4" caption="Stefan-Boltzmanns lov, med $\sigma_\text{SB} = 5{,}67 \cdot 10^{-8}$ W m$^{-2}$ K$^{-4}$." />
+
+Faktoren $\pi$ i Stefan-Boltzmanns lov er integralet av $\cos\theta$ over halvkulen, og den gjør effekten per romvinkel om til effekten flaten stråler ut i alle retninger.
 
 <Callout type="warning" title="To topper">
 Fordelingen per bølgelengde har toppen et annet sted enn $I(\nu)$. Formen $\lambda_\text{maks}T = 2{,}898$ mm K gjelder den, og $1/\lambda_\text{maks}$ er 1,76 ganger $\sigma_\text{maks}$. Spektrene på laben er tegnet mot $\sigma$, som er proporsjonal med $\nu$, så bruk formen for frekvens.
@@ -60,7 +68,7 @@ Fordelingen per bølgelengde har toppen et annet sted enn $I(\nu)$. Formen $\lam
   host="dom"
   height={300}
   title="Planck-kurven fra regnearket"
-  caption="$I(\nu)$ mot bølgetallet, med arealet under kurven fylt og den synlige delen i spektralfargene, merket med hvor stor del av effekten den er. Tallene under er regnearkets: trapesene på rutenettet 1, 100, 200, …, 50 000 cm$^{-1}$ summert og ganget med $\pi$, og $\sigma_\text{SB}T^4$. «Fest kurven» lar en temperatur stå igjen stiplet, og CSV-filen har hele tabellen. Spektrometeret tegner bølgetallet synkende mot høyre."
+  caption="$I(\nu)$ mot bølgetallet, med arealet under kurven fylt og den synlige delen i spektralfargene, merket med hvor stor del av effekten den er. Tallene under er regnearkets: trapesene på rutenettet 1, 100, 200, …, 50 000 cm$^{-1}$ summert og ganget med $\pi$, og $\sigma_\text{SB}T^4$. En festet kurve står igjen stiplet. Spektrometeret tegner bølgetallet synkende mot høyre."
 />
 
 **b) IR-området i bølgetall.** Bruk $\sigma = 1/\lambda$ med $\lambda$ i cm.
@@ -78,12 +86,12 @@ Laboppgaven skriver $m_1$ og $m_2$ for massene; her skrives de $M_1$ og $M_2$.
   host="dom"
   height={260}
   title="Lys og fononer i samme diagram"
-  caption="Den optiske og den akustiske grenen for en kjede med $M_1 = 2M_2$, og lyset $\omega = ck$ i de samme aksene. Dra glidebryteren for å forstørre $k$-aksen mot null. Tallene er typiske for en ionisk krystall: $a = 3$ Å og $\omega_0 = 10^{14}$ rad/s."
+  caption="Den optiske og den akustiske grenen for en kjede med $M_1 = 2M_2$, og lyset $\omega = ck$ i de samme aksene. Tallene er typiske for en ionisk krystall: $a = 3$ Å, og den optiske grenen har $\omega_0 = 10^{14}$ rad/s ved $k = 0$."
 />
 
-**b) Gruppehastigheten.** Rekkeutvikle <Term name="Dispersjonsrelasjon">dispersjonsrelasjonen</Term> for $|ka| \ll 1$ med $\sin(ka/2) \approx ka/2$ og $\sqrt{1 - x} \approx 1 - x/2$, og deriver hver gren:
+**b) Gruppehastigheten.** Rekkeutvikle <Term name="Dispersjonsrelasjon">dispersjonsrelasjonen</Term> for $|ka| \ll 1$ med $\sin(ka/2) \approx ka/2$ og $\sqrt{1 - x} \approx 1 - x/2$, og deriver hver gren. Plusstegnet gir den optiske grenen og minustegnet den akustiske:
 
-<Formula tex="\begin{aligned} \omega^2 &= C\,\dfrac{M_1 + M_2}{M_1 M_2} \\ &\quad \times \Bigl[1 \pm \sqrt{1 - \beta\sin^2\tfrac{ka}{2}}\,\Bigr] \end{aligned}" caption="Kjeden med to atomtyper og samme kraftkonstant $C$, med ${\beta = 4M_1M_2/(M_1 + M_2)^2}$. Plusstegnet gir den optiske grenen og minustegnet den akustiske." />
+<Formula tex="\begin{aligned} \omega^2 &= C\,\dfrac{M_1 + M_2}{M_1 M_2} \\ &\quad \times \Bigl[1 \pm \sqrt{1 - \beta\sin^2\tfrac{ka}{2}}\,\Bigr] \end{aligned}" caption="Kjeden med to atomtyper og samme kraftkonstant $C$, med ${\beta = 4M_1M_2/(M_1 + M_2)^2}$." />
 
 **c) Amplitudeforholdet.** Sett $M_1 = M_2$, og sett frekvensen til hver gren ved $k \to 0$ inn i den første bevegelsesligningen:
 
@@ -91,7 +99,7 @@ $$
 (M_1\omega^2 - 2C)\,u \allowbreak + C\left(1 + e^{-ika}\right)v = 0.
 $$
 
-**d) Transversale svingninger.** Kraftkonstanten $C$ er svakere for de transversale svingningene. Se hvordan lydhastigheten i den <Term name="Akustisk gren">akustiske grenen</Term> og frekvensen i den <Term name="Optisk gren">optiske</Term> avhenger av $C$ ved $k \to 0$:
+**d) Transversale svingninger.** Kraftkonstanten $C$ er mindre for de transversale svingningene. Se hvordan lydhastigheten i den <Term name="Akustisk gren">akustiske grenen</Term> og frekvensen i den <Term name="Optisk gren">optiske</Term> avhenger av $C$ ved $k \to 0$:
 
 <Formula tex="\begin{aligned} \omega_\text{op}^2(0) &= 2C\left(\dfrac{1}{M_1} + \dfrac{1}{M_2}\right) \\ v &= a\sqrt{\dfrac{C}{2(M_1 + M_2)}} \end{aligned}" caption="Kjeden med to atomtyper ved $k \to 0$, der $a$ er gitterkonstanten til kjeden." />
 
@@ -150,11 +158,11 @@ Del a handler om H₂O og del b om CO₂. Svingningene har engelske navn på lab
   ]}
 />
 
-**Antall svingninger (a i, b i og b ii).** To svingninger er degenererte når de har samme frekvens, for eksempel samme bevegelse i to retninger normalt på hverandre.
+**Antall svingninger (a i, b i og b ii).** Et fritt molekyl med $N$ atomer har $3N$ koordinater. Tre av dem er translasjon og tre er rotasjon, og resten er svingninger. Et lineært molekyl har bare to rotasjoner, ettersom rotasjon om molekylaksen ikke flytter atomene, og derfor $3N - 5$ svingninger. To svingninger er degenererte når de har samme frekvens, for eksempel samme bevegelse i to retninger normalt på hverandre.
 
-<Formula tex="3N - 6" caption="Antall svingninger i et fritt molekyl med $N$ atomer: $3N$ koordinater minus tre for translasjon og tre for rotasjon. Et lineært molekyl har bare to rotasjoner og derfor $3N - 5$ svingninger." />
+<Formula tex="3N - 6" caption="Antall svingninger i et fritt molekyl med $N$ atomer som ikke ligger på en linje." />
 
-**Mange enkeltlinjer (a iii og b iv).** Molekylene i en gass roterer fritt, og et foton kan eksitere en svingning og samtidig endre rotasjonen. For et lineært molekyl er rotasjonsenergien $E_J = hcB\,J(J+1)$ med $J = 0, 1, 2, \dots$ og $\Delta J = \pm 1$. En overgang fra $J$ til $J+1$ endrer energien med $2hcB(J+1)$, så båndet deler seg i linjer med avstand omtrent $2B$ på hver side av svingefrekvensen. I CO₂ mangler annenhver $J$, så avstanden er $4B$. Vann er ikke lineært og har et mindre regelmessig mønster. Rotasjonskonstantene i cm$^{-1}$ er omvendt proporsjonale med treghetsmomentene til molekylet.
+**Mange enkeltlinjer (a iii og b iv).** Molekylene i en gass roterer fritt, og et foton kan eksitere en svingning og samtidig endre rotasjonen. For et lineært molekyl er rotasjonsenergien $E_J = hcB\,J(J+1)$ med $J = 0, 1, 2, \dots$ og $\Delta J = \pm 1$. Rotasjonskonstanten $B$ i cm$^{-1}$ er omvendt proporsjonal med treghetsmomentet til molekylet. En overgang fra $J$ til $J+1$ endrer energien med $2hcB(J+1)$, så båndet deler seg i linjer med avstand omtrent $2B$ på hver side av svingefrekvensen. I CO₂ mangler annenhver $J$, så avstanden er $4B$. Vann er ikke lineært og har et mindre regelmessig mønster.
 
 <Hints>
 <Hint label="Hint: hvorfor vann har flere enkeltlinjer enn CO₂">
@@ -194,7 +202,9 @@ Tenk på hvor mye dipolmomentet endrer seg, hvor mange like bindinger strålen g
 
 **c) Kraftkonstanten til C–H.** Regn hver C–H-binding som to atomer med én fjær, med den <Term name="Redusert masse">reduserte massen</Term> $\mu$:
 
-<Formula tex="\omega = \sqrt{\dfrac{C}{\mu}}, \qquad \mu = \dfrac{M_1M_2}{M_1 + M_2}" caption="To atomer bundet med én fjær. Snudd rundt gir den kraftkonstanten fra et målt bølgetall, $C = \mu(2\pi c\sigma)^2$." />
+<Formula tex="\omega = \sqrt{\dfrac{C}{\mu}}, \qquad \mu = \dfrac{M_1M_2}{M_1 + M_2}" caption="To atomer bundet med én fjær." />
+
+Snudd rundt gir formelen kraftkonstanten fra et målt bølgetall, $C = \mu(2\pi c\sigma)^2$. H er tolv ganger lettere enn C, så $\mu$ ligger nær massen til H, og det er nesten bare H-atomet som beveger seg. Selv om resten av kjeden holdt C-atomet helt fast, ville $\mu$ bare øke med 8 %.
 
 <Callout type="warning" title="Enheter">
 Regn i SI: $\sigma$ i m$^{-1}$, altså 100 ganger verdien i cm$^{-1}$, $c = 3{,}00 \cdot 10^8$ m/s og massene i kg. H har 1,008 u og C 12,011 u, og $1\ \text{u} = 1{,}661 \cdot 10^{-27}$ kg. Kraftkonstanten kommer ut i N/m.
@@ -209,7 +219,7 @@ Del b i–iv i laboppgaven er disse fire stegene:
 1. Les av bølgetallene $\sigma_\text{TO}$ og $\sigma_\text{LO}$ i spekteret, mellom 700 og 1000 cm$^{-1}$.
 2. Regn om til vinkelfrekvens med $\omega = 2\pi c\sigma$.
 3. Løs $\omega_\text{op}^2(0) = 2C(1/M_1 + 1/M_2)$ for $C$, én gang for TO og én gang for LO.
-4. Sett hver $C$ inn i $v = a\sqrt{C/[2(M_1 + M_2)]}$ for TA og LA.
+4. Sett hver $C$ inn i $v = a\sqrt{C/[2(M_1 + M_2)]}$: $C$ fra TO gir TA, og $C$ fra LO gir LA.
 
 <Callout type="warning" title="To fjærer per atom">
 I kjeden har hvert atom en fjær på hver side. Bruker du $\omega = \sqrt{C/\mu}$ for to atomer med én fjær på SiC, blir kraftkonstanten dobbelt så stor som i kjedemodellen.

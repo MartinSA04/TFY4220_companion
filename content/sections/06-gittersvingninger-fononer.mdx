@@ -61,6 +61,10 @@ $$
 
 som er første <Term name="Brillouin-sone">Brillouin-sone</Term> i én dimensjon.
 
+<Callout title="Første Brillouin-sone">
+Bølgevektorene $k$ og $k + 2\pi/a$ gir samme utsving på hvert atom og er samme svingning. Alle svingningene i kjeden har derfor $k$ i $-\pi/a < k \le \pi/a$.
+</Callout>
+
 ## Kjede med én atomtype
 
 Kjeden har atomer med masse $M$ i avstand $a$, fjærer med kraftkonstant $C$
@@ -96,17 +100,23 @@ er den lik fasehastigheten $\omega/k$. Begge er lydhastigheten:
 <Formula tex={"v = \\frac{\\omega}{k} = a\\sqrt{\\frac{C}{M}}"} caption={"Lydhastigheten i kjeden, fra grensen $ka \\ll 1$."} />
 
 På sonegrensen, $k = \pi/a$, er $\lambda = 2a$ og $\omega = 2\sqrt{C/M}$.
-Gruppehastigheten er
+Utsvinget er $u_n = u\,e^{i\pi n} = (-1)^n u$, så naboatomer svinger i
+motfase. Bølgen med $k = -\pi/a$ gir nøyaktig de samme utsvingene, så en
+bølge mot høyre og en bølge mot venstre er her samme svingning, og den går
+ingen vei. Gruppehastigheten bekrefter dette:
 
 $$
 v_g = \frac{\mathrm d\omega}{\mathrm dk} = a\sqrt{\frac{C}{M}}\,\cos\frac{ka}{2} = 0
 $$
 
-Bølgen står stille. Utsvinget er $u_n = u\,e^{i\pi n} = (-1)^n u$, naboatomer
-svinger i motfase, og det er en stående bølge. Situasjonen er den samme som
-for diffraksjon: en bølge med $\vec k$ på sonegrensen oppfyller
+Bølgen er stående, og ingen energi transporteres. Situasjonen er den samme
+som for diffraksjon: en bølge med $\vec k$ på sonegrensen oppfyller
 Bragg-betingelsen og reflekteres av gitteret, og summen av innfallende og
-reflektert bølge står stille. Ingen energi transporteres.
+reflektert bølge står stille.
+
+<Callout title="Lyd og sonegrense">
+For lange bølger er $\omega = vk$ med lydhastigheten $v = a\sqrt{C/M}$. På sonegrensen svinger naboatomene i motfase, $v_g = 0$, og bølgen står stille.
+</Callout>
 
 <Example label="Eksamensoppgave" title="Hastighetene på sonegrensen">
 <ExamRef id="2024-mai" task="21" />
@@ -121,9 +131,10 @@ reflektert bølge står stille. Ingen energi transporteres.
 
 <Example title="kobberkjeden">
 
-En kjede av kobberatomer har $M = 63{,}5$ u, $a = 3{,}6$ Å og
-$C = 50$ N/m. Finn lydhastigheten, den høyeste frekvensen kjeden kan svinge
-med, og energien $\hbar\omega_\text{maks}$.
+En kjede av kobberatomer har $M = 63{,}5$ u, $C = 50$ N/m og
+atomavstanden $a = 2{,}56$ Å, avstanden mellom nærmeste naboer i kobber.
+Finn lydhastigheten, den høyeste frekvensen kjeden kan svinge med, og
+energien $\hbar\omega_\text{maks}$.
 
 <Solution>
 
@@ -142,10 +153,13 @@ Lydhastigheten:
 $$
 \begin{aligned}
 v &= a\sqrt{\frac{C}{M}} \\
-&= 3{,}6 \cdot 10^{-10} \cdot 2{,}18 \cdot 10^{13}\ \text{m/s} \\
-&= 7{,}8\ \text{km/s}
+&= 2{,}56 \cdot 10^{-10} \cdot 2{,}18 \cdot 10^{13}\ \text{m/s} \\
+&= 5{,}6\ \text{km/s}
 \end{aligned}
 $$
+
+Målt er lydhastigheten for longitudinale bølger i kobber omtrent 4,7 km/s,
+så kjeden med én fjær mellom nærmeste naboer gir riktig størrelsesorden.
 
 Den høyeste frekvensen er på sonegrensen:
 
@@ -157,9 +171,10 @@ $$
 \end{aligned}
 $$
 
-Til sammenligning er $k_B T = 26$ meV ved romtemperatur.
+Ved romtemperatur er $k_B T = 26$ meV, nesten like mye, så den termiske
+energien rekker til å sette i gang også de raskeste svingningene i kjeden.
 
-<Answer>$v = 7{,}8$ km/s, $\omega_\text{maks} = 4{,}4 \cdot 10^{13}$ rad/s og $\hbar\omega_\text{maks} = 29$ meV</Answer>
+<Answer>$v = 5{,}6$ km/s, $\omega_\text{maks} = 4{,}4 \cdot 10^{13}$ rad/s og $\hbar\omega_\text{maks} = 29$ meV</Answer>
 
 </Solution>
 
@@ -169,7 +184,7 @@ Til sammenligning er $k_B T = 26$ meV ved romtemperatur.
   src={"/sims/kjede.js"}
   host={"dom"}
   title={"Bølger på kjeden"}
-  caption={"Øverst svinger kjeden med den valgte $k$, nederst er dispersjonsrelasjonen med første Brillouin-sone skravert. Utsvinget er tegnet på tvers for at det skal synes. Skyv $k$ forbi $\\pi/a$: bølgen med $k - 2\\pi/a$ tegnes også, og den går gjennom de samme atomene til samme tid. På $k = \\pi/a$ står bølgen stille. Med to atomtyper svinger de to atomene i fase i den akustiske grenen og i motfase i den optiske, og på sonegrensen står det ene undergitteret i ro."}
+  caption={"Øverst kjeden med den valgte $k$, med utsvinget tegnet på tvers for at det skal synes. Utenfor sonen er bølgen med $k$ tegnet grå og bølgen med $k - 2\\pi/a$ i farge. Nederst dispersjonsrelasjonen med første Brillouin-sone skravert og et merke på den valgte bølgen."}
   height={420}
 />
 
@@ -216,9 +231,12 @@ Ligningene har en løsning med $u, v \ne 0$ bare når determinanten er null:
 $(2C - M_1\omega^2)(2C - M_2\omega^2) = 2C^2(1 + \cos ka)$. Det er en
 andregradsligning i $\omega^2$, og den har to røtter.
 
-<Formula tex={"\\begin{aligned} &\\omega^2 = C\\frac{M_1 + M_2}{M_1 M_2}\\times \\\\ &\\bigl[1 \\pm \\sqrt{1 - \\tfrac{4M_1 M_2}{(M_1 + M_2)^2}\\sin^2\\!\\tfrac{ka}{2}}\\bigr] \\end{aligned}"} caption={"Dispersjonsrelasjonen for en kjede med to atomtyper. Plusstegnet gir den optiske grenen, minustegnet den akustiske."} />
+<Formula tex={"\\begin{aligned} &\\omega^2 = C\\frac{M_1 + M_2}{M_1 M_2}\\times \\\\ &\\bigl[1 \\pm \\sqrt{1 - \\tfrac{4M_1 M_2}{(M_1 + M_2)^2}\\sin^2\\!\\tfrac{ka}{2}}\\bigr] \\end{aligned}"} caption={"Dispersjonsrelasjonen for en kjede med to atomtyper."} />
 
-Dispersjonsrelasjonen har to grener. For lange bølger, $ka \ll 1$, er
+Dispersjonsrelasjonen har derfor to grener. Minustegnet gir den
+<Term name="Akustisk gren">akustiske grenen</Term>, som ligger lavest, og
+plusstegnet den <Term name="Optisk gren">optiske</Term>. For lange bølger,
+$ka \ll 1$, er
 
 $$
 \begin{aligned}
@@ -244,7 +262,7 @@ frekvens i gapet krever $\sin^2(ka/2) > 1$, altså kompleks $k$, og
 $e^{ikx}$ dempes eksponentielt. Krystallen slipper ikke slike bølger gjennom.
 
 Amplitudeforholdet skiller grenene. Sett $k \to 0$ inn i den første
-ligningen. I den akustiske grenen er $\omega \to 0$ og $2Cu = 2Cv$, så
+amplitudeligningen, $(2C - M_1\omega^2)\,u = C\left(1 + e^{-ika}\right) v$. I den akustiske grenen er $\omega \to 0$ og $2Cu = 2Cv$, så
 $u = v$: de to atomene svinger i fase, og hele cellen flytter seg under ett.
 I den optiske grenen gir $\omega^2 = 2C(1/M_1 + 1/M_2)$
 
@@ -260,11 +278,16 @@ ladning, så den optiske svingningen er et oscillerende dipolmoment som kobler
 til infrarødt lys, og navnet optisk kommer derfra.
 
 På sonegrensen står begge grenene stille. I den akustiske grenen,
-$\omega^2 = 2C/M_1$, gir den andre ligningen $v = 0$: de lette atomene står i
+$\omega^2 = 2C/M_1$, gir den andre amplitudeligningen,
+$(2C - M_2\omega^2)\,v = C\left(1 + e^{ika}\right) u$, at $v = 0$: de lette atomene står i
 ro og de tunge svinger. I den optiske grenen er det omvendt, $u = 0$. Setter
 du $M_1 = M_2$, lukker gapet seg, og de to grenene er kurven for én atomtype
 brettet inn i den halvparten så store sonen, for den virkelige
 gitterkonstanten er da $a/2$.
+
+<Callout title="Akustisk og optisk gren">
+I den akustiske grenen svinger atomene i cellen i fase, og $\omega \to 0$ når $k \to 0$. I den optiske svinger de i motfase med massesenteret i ro, og $\omega$ er endelig ved $k = 0$.
+</Callout>
 
 <Derivation title="Optiske fononer og infrarødt lys">
 Frekvensen $\sqrt{2C(1/M_1 + 1/M_2)}$ ligger i det infrarøde. Lysets
@@ -280,19 +303,24 @@ Kjeden beskriver én polarisasjon. I tre dimensjoner har hver bølgevektor
 $\vec k$ tre: én longitudinal, med utsving langs $\vec k$, og to
 transversale, med utsving på tvers. Hver har sin egen dispersjonsrelasjon,
 og den longitudinale ligger vanligvis høyest, for det koster mer å presse
-atomene sammen enn å skyve dem sidelengs. Med $s$ atomer i den primitive
-cellen har bevegelsesligningene $3s$ ukjente amplituder, tre utsving per
-atom, så determinanten gir $3s$ grener. I tre av dem, én for hver retning,
-flytter hele cellen seg under ett, og $\omega \to 0$ når $k \to 0$. De er
-akustiske, og de andre $3s - 3$ er optiske. Grenene forkortes LA, TA, LO og
-TO. Kobber har ett atom i den primitive cellen og bare tre
-akustiske grener. Silisium, diamant og NaCl har to atomer og tre optiske
-grener i tillegg. Jern er bcc med to atomer i den konvensjonelle kuben, men
-ett i den primitive cellen, og har ingen optiske grener.
+atomene sammen enn å skyve dem sidelengs. Lyd i luft er bare longitudinal,
+for en gass tåler ikke skjærkrefter. Lyd i et fast stoff har én
+longitudinal og to transversale bølger, med hver sin hastighet.
 
-Lyd i luft er bare longitudinal, for en gass tåler ikke skjærkrefter. Lyd i
-et fast stoff har én longitudinal og to transversale bølger, med hver sin
-hastighet.
+Med $s$ atomer i den primitive cellen har bevegelsesligningene $3s$ ukjente
+amplituder, tre utsving per atom, så determinanten gir $3s$ grener. I tre
+av dem, én for hver retning, flytter hele cellen seg under ett, og
+$\omega \to 0$ når $k \to 0$. De er akustiske, og de andre $3s - 3$ er
+optiske. Grenene forkortes LA, TA, LO og TO.
+
+Kobber har ett atom i den primitive cellen og bare tre akustiske grener.
+Silisium, diamant og NaCl har to atomer og tre optiske grener i tillegg.
+Jern er bcc med to atomer i den konvensjonelle kuben, men ett i den
+primitive cellen, og har ingen optiske grener.
+
+<Callout title="Antall grener">
+En krystall med $s$ atomer i den primitive cellen har $3s$ grener: 3 akustiske og $3s - 3$ optiske.
+</Callout>
 
 <Example label="Eksamensoppgave" title="Fononer og grener">
 <ExamRef id="2018-mai" task="Introductory questions e" />
@@ -332,21 +360,51 @@ $\omega(k)$, der alle atomene i kjeden er med. Energien i svingningen med bølge
 <Formula tex={"E_n(k) = \\left(n + \\tfrac12\\right)\\hbar\\omega(k)"} caption={"Energien i svingningen med bølgevektor $k$. $n$ er antall fononer i den, og $\\omega(k)$ er dispersjonsrelasjonen fra den klassiske regningen. Leddet $\\tfrac12\\hbar\\omega$ er nullpunktsenergien."} />
 
 Ett kvant $\hbar\omega(k)$ er et fonon. Tallet $n$ er antall fononer i
-svingningen. Oscillatoren har et nivå for hver $n = 0, 1, 2, \dots$, så én
-svingning kan ha hvor mange fononer som helst. Partikler som kan dele
-tilstand slik, er bosoner. Fononer er altså bosoner, som fotoner, og følger
-Bose-Einstein-statistikk. Pauli-prinsippet gjelder ikke.
-Dispersjonsrelasjonen $\omega(k)$ er den samme som den klassiske regningen
-ga, så alt som står over om grener, gruppehastighet og sonegrensen, gjelder
-fononene.
+svingningen, og leddet $\tfrac12\hbar\omega$ er nullpunktsenergien, som
+svingningen har også uten fononer. Oscillatoren har et nivå for hver
+$n = 0, 1, 2, \dots$, så én svingning kan ha hvor mange fononer som helst.
+Partikler som kan dele tilstand slik, er bosoner. Fononer er altså bosoner,
+som fotoner, og følger Bose-Einstein-statistikk. Pauli-prinsippet gjelder
+ikke. Dispersjonsrelasjonen $\omega(k)$ er den samme som den klassiske
+regningen ga, så alt som står over om grener, gruppehastighet og
+sonegrensen, gjelder fononene.
 
-Et fonon oppfører seg i støt med fotoner, nøytroner og elektroner som om det
-har impulsen
+<Callout title="Fonon">
+Et fonon er ett kvant $\hbar\omega(k)$ av svingningen med bølgevektor $k$. Én svingning kan ha hvor mange fononer som helst, så fononer er bosoner.
+</Callout>
 
-<Formula tex={"\\vec p = \\hbar\\vec k"} caption={"Krystallimpulsen til et fonon. Den inngår i bevaringslovene ved spredning, men den fysiske impulsen til en gittersvingning med $k \\ne 0$ er null, for atomene beveger seg bare i forhold til hverandre."} />
+Et nøytron som spres i krystallen, kan ta opp eller avgi ett fonon.
+Spredningsamplituden er summen over atomene av fasefaktoren
+$e^{-i\vec Q\cdot\vec r_n}$, som for diffraksjon, men nå står atom $n$ i
+$\vec r_n = \vec R_n + \vec u_n$. For små utsving er
 
-Den kalles krystallimpuls. Den fysiske impulsen i en svingning med
-$u_n = u\,e^{i(kna - \omega t)}$ er
+$$
+e^{-i\vec Q\cdot(\vec R_n + \vec u_n)} \approx e^{-i\vec Q\cdot\vec R_n}\left(1 - i\vec Q\cdot\vec u_n\right)
+$$
+
+Det første leddet gir diffraksjonen fra gitteret i ro, med $\vec Q = \vec G$.
+I det andre leddet er $\vec u_n \propto e^{i(\vec k\cdot\vec R_n - \omega t)}$,
+så summen over atomene inneholder
+
+$$
+\sum_n e^{-i(\vec Q - \vec k)\cdot\vec R_n}
+$$
+
+Den er null unntatt når $\vec Q - \vec k$ er en resiprok gittervektor, fordi
+fasene ellers fordeler seg rundt enhetssirkelen, som i diffraksjonssummen. Faktoren $e^{-i\omega t}$ øker
+frekvensen til den spredte bølgen med $\omega$. Nøytronet har altså tatt opp
+energien $\hbar\omega$ og impulsen $\hbar\vec Q = \hbar\vec k + \hbar\vec G$.
+Den andre halvdelen av det reelle utsvinget, med $e^{-i(\vec k\cdot\vec R_n - \omega t)}$,
+gir på samme måte et nøytron som avgir et fonon. Bortsett fra $\hbar\vec G$,
+som krystallen som helhet tar opp, oppfører fononet seg som om det har
+impulsen
+
+<Formula tex={"\\vec p = \\hbar\\vec k"} caption={"Krystallimpulsen til et fonon."} />
+
+Den kalles krystallimpuls, og den er bevart opp til en $\hbar\vec G$ når
+fononer lages eller tas opp i spredning av fotoner, nøytroner og elektroner. Den fysiske impulsen er noe annet. En
+bølge med $k \ne 0$ skyver like mange atomer hver vei, og summen av
+impulsene til atomene i en svingning med $u_n = u\,e^{i(kna - \omega t)}$ er
 
 $$
 p = \sum_n M\dot u_n = -i\omega M u\,e^{-i\omega t}\sum_n e^{ikna}
@@ -358,20 +416,24 @@ $\sum_n e^{ikna} = (1 - e^{ikNa})/(1 - e^{ika})$. For $k \ne 0$ er
 $e^{ikNa} = 1$ og $e^{ika} \ne 1$, så summen er null. Atomene beveger seg
 altså bare i forhold til hverandre, og den fysiske impulsen er null.
 
+<Callout title="Krystallimpuls">
+I spredning teller et fonon med impulsen $\hbar\vec k$, bevart opp til en $\hbar\vec G$. Den fysiske impulsen i en svingning med $k \ne 0$ er null.
+</Callout>
+
 ## Sjekk deg selv
 
 <Quiz
-  question={"Hvorfor er gruppehastigheten null på sonegrensen $k = \\pi/a$?"}
-  options={["Bølgen oppfyller Bragg-betingelsen og reflekteres av gitteret, så den blir stående", "Frekvensen er null der", "Fjærene er strukket til bristepunktet", "Bølgelengden er uendelig, så det er en ren translasjon"]}
+  question={"En bølge på kjeden med én atomtype har $k = 3\\pi/2a$. Hvilken $k$ i første Brillouin-sone er samme svingning, og hvilken vei går energien?"}
+  options={["$k = -\\pi/2a$, og energien går mot $-x$", "$k = -\\pi/2a$, og energien går mot $+x$", "$k = \\pi/2a$, og energien går mot $+x$", "$k = \\pi/2a$, og energien går mot $-x$"]}
   answer={0}
-  explanation={"På sonegrensen er $\\lambda = 2a$, naboatomer svinger i motfase, og $\\omega(k)$ har maksimum. Bølgen reflekteres av gitteret på samme måte som en røntgenbølge med $\\vec k$ på sonegrensen, og summen av innfallende og reflektert bølge står stille."}
+  explanation={"$k$ og $k - 2\\pi/a$ gir samme utsving på hvert atom, så $3\\pi/2a$ er samme svingning som $-\\pi/2a$. Der synker $\\omega(k) = 2\\sqrt{C/M}\\,|\\sin(ka/2)|$ med økende $k$, så $v_g = \\mathrm d\\omega/\\mathrm dk < 0$ og energien går mot $-x$, selv om $e^{i(3\\pi x/2a - \\omega t)}$ tegnet mellom atomene ser ut til å gå mot $+x$. Speiler du $k$ om sonegrensen i stedet for å trekke fra $2\\pi/a$, får du $\\pi/2a$: samme frekvens, men bølgen går motsatt vei."}
 />
 
 <Quiz
-  question={"NaCl har to atomer i den primitive cellen. Hvor mange grener har dispersjonsrelasjonen?"}
-  options={["3 akustiske og 3 optiske", "1 akustisk og 1 optisk", "6 akustiske", "3 akustiske og 6 optiske"]}
+  question={"Flusspat, CaF$_2$, har et fcc-gitter med ett Ca og to F i basisen, altså tolv atomer i den konvensjonelle kuben. Hvor mange grener har dispersjonsrelasjonen?"}
+  options={["3 akustiske og 6 optiske", "3 akustiske og 3 optiske", "3 akustiske og 33 optiske", "1 akustisk og 2 optiske"]}
   answer={0}
-  explanation={"Hver av de tre polarisasjonene har én akustisk gren og $s - 1$ optiske. Med $s = 2$ er det $3$ akustiske og $3s - 3 = 3$ optiske, altså $3s = 6$ grener."}
+  explanation={"Den primitive cellen til fcc har en fjerdedel av kubens volum og rommer $12/4 = 3$ atomer, det samme som basisen. Med $s = 3$ er det 3 akustiske og $3s - 3 = 6$ optiske grener. To atomslag gir ikke $s = 2$, for de to F-atomene svinger hver for seg. Regner du med alle tolv atomene i kuben, teller du hver gren fire ganger. Én akustisk gren og to optiske er tellingen for en kjede, uten de tre polarisasjonene."}
 />
 
 <SelfCheck question={"Kjeden med to atomtyper har $M_1 = 2M_2$. Hvor mye høyere er den optiske frekvensen ved $k = 0$ enn den akustiske på sonegrensen?"}>
@@ -403,6 +465,6 @@ på sonegrensen.
 - Kjeden med én atomtype har $\omega = 2\sqrt{C/M}\,|\sin(ka/2)|$. For lange bølger er $\omega = vk$ med lydhastigheten $v = a\sqrt{C/M}$; på sonegrensen er $v_g = 0$ og bølgen står stille.
 - Kjeden med to atomtyper har en akustisk gren, der atomene svinger i fase og $\omega \to 0$, og en optisk gren, der de svinger i motfase med $u/v = -M_2/M_1$ og $\omega^2 = 2C(1/M_1 + 1/M_2)$ ved $k = 0$. Mellom $\sqrt{2C/M_1}$ og $\sqrt{2C/M_2}$ er det et gap.
 - I tre dimensjoner har hver $\vec k$ tre polarisasjoner, og $s$ atomer i den primitive cellen gir 3 akustiske og $3s - 3$ optiske grener.
-- Et fonon er kvantet $\hbar\omega(k)$ av en gittersvingning, $E_n = (n + \tfrac12)\hbar\omega$. Fononer er bosoner og bærer krystallimpulsen $\hbar\vec k$, mens den fysiske impulsen er null.
+- Et fonon er kvantet $\hbar\omega(k)$ av en gittersvingning, $E_n = (n + \tfrac12)\hbar\omega$. Fononer er bosoner og bærer krystallimpulsen $\hbar\vec k$, som er bevart opp til $\hbar\vec G$ i spredning, mens den fysiske impulsen er null.
 
 </KeyTakeaways>

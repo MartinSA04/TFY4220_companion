@@ -291,7 +291,7 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
     s += text(
       10,
       20,
-      "resiprokt rom",
+      "k-rommet",
       "var(--muted)",
       "start",
       "font-family:var(--font-mono);font-size:var(--text-xs)",

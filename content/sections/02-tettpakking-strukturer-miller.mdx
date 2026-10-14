@@ -22,16 +22,16 @@ updated: 2026-08-24
 ## Primitive celler i bcc og fcc
 
 Den konvensjonelle kuben rommer 2 gitterpunkter i bcc og 4 i fcc, så ingen av de
-to er primitive celler. De primitive cellene finnes selvsagt, men begge er
-romboedre. I bcc går de primitive vektorene fra et hjørne til tre av de åtte
-nærmeste romsentrene, i fcc til tre av de tolv nærmeste flatesentrene.
+to er primitive celler. De primitive cellene i begge gitrene er romboedre. I
+bcc går de primitive vektorene fra et hjørne til tre av de åtte nærmeste
+romsentrene, i fcc til tre av de tolv nærmeste flatesentrene.
 
 <Formula tex={"\\vec{a}_1 = \\tfrac{a}{2}(\\hat{x}{+}\\hat{y}{-}\\hat{z}), \\quad \\vec{a}_2 = \\tfrac{a}{2}({-}\\hat{x}{+}\\hat{y}{+}\\hat{z}), \\quad \\vec{a}_3 = \\tfrac{a}{2}(\\hat{x}{-}\\hat{y}{+}\\hat{z})"} caption={"Primitive gittervektorer for <b>bcc</b>, fra et hjørne til tre av romsentrene."} />
 
 <Formula tex={"\\vec{a}_1 = \\tfrac{a}{2}(\\hat{x}{+}\\hat{y}), \\quad \\vec{a}_2 = \\tfrac{a}{2}(\\hat{y}{+}\\hat{z}), \\quad \\vec{a}_3 = \\tfrac{a}{2}(\\hat{z}{+}\\hat{x})"} caption={"Primitive gittervektorer for <b>fcc</b>, fra et hjørne til tre av de nærmeste flatesentrene."} />
 
 Volumet $|\vec a_1 \cdot (\vec a_2 \times \vec a_3)|$ blir $a^3/2$ for bcc og
-$a^3/4$ for fcc. Det stemmer med tellingen i kuben: 2 og 4 gitterpunkter per
+$a^3/4$ for fcc. Volumene stemmer med tellingen i kuben: 2 og 4 gitterpunkter per
 konvensjonell celle. Regningen gjør du likevel nesten alltid i kuben, for
 romboedrene skjuler den kubiske symmetrien.
 
@@ -45,7 +45,10 @@ over A igjen, eller over de fordypningene B ikke brukte, kalt C.
 - ABABAB gir <Term name="Heksagonal tettpakking">heksagonal tettpakking</Term> (hcp).
 - ABCABC gir fcc.
 
-Begge stablingene har pakningsgraden $0{,}74$, og det er den høyeste som finnes.
+Valget for lag 3 endrer verken lagene eller avstanden mellom dem. Hvert lag
+ligger i fordypningene til laget under, like dypt om fordypningene er B eller C.
+Volumet per kule er derfor det samme i begge stablingene, og pakningsgraden er
+den du regnet ut for fcc, $\pi\sqrt2/6 = \pi/\sqrt{18} \approx 0{,}74$.
 
 <Statement kind="theorem" name="Tettest mulig pakking">
 
@@ -58,15 +61,29 @@ Kepler formodet dette i 1611; beviset kom først i 1998, ved Thomas Hales.
   src={"/sims/stabling.js"}
   host={"dom"}
   title={"Stabling av tette kulelag"}
-  caption={"Sett ovenfra. Kryssene er de ledige fordypningene, og valget for lag 3 er det som skiller hcp fra fcc."}
+  caption={"Tette kulelag sett ovenfra, med stablingsrekkefølgen i hjørnet. Kryssene er de ledige fordypningene i det øverste laget."}
   height={360}
 />
 
-At ABCABC er den samme strukturen som fcc, er ikke lett å se direkte: lagene
-ligger normalt på kubens romdiagonal, ikke på noen av flatene. hcp er
-ikke noe eget Bravais-gitter. Lag B ser andre omgivelser enn lag A, så
+At ABCABC er fcc, ser du langs kubens romdiagonal. Gitterpunktene i fcc ligger i
+plan normalt på romdiagonalen, og hvert slikt plan er et tett lag: hvert atom
+har seks naboer i planet, i avstanden $a/\sqrt2$ langs flatediagonalene. Rett
+over hjørnet i origo ligger neste gitterpunkt i det motsatte hjørnet av kuben,
+tre lag lenger opp. De to lagene imellom har ingen punkter på romdiagonalen, så
+de er forskjøvet: det første er B, det andre C, og det tredje er A igjen.
+
+hcp er ikke noe eget Bravais-gitter. Fra et A-atom danner de tre nærmeste
+naboene i laget over en trekant som peker én vei, og fra et B-atom peker den
+tilsvarende trekanten motsatt vei. Omgivelsene er dreid $180^\circ$, så
 strukturen er det heksagonale gitteret med en basis på to atomer, på samme måte
 som honeycomb-nettet var det heksagonale gitteret med to.
+
+<Callout title="Tette stablinger">
+
+ABAB gir hcp og ABCABC gir fcc, begge med pakningsgraden $0{,}74$. hcp er det
+heksagonale gitteret med en basis på to atomer.
+
+</Callout>
 
 ## Strukturer som gitter pluss basis
 
@@ -185,11 +202,18 @@ to $(100)$-plan. Symmetrien gjør i tillegg flere familier likeverdige: kubens
 seks flater er $(100)$, $(010)$, $(001)$, $(\bar100)$, $(0\bar10)$ og
 $(00\bar1)$, og samlingen skrives $\{100\}$.
 
+<Callout title="Planfamilier">
+
+$(hkl)$ navngir en familie av parallelle plan med lik avstand, og $\{hkl\}$
+samler familiene symmetrien gjør likeverdige.
+
+</Callout>
+
 <Simulation
   src={"/sims/miller.js"}
   host={"dom"}
   title={"Miller-indekser"}
-  caption={"Ringene på aksene er skjæringspunktene. «Hele familien» tegner alle planene i cellen, med avstanden $d$ mellom naboplan."}
+  caption={"Planet $(hkl)$ i en kubisk celle. Ringene på aksene er skjæringspunktene, pilen er retningen $[hkl]$, og i familievisningen er avstanden $d$ mellom naboplan markert."}
   height={420}
 />
 
@@ -218,6 +242,12 @@ naboplanene har dermed avstanden
 (<FormulaRef id="planavstand-kubisk" />).
 
 <Formula tex={"d_{hkl} = \\dfrac{a}{\\sqrt{h^2 + k^2 + l^2}}"} caption={"Planavstanden i kubiske gitter. Høyere indekser gir mindre avstand."} />
+
+I bcc og fcc gir formelen avstanden i familien som kubens indekser navngir. Der
+det ligger gitterpunkter mellom planene, som romsenteret mellom $(100)$-planene i
+bcc, er de virkelige gitterplanene tettere. Indekser som ikke er redusert,
+navngir slike tettere plan: $(200)$ er familien med halve avstanden til $(100)$,
+$d_{200} = a/2$.
 
 <Example title="planavstand i silisium">
 
@@ -249,10 +279,10 @@ unntatt $\{100\}$: jo høyere indekser, desto tettere ligger planene.
 />
 
 <Quiz
-  question={"CsCl har ett atom i hvert hjørne av kuben og ett i midten. Hvilket Bravais-gitter har strukturen?"}
-  options={["Romsentrert kubisk", "Enkelt kubisk", "Flatesentrert kubisk", "Heksagonalt"]}
+  question={"CsCl har kubekant $a$, med Cs i hjørnene og Cl i midten av kuben. Hvor langt er det mellom to nærmeste gitterpunkter?"}
+  options={["$a\\sqrt3/2$", "$a$", "$a\\sqrt2/2$", "$a\\sqrt3$"]}
   answer={1}
-  explanation={"Hjørneatomet og senteratomet er ulike grunnstoffer, så de har ulike omgivelser og kan ikke være punkter i samme gitter. Gitteret er enkelt kubisk med basisen Cs $+$ Cl."}
+  explanation={"Gitterpunktene ligger på ett atomslag, for eksempel bare på Cs, så gitteret er enkelt kubisk med kant $a$, og nærmeste gitterpunkt ligger én kubekant unna. $a\\sqrt3/2$ er avstanden fra Cs til nærmeste Cl. Den hadde vært avstanden mellom gitterpunkter bare hvis hjørnet og midten var samme atomslag, i bcc. $a\\sqrt2/2$ er naboavstanden i fcc."}
 />
 
 <SelfCheck question={"Hvor langt er det mellom naboplanene i $(220)$-familien i silisium, og hvorfor er svaret ikke det samme som for $(110)$?"}>

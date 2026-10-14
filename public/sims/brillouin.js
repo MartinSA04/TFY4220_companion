@@ -128,7 +128,7 @@ export default function init({ stage, controls, getSize, onResize, signal }) {
       `<text x="${P(cx)}" y="${P(cy - 14)}" text-anchor="middle" dominant-baseline="central" ` +
       `style="fill:var(--accent);font-family:var(--font-mono);font-size:var(--text-sm);font-weight:700;` +
       `paint-order:stroke;stroke:var(--canvas-bg);stroke-width:3px">1. sone</text>`;
-    s += `<text x="10" y="20" style="fill:var(--muted);font-family:var(--font-mono);font-size:var(--text-xs)">resiprokt rom</text>`;
+    s += `<text x="10" y="20" style="fill:var(--muted);font-family:var(--font-mono);font-size:var(--text-xs)">k-rommet</text>`;
 
     stage.innerHTML =
       `<svg width="100%" height="100%" viewBox="0 0 ${w.toFixed(0)} ${h.toFixed(0)}" ` +

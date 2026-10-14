@@ -39,9 +39,9 @@ Neon har <Term name="Van der Waals-binding">van der Waals-binding</Term>,
 diamant har <Term name="Kovalent binding">kovalent binding</Term> og wolfram
 har <Term name="Metallisk binding">metallisk binding</Term>.
 
-For en ionekrystall er det mer naturlig å regne fra frie ioner enn fra frie
-atomer, og da heter energien gitterenergi. De to skiller seg med det det
-koster å lage ionene. For NaCl er regnskapet
+En ionekrystall er bygd av ioner, så for den er det mer naturlig å regne fra
+frie ioner enn fra frie atomer, og da heter energien gitterenergi. De to
+skiller seg med energien det koster å lage ionene. For NaCl er regnskapet
 
 $$
 \begin{aligned}
@@ -54,13 +54,22 @@ $$
 Den første linjen er <Term name="Ioniseringsenergi">ioniseringsenergien</Term>
 til natrium, den andre er <Term name="Elektronaffinitet">elektronaffiniteten</Term>
 til klor, og den tredje er gitterenergien per ionpar. Kohesjonsenergien regnet
-fra nøytrale atomer er dermed $7{,}9 - 5{,}14 + 3{,}61 = 6{,}4$ eV per ionpar.
+fra nøytrale atomer er dermed $7{,}9 - 5{,}14 + 3{,}61 = 6{,}4$ eV per ionpar,
+eller 3,2 eV per atom.
+
+<Callout title="Gitterenergi og kohesjonsenergi">
+
+Gitterenergien regnes fra frie ioner, kohesjonsenergien fra frie, nøytrale
+atomer. For NaCl skiller de seg med ioniseringsenergien til natrium minus
+elektronaffiniteten til klor: 7,9 eV mot 6,4 eV per ionpar.
+
+</Callout>
 
 ## Van der Waals-binding
 
 Edelgassatomene har fylte skall, kulesymmetrisk ladningsfordeling og høy
 ioniseringsenergi. Et kulesymmetrisk atom har ingen permanent dipol, så to
-slike atomer skulle ikke trekke på hverandre. Likevel fryser neon ved 24 K og
+slike atomer skulle ikke tiltrekke hverandre. Likevel fryser neon ved 24 K og
 xenon ved 161 K, og alle edelgassene unntatt helium krystalliserer i fcc.
 
 Elektronene i atom A beveger seg, og i et gitt øyeblikk har atomet et
@@ -74,14 +83,17 @@ U \approx -\frac{p_A\, p_B}{4\pi\varepsilon_0 r^3}
 = -\frac{\alpha\, p_A^2}{(4\pi\varepsilon_0)^2\, r^6}
 $$
 
-Tidsmiddelet av $\vec p_A$ er null, men tidsmiddelet av $p_A^2$ er det ikke, så
-tiltrekningen overlever. Den avtar som $r^{-6}$.
+Den induserte dipolen snur seg med $\vec p_A$, så de to dipolene tiltrekker
+hverandre uansett hvilken vei $\vec p_A$ peker. Tidsmiddelet av $\vec p_A$ er
+null, men tidsmiddelet av $p_A^2$ er det ikke, og tiltrekningen blir ikke null
+i middel. Den avtar som $r^{-6}$.
 
 Når atomene kommer så nær hverandre at elektronskyene overlapper, slår
 Pauli-prinsippet inn. To elektroner kan ikke ha samme sett kvantetall, så
 elektroner fra det ene atomet må opp i høyere tilstander når de skal dele rom
-med det andre. Det koster energi, og frastøtningen vokser bratt. Den beskrives
-empirisk som $B/r^{12}$. Med $C$ for konstantene i tiltrekningen er summen
+med det andre. Energien stiger derfor bratt når avstanden minker. Frastøtningen
+skrives $B/r^{12}$, og eksponenten 12 er valgt fordi den er enkel å regne med,
+ikke utledet. Med $C$ for konstantene i tiltrekningen er summen
 $U = B/r^{12} - C/r^6$. Potensialet er null der $r^6 = B/C$, og den avstanden
 kalles $\sigma$. Minimum ligger der $\mathrm dU/\mathrm dr = 0$, altså ved
 $r^6 = 2B/C = 2\sigma^6$, og der er $U = -C^2/4B$. Brønndybden kalles
@@ -139,6 +151,16 @@ U_\text{tot}(R_0) = -\frac{14{,}45^2}{2 \cdot 12{,}13}\, N\varepsilon = -8{,}6\,
 $$
 
 Kohesjonsenergien per atom er altså $8{,}6\,\varepsilon$, uansett edelgass.
+Med bare de tolv nærmeste naboene, $A_{12} = A_6 = 12$, ville den vært
+$6\,\varepsilon$, én brønndybde for hvert av de seks parene per atom. Resten
+kommer fra tiltrekningen til atomene lenger ute.
+
+<Callout title="Edelgasskrystallen">
+
+I fcc gir Lennard-Jones-potensialet likevektsavstanden $R_0 = 1{,}09\,\sigma$
+og kohesjonsenergien $8{,}6\,\varepsilon$ per atom, for alle edelgassene.
+
+</Callout>
 
 <Example title="argonkrystallen">
 
@@ -188,11 +210,11 @@ Det tiltrekkende leddet $-r^{-6}$ er van der Waals-vekselvirkningen:
 ladningsfordelingen i et nøytralt atom fluktuerer, det øyeblikkelige
 dipolmomentet induserer et dipolmoment i naboen, og energien til de to
 dipolene faller som $r^{-6}$. Det frastøtende leddet $+r^{-12}$ kommer fra
-Pauliprinsippet: når elektronskyene overlapper, må elektronene inn i høyere
+Pauli-prinsippet: når elektronskyene overlapper, må elektronene inn i høyere
 tilstander, og energien stiger bratt. Eksponenten 12 er valgt fordi den er
 enkel å regne med, ikke fordi den følger av teorien.
 
-<Answer>Brønn med minimum $-\varepsilon$ i $2^{1/6}\sigma$; $-r^{-6}$ fra induserte dipoler, $+r^{-12}$ fra Pauli-frastøting ved overlapp.</Answer>
+<Answer>Brønn med minimum $-\varepsilon$ i $2^{1/6}\sigma$; $-r^{-6}$ fra induserte dipoler, $+r^{-12}$ fra Pauli-frastøtning ved overlapp.</Answer>
 </Solution>
 </Example>
 
@@ -201,9 +223,9 @@ enkel å regne med, ikke fordi den følger av teorien.
 I NaCl gir natrium fra seg ett elektron og klor tar det imot, og begge ionene
 får fylte skall: $\mathrm{Na}^+$ har neons konfigurasjon og $\mathrm{Cl}^-$
 har argons. Ionene er kulesymmetriske, og bindingen er Coulomb-tiltrekningen
-mellom motsatte ladninger. Den rekker langt og har ingen retning. Det lønner
-seg å lage ionene: gitteret gir 7,9 eV per ionpar, og å lage ionene koster
-$5{,}14 - 3{,}61 = 1{,}53$ eV.
+mellom motsatte ladninger. Den rekker langt og har ingen retning. Å lage
+ionene koster $5{,}14 - 3{,}61 = 1{,}53$ eV per ionpar, og gitteret gir 7,9 eV
+tilbake, så krystallen av ioner har lavere energi enn de frie atomene.
 
 Velg et referanseion $i$, og la $p_{ij}R$ være avstanden til ion $j$, med $R$
 som nærmeste naboavstand. Vekselvirkningen med ion $j$ er
@@ -216,13 +238,14 @@ U_{ij} = \begin{cases}
 $$
 
 med pluss for ioner med samme ladning som referanseionet og minus for motsatt.
-Frastøtningen er det samme Pauli-overlappet som i edelgassene.
-Bølgefunksjonene avtar eksponentielt utover fra atomet, så overlappet avtar
+Som i edelgassene kommer frastøtningen av at elektronskyene overlapper og
+Pauli-prinsippet tvinger elektroner opp i høyere tilstander. Bølgefunksjonene avtar eksponentielt utover fra atomet, så overlappet avtar
 også eksponentielt med avstanden, og frastøtningen skrives $\lambda e^{-R/\rho}$.
-I edelgassene ble den skrevet $B/r^{12}$ fordi det er enkelt å regne med. Den
-tas bare med for de $z$ nærmeste naboene, siden den er så kortrekkende.
+I edelgassene ble den skrevet $B/r^{12}$ fordi det er enkelt å regne med.
 $\lambda$ og $\rho$ er empiriske parametere, og $\rho$ er rekkevidden, omtrent
-en tidel av $R$.
+en tidel av $R$. Frastøtningen tas bare med for de $z$ nærmeste naboene. Ved
+de nest nærmeste, i avstand $\sqrt2 R$ i NaCl, er den mindre med faktoren
+$e^{-(\sqrt2 - 1)R/\rho} \approx e^{-4} \approx 0{,}02$.
 
 <Statement kind="definition" name="Madelung-konstanten">
 
@@ -234,7 +257,10 @@ for ioner med samme. Den er et rent tall som bare avhenger av strukturen.
 
 <Formula tex={"\\alpha = \\sum_j \\frac{(\\pm)}{p_{ij}}"} caption={"Madelung-konstanten. 1,7476 for NaCl, 1,7627 for CsCl og 1,6381 for ZnS."} />
 
-Summen over $j$ gir energien til ett ion. Frastøtningen gir
+For NaCl er $\alpha = 1{,}7476$, så Coulomb-energien til ett ion med hele
+krystallen er 1,75 ganger energien med ett motsatt ladet ion i avstand $R$.
+
+Summen av $U_{ij}$ over alle $j$ gir energien til ett ion. Frastøtningen gir
 $z\lambda\, e^{-R/\rho}$ fra de $z$ nærmeste naboene. Coulomb-leddene har alle
 faktoren $q^2/4\pi\varepsilon_0 R$, og resten er $-\sum_j (\pm)/p_{ij} = -\alpha$,
 med minus fordi Madelung-konstanten regner motsatt ladning som pluss:
@@ -246,9 +272,10 @@ $$
 Krystallen har $2N$ ioner, $N$ av hvert slag, og hvert par skal telles én
 gang, så totalen er $N$ ganger $U_i$:
 
-<Formula tex={"U_\\text{tot} = N\\left(z\\lambda\\, e^{-R/\\rho} - \\frac{\\alpha q^2}{4\\pi\\varepsilon_0 R}\\right)"} caption={"Total energi for en ionekrystall med $N$ ionpar. $z$ er antall nærmeste naboer, og $\\alpha$ er Madelung-konstanten. Coulomb-leddet alene kalles Madelung-energien."} />
+<Formula tex={"U_\\text{tot} = N\\left(z\\lambda\\, e^{-R/\\rho} - \\frac{\\alpha q^2}{4\\pi\\varepsilon_0 R}\\right)"} caption={"Total energi for en ionekrystall med $N$ ionpar. $z$ er antall nærmeste naboer, og $\\alpha$ er Madelung-konstanten."} />
 
-Likevekt er der $\mathrm dU_\text{tot}/\mathrm dR = 0$:
+Coulomb-leddet alene kalles Madelung-energien. Likevekt er der
+$\mathrm dU_\text{tot}/\mathrm dR = 0$:
 
 $$
 \begin{aligned}
@@ -258,9 +285,12 @@ z\lambda\, e^{-R_0/\rho} &= \frac{\rho}{R_0}\,\frac{\alpha q^2}{4\pi\varepsilon_
 $$
 
 Den andre linjen gir frastøtningsleddet $z\lambda\, e^{-R_0/\rho}$ uttrykt ved
-Coulomb-leddet. Sett det inn i $U_\text{tot}$, så får du
+Coulomb-leddet. Sett uttrykket inn i $U_\text{tot}$, så får du
 
-<Formula tex={"U_\\text{tot}(R_0) = -\\frac{N\\alpha q^2}{4\\pi\\varepsilon_0 R_0}\\left(1 - \\frac{\\rho}{R_0}\\right)"} caption={"Energien til en ionekrystall ved likevekt. Frastøtningen tar bare andelen $\\rho/R_0 \\approx 0{,}1$ av Madelung-energien."} />
+<Formula tex={"U_\\text{tot}(R_0) = -\\frac{N\\alpha q^2}{4\\pi\\varepsilon_0 R_0}\\left(1 - \\frac{\\rho}{R_0}\\right)"} caption={"Energien til en ionekrystall ved likevekt."} />
+
+Frastøtningen gjør altså bindingen ved likevekt bare andelen
+$\rho/R_0 \approx 0{,}1$ svakere enn Madelung-energien alene.
 
 For NaCl er $R_0 = 2{,}82$ Å og $\rho = 0{,}32$ Å, og
 $q^2/(4\pi\varepsilon_0) = 14{,}40$ eV·Å:
@@ -273,7 +303,18 @@ $$
 \end{aligned}
 $$
 
-Det er den målte gitterenergien per ionpar.
+Tallet stemmer med den målte gitterenergien, 7,9 eV per ionpar. Med disse
+tallene er $R_0/\rho = 8{,}8$, så frastøtningen fra ett av de nest nærmeste
+ionene er bare $e^{-(\sqrt2 - 1) \cdot 8{,}8} \approx 0{,}03$ av frastøtningen
+fra ett av de nærmeste.
+
+<Callout title="Ionekrystallen ved likevekt">
+
+Ved likevekt er energien til ionekrystallen Madelung-energien
+$-N\alpha q^2/4\pi\varepsilon_0 R_0$ ganget med $1 - \rho/R_0$. Frastøtningen
+tar bare rundt en tidel, så gitterenergien er nesten bare Coulomb-energi.
+
+</Callout>
 
 ### Å summere Madelung-konstanten
 
@@ -286,12 +327,23 @@ $$
 $$
 
 Delsummene er 6, $-2{,}49$, 2,13, $-0{,}87$, 9,87 og så videre. Summert skall for
-skall roer rekken seg aldri, for hvert skall bærer en stor nettoladning, og
-leddene avtar for sakte til å tåle det. Rekken må summeres i grupper som er
-nøytrale. Evjens metode tar ionene innenfor en kube om referanseionet og
-teller ionene på overflaten med den andelen som ligger inne i kuben: halve
-ioner på flatene, kvarte på kantene og åttendedeler i hjørnene. Da er hver
-kube nøytral, og summen står nesten stille etter to kuber.
+skall roer rekken seg aldri. Alle ionene i et skall har samme ladning, og
+skallene lenger ute har i snitt flere ioner, så leddene blir ikke mindre:
+$24/\sqrt5 = 10{,}7$ er større enn det første leddet, 6. Rekken må summeres i
+grupper som er nøytrale. Evjens metode tar ionene innenfor en kube om
+referanseionet og teller ionene på overflaten med den andelen som ligger inne
+i kuben: halve ioner på flatene, kvarte på kantene og åttendedeler i hjørnene.
+Da er hver kube nøytral, og når kuben vokser med ett lag, er laget også
+nøytralt. Sett fra referanseionet opphever ladningene i laget nesten
+hverandre, så summen er 1,75 allerede etter to kuber, mot den eksakte 1,7476.
+
+<Callout title="Summer i nøytrale grupper">
+
+Skall for skall roer Madelung-rekken seg aldri. Kube for kube, med ionene på
+overflaten talt med andelen som ligger inne i kuben, er hver kube nøytral, og
+to kuber gir 1,75 mot den eksakte 1,7476.
+
+</Callout>
 
 <Example title="Madelung-konstanten fra én enhetscelle i NaCl">
 
@@ -325,7 +377,7 @@ med kant $4R$ gir 1,75, og den eksakte verdien er 1,7476.
   src={"/sims/madelung.js"}
   host={"dom"}
   title={"Madelung-summen"}
-  caption={"Et kvadratisk gitter av vekslende ladninger, med referanseionet i midten. Summert skall for skall etter avstand hopper delsummen opp og ned uten å roe seg. Summert i nøytrale kvadrater, med kant- og hjørneioner vektet med $\\tfrac12$ og $\\tfrac14$, står den på 1,61 etter to kvadrater, nær grenseverdien 1,616. I tre dimensjoner er tallet for NaCl 1,748."}
+  caption={"Et kvadratisk gitter av vekslende ladninger, med referanseionet i midten. Ionene som er med i delsummen, er fylt, med vekten som fyllgrad, og den stiplede kanten er skallet eller kvadratet som er summert. Diagrammet viser delsummen for hvert skall eller kvadrat, og den grønne stiplede linjen er grenseverdien 1,616 for dette todimensjonale gitteret."}
   height={380}
 />
 
@@ -362,7 +414,8 @@ Metallene i gruppe I, II og III har få og løst bundne valenselektroner. I
 krystallen løsner de fra atomene og beveger seg fritt gjennom hele gitteret,
 og det som er igjen, er positive ioner i en sjø av elektroner. Bindingen
 kommer av at elektronenes kinetiske energi synker når de får bre seg ut over
-hele krystallen i stedet for å være stengt inne i hvert sitt atom.
+hele krystallen i stedet for å være stengt inne i hvert sitt atom, slik
+energien til en partikkel i en boks synker når boksen blir større.
 
 Bindingen har ingen retning, så metaller pakker tett i fcc, hcp eller bcc. De
 leder strøm og varme, og de lar seg forme, siden ionene kan gli forbi
@@ -403,13 +456,13 @@ description of each.
 
 <Solution>
 Van der Waals-binding: svak tiltrekning mellom nøytrale atomer eller
-molekyler fra induserte dipoler, energi som $r^{-6}$, med Pauli-frastøting
+molekyler fra induserte dipoler, energi som $r^{-6}$, med Pauli-frastøtning
 ved overlapp; Lennard-Jones-potensialet. Edelgasskrystaller og
 molekylkrystaller.
 
 Ionisk binding: elektroner overføres fra ett atom til et annet, og
 Coulomb-kraften mellom ionene holder krystallen sammen; energien beskrives
-med Madelung-konstanten. Uten retning, flere eV per ionepar. NaCl, CsCl.
+med Madelung-konstanten. Uten retning, flere eV per ionpar. NaCl, CsCl.
 
 Kovalent binding: naboatomer deler elektronpar med motsatt spinn, og
 elektrontettheten hoper seg opp mellom kjernene. Sterk og retningsbestemt;
@@ -429,17 +482,17 @@ binder svakt til et annet, som i is.
 ## Sjekk deg selv
 
 <Quiz
-  question={"Hvilket ledd i Lennard-Jones-potensialet kommer fra Pauli-prinsippet?"}
-  options={["$+(\\sigma/r)^{12}$: elektronene må opp i høyere tilstander når skyene overlapper", "$-(\\sigma/r)^{6}$: elektroner med motsatt spinn kan dele rom", "Begge; Pauli-prinsippet gir både tiltrekning og frastøtning", "Ingen av dem; tiltrekningen er elektrostatisk og frastøtningen er kjernenes"]}
+  question={"Et edelgassatom i en hcp-krystall har også tolv nærmeste naboer i avstand $R$. Hvor ligger likevektsavstanden $R_0$ i hcp, sammenlignet med $1{,}09\\,\\sigma$ i fcc?"}
+  options={["Nesten i $1{,}09\\,\\sigma$, for gittersummene domineres av de tolv nærmeste naboene", "Lenger ut, for hcp har en annen stabling og dermed andre gittersummer", "Nærmere, for hcp pakker atomene tettere enn fcc gjør", "I $2^{1/6}\\sigma$, for da ligger hvert nabopar i bunnen av brønnen"]}
   answer={0}
-  explanation={"Frastøtningen $B/r^{12}$ kommer av at to elektroner ikke kan ha samme sett kvantetall, så overlappende skyer tvinger elektroner opp i høyere tilstander. Tiltrekningen $-r^{-6}$ er elektrostatisk, mellom en øyeblikksdipol og dipolen den induserer."}
+  explanation={"De tolv nærmeste naboene bidrar med 12 til både $A_{12}$ og $A_6$. I hcp ligger de i samme avstand som i fcc, og atomene lenger ut ligger nesten likt, så gittersummene endrer seg knapt, og $R_0 = (2A_{12}/A_6)^{1/6}\\,\\sigma$ blir $1{,}09\\,\\sigma$ også her. Begge stablingene har pakningsgrad 0,74. $2^{1/6}\\sigma = 1{,}12\\,\\sigma$ er minimum for ett par alene, og tiltrekningen fra atomene lenger ut trekker krystallen litt sammen."}
 />
 
 <Quiz
-  question={"NaCl har gitterenergi 7,9 eV per ionpar. Hvorfor er kohesjonsenergien regnet fra nøytrale atomer lavere, 6,4 eV?"}
-  options={["Det koster mer å ionisere Na enn det frigjøres når Cl tar imot elektronet", "Frastøtningen mellom nærmeste naboer er ikke regnet med i gitterenergien", "Madelung-konstanten er mindre enn 2", "Kohesjonsenergien regnes per atom, gitterenergien per ionpar"]}
+  question={"Gitterenergien til KCl er 7,2 eV per ionpar, og ioniseringsenergien til kalium er 4,34 eV. Hva er kohesjonsenergien til KCl, regnet fra nøytrale atomer?"}
+  options={["6,5 eV per ionpar", "7,9 eV per ionpar", "2,9 eV per ionpar", "10,8 eV per ionpar"]}
   answer={0}
-  explanation={"Gitterenergien regnes fra frie ioner, kohesjonsenergien fra frie atomer. Å lage ionene koster $5{,}14 - 3{,}61 = 1{,}53$ eV per par, og $7{,}9 - 1{,}53 = 6{,}4$ eV."}
+  explanation={"Fra nøytrale atomer må du først lage ionene. Å ionisere kalium koster 4,34 eV, og klor gir 3,61 eV tilbake når det tar imot elektronet, så ionene koster $4{,}34 - 3{,}61 = 0{,}73$ eV per par, og $7{,}2 - 0{,}73 = 6{,}5$ eV. Legger du kostnaden til i stedet for å trekke den fra, får du 7,9 eV. Glemmer du elektronaffiniteten, får du 2,9 eV, og glemmer du ioniseringsenergien, 10,8 eV."}
 />
 
 <SelfCheck question={"Finn Madelung-konstanten for en uendelig rett kjede av ioner med vekslende ladning og naboavstand $R$."}>
