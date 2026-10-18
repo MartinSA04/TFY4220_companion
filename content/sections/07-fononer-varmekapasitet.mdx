@@ -1,11 +1,11 @@
 ---
 order: 7
 title: "Fononer og varmekapasitet"
-summary: "Hvorfor varmekapasiteten til et fast stoff er 3R ved høy temperatur og går mot null som T³: Planck-fordelingen, Einstein-modellen, tillatte k-verdier og tilstandstettheten, og Debye-modellen med Debye-temperaturen."
+summary: "Hvorfor varmekapasiteten til et fast stoff er 3R ved høy temperatur og går mot null som T³, fra Planck-fordelingen, tilstandstettheten og Einstein- og Debye-modellen, og hvordan anharmoniske ledd gir termisk utvidelse og Umklapp-prosesser en endelig varmeledningsevne."
 importance: core
 tag: "Uke 38"
 part: "Del II: Fononer"
-updated: 2026-09-27
+updated: 2026-10-18
 ---
 
 <LearningGoals>
@@ -15,6 +15,9 @@ updated: 2026-09-27
 - Finne de tillatte $k$-verdiene fra <Term name="Periodiske grensebetingelser">periodiske grensebetingelser</Term> (<FormulaRef id="tillatte-k" />) og regne ut <Term name="Tilstandstetthet">tilstandstettheten</Term> $D(\omega)$ fra en dispersjonsrelasjon.
 - Sette opp <Term name="Debye-modellen">Debye-modellen</Term> med $D(\omega)$, grensefrekvensen $\omega_D$ og <Term name="Debye-temperatur">Debye-temperaturen</Term> $\theta_D$.
 - Forklare $T^3$-loven fysisk og bruke den.
+- Forklare hvorfor et harmonisk gitter verken utvider seg eller har endelig varmeledningsevne, og hvordan <Term name="Anharmoniske ledd">anharmoniske ledd</Term> gir <Term name="Termisk utvidelse">termisk utvidelse</Term>.
+- Bruke <FormulaRef id="varmeledningsevne" /> på fononene, skille <Term name="Normalprosess">normalprosesser</Term> fra <Term name="Umklapp-prosess">Umklapp-prosesser</Term> og forklare hvorfor normalprosessene ikke bremser varmestrømmen.
+- Forklare hvordan varmeledningsevnen til en isolator avhenger av temperaturen.
 
 </LearningGoals>
 
@@ -173,7 +176,7 @@ For $0 < k < \pi/a$ er
 
 $$
 \frac{\mathrm d\omega}{\mathrm dk} = \frac{a}{2}\,\omega_m\cos\frac{ka}{2}
-= \frac{a}{2}\sqrt{\omega_m^2 - \omega^2}
+\allowbreak = \frac{a}{2}\sqrt{\omega_m^2 - \omega^2}
 $$
 
 der $\cos(ka/2) = \sqrt{1 - \sin^2(ka/2)} = \sqrt{1 - \omega^2/\omega_m^2}$.
@@ -346,6 +349,244 @@ Ved $T \ll \theta_D$ er bare andelen $(T/\theta_D)^3$ av svingningene eksitert, 
 />
 </Example>
 
+## Termisk utvidelse
+
+I et harmonisk gitter er parpotensialet parabelen $U(a) + \tfrac12 C(r - a)^2$,
+og svingningene er uavhengige av hverandre. Et slikt gitter har to egenskaper
+som ingen virkelig krystall har. Parabelen er symmetrisk om $r = a$, så
+middelavstanden mellom naboatomer er $a$ ved alle temperaturer, og krystallen
+utvider seg ikke. Fononene kolliderer heller ikke med hverandre, så varmen et
+fonon bærer, går uhindret gjennom en perfekt krystall.
+
+Begge egenskapene endres av neste ledd i rekken for parpotensialet:
+
+$$
+U(r) \approx U(a) + \tfrac12 C(r - a)^2 \allowbreak + \tfrac16 U'''(a)\,(r - a)^3
+$$
+
+Leddene etter $(r - a)^2$ er de
+<Term name="Anharmoniske ledd">anharmoniske leddene</Term>. Frastøtningen er
+bratt når atomene presses sammen, mens tiltrekningen flater ut når bindingen
+strekkes, så for Lennard-Jones-potensialet og andre parpotensialer med en
+bratt frastøtende vegg er $U'''(a) < 0$. Det kubiske leddet løfter da veggen
+for $r < a$ og senker den for $r > a$. Et atompar som svinger med energi
+omkring $k_BT$, kommer lenger ut på den strukne siden enn inn på den
+sammenpressede, og middelavstanden $\langle r \rangle$ blir større enn $a$.
+Større utsving ved høyere temperatur gir et større strekk. Over omtrent
+$\theta_D$, der svingningene kan regnes klassisk, er denne
+<Term name="Termisk utvidelse">termiske utvidelsen</Term> proporsjonal med $T$
+så lenge utsvingene er små mot $a$. Ved lavere temperatur fryser svingningene
+ut, slik de gjør for varmekapasiteten, og utvidelsen per grad går mot null.
+
+<Derivation title="Middelstrekket ved høy temperatur">
+
+Skriv $x = r - a$ og $\beta = 1/k_BT$, og la $U'''$ stå for $U'''(a)$. Når
+utsvingene er små mot $a$, er det kubiske leddet lite mot det kvadratiske.
+Konstanten $U(a)$ faller bort i middelet, og klassisk er
+
+$$
+e^{-\beta U} \approx e^{-\beta Cx^2/2}\left(1 - \tfrac16\beta U'''x^3\right)
+$$
+
+I telleren $\int x\,e^{-\beta U}\,\mathrm dx$ er leddet $x\,e^{-\beta Cx^2/2}$
+odde og gir null, så bare $x^4$-leddet er igjen. I nevneren
+$\int e^{-\beta U}\,\mathrm dx$ gir $x^3$-leddet null av samme grunn. Med
+gaussintegralene
+
+$$
+\begin{aligned}
+\int x^4e^{-\beta Cx^2/2}\,\mathrm dx &= \frac{3\sqrt{2\pi}}{(\beta C)^{5/2}} \\
+\int e^{-\beta Cx^2/2}\,\mathrm dx &= \frac{\sqrt{2\pi}}{(\beta C)^{1/2}}
+\end{aligned}
+$$
+
+er
+
+$$
+\langle x \rangle = -\frac{\beta U'''}{6}\cdot\frac{3}{(\beta C)^2} \allowbreak = -\frac{U'''}{2C^2}\,k_BT
+$$
+
+Med $U''' < 0$ er $\langle x \rangle > 0$ og proporsjonal med $T$.
+
+</Derivation>
+
+<Callout title="Anharmoniske ledd">
+Et harmonisk gitter utvider seg ikke, og fononene i det kolliderer ikke med hverandre. Med $U'''(a) < 0$ er brønnen slakere på den strukne siden, så bindingene strekkes mer jo høyere $T$ er, proporsjonalt med $T$ over omtrent $\theta_D$.
+</Callout>
+
+## Varmeledning i gitteret
+
+Når temperaturen varierer langs $x$, strømmer varme fra varmt mot kaldt.
+Varmestrømmen, energien som går gjennom en flate per areal og tid, er
+$-K\,\mathrm dT/\mathrm dx$, der $K$ er
+<Term name="Varmeledningsevne">varmeledningsevnen</Term>. I en isolator er det
+fononene som bærer varmen. De går med lydhastigheten $v$ og kolliderer, som
+molekylene i en gass, og kinetisk gassteori gir
+
+<Formula tex={"K = \\tfrac13\\,Cv\\ell"} caption={"Varmeledningsevnen til en gass av partikler med varmekapasiteten $C$ per volum, farten $v$ og den frie veilengden $\\ell$."} />
+
+<Derivation title="Varmeledningsevnen fra kinetisk gassteori">
+
+Fononene som krysser en flate med hastighetskomponenten $v_x$, kolliderte sist
+en strekning $v_x\tau$ unna, der $\tau = \ell/v$ er tiden mellom
+kollisjonene. Der var temperaturen $\Delta T = -v_x\tau\,\mathrm dT/\mathrm dx$
+høyere, så de bærer energien $C\,\Delta T$ per volum ekstra. Varmestrømmen er
+middelet av $v_x\,C\,\Delta T$ over alle retninger:
+
+$$
+\langle v_x\,C\,\Delta T\rangle = -C\langle v_x^2\rangle\,\tau\,\frac{\mathrm dT}{\mathrm dx}
+$$
+
+Alle retninger er like sannsynlige, så $\langle v_x^2\rangle = v^2/3$, og med
+$\ell = v\tau$ er varmestrømmen $-\tfrac13 Cv\ell\,\mathrm dT/\mathrm dx$.
+
+</Derivation>
+
+Her er $C$ varmekapasiteten per volum, ikke kraftkonstanten, og $\ell$ er den
+<Term name="Fri veilengde">frie veilengden</Term>, strekningen et fonon går
+mellom to kollisjoner. Varmekapasiteten følger av Debye-modellen, og $v$ er
+lydhastigheten. Det som gjenstår, er å finne $\ell$.
+
+### Normalprosesser og Umklapp-prosesser
+
+Det kubiske leddet gir kraften $-\tfrac12 U'''(a)(r - a)^2$ i tillegg til
+Hookes lov. Når to bølger med $k_1, \omega_1$ og $k_2, \omega_2$ går gjennom
+en kjede av atomer samtidig, inneholder dette kvadratiske leddet produktet
+$e^{i(k_1na - \omega_1t)}e^{i(k_2na - \omega_2t)}$, som svinger med
+bølgevektoren ${k_1 + k_2}$ og frekvensen ${\omega_1 + \omega_2}$. Produktet
+driver en tredje bølge. Ligger ${k_1 + k_2}$ i første Brillouin-sone, har den
+bølgevektoren ${k_3 = k_1 + k_2}$. Ligger summen utenfor, gir den de samme
+utsvingene på atomene som ${k_3 = k_1 + k_2 - G}$ inne i sonen, der $G$ er en
+resiprok gittervektor. Den tredje bølgen vokser bare når ${\omega_1 + \omega_2}$
+er frekvensen til en svingning med bølgevektoren $k_3$ på en av grenene. Da
+blir to fononer til ett, og energien er bevart. I tre dimensjoner er derfor
+
+<Formula tex={"\\begin{aligned} \\vec k_1 + \\vec k_2 &= \\vec k_3 + \\vec G \\\\ \\omega_1 + \\omega_2 &= \\omega_3 \\end{aligned}"} caption={"Krystallimpulsen og energien når to fononer blir til ett, med $\\vec k_3$ i første Brillouin-sone."} />
+
+Med $\vec G = 0$ er kollisjonen en
+<Term name="Normalprosess">normalprosess</Term>, og med $\vec G \ne 0$ en
+<Term name="Umklapp-prosess">Umklapp-prosess</Term>. Den første ligningen er
+bevaringen av krystallimpulsen opp til $\hbar\vec G$.
+
+Av kollisjonene mellom fononer er det bare Umklapp-prosessene som bremser
+varmestrømmen. I Debye-modellen er
+${\omega = vk}$, og gruppehastigheten har størrelsen $v$ og peker langs
+$\vec k$. Ett fonon bidrar da med ${\hbar\omega \cdot v\vec k/k = v^2\hbar\vec k}$
+til varmestrømmen, så varmestrømmen er proporsjonal med den samlede
+krystallimpulsen $\sum\hbar\vec k$ til fononene. En normalprosess endrer ikke
+summen og dermed heller ikke varmestrømmen. Kolliderer fononene bare slik,
+holdes en varmestrøm i gang uten at noe bremser den, og $K$ er uendelig.
+
+I en Umklapp-prosess endres summen med $-\hbar\vec G$. Ta et kvadratisk gitter
+der $\vec k_1$ og $\vec k_2$ begge peker mot $+x$, og summen går ut av sonen
+gjennom grensen ved $k_x = \pi/a$. Da er $\vec G = (2\pi/a)\,\hat x$, og
+$\vec k_3 = \vec k_1 + \vec k_2 - \vec G$ har negativ $x$-komponent, så det nye
+fononet fører varmen tilbake. Summen kan bare gå ut av sonen når
+${|\vec k_1| + |\vec k_2|}$ er minst avstanden $\pi/a$ til sonegrensen, så
+minst ett av fononene må nå halvveis fra sonesenteret til sonegrensen. Den
+frie veilengden i ${K = \tfrac13 Cv\ell}$ er altså strekningen mellom
+kollisjonene som bremser varmestrømmen: Umklapp-prosesser og spredning på
+defekter, urenheter og overflaten.
+
+<Callout title="Normalprosesser og Umklapp-prosesser">
+I Debye-modellen er varmestrømmen proporsjonal med den samlede krystallimpulsen til fononene. En normalprosess bevarer den og bremser ikke varmestrømmen. I en Umklapp-prosess flytter $\vec G$ summen tilbake inn i sonen, det nye fononet går motsatt vei, og varmestrømmen bremses.
+</Callout>
+
+<Simulation
+  src={"/sims/umklapp.js"}
+  host={"dom"}
+  title={"To fononer blir til ett"}
+  caption={"Første Brillouin-sone for et kvadratisk gitter, med to fononer $\\vec k_1$ og $\\vec k_2$ som blir til fononet $\\vec k_3$ i sonen. Den grå stiplede pilen er summen $\\vec k_1 + \\vec k_2$, satt sammen av $\\vec k_1$ og en prikket kopi av $\\vec k_2$, og $\\vec G$ går fra $\\vec k_3$ til summen, så $\\vec k_1 + \\vec k_2 = \\vec k_3 + \\vec G$. Tegningen viser bare krystallimpulsen, ikke energien. Nederst $x$-komponenten av den samlede krystallimpulsen før og etter kollisjonen."}
+  height={360}
+/>
+
+<Example label="Eksamensoppgave" title="Fononkollisjon i én dimensjon">
+<ExamRef id="2021-jun" task="12" />
+
+In a 1D phonon collision process two transverse acoustic phonons combine to
+give one longitudinal acoustic phonon. The dispersion relations for
+transverse and longitudinal phonons are
+
+$$
+\omega_{TA} = \omega_0|\sin(ka/2)|
+$$
+
+and
+
+$$
+\omega_{LA} = 2\omega_0|\sin(ka/2)|.
+$$
+
+<Quiz
+  question={"For which of the following acoustic phonon wave vectors $k_1$ and $k_2$ is the process allowed?"}
+  options={["$k_1 = k_2 = \\frac{2\\pi}{5a}$", "$k_1 = k_2 = \\frac{2\\pi}{3a}$", "$k_1 = -k_2 = \\frac{\\pi}{a}$", "$k_1 = k_2 = \\frac{\\pi}{a}$", "$k_1 = -k_2 = \\frac{2\\pi}{3a}$"]}
+  answer={1}
+  explanation={"Både krystallimpulsen og energien må være bevart: $k_3 = k_1 + k_2 - G$ med $G = 0$ eller $\\pm 2\\pi/a$, og $\\omega_{TA}(k_1) + \\omega_{TA}(k_2) = \\omega_{LA}(k_3)$. Med $k_1 = k_2 = 2\\pi/3a$ er summen $4\\pi/3a$, utenfor sonen, så $k_3 = 4\\pi/3a - 2\\pi/a = -2\\pi/3a$, en Umklapp-prosess. Energien før er $2\\omega_0\\sin(\\pi/3) = \\sqrt3\\,\\omega_0$, og etter er den $2\\omega_0|\\sin(-\\pi/3)| = \\sqrt3\\,\\omega_0$. Med $k_1 = k_2 = 2\\pi/5a$ er $k_3 = 4\\pi/5a$, men energien før er $1{,}18\\,\\omega_0$ og etter $1{,}90\\,\\omega_0$. I de tre andre alternativene er $k_3 = 0$, der LA-fononet har $\\omega = 0$, mens fononene før har energi."}
+/>
+</Example>
+
+### Varmeledningsevnen og temperaturen
+
+Ved høy temperatur, $T \gtrsim \theta_D$, er alle svingningene eksitert, også
+de som når halvveis til sonegrensen, med
+${\langle n \rangle \approx k_BT/\hbar\omega}$ fononer i hver. Mange av
+kollisjonene er da Umklapp-prosesser, og antallet øker med $T$, så
+${\ell \propto 1/T}$. Varmekapasiteten er konstant etter Dulong-Petits lov, og
+${K \propto 1/T}$.
+
+Ved lav temperatur fryser Umklapp-prosessene ut. Minst ett av fononene må nå
+halvveis til sonegrensen, der energien er omkring $\tfrac12 k_B\theta_D$, og for
+$T \ll \theta_D$ er antallet fononer i hver av disse svingningene
+${\langle n \rangle \approx e^{-\theta_D/2T}}$. Den frie veilengden mellom
+Umklapp-prosesser vokser derfor som $e^{\theta_D/2T}$. I en perfekt krystall
+vokser den til fononene går fra overflate til overflate, og da er $\ell$
+bredden av prøven. Med ${C \propto T^3}$ fra Debyes $T^3$-lov er
+${K \propto T^3}$. Defekter og urenheter sprer også fononene og gjør $K$
+mindre. For diamant, med ${\theta_D = 2230\ \text{K}}$, er ${e^{-\theta_D/2T} \approx 0{,}02}$
+allerede ved romtemperatur, så Umklapp-prosessene er sjeldne og $\ell$ lang. Derfor
+leder diamant varme svært godt.
+
+<Callout title="Varmeledningsevnen og temperaturen">
+Over omtrent $\theta_D$ er $K \propto 1/T$, fordi mange av kollisjonene er Umklapp-prosesser og antallet øker med $T$. Ved lav temperatur fryser Umklapp-prosessene ut som $e^{-\theta_D/2T}$. I en perfekt krystall er $\ell$ da bredden av prøven, og $K \propto T^3$ som varmekapasiteten.
+</Callout>
+
+<Example label="Eksamensoppgave" title="Varmeledningsevnen til en isolator">
+<ExamRef id="2018-mai" task="2 a–b" />
+
+In analogy to the kinetic theory of gases, one can find an expression for the
+thermal conductivity $k$ of an insulator:
+
+$$
+k = \frac{1}{3}Cvl
+$$
+
+Here $C$ is the phonon heat capacity, $v$ is the phonon velocity and $l$ is
+the mean free path.
+
+a) In insulators the thermal conductivity $k$ decreases at high temperatures.
+What is the reason for this?
+
+b) What is the temperature dependence of $k$ at low temperatures in a perfect
+crystal?
+
+Provide a brief explanation for each of your answers.
+
+<Solution>
+
+Oppgaven skriver $k$ for $K$ og $l$ for $\ell$.
+
+a) Over $\theta_D$ er $C$ konstant etter Dulong-Petits lov, og $v$ er
+lydhastigheten. Antallet fononer øker som $T$, og Umklapp-prosessene mellom dem
+gir ${l \propto 1/T}$, så ${k \propto 1/T}$.
+
+b) Umklapp-prosessene er frosset ut, så i en perfekt krystall er $l$ bredden
+av prøven. Med $C \propto T^3$ og konstant $v$ er $k \propto T^3$.
+
+<Answer>a) $l \propto 1/T$ fra Umklapp-prosesser, så $k \propto 1/T$. b) $k \propto T^3$.</Answer>
+
+</Solution>
+</Example>
+
 ## Sjekk deg selv
 
 <Quiz
@@ -360,6 +601,13 @@ Ved $T \ll \theta_D$ er bare andelen $(T/\theta_D)^3$ av svingningene eksitert, 
   options={["Omtrent 13 % høyere", "Omtrent 13 % lavere", "Omtrent 8 % høyere", "Uendret"]}
   answer={0}
   explanation={"Isotopen endrer bare massen, så kraftkonstanten $C$ og $N/V$ er de samme. Lydhastigheten $v = a\\sqrt{C/M}$ synker med faktoren $\\sqrt{12/13}$, og $\\theta_D \\propto \\omega_D \\propto v$ synker like mye. Ved 20 K er $T$ under $\\theta_D/50$, så $C_V \\propto (T/\\theta_D)^3$ øker med $(13/12)^{3/2} = 1{,}13$. Med lavere frekvenser er flere svingninger eksitert ved samme $T$. 13 % lavere har retningen feil, 8 % glemmer kvadratroten og potensen 3, og uendret glemmer at frekvensene avhenger av massen."}
+/>
+
+<Quiz
+  question={"To lange staver av samme rene og perfekte isolator har diameter 1 mm og 5 mm, og varmen strømmer langs stavene. Ved 2 K er Umklapp-prosessene frosset ut. Hvor mange ganger større er varmeledningsevnen $K$ i den tykke staven?"}
+  options={["1", "5", "25", "125"]}
+  answer={1}
+  explanation={"Uten Umklapp-prosesser og defekter er det bare overflaten som stopper fononene, så den frie veilengden er omtrent diameteren. $C$ og $v$ er de samme i begge stavene, og $K = \\tfrac13 Cv\\ell$ er fem ganger større i den tykke. 1 forutsetter at $K$ er en materialkonstant, og det er den bare når kollisjoner inne i krystallen bestemmer $\\ell$. 25 er forholdet mellom tverrsnittene, og 125 er forholdet mellom varmen per tid gjennom hele stavene, $K$ ganger tverrsnittet."}
 />
 
 <SelfCheck question={"En lagdelt krystall har atomer som bare kan svinge i planet, så gitteret er todimensjonalt. Vis at Debye-modellen gir $C_V \\propto T^2$ ved lav temperatur."}>
@@ -395,5 +643,8 @@ $C_V \propto T^d$.
 - Periodiske grensebetingelser gir $k = 2\pi m/L$, $N$ verdier i første Brillouin-sone. Tilstandstettheten er $D(\omega) = (L/\pi)/(\mathrm d\omega/\mathrm dk)$ i én dimensjon og $N(k) = Vk^3/6\pi^2$ per polarisasjon i tre.
 - Debye-modellen setter $\omega = vk$ opp til $\omega_D = v(6\pi^2N/V)^{1/3}$, så $D(\omega) = V\omega^2/2\pi^2v^3$. Debye-temperaturen er $\theta_D = \hbar\omega_D/k_B$.
 - For $T \ll \theta_D$ er $C_V = (12\pi^4/5)\,Nk_B\,(T/\theta_D)^3$: bare andelen $(T/\theta_D)^3$ av svingningene er eksitert, hver med energi omtrent $k_BT$. Målinger følger loven under omtrent $\theta_D/50$.
+- Et harmonisk gitter utvider seg ikke, og fononene i det kolliderer ikke med hverandre. Det kubiske leddet $\tfrac16 U'''(a)(r - a)^3$ med $U'''(a) < 0$ gjør brønnen slakere på den strukne siden, så bindingene strekkes, proporsjonalt med $T$ over omtrent $\theta_D$.
+- Fononene leder varme med ${K = \tfrac13 Cv\ell}$. Når to fononer blir til ett, er ${\vec k_1 + \vec k_2 = \vec k_3 + \vec G}$ og ${\omega_1 + \omega_2 = \omega_3}$. Normalprosesser, med $\vec G = 0$, bevarer den samlede krystallimpulsen og dermed varmestrømmen. Umklapp-prosesser, defekter og overflaten bremser den.
+- Over omtrent $\theta_D$ er ${\ell \propto 1/T}$ og ${K \propto 1/T}$. Ved lav temperatur fryser Umklapp-prosessene ut som $e^{-\theta_D/2T}$, $\ell$ blir bredden av en perfekt krystall, og ${K \propto T^3}$.
 
 </KeyTakeaways>

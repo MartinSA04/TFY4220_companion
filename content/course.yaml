@@ -201,6 +201,10 @@ formulas:
     section: Debye-modellen
     tex: "\\begin{aligned} C_V &= \\frac{12\\pi^4}{5}\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\\\ &\\approx 234\\,Nk_B\\left(\\frac{T}{\\theta_D}\\right)^3 \\end{aligned}"
     label: "Debyes $T^3$-lov for $T \\ll \\theta_D$: i modellen innenfor 1 % under $\\theta_D/12$, i målinger på virkelige krystaller under omtrent $\\theta_D/50$. Fra $U = 9Nk_BT\\,(T/\\theta_D)^3\\int_0^{\\theta_D/T} x^3\\,\\mathrm dx/(e^x - 1)$ med integralet $\\pi^4/15$ når $T \\to 0$. Bare andelen $(T/\\theta_D)^3$ av svingningene er eksitert, hver med energi omtrent $k_BT$. For $T \\gg \\theta_D$ er integralet $(\\theta_D/T)^3/3$, og det samme uttrykket for $U$ gir $U = 3Nk_BT$ og Dulong-Petits $C_V = 3Nk_B$."
+  - id: umklapp
+    section: Varmeledning i gitteret
+    tex: "\\begin{aligned} \\vec k_1 + \\vec k_2 &= \\vec k_3 + \\vec G \\\\ \\omega_1 + \\omega_2 &= \\omega_3 \\end{aligned}"
+    label: "Krystallimpulsen og energien når to fononer blir til ett gjennom det kubiske leddet i parpotensialet, med $\\vec k_3$ i første Brillouin-sone. $\\vec G = 0$ er en normalprosess, som bevarer den samlede krystallimpulsen og dermed varmestrømmen. $\\vec G \\ne 0$ er en Umklapp-prosess, der det nye fononet går omtrent motsatt vei. Av kollisjonene mellom fononer er det bare Umklapp-prosessene som bremser varmestrømmen."
 
   - id: drude-ledningsevne
     section: Drude-modellen
@@ -213,7 +217,7 @@ formulas:
   - id: varmeledningsevne
     section: Varmeledning
     tex: "K = \\tfrac13\\,Cv\\ell, \\qquad \\ell = v\\tau"
-    label: "Varmeledningsevnen fra kinetisk gassteori. $C$ er varmekapasiteten per volum, $v$ farten og $\\ell$ den frie veilengden. For ledningselektronene er $v = v_F$, fordi bare elektronene nær Fermi-energien tar opp varme."
+    label: "Varmeledningsevnen fra kinetisk gassteori, med varmestrømmen $-K\\,\\mathrm dT/\\mathrm dx$. $C$ er varmekapasiteten per volum, $v$ farten og $\\ell$ den frie veilengden. For fononene er $v$ lydhastigheten, og bare Umklapp-prosesser, defekter og overflaten begrenser $\\ell$. For ledningselektronene er $v = v_F$, fordi bare elektronene nær Fermi-energien tar opp varme."
   - id: wiedemann-franz
     section: Varmeledning
     tex: "\\dfrac{K}{\\sigma T} = L = \\dfrac{\\pi^2}{3}\\left(\\dfrac{k_B}{e}\\right)^2"
@@ -531,6 +535,21 @@ glossary:
   - term: Debye-temperatur
     section: Debye-modellen
     definition: "$\\theta_D = \\hbar\\omega_D/k_B$, temperaturen der $k_BT$ er lik den høyeste fononenergien i Debye-modellen, og stoffets eneste parameter i den. Høy for stive, lette stoffer: diamant 2230 K, silisium 645 K, kobber 343 K, bly 105 K. For $T \\ll \\theta_D$ er $C_V = 234\\,Nk_B(T/\\theta_D)^3$, i modellen under omtrent $\\theta_D/12$ og i målinger under omtrent $\\theta_D/50$."
+  - term: Anharmoniske ledd
+    section: Termisk utvidelse
+    definition: "Leddene etter $(r - a)^2$ i rekken for parpotensialet rundt likevekt, først $\\tfrac16 U'''(a)(r - a)^3$. De gjør brønnen skjev, så krystallen utvider seg ved oppvarming, og de gir kraften et ledd som er kvadratisk i strekket, så fononer kolliderer. I et harmonisk gitter, uten slike ledd, utvider krystallen seg ikke, og fononene kolliderer ikke med hverandre."
+  - term: Termisk utvidelse
+    section: Termisk utvidelse
+    definition: "Middelavstanden mellom atomene øker med temperaturen. Med $U'''(a) < 0$ er brønnen brattere når atomene presses sammen enn når bindingen strekkes, så et atompar som svinger, kommer lenger ut på den strukne siden. Over omtrent $\\theta_D$ er strekket proporsjonalt med $T$. Ved lavere temperatur fryser svingningene ut, og utvidelsen per grad går mot null."
+  - term: Varmeledningsevne
+    section: Varmeledning i gitteret
+    definition: "$K$ i varmestrømmen $-K\\,\\mathrm dT/\\mathrm dx$, energien som går gjennom en flate per areal og tid. For en gass av partikler er $K = \\tfrac13 Cv\\ell$. I en isolator bærer fononene varmen. Da er $K \\propto 1/T$ over omtrent $\\theta_D$. Ved lav temperatur er $K \\propto T^3$ i en perfekt krystall, der $\\ell$ er bredden av prøven, og defekter og urenheter senker $K$."
+  - term: Normalprosess
+    section: Varmeledning i gitteret
+    definition: "En kollisjon der to fononer blir til ett med $\\vec k_1 + \\vec k_2 = \\vec k_3$, så summen ligger i første Brillouin-sone. Den samlede krystallimpulsen til fononene er uendret, og i Debye-modellen er varmestrømmen proporsjonal med den. Normalprosesser bremser derfor ikke varmestrømmen."
+  - term: Umklapp-prosess
+    section: Varmeledning i gitteret
+    definition: "En kollisjon der to fononer blir til ett med $\\vec k_1 + \\vec k_2 = \\vec k_3 + \\vec G$ og $\\vec G \\ne 0$. Summen ligger utenfor første Brillouin-sone og flyttes inn igjen med $\\vec G$, så det nye fononet går omtrent motsatt vei og bremser varmestrømmen. Summen kan bare gå ut av sonen når $|\\vec k_1| + |\\vec k_2|$ er minst avstanden til sonegrensen, så minst ett av fononene må nå halvveis, med energi omkring $\\tfrac12 k_B\\theta_D$. Ved lav temperatur fryser prosessen derfor ut som $e^{-\\theta_D/2T}$."
 
   - term: Drude-modellen
     section: Drude-modellen
@@ -540,7 +559,7 @@ glossary:
     definition: "Middeltiden $\\tau$ mellom to kollisjoner for et ledningselektron. Den bestemmer ledningsevnen $\\sigma = ne^2\\tau/m$, og i kobber ved romtemperatur er den $2{,}5 \\cdot 10^{-14}$ s."
   - term: Fri veilengde
     section: Drude-modellen
-    definition: "Strekningen $\\ell$ et elektron går mellom to kollisjoner. I fri-elektronmodellen er $\\ell = v_F\\tau$, som er 39 nm i kobber ved romtemperatur og rundt 0,2 cm i svært rent kobber ved 4 K. Elektronene spres av fononer, urenheter og defekter, ikke av ionene i et perfekt gitter."
+    definition: "Strekningen $\\ell$ et fonon eller et elektron går mellom to kollisjoner. For fononene teller bare kollisjonene som bremser varmestrømmen: Umklapp-prosesser og spredning på defekter, urenheter og overflaten. I fri-elektronmodellen er $\\ell = v_F\\tau$, som er 39 nm i kobber ved romtemperatur og rundt 0,2 cm i svært rent kobber ved 4 K. Elektronene spres av fononer, urenheter og defekter, ikke av ionene i et perfekt gitter."
   - term: Hall-effekten
     section: Hall-effekten
     definition: "Et magnetfelt $B_z$ normalt på en strøm $j_x$ bøyer bærerne av mot én kant av lederen (elektronene mot $-y$ når strømmen går i $+x$ og feltet i $+z$), og ladningen som hoper seg opp, gir et elektrisk felt $E_y$ på tvers av strømmen. Hall-koeffisienten $R_H = E_y/j_xB_z = -1/ne$ gir tettheten av bærere, og fortegnet viser om de er negative eller positive."
@@ -753,18 +772,19 @@ symbols:
   # ── Fononer og varmekapasitet ──
   - { tex: "u_n", meaning: "Utsvinget til atom $n$ fra likevekt", section: "Fononer og varmekapasitet", note: "Med to atomtyper er $u_n$ og $v_n$ utsvingene til de to atomene i celle $n$. $v_n$ er ikke en hastighet." }
   - { tex: "M", meaning: "Massen til et atom i kjeden", unit: "kg", section: "Fononer og varmekapasitet", formula: dispersjon-enatomig, note: "Med to atomtyper er $M_1 > M_2$. Ikke elektronmassen $m$." }
-  - { tex: "C", meaning: "Kraftkonstanten mellom nærmeste naboer, $U''(a)$", unit: "N/m", section: "Fononer og varmekapasitet", term: "Harmonisk tilnærming", formula: dispersjon-enatomig, id: c, note: "Ikke varmekapasiteten $C_V$, som i elektrongassen bare skrives $C$. Kraftkonstanten skrives også $K$ eller $\\gamma$." }
+  - { tex: "C", meaning: "Kraftkonstanten mellom nærmeste naboer, $U''(a)$", unit: "N/m", section: "Fononer og varmekapasitet", term: "Harmonisk tilnærming", formula: dispersjon-enatomig, id: c, note: "Ikke varmekapasiteten $C_V$, eller varmekapasiteten $C$ per volum i varmeledningsevnen $K = \\tfrac13 Cv\\ell$. Kraftkonstanten skrives også $K$ eller $\\gamma$." }
   - { tex: "\\omega", meaning: "Frekvensen til en svingning", unit: "rad/s", section: "Fononer og varmekapasitet", term: "Dispersjonsrelasjon", formula: dispersjon-enatomig, id: omega, note: "Energien til ett fonon er $\\hbar\\omega$." }
   - { tex: "v", meaning: "Lydhastigheten, lik fasehastigheten $\\omega/k$ for lange bølger", unit: "m/s", section: "Fononer og varmekapasitet", formula: lydhastighet, note: "Debye-modellen bruker $\\omega = vk$ for alle $k$. Ikke farten $\\vec v$ til et elektron." }
   - { tex: "v_g", meaning: "Gruppehastigheten, $\\mathrm d\\omega/\\mathrm dk$", unit: "m/s", section: "Fononer og varmekapasitet", term: "Gruppehastighet", formula: lydhastighet, note: "Null på sonegrensen, der bølgen står stille." }
   - { tex: "n,\\ \\langle n\\rangle", meaning: "Antall fononer i en svingning, og middelet ved temperaturen $T$", section: "Fononer og varmekapasitet", term: "Fonon", formula: planck-fordeling, note: "Energien er $(n + \\tfrac12)\\hbar\\omega$. Ikke elektrontettheten $n$." }
-  - { tex: "U", meaning: "Den indre energien", unit: "J", section: "Fononer og varmekapasitet", note: "$3Nk_BT$ for gitteret ved høy $T$, og $\\tfrac35 N\\varepsilon_F$ for elektrongassen ved $T = 0$." }
+  - { tex: "U", meaning: "Den indre energien", unit: "J", section: "Fononer og varmekapasitet", note: "$3Nk_BT$ for gitteret ved høy $T$, og $\\tfrac35 N\\varepsilon_F$ for elektrongassen ved $T = 0$. Ikke parpotensialet $U(r)$." }
   - { tex: "C_V", meaning: "Varmekapasiteten, $(\\partial U/\\partial T)_V$", unit: "J/K", section: "Fononer og varmekapasitet", term: "Dulong-Petits lov", formula: debye-t3, id: cv, note: "$3R = 24{,}9$ J/(mol·K) per mol ved høy $T$. Ikke kraftkonstanten $C$." }
   - { tex: "\\theta_E", meaning: "Einstein-temperaturen, $\\hbar\\omega_E/k_B$", unit: "K", section: "Fononer og varmekapasitet", term: "Einstein-modellen", formula: einstein-varmekapasitet, note: "$\\omega_E$ er den ene frekvensen alle $3N$ svingninger har i Einstein-modellen." }
   - { tex: "\\omega_D", meaning: "Debye-frekvensen, grensefrekvensen i Debye-modellen", unit: "rad/s", section: "Fononer og varmekapasitet", term: "Debye-modellen", formula: debye-temperatur, note: "Satt slik at hver polarisasjon får $N$ svingninger." }
   - { tex: "\\theta_D", meaning: "Debye-temperaturen, $\\hbar\\omega_D/k_B$", unit: "K", section: "Fononer og varmekapasitet", term: "Debye-temperatur", formula: debye-temperatur, id: theta-d, note: "343 K for kobber og 2230 K for diamant. Skrives også $\\Theta_D$. Ikke Bragg-vinkelen $\\theta$." }
   - { tex: "D(\\omega)", meaning: "Tilstandstettheten, antall svingninger per frekvensenhet", unit: "s", section: "Fononer og varmekapasitet", term: "Tilstandstetthet", formula: debye-tilstandstetthet, note: "Divergerer der gruppehastigheten er null." }
   - { tex: "L", meaning: "Lengden av kjeden eller kanten av krystallen", unit: "m", section: "Fononer og varmekapasitet", formula: tillatte-k, note: "$L = Na$ for en kjede av $N$ atomer. Ikke Lorenz-tallet $L$." }
+  - { tex: "\\vec k_1,\\ \\vec k_2,\\ \\vec k_3", meaning: "Bølgevektorene når to fononer blir til ett", unit: "m⁻¹", section: "Fononer og varmekapasitet", term: "Umklapp-prosess", formula: umklapp, note: "$\\vec k_3 = \\vec k_1 + \\vec k_2 - \\vec G$ ligger i første Brillouin-sone." }
   # ── Frie elektroner ──
   - { tex: "n", meaning: "Elektrontettheten, $N/V$", unit: "m⁻³", section: "Frie elektroner", formula: fermi-bolgevektor, id: n, note: "$8{,}47 \\cdot 10^{28}$ m⁻³ i kobber. Ikke refleksjonsordenen $n$ i Braggs lov." }
   - { tex: "\\tau", meaning: "Relaksasjonstiden, middeltiden mellom to kollisjoner", unit: "s", section: "Frie elektroner", term: "Relaksasjonstid", formula: drude-ledningsevne, id: tau, note: "$2{,}5 \\cdot 10^{-14}$ s i kobber ved romtemperatur." }
@@ -773,9 +793,9 @@ symbols:
   - { tex: "\\sigma", meaning: "Ledningsevnen, $ne^2\\tau/m$", unit: "(Ω m)⁻¹", section: "Frie elektroner", formula: drude-ledningsevne, id: sigma, note: "Ikke avstanden $\\sigma$ i Lennard-Jones-potensialet." }
   - { tex: "\\rho", meaning: "Resistiviteten, $1/\\sigma$", unit: "Ω m", section: "Frie elektroner", note: "$1{,}7 \\cdot 10^{-8}$ Ω m i kobber ved romtemperatur. Ikke spredningstettheten $\\rho(\\vec r)$." }
   - { tex: "R_H", meaning: "Hall-koeffisienten, $E_y/j_xB_z$", unit: "m³/C", section: "Frie elektroner", term: "Hall-effekten", formula: hall-koeffisient, id: rh, note: "$-1/ne$ for elektroner. $B_z$ er magnetfeltet og $j_x$ strømtettheten." }
-  - { tex: "K", meaning: "Varmeledningsevnen", unit: "W/(m·K)", section: "Frie elektroner", formula: varmeledningsevne, note: "$K = \\tfrac13 Cv\\ell$, med $C$ varmekapasiteten per volum." }
+  - { tex: "K", meaning: "Varmeledningsevnen", unit: "W/(m·K)", section: "Frie elektroner", term: "Varmeledningsevne", formula: varmeledningsevne, note: "$K = \\tfrac13 Cv\\ell$, med $C$ varmekapasiteten per volum. For fononene er $v$ lydhastigheten. Eksamensoppgavene skriver også $k$." }
   - { tex: "L", meaning: "Lorenz-tallet, $K/\\sigma T$", unit: "W Ω/K²", section: "Frie elektroner", term: "Wiedemann-Franz’ lov", formula: wiedemann-franz, note: "$2{,}44 \\cdot 10^{-8}$ W Ω/K² fra fri-elektronmodellen. Ikke lengden $L$." }
-  - { tex: "\\ell", meaning: "Den frie veilengden, strekningen mellom to kollisjoner", unit: "m", section: "Frie elektroner", term: "Fri veilengde", formula: varmeledningsevne, note: "$v_F\\tau = 39$ nm i kobber ved romtemperatur." }
+  - { tex: "\\ell", meaning: "Den frie veilengden, strekningen mellom to kollisjoner", unit: "m", section: "Frie elektroner", term: "Fri veilengde", formula: varmeledningsevne, note: "$v_F\\tau = 39$ nm i kobber ved romtemperatur. For fononene teller bare kollisjonene som bremser varmestrømmen." }
   - { tex: "\\varepsilon", meaning: "Energien til en elektrontilstand", unit: "eV", section: "Frie elektroner", formula: elektron-tilstandstetthet, note: "$\\hbar^2k^2/2m$ for frie elektroner. Eksamensoppgavene skriver ofte $E$. Ikke dybden $\\varepsilon$ av brønnen i Lennard-Jones-potensialet." }
   - { tex: "f(\\varepsilon)", meaning: "Fermi-Dirac-fordelingen, sannsynligheten for at en tilstand er besatt", section: "Frie elektroner", term: "Fermi-Dirac-fordelingen", formula: fermi-dirac, note: "$\\mu$ er det kjemiske potensialet, lik $\\varepsilon_F$ ved $T = 0$." }
   - { tex: "\\varepsilon_F", meaning: "Fermi-energien", unit: "eV", section: "Frie elektroner", term: "Fermi-energi", formula: fermi-energi, id: ef, note: "$7{,}0$ eV i kobber. Skrives også $E_F$." }
